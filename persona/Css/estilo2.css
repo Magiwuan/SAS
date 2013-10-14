@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+input[type=text]{
+    background-color: #fff;
+	border: 1px  double #09F;
+	border-radius: 3px;  
+}
+
+textarea{
+    background-color: #fff;
+	border: 1px  double #09F;
+	border-radius: 3px;
+  
+}
+
+#cant{
+	background-color: #F0FFFF;
+	border-color: transparent;
+	text-align:center;
+	margin: 1px 1px 1px 1px;
+}
+
+#med{
+	background-color: #F0FFFF;
+	border-color: transparent;
+	text-align:center;
+		margin: 1px 1px 1px 1px;
+}
+#capa_datos{
+	background-color: #E1F0FF;
+	border-color: transparent;
+	text-align:center;
+	border: 1px  double #09F;
+	width:auto;
+	margin:0px 110px 0px 110px;
+	border-radius: 3px;
+
+
+}
+	

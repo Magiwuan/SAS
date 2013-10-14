@@ -1,0 +1,179 @@
+@charset "utf-8";
+/* CSS Document */
+
+#pie { 
+	color: #BB00BB;
+    font-size: 10px;
+	}
+
+a{
+	color: #369;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #E17919;
+}
+
+body{
+
+	margin: auto;
+	width:100%;
+	min-width:600px;
+	max-width:2000px;
+	background-color:transparent;
+	font:Tahoma, Geneva, sans-serif;
+
+}
+
+body, input, select{
+font-family: "Lucida Sans Unicode";
+font-size: 12px; 
+color: #000; 
+border-radius:3px;
+}
+
+#cuerpo{
+	width:799px;
+	height:100%;
+	padding:0px;
+	background:#F0F8E7;
+	
+}
+
+
+
+h1{
+	font-size:1.2em;
+	color: #06C;
+	text-align:center;
+}
+
+h2{
+	font-size:1.0em;
+	color: #6FA7D1;
+}
+
+h1, h2, p{
+	margin: 0px 0px 20px 0px;
+}
+
+table.formulario{
+	margin: 0px auto 0px auto;
+}
+
+table.formulario td, table.formulario th{
+	padding: 5px;
+	vertical-align: middle;
+}
+
+table.formulario thead th{
+	font-weight: normal;
+	color: #6FA7D1;
+	vertical-align: top;
+}
+
+table.formulario tfoot td{
+	text-align: right;
+	vertical-align: top;
+}
+
+
+form{
+	position:relative;
+	padding:5px;
+	margin-top: 2px;
+	margin-left: 3px;
+	margin-bottom:2px;
+	background:#FFF;
+	display:block; 
+	box-shadow: 2px 2px 2px 2px #121212;
+	border-radius: 5px;
+}
+form fieldset{
+	width:760px;
+	border:1px solid #06C;
+	padding:2px;
+	margin:auto;
+	margin-bottom:4px;
+	border-radius: 5px;
+	background-color:#E1F0FF;
+	
+}
+form legend{
+	font-family: "Lucida Sans Unicode";
+	font-weight:bold;
+	font-size:11px;
+	color: #06C;
+	
+}
+
+
+table.lista{
+	margin: 0px auto 20px auto;
+	border-collapse: collapse;
+}
+
+table.lista td, table.lista th{
+	padding: 6px;
+	vertical-align: top;
+}
+
+table.lista thead th{
+	font-weight: normal;
+	color: #6FA7D1;
+	text-align: left;
+	border-bottom: 1px solid #DDECF7;
+}
+
+table.lista tbody tr{
+	border-bottom: 1px solid #ddd;
+}
+
+table.lista tfoot td{
+	text-align: center;
+	color: #6FA7D1;
+	vertical-align: top;
+}
+
+table.lista strong, table.formulario strong{
+	color: #6FA7D1;
+	font-weight: normal;
+}
+
+table.contenedor{
+	margin: 0px 0px 20px 0px;
+	border-collapse: collapse;
+}
+
+table.contenedor>td, table.contenedor>th{
+	padding: 0px;
+	margin: 0px;
+}
+
+table.contenedor td{
+	vertical-align: top;
+}
+
+.over{
+	background-color: #DDECF7;
+	color: #E17009;
+}
+
+label.error{
+	color: #900;
+	margin: 0px 0px 0px 10px;
+}
+
+select { 
+font-family: "Lucida Sans Unicode";
+font-size: 12px; 
+color: #000; 
+background-color:#fff;
+border-color:#69F; 
+padding: 2px;
+border-radius:4px;
+}
+
+ 
+

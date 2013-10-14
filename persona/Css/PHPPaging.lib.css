@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* Colores de los numeros de paginado */
+
+
+span.navthis {
+	padding: 4px 4px;
+	color: #E17919;
+	font-weight: bold;
+}
+a.nav {
+	padding: 4px 4px;
+}
+a.nav:hover {
+} 
