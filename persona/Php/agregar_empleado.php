@@ -96,8 +96,7 @@
 		$('#upsa').attr('disabled', true);
 		$('#correo2').attr('disabled', true);
 		$('#observacion').attr('disabled', true);
-		$('input[name="recaudos[]"]').attr('disabled', true);
-				
+		$('input[name="recaudos[]"]').attr('disabled', true);	
 		}
     });
     });
@@ -224,13 +223,13 @@ function limpiar_form(ele) {
 					$discapacidad=new discapacidad();
 					$lista_discapacidad=$discapacidad->lista_discapacidad();
 					for($i=0;$i<count($lista_discapacidad);$i++){			
-						?>
-			<option value="<?php echo $$lista_discapacidad[$i][1];?>" 
-		  	<?php if($lista_discapacidad[$i][2]=='N/A')
+				?>
+			<option value="<?php echo $lista_discapacidad[$i][1];?>" 
+		  	<?php /* if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";
 				}
-				?>> <?php echo $lista_discapacidad[$i][2];?></option>
+				*/ ?>> <?php echo $lista_discapacidad[$i][2];?></option>
   <?php }?>
 </select>
 </div>
