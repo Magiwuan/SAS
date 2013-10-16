@@ -264,8 +264,8 @@ include_once("../../Clases/clase_titular.php");
       <td width="1">&nbsp;</td>
       <td width="103">Nacionalidad:</td>
       <td width="179">
-      	<input type="radio" name="nacionalidad" id="nacionalidad1" value="V" disabled="disabled">Venezolano 
-        <input type="radio" name="nacionalidad" id="nacionalidad2" value="E" disabled="disabled">Extranjero
+      	<input type="radio" name="nacionalidad" id="nacionalidad1" value="V" disabled="disabled"><label for="nacionalidad1">Venezolano<label/> 
+        <input type="radio" name="nacionalidad" id="nacionalidad2" value="E" disabled="disabled"><label for="nacionalidad2">Extranjero<label/>
        </td>
       <td width="145">Nro. C.I o Pasaporte:</td>
       <td colspan="2"><input name="cedula" type="text" disabled id="cedula" value="<?php echo $cedula;?>-" size="20" maxlength="16"/></td>
@@ -292,8 +292,8 @@ include_once("../../Clases/clase_titular.php");
     <tr>
       <td height="34">&nbsp;</td>
       <td>Sexo:</td>
-      <td><input type="radio" name="sexo" id="sexo1" value="F" disabled="disabled">Femenino        
-        <input type="radio" name="sexo" id="sexo2" value="M" disabled="disabled">Masculino
+      <td><input type="radio" name="sexo" id="sexo1" value="F" disabled="disabled"><label for="sexo1">Femenino<label/>    
+        <input type="radio" name="sexo" id="sexo2" value="M" disabled="disabled"><label for="sexo2">Masculino<label/>
        </td>
       <td>Fecha de Nacimiento:</td>
       <td width="72"> <input name="fecha_nac" id="fecha_nac" type="text" size="12" maxlength="10" readonly/></td>

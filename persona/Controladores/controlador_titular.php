@@ -45,7 +45,7 @@ function incluir(){
 		$titular->setApe1($_POST["apellido1"]);
 		$titular->setApe2($_POST["apellido2"]);
 		$titular->setSex($_POST["sexo"]);
-		$titular->setFec_nac($_POST["fecha_nac"]);	
+		
 		$titular->setEsta_civ($_POST["estado_civ"]);
 		$titular->setCel($_POST["celular"]);
 		$titular->setTlf($_POST["telefono"]);
@@ -64,8 +64,15 @@ function incluir(){
 		$titular->IniciaTransaccion();
 		// Se verifica que no exista para poder incluir
 		$ValidaTitular=$titular->validar_titular();	
+		if (strlen($_POST["fecha_nac"])==10)
+		{
+			$elDia=substr($_POST["fecha_nac"],0,2);
+			$elMes=substr($_POST["fecha_nac"],3,2);
+			$elYear=substr($_POST["fecha_nac"],6,4);
+			$fecha=$elYear."-".$elMes."-".$elDia;
+		}
+			$titular->setFec_nac($fecha);		
 		$MayorEdad=$titular->edad();
-		echo "edad: ".$FechaBD;
 		if($MayorEdad<18){
 			echo $FechaBD."Esta persona es menor de edad. \nNo puede Registrarlo como trabajador!";	
 			$var_control=true;	

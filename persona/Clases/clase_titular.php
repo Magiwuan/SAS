@@ -146,7 +146,7 @@ class titular extends conectaBDMy{
 //       Metodo registrar
  public function iTitular(){
 	   $this->fec_ingr = parent::fecha_bd($this->fec_ingr);
-	   $this->fec_nac  = parent::fecha_bd($this->fec_nac);
+	   //$this->fec_nac  = parent::fecha_bd($this->fec_nac);
        $sql="INSERT INTO ttitular(id_titular,tipo_nomina, nacionalidad, cedula, nombre1, nombre2, apellido1, apellido2, sexo, fecha_nac, estado_civ, celular, telefono, correo_elect, correo_corp, fecha_ingr, id_profesion, id_cargo, id_ciudad, id_ciudad_nacimiento, id_departamento, direccion_hab, id_upsa, grupo, observacion, estatus)VALUES(
 	   '$this->idTitular',
 	   '$this->tipoNomina', 
@@ -284,16 +284,8 @@ public function eTitular(){
 			parent::cerrar_bd();
      }
 	  function edad() {
-		  $fechaInicial=$this->fec_nac;
-		if (strlen($fechaInicial)==10)
-		{
-			$elDia=substr($fechaInicial,0,2);
-			$elMes=substr($fechaInicial,3,2);
-			$elYear=substr($fechaInicial,6,4);
-			$fechaInicial=$elYear."-".$elMes."-".$elDia;
-		}
-					
-  		 $patron = "/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})/";
+		 $fechaInicial=$this->fec_nac;
+		 $patron = "/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})/";
 		 $fechaComparacion= date("Y-m-d");
     if(preg_match($patron, $fechaInicial, $partesI) &&
        preg_match($patron, $fechaComparacion, $partesC)){
