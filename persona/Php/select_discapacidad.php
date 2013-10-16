@@ -1,4 +1,18 @@
 <html>
+	<head>
+ <link rel="stylesheet" type="text/css" href="../Css/jquery.asmselect.css" />	 
+        <script language="javascript" type="text/javascript" src="../JavaScript/jquery.js"></script> 
+        <script language="JavaScript" type="text/javascript" src="../JavaScript/jquery.asmselect.js"></script>  
+		<script language="JavaScript" type="text/JavaScript">
+		   $(document).ready(function(){
+			   $("select[multiple]").asmSelect({					
+					addItemTarget: 'bottom',
+					animate: true,
+					highlight: true,
+				});	
+				});		
+		</script>        
+</head>
 <body>
  <div id="disc_capa"> 
 <select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">

@@ -16,10 +16,10 @@
 	<script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
     <script language="javascript" type="text/javascript" src="JavaScript/empleado.js"></script>   
      <script language="javascript" type="text/javascript" >	  
-	  $(document).ready(function(){		
+	  $(document).ready(function(){	
+		  
 	    $('#nuevo').click(function(){	
-		$("#cap_dis").load('Php/select_discapacidad.php #disc_capa');
-		$("#cap_prof").load('Php/select_profesion.php');
+		$("#disc_capa").css("display","block");
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -65,7 +65,8 @@
 		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#agregar').attr('disabled', true);			
+		$('#agregar').attr('disabled', true);	
+		$("#disc_capa").css("display","none");		
 		$('#bt').attr('disabled', true);
 		$('#bt_fna').attr('disabled', true);
 		$('#nacionalidad1').attr('disabled', true);
@@ -217,23 +218,23 @@ function limpiar_form(ele) {
         <option value="E"> Viudo</option>
       </select></td>
       <td>Discapacidad:</td>
-      <td colspan="3" rowspan="2" valign="top"><div id="disc_capa"> 
-			<select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
-				<?php include_once("../Clases/clase_discapacidad.php");
-					$discapacidad=new discapacidad();
-					$lista_discapacidad=$discapacidad->lista_discapacidad();
-					for($i=0;$i<count($lista_discapacidad);$i++){			
-				?>
-			<option value="<?php echo $lista_discapacidad[$i][1];?>" 
-		  	<?php /* if($lista_discapacidad[$i][2]=='N/A')
+      <td colspan="3" rowspan="2" valign="top"><div id="disc_capa" style="display:none;"> 
+<select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
+  <?php include_once("../Clases/clase_discapacidad.php");
+			$discapacidad=new discapacidad();
+			$lista_discapacidad=$discapacidad->lista_discapacidad();
+			for($i=0;$i<count($lista_discapacidad);$i++)
+			{			
+			?>
+  <option value="<?php /*echo $$lista_discapacidad[$i][1];?>" 
+		  	<?php if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";
 				}
-				*/ ?>> <?php echo $lista_discapacidad[$i][2];?></option>
+				*/	?>> <?php echo $lista_discapacidad[$i][2];?></option>
   <?php }?>
 </select>
 </div>
-		  
       </td>
       </tr>
     <tr>

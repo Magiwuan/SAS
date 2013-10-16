@@ -32,7 +32,53 @@ if($res){
     <script src="../../../JavaScript/jscal2.js"></script>    
     <script src="../../../JavaScript/es.js"></script> 
 	<script language="JavaScript" type="text/JavaScript">
-	   $(document).ready(function(){			  
+	   $(document).ready(function(){		
+		$('#nuevo').click(function(){	
+			
+		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
+		$('#guardar').attr('disabled', false);
+		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
+		$('#agregar').attr('disabled', false);
+		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
+		$('#nuevo').attr('disabled', true);		
+		$('#organizacion').attr('disabled', false);
+	    $('#cedTitular').attr('disabled', false);
+		$('#beneficiario').attr('disabled', false);
+		$('#nombAutorizado').attr('disabled', false);
+		$('#cedAutorizado').attr('disabled', false);
+		$('#tratamiento1').attr('disabled', false);
+		$('#tratamiento2').attr('disabled', false);
+		$('#patologia').attr('disabled', false);
+		$('#medicamento').attr('disabled', false);
+		$('#cantidad').attr('disabled', false);
+		$('#observacion').attr('disabled', false);
+		$('input[name="recaudos[]"]').attr('disabled', false);
+				
+    });
+    $('#guardar').click(function(){
+		if(valida() && recuados()){	
+		fn_agregar();		
+		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
+		$('#nuevo').attr('disabled', false);
+		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
+		$('#agregar').attr('disabled', true);	
+		$('#guardar').removeClass('btn_act').addClass('btn_guardar_desact');
+		$('#guardar').attr('disabled', true);	
+		$('#organizacion').attr('disabled', true);
+	    $('#cedTitular').attr('disabled', true);
+		$('#beneficiario').attr('disabled', true);
+		$('#nombAutorizado').attr('disabled', true);
+		$('#cedAutorizado').attr('disabled', true);
+		$('#tratamiento1').attr('disabled', true);
+		$('#tratamiento2').attr('disabled', true);
+		$('#patologia').attr('disabled', true);
+		$('#medicamento').attr('disabled', true);
+		$('#cantidad').attr('disabled', true);
+		$('#observacion').attr('disabled', true);
+		$('input[name="recaudos[]"]').attr('disabled', true);
+		}
+    });	
+		   	  
 				$("#organizacion").change(function(event){
 				$("#cap4").load('../../../Controladores/control_direccion_organizacion.php?select='+$("#organizacion").val());
 				});	
@@ -156,54 +202,7 @@ function borrar(obj) {
   return true;
 }
 </script> 
-<script language="javascript" type="text/javascript" >	  
-	  $(document).ready(function(){		
-	    $('#nuevo').click(function(){	
-		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
-		$('#guardar').attr('disabled', false);
-		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
-		$('#agregar').attr('disabled', false);
-		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#nuevo').attr('disabled', true);		
-		$('#organizacion').attr('disabled', false);
-	    $('#cedTitular').attr('disabled', false);
-		$('#beneficiario').attr('disabled', false);
-		$('#nombAutorizado').attr('disabled', false);
-		$('#cedAutorizado').attr('disabled', false);
-		$('#tratamiento1').attr('disabled', false);
-		$('#tratamiento2').attr('disabled', false);
-		$('#patologia').attr('disabled', false);
-		$('#medicamento').attr('disabled', false);
-		$('#cantidad').attr('disabled', false);
-		$('#observacion').attr('disabled', false);
-		$('input[name="recaudos[]"]').attr('disabled', false);
-				
-    });	
-     $('#guardar').click(function(){
-		if(valida() && recuados()){	
-		fn_agregar();		
-		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
-		$('#nuevo').attr('disabled', false);
-		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#agregar').attr('disabled', true);	
-		$('#guardar').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#guardar').attr('disabled', true);	
-		$('#organizacion').attr('disabled', true);
-	    $('#cedTitular').attr('disabled', true);
-		$('#beneficiario').attr('disabled', true);
-		$('#nombAutorizado').attr('disabled', true);
-		$('#cedAutorizado').attr('disabled', true);
-		$('#tratamiento1').attr('disabled', true);
-		$('#tratamiento2').attr('disabled', true);
-		$('#patologia').attr('disabled', true);
-		$('#medicamento').attr('disabled', true);
-		$('#cantidad').attr('disabled', true);
-		$('#observacion').attr('disabled', true);
-		$('input[name="recaudos[]"]').attr('disabled', true);
-		}
-    });
-    });
-</script>  
+
 <style>
 .btn_act{
   height: 23px; 
@@ -492,7 +491,7 @@ function borrar(obj) {
 			for($i=0;$i<count($consul);$i++)			
 			{
 			if($consul[$i][3]=='Solicitud de Médicinas'){					
-		?>  <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disables">
+		?>  <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disabled">
         <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Medicinas. Por favor <a href='#'>click</a></div>";}			

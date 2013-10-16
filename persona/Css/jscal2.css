@@ -45,7 +45,7 @@ table.DynarchCalendar-titleCont {
   background-color: #eee;
   border: 1px solid #000;
   padding: 4px 16px;
-  background-image: url("../imagen_sistema/drop-down.gif");
+  background-image: url("../Imagen_sistema/drop-down.gif");
   background-repeat: no-repeat;
   background-position: 100% 50%;
 }
@@ -54,7 +54,7 @@ table.DynarchCalendar-titleCont {
   padding: 4px 16px;
   background-color: #777;
   color: #eee;
-  background-image: url("../imagen_sistema/drop-up.gif");
+  background-image: url("../Imagen_sistema/drop-up.gif");
   background-repeat: no-repeat;
   background-position: 100% 50%;
 }
@@ -184,19 +184,19 @@ table.DynarchCalendar-titleCont {
 }
 
 .DynarchCalendar-prevMonth div {
-  background-image: url("../imagen_sistema/nav-left.gif");
+  background-image: url("../Imagen_sistema/nav-left.gif");
 }
 
 .DynarchCalendar-nextMonth div {
-  background-image: url("../imagen_sistema/nav-right.gif");
+  background-image: url("../Imagen_sistema/nav-right.gif");
 }
 
 .DynarchCalendar-prevYear div {
-  background-image: url("../imagen_sistema/nav-left-x2.gif");
+  background-image: url("../Imagen_sistema/nav-left-x2.gif");
 }
 
 .DynarchCalendar-nextYear div {
-  background-image: url("../imagen_sistema/nav-right-x2.gif");
+  background-image: url("../Imagen_sistema/nav-right-x2.gif");
 }
 
 .DynarchCalendar-menu {
@@ -249,8 +249,8 @@ table.DynarchCalendar-titleCont {
 
 .DynarchCalendar-time td { font-weight: bold; font-size: 120%; }
 .DynarchCalendar-time-hour, .DynarchCalendar-time-minute { padding: 1px 3px; }
-.DynarchCalendar-time-down { background: url("../imagen_sistema/time-down.png") no-repeat 50% 50%; width: 11px; height: 8px; opacity: 0.5; }
-.DynarchCalendar-time-up { background: url("../imagen_sistema/time-up.png") no-repeat 50% 50%; width: 11px; height: 8px; opacity: 0.5; }
+.DynarchCalendar-time-down { background: url("../Imagen_sistema/time-down.png") no-repeat 50% 50%; width: 11px; height: 8px; opacity: 0.5; }
+.DynarchCalendar-time-up { background: url("../Imagen_sistema/time-up.png") no-repeat 50% 50%; width: 11px; height: 8px; opacity: 0.5; }
 .DynarchCalendar-time-sep { padding: 0 2px; }
 .DynarchCalendar-hover-time { background-color: #444; color: #eee; opacity: 1; }
 .DynarchCalendar-pressed-time { background-color: #000; color: #eee; opacity: 1; }

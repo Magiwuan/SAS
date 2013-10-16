@@ -37,7 +37,7 @@ $vist->setlogin($_SESSION["login"]);
     <td bgcolor="#F0F8E7">
          <div id="franja">			
             <div id="usuario" class="texto">
-               <img src="Imagenes/ico3.gif" width="25" height="25" align="absmiddle"/>Usuario: <?php echo $_SESSION["login"]?>
+               <img src="Imagenes/Icono3.gif" width="25" height="25" align="absmiddle"/>Usuario: <?php echo $_SESSION["login"]?>
             </div>
             <!-- <div id="clave" class="texto">
       			<img src="Imagenes/modificar.png" width="20" height="20" align="absmiddle"/>Cambiar Mi Clave
