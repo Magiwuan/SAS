@@ -4,11 +4,11 @@
           //Valida que el Discapacidad no este vacia
 		if(document.form_discapacidad.nombre.value == '') {
 		document.form_discapacidad.nombre.focus();
-		jAlert('El campo \"Nombre\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo "Nombre Discapacidad" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
 		  if(document.form_discapacidad.nombre.value.length <3 ) {		
-		  jAlert('El campo \"Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  jAlert('El campo "Nombre Discapacidad" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		  document.form_discapacidad.nombre.focus();
 		  return false;
 	      }
@@ -27,7 +27,7 @@
 				}
 		  }
 		  if (!allValid) { 
-			jAlert('El campo \"Nombre\" admite solo letras.','Dialogo de Alerta');
+			jAlert('El campo "Nombre Discapacidad" admite solo letras.','Dialogo de Alerta');
 			document.form_discapacidad.nombre.value='';  
 			document.form_discapacidad.nombre.focus(); 
 			return false; 

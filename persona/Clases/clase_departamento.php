@@ -62,6 +62,7 @@ public function eDepartamento(){
 			
 		parent::cerrar_bd();
 	}
+	//       Metodo para listar cargo en los combos
 //       Sentencia sql para listar
      public function sql_departamento(){
         $sql="SELECT * FROM tdepartamento WHERE estatus='1' order by nombre";
@@ -84,7 +85,6 @@ public function eDepartamento(){
 		 {
 				$fila[$c][2]=$row["nombre"];
 				$c++;
-			
 		 }
 		
 		if ( $fila>0 )

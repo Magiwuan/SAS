@@ -1,4 +1,4 @@
-// JavaScript Document
+	// JavaScript Document
 
 function valida(){
 	if(document.form_orden_solicitud.organizacion.value=="0"){

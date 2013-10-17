@@ -13,7 +13,8 @@
     <script language="javascript" type="text/javascript" src="../../JavaScript/cargo_jquery.js"></script> 
     <script language="javascript" type="text/javascript" src="../../JavaScript/cargo.js"></script> 
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>   
-</head>  <script language="javascript" type="text/javascript" >
+</head>  
+<script language="javascript" type="text/javascript" >
 	  
 	  $(document).ready(function(){
 
@@ -39,105 +40,28 @@
     });
     });
 	function limpiar_form(ele) {
-   $(ele).find('input').each(function() {
-      switch(this.type) {
-         case 'text':
-				 $(this).val('');
-               	 break;
-      }
-   }); 			
- 
+	   $(ele).find('input').each(function() {
+		  switch(this.type) {
+			 case 'text':
+					 $(this).val('');
+					 break;
+		  }
+	   }); 	 
    }
 </script>  
 <style>
-.btn_act{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #09F;
-  border-right:1px solid #09F; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:black; 
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-  background-image: url(../../Imagen_sistema/cancelar.jpg);
-}
-.btn_nuevo_act_img{
-	  background-image: url(../../Imagen_sistema/nuevo.jpg);
-}
-.btn_cancelar_act_img{
-	 margin: auto;
-	 background-repeat: no-repeat; 
-	 cursor:hand; cursor:pointer;
-	 height: 21px;
-	 width: 22px;
-	 border: 0px;
-	 background-image: url(../../Imagen_sistema/cancelar.jpg);
-}
-.btn_guardar_act_img{
-	  background-image: url(../../Imagen_sistema/guardar.jpg);
-}
-.btn_act:hover{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #0F0;
-  border-right:1px solid #0F0; 
-  border-top:0px; 
-  border-left:0px;
-  font-size: 13px; 
-  color:black;
-  padding-left: 20px; 
-  background-repeat: no-repeat;
-  cursor:hand; 
-  cursor:pointer; 
-  margin-left:5px; 
-  margin-right:5px;
-  outline-width:0px;
-}
-
-.btn_guardar_desact{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #999;
-  border-right:1px solid #999; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-}
-/*.btn_guardar_desact_img{
-  background-image: url(Imagen_sistema/guardar_desac.jpg);
-
-}*/
-.btn_guardar_desact:hover{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #333;
-  border-right:1px solid #333; 
-  border-top:0px; 
-  border-left:0px;
-  font-size: 13px; 
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat;
-  cursor:hand; 
-  cursor:pointer; 
-  margin-left:5px; 
-  margin-right:5px;
-  outline-width:0px;
-}
-</style>    
+.btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px;
+  color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../Imagen_sistema/cancelar.jpg);
+}.btn_nuevo_act_img{background-image: url(../../Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px;	 width: 22px; border: 0px;
+background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(../../Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px; 
+  background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px; font-size: 13px; color:black;
+  padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_guardar_desact{
+  height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px;
+  color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}/*.btn_guardar_desact_img{
+  background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333;
+  border-right:1px solid #333; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; 
+  cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+  </style>    
 <body>
 <div id="cuerpo">
 <form action=""  method="POST" id="form_cargo" name="form_cargo">
@@ -163,7 +87,7 @@
 <table  width="686" border="0" cellpadding="0" cellspacing="0">
 <tr>
    <td width="338" align="right"><input name="nuevo" type="button" id="nuevo" value="Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar el campo" /></td>
-      <td width="348"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" title="Guardar" /></td>
+   <td width="348"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" title="Guardar" /></td>
 </tr>
 </table>
 </tr>

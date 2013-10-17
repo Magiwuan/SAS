@@ -71,7 +71,7 @@ function incluir(){
 			$elYear=substr($_POST["fecha_nac"],6,4);
 			$fecha=$elYear."-".$elMes."-".$elDia;
 		}
-			$titular->setFec_nac($fecha);		
+			$titular->setFec_nac($fecha			);		
 		$MayorEdad=$titular->edad();
 		if($MayorEdad<18){
 			echo $FechaBD."Esta persona es menor de edad. \nNo puede Registrarlo como trabajador!";	
@@ -228,7 +228,7 @@ function modificar(){
 					exit();
 				}
 			 $arreglo_pro = $_POST["profesion"]; //Arreglo de Profesion
-			 $cont_pro='0';
+			 $cont_pro='0';	
 			 while($cont_pro<count($arreglo_pro)){	
 		//Consultamos el ultimo $id_profesion_titular y traemos el ultimo	
 		// Busca el ultimo registro de la entrada e incrementa el id

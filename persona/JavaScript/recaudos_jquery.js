@@ -59,18 +59,16 @@ function fn_listar_recaudos(){
 
 function fn_eliminar_recaudos(id_recaudo){
 	jConfirm('Desea eliminar a este Recaudo?', 'Mensaje Confirmación', function(r) {
-		if(r==true){
+	if(r==true){
 		$.ajax({
 			url: '../../Php/recaudos/eliminar_recaudos.php',
 			data: 'id_recaudo='+id_recaudo,
 			type: 'post',
 			success: function(data){
-				if(data!="")
-						jAlert(data, 'Resultado de la confirmación');
-						fn_listar_recaudos();
-							}
-					});
-		}
-					});
-	
+			jAlert(data, 'Resultado de la confirmación');
+			fn_listar_recaudos();
+			}
+		});
+	}
+	});	
 }

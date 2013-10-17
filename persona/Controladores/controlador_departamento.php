@@ -17,6 +17,8 @@ switch($ope){
 function incluir(){
 	$departamento = new departamento();
 	$departamento->setNom($_POST["nombre"]);
+	$val_depart=$departamento->valida_departamento();
+	if($val_depart=='-1'){
 	$iDepartamento=$departamento->iDepartamento();
 	if($iDepartamento<0)
 	{
@@ -24,6 +26,9 @@ function incluir(){
 	exit();
 	}else{
       echo "Error al incluir departamento";
+	}
+	}else{
+		echo "El departameno ya existe!";
 	}
 }
 ?>

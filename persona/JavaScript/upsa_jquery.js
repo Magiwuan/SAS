@@ -52,23 +52,21 @@ function fn_listar_upsa(){
 			$("#div_listar_upsa").html(data);				
 		}
 	});
-
 }
 
 function fn_eliminar_upsa(id_upsa){
-	jConfirm('Desea eliminar esta UPSA?', 'Mensaje Confirmación', function(r) {
-		if(r==true){
+   jConfirm('Desea eliminar esta UPSA?', 'Mensaje Confirmación', function(r){
+	if(r==true){
 		$.ajax({
 			url: '../../Php/upsa/eliminar_upsa.php',
 			data: 'id_upsa='+id_upsa,
 			type: 'post',
 			success: function(data){
-				if(data!="")
-						jAlert(data, 'Resultado de la confirmación');
-						fn_listar_upsa();
-							}
-					});
-		}
-					});
-	
+				jAlert(data, 'Resultado de la confirmación');
+				fn_listar_upsa();
+			}
+		});
+	}
+   });
 }
+

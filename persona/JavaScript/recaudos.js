@@ -2,11 +2,11 @@
 	 function valida(){
 		if(document.form_recaudos.nombre.value.length < 1){
 		document.form_recaudos.nombre.focus();
-		jAlert('El campo \"Nombre\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo "Nombre Recaudo" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
 		  if(document.form_recaudos.nombre.value.length < 3){		
-		  jAlert('El campo \"Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  jAlert('El campo "Nombre Recaudo" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		  document.form_recaudos.nombre.focus();
 		  return false;
 	      }
@@ -25,13 +25,13 @@
 				}
 		  }
 		  if (!allValid){ 
-			jAlert('El campo \"Nombre\" admite solo letras.','Dialogo de Alerta');
+			jAlert('El campo "Nombre Recaudo" admite solo letras.','Dialogo de Alerta');
 			document.form_recaudos.nombre.value='';  
 			document.form_recaudos.nombre.focus(); 
 			return false; 
 		  }
 		  if(document.form_recaudos.tipo.value=="0"){
-		jAlert('Debe seleccionar el Tipo!','Dialogo de Alerta');
+		jAlert('Debe seleccionar el Tipo Recaudo!','Dialogo de Alerta');
 		document.form_recaudos.tipo.focus();
 		return false;
 	}   

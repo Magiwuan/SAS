@@ -2,11 +2,11 @@
 	 function valida() {
 		if(document.form_upsa.nombre.value == '') {
 		document.form_upsa.nombre.focus();
-		jAlert('El campo \"Nombre\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo "Nombre UPSA" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
 		  if(document.form_upsa.nombre.value.length <3 ) {		
-		  jAlert('El campo \"Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  jAlert('El campo "Nombre UPSA" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		  document.form_upsa.nombre.focus();
 		  return false;
 	      }
@@ -23,8 +23,8 @@
 			  		break; 
 				}
 		  }
-		  if (!allValid) { 
-			jAlert('El campo \"Nombre\" admite solo letras.','Dialogo de Alerta');
+		  if (!allValid) {
+			jAlert('El campo "Nombre UPSA" admite solo letras.','Dialogo de Alerta');
 			document.form_upsa.nombre.value='';  
 			document.form_upsa.nombre.focus(); 
 			return false; 
@@ -33,11 +33,11 @@
           //Valida que la Dirección no este vacia
 		if(document.form_upsa.direccion.value == '') {
 		document.form_upsa.direccion.focus();
-		jAlert('El campo \"Dirección\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo "Dirección UPSA" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
 		  if(document.form_upsa.direccion.value.length <3 ) {		
-		  jAlert('El campo \"Dirección" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  jAlert('El campo "Dirección UPSA" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		  document.form_upsa.direccion.focus();
 		  return false;
 	      }

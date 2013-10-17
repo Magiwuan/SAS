@@ -58,11 +58,11 @@ function fn_eliminar_profesion(id_profesion){
 			type: 'post',
 			success: function(data){
 				if(data!="")
-						jAlert(data, 'Resultado de la confirmación');
-						fn_listar_profesion();
+					jAlert(data, 'Resultado de la confirmación');
+					fn_listar_profesion();
 							}
-					});
+		});
 		}
-					});
+	});
 	
 }

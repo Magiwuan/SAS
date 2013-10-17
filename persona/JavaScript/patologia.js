@@ -2,11 +2,11 @@
 	 function valida(){
 		if(document.form_patologia.nombre.value == ''){
 		document.form_patologia.nombre.focus();
-		jAlert('El campo \"Nombre\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo \"Nombre Patolog&iacute;a" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
 		  if(document.form_patologia.nombre.value.length<3){		
-		  jAlert('El campo \"Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  jAlert('El campo "Nombre  Patolog&iacute;a" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		  document.form_patologia.nombre.focus();
 		  return false;
 	      }
@@ -24,7 +24,7 @@
 				}
 		  }
 		  if (!allValid){ 
-			jAlert('El campo \"Nombre\" admite solo letras.','Dialogo de Alerta');
+			jAlert('El campo "Nombre Patolog&iacute;a" admite solo letras.','Dialogo de Alerta');
 			document.form_patologia.nombre.value='';  
 			document.form_patologia.nombre.focus(); 
 			return false; 

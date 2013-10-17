@@ -226,8 +226,8 @@ function limpiar_form(ele) {
 			for($i=0;$i<count($lista_discapacidad);$i++)
 			{			
 			?>
-  <option value="<?php /*echo $$lista_discapacidad[$i][1];?>" 
-		  	<?php if($lista_discapacidad[$i][2]=='N/A')
+  <option value="<?php echo $$lista_discapacidad[$i][1];?>" 
+		  	<?php /*if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";
 				}
@@ -377,15 +377,15 @@ function limpiar_form(ele) {
         <td height="23" rowspan="2">Recaudos:</td>
         <td height="23" colspan="5"><?php include_once("../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('Afiliación - Titular');
+			$recaudo->setTiporecaudo('AFILIACIÓN - TITULAR');
 			$lista_recaudo=$recaudo->lista_recaudo();
 			for($i=0;$i<count($lista_recaudo);$i++)			
 			{				
-				if($lista_recaudo[$i][3]=='Afiliación - Titular'){					
+				if($lista_recaudo[$i][3]=='AFILIACIÓN - TITULAR'){					
 		?><input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $lista_recaudo[$i][1];?>" disabled="disables">
         <?php echo "<label  for='$i'>".$lista_recaudo[$i][2]."</label>"; ?>
         <?php		
-		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Medicinas. Por favor <a href='#'>click</a></div>";}			
+		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Afiliacion Titular. Por favor <a href='#'>click</a></div>";}			
 		}?></td>
        <td></td>
       </tr>    

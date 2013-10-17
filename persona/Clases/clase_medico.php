@@ -48,7 +48,7 @@ class medico extends conectaBDMy{
     }	
 //       Metodo registrar
  public function iMedico(){
-       $sql="INSERT INTO tmedico(id_medico,nacionalidad, nombre, apellido, cedula, id_especialidad,estatus)VALUES(
+       $sql="INSERT INTO tmedico(id_medico,nacionalidad,cedula, nombre, apellido, id_especialidad,estatus)VALUES(
 	   '$this->idMedico',
 	   '$this->nac', 
 	   '$this->nomb', 

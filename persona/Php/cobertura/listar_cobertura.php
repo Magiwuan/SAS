@@ -29,7 +29,7 @@
             <td><? echo $result['descripcion']; ?></td>  
             <td><? echo $result['tipo']; ?></td> 
             <td><? echo $result['monto']; ?></td>          
-            <td width="28"><a href="javascript: fn_eliminar_cobertura(<? echo $result['id_cobertura']; ?>);" title="Eliminar"><img src="../../imagen_sistema/delete.png" /></a></td>
+            <td width="28"><a href="javascript: fn_eliminar_cobertura(<? echo $result['id_cobertura']; ?>);" title="Eliminar"><img src="../../Imagen_sistema/delete.png" /></a></td>
         </tr>        
     <? } ?>
     </tbody>

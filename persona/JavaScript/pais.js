@@ -2,11 +2,11 @@
 	function valida() {
 		if(document.form_pais.nombre.value=='') {
 		document.form_pais.nombre.focus();
-		jAlert('El campo \"Nombre\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo "Nombre Pais" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
 		  if(document.form_pais.nombre.value.length <3) {		
-		  jAlert('El campo \"Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  jAlert('El campo "Nombre Pais" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		  document.form_pais.nombre.focus();
 		  return false;
 	      }
@@ -24,7 +24,7 @@
 				}
 		  }
 		  if (!allValid) { 
-			jAlert('El campo \"Nombre\" admite solo letras.','Dialogo de Alerta');
+			jAlert('El campo "Nombre Pais" admite solo letras.','Dialogo de Alerta');
 			document.form_pais.nombre.value='';  
 			document.form_pais.nombre.focus(); 
 			return false; 

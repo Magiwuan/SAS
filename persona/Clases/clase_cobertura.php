@@ -23,10 +23,10 @@ class cobertura extends conectaBDMy{
         $this->idCobertura = trim($Valor);
     }  
 	public function setDesc($Valor){
-        $this->desc = trim($Valor);
+        $this->desc = mb_strtoupper(trim($Valor), "utf-8");
     }
 	public function setTipo($Valor){
-        $this->tipo = trim($Valor);
+        $this->tipo = mb_strtoupper(trim($Valor), "utf-8");
     }
 	public function setMonto($Valor){
         $this->monto = trim($Valor);
