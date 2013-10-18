@@ -21,9 +21,7 @@ function incluir(){
 	$cobertura->setMonto($plata);
 	$cobertura->setFecha_ini($_POST["fecha_inicio"]);
 	$cobertura->setFecha_fin($_POST["fecha_fin"]);
-	$iCobertura=$cobertura->iCobertura();
-	if($iCobertura<0){
-		
+	if($cobertura->iCobertura()){		
 	echo "Se agregaron los Datos con exito¡¡¡¡";
 	}
 	else

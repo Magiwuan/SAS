@@ -4,11 +4,13 @@
 	$cargo= new cargo();
 	$paging = new PHPPaging;	
 	$consulta=$cargo->sql_cargo();
+	
 	$paging->agregarConsulta($consulta); 	
 	$paging->porPagina(6);
 	$paging->div('div_listar_cargo');
 	$paging->verPost(true);
 	$paging->ejecutar();	
+	
 ?>
 <table id="grilla" class="lista" width="424">
   <thead>       

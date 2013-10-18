@@ -16,9 +16,9 @@ switch($ope){
 function incluir(){
 	$cargo = new cargo();
 	$cargo->setNom($_POST["nombre"]);
-	$val_cargo=$cargo->valida_cargo();
-	$iCargo=$cargo->iCargo();
+	$val_cargo=$cargo->valida_cargo();	
 	if($val_cargo=='-1'){
+		$iCargo=$cargo->iCargo();
 		if($iCargo<0){
 		echo "Los datos se guardaron con Exito!!!";
 		exit();

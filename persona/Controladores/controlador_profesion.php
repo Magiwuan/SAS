@@ -15,10 +15,10 @@ switch($ope){
 //       Funcion para Registrar
 function incluir(){
 	$profesion = new profesion();
-	$profesion->setNom($_POST["nombre"]);
-	$iProfesion=$profesion->iProfesion();
+	$profesion->setNom($_POST["nombre"]);	
 	$val_profes=$profesion->valida_profesion();
 	if($val_profes=='-1'){
+		$iProfesion=$profesion->iProfesion();
 		if($iProfesion<0){
 		echo "Los datos se guardaron con Exito!!!";
 		exit();

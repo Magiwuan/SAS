@@ -39,18 +39,14 @@ public function eCargo(){
 				
 				parent::cerrar_bd();
 }
-public function buscar_cargo() 
-	{ 
+public function buscar_cargo(){ 
 		$c=0;
 		$sql="select * from tcargo where id_cargo='$this->idCargo'"; 
 		$cursor=parent::ejecuta_sql($sql);
-		if($row= parent::proxima_tupla($cursor))
-		 {
+		if($row= parent::proxima_tupla($cursor)){
 				$fila[$c][2]=$row["nombre"];
-				$c++;
-			
-		 }
-		
+				$c++;			
+		 }		
 		if ( $fila>0 )
 			return $fila;
 		else
@@ -58,17 +54,14 @@ public function buscar_cargo()
 			
 			parent::cerrar_bd();
 	} 	
-	public function valida_cargo() 
-	{ 
+	public function valida_cargo() { 
 		$c=0;
 		$sql="select * from tcargo where nombre='$this->nom'"; 
 		$cursor=parent::ejecuta_sql($sql);
-		if($row= parent::proxima_tupla($cursor))
-		 {
+		if($row= parent::proxima_tupla($cursor)){
 				$fila[$c][2]=$row["nombre"];
 				$c++;
 		 }
-		
 		if ( $fila>0 )
 			return $fila;
 		else
@@ -77,8 +70,7 @@ public function buscar_cargo()
 			parent::cerrar_bd();
 	} 	
 //       Metodo para listar cargo en los combos
-	function lista_cargo()
-	{ 
+public function lista_cargo(){ 
 		$c=0;
 		$sql="select * from tcargo where estatus='1' order by nombre";		
 		 $cursor=parent::ejecuta_sql($sql);
@@ -97,7 +89,9 @@ public function buscar_cargo()
 			return -1;
 			
 		parent::cerrar_bd();
-	}   
+	}   	
+	
+	
 //       Sentencia sql para listar
      public function sql_cargo(){
         $sql="SELECT * FROM tcargo WHERE estatus='1' order by nombre";
@@ -111,24 +105,5 @@ public function buscar_cargo()
 			
 			parent::cerrar_bd();
      }	
-	 	public function valida_cargo() 
-	{ 
-		$c=0;
-		$sql="select * from tcargo where nombre='$this->nom'"; 
-		$cursor=parent::ejecuta_sql($sql);
-		if($row= parent::proxima_tupla($cursor))
-		 {
-				$fila[$c][2]=$row["nombre"];
-				$c++;
-			
-		 }
-		
-		if ( $fila>0 )
-			return $fila;
-		else
-			return -1;
-			
-			parent::cerrar_bd();
-	} 
 }//cierra la clase
 ?>
