@@ -20,8 +20,7 @@ function incluir(){
 	$val_depart=$departamento->valida_departamento();
 	if($val_depart=='-1'){
 	$iDepartamento=$departamento->iDepartamento();
-	if($iDepartamento<0)
-	{
+	if($iDepartamento<0){
 	echo "Los datos se guardaron con Exito!!!";
 	exit();
 	}else{

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<html>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
@@ -13,16 +13,14 @@
    	<script language="javascript" type="text/javascript" src="../../JavaScript/medicamento_jquery.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/medicamento.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>
- </head><script language="javascript" type="text/javascript" >
-	  
+</head>
+ <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){
-
     	$('#nuevo').click(function(){
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#nuevo').attr('disabled', true);
-		
+		$('#nuevo').attr('disabled', true);		
 		$('#nombre').attr('disabled', false);
 		$('#presentacion').attr('disabled', false);
 		$('#componente').attr('disabled', false);
@@ -33,8 +31,7 @@
 		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#agregar').attr('disabled', true);
-		
+		$('#agregar').attr('disabled', true);		
 		$('#nombre').attr('disabled', true);	
 		$('#presentacion').attr('disabled', true);	
 		$('#componente').attr('disabled', true);			
@@ -45,14 +42,13 @@ function limpiar_form(ele) {
    $(ele).find('input').each(function() {
       switch(this.type) {
          case 'textarea':
-				 $(this).val('');
-               	 break;
+			$(this).val('');
+         break;
       }
    }); 			
    $(ele).find('textarea').each(function() {
        $("#"+this.id).val('');
-   });
- 
+   }); 
    }
 </script>  
 <style>

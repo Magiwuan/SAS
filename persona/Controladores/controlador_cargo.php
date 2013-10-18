@@ -16,12 +16,17 @@ switch($ope){
 function incluir(){
 	$cargo = new cargo();
 	$cargo->setNom($_POST["nombre"]);
+	$val_cargo=$cargo->valida_cargo();
 	$iCargo=$cargo->iCargo();
-	if($iCargo<0){
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	if($val_cargo=='-1'){
+		if($iCargo<0){
+		echo "Los datos se guardaron con Exito!!!";
+		exit();
+		}else{
+		echo "Error al incluir cargo";
+		}
 	}else{
-	echo "Error al incluir cargo";
+		echo "El cargo ya existe!";
 	}
 }
 

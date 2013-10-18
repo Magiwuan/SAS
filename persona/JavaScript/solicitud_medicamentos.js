@@ -1,4 +1,5 @@
 // JavaScript Document
+
 function valida(){
 	if(document.form_solicitud_medicina.cedTitular.value=='') {
 		jAlert('El campo \"Cedula o Pasaporte\" no puede estar vacio!','Dialogo de Alerta');

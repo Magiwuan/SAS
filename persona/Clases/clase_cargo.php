@@ -58,6 +58,24 @@ public function buscar_cargo()
 			
 			parent::cerrar_bd();
 	} 	
+	public function valida_cargo() 
+	{ 
+		$c=0;
+		$sql="select * from tcargo where nombre='$this->nom'"; 
+		$cursor=parent::ejecuta_sql($sql);
+		if($row= parent::proxima_tupla($cursor))
+		 {
+				$fila[$c][2]=$row["nombre"];
+				$c++;
+		 }
+		
+		if ( $fila>0 )
+			return $fila;
+		else
+			return -1;
+			
+			parent::cerrar_bd();
+	} 	
 //       Metodo para listar cargo en los combos
 	function lista_cargo()
 	{ 

@@ -350,14 +350,14 @@ include_once("../../Clases/clase_titular.php");
       <td>Recaudos:</td>
       <td colspan="2"><div id="recaudos"><?php 	include_once("../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('Afiliación - Beneficiario');
+			$recaudo->setTiporecaudo('AFILIACIÓN - BENEFICIARIO');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
 				$idRecaudo = $consul[$i][1];	
 				$Nombre		= $consul[$i][2];		
 				$tipo		= $consul[$i][3];	
-				if($tipo=='Afiliación - Beneficiario'){					
+				if($tipo=='AFILIACIÓN - BENEFICIARIO'){					
 		?>
          <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disables">
         <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?>

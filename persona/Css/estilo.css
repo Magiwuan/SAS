@@ -34,7 +34,8 @@ border-radius:3px;
 }
 
 #cuerpo{
-	width:700px;
+	width:710px;
+	margin-left:35px;	
 	height:100%;
 	padding:0px;
 	background:#F0F8E7;
@@ -46,7 +47,7 @@ border-radius:3px;
 	width:710px;
 	height:auto;
 	padding: 20px 20px 20px 1px;
-		background-color:transparent;	
+	background-color:transparent;	
 }
 #cuerpo2{
 	margin-top: 2px;

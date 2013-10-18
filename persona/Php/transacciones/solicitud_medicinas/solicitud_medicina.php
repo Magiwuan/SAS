@@ -11,30 +11,29 @@ if($res){
 	$idSolicitud='1';
 }
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>.:Solicitud de Medicinas:.</title>        
-  	<link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
-    <link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 
-    <link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
-    <link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.theme.css" />
-    <link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.autocomplete.css" />
-    <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	        
-    <script src="../../../JavaScript/solicitud_medicamentos.js"></script>        
-  <script type="text/javascript" src="jquery/jquery-1.4.2.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.core.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.position.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.autocomplete.js"></script>
-     <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>    
-    <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery.alerts.js"></script>     
-    <script src="../../../JavaScript/jscal2.js"></script>    
-    <script src="../../../JavaScript/es.js"></script> 
-	<script language="JavaScript" type="text/JavaScript">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>.:Solicitud de Medicinas:.</title>        
+<link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
+<link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 
+<link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
+<link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.theme.css" />
+<link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.autocomplete.css" />
+<link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	        
+<script src="../../../JavaScript/solicitud_medicamentos.js"></script>        
+<script type="text/javascript" src="jquery/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="jquery/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="jquery/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="jquery/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="jquery/ui/jquery.ui.autocomplete.js"></script>
+<script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>    
+<script language="javascript" type="text/javascript" src="../../../JavaScript/jquery.alerts.js"></script>     
+<script src="../../../JavaScript/jscal2.js"></script>    
+<script src="../../../JavaScript/es.js"></script> 
+<script language="JavaScript" type="text/JavaScript">
 	   $(document).ready(function(){		
-		$('#nuevo').click(function(){	
-			
+		$('#nuevo').click(function(){				
 		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#guardar').attr('disabled', false);
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
@@ -52,8 +51,7 @@ if($res){
 		$('#medicamento').attr('disabled', false);
 		$('#cantidad').attr('disabled', false);
 		$('#observacion').attr('disabled', false);
-		$('input[name="recaudos[]"]').attr('disabled', false);
-				
+		$('input[name="recaudos[]"]').attr('disabled', false);				
     });
     $('#guardar').click(function(){
 		if(valida() && recuados()){	
@@ -77,43 +75,38 @@ if($res){
 		$('#observacion').attr('disabled', true);
 		$('input[name="recaudos[]"]').attr('disabled', true);
 		}
-    });	
-		   	  
-				$("#organizacion").change(function(event){
-				$("#cap4").load('../../../Controladores/control_direccion_organizacion.php?select='+$("#organizacion").val());
-				});	
-				$("#cedTitular").change(function(event){
-				$("#cap3").load('../../../Controladores/control_caja_titular.php?caja='+$("#cedTitular").val());
-				$("#cap3").css("display","block");					
-					$("#cap3").load('../../../Controladores/control_caja_titular.php?caja='+$("#cedTitular").val(), function(event){
-						if ($("#box").val() == "No existen registros relacionados") {
-						$("#cap1").css("display","block");	
-						$("#cap2").css("display","none");
-						}else{						
-						$("#beneficiario").load('../../../Controladores/control_select_beneficiario.php?select='+$("#cedTitular").val());					
-						$("#cap1").css("display","none");	
-						$("#cap2").css("display","block"); 	
-						}
-					});				
-				});	             
-		$('#tratamiento2').click(function(){
+    });			   	  
+	$("#organizacion").change(function(event){
+		$("#cap4").load('../../../Controladores/control_direccion_organizacion.php?select='+$("#organizacion").val());
+		});	
+	$("#cedTitular").change(function(event){
+		$("#cap3").load('../../../Controladores/control_caja_titular.php?caja='+$("#cedTitular").val());
+			$("#cap3").css("display","block");					
+			$("#cap3").load('../../../Controladores/control_caja_titular.php?caja='+$("#cedTitular").val(), function(event){
+			if ($("#box").val() == "No existen registros relacionados") {
+				$("#cap1").css("display","block");	
+				$("#cap2").css("display","none");
+			}else{						
+				$("#beneficiario").load('../../../Controladores/control_select_beneficiario.php?select='+$("#cedTitular").val());					
+				$("#cap1").css("display","none");	
+				$("#cap2").css("display","block"); 	
+			}
+		});				
+	});	             
+	$('#tratamiento2').click(function(){
 		$('#boton_fec_ini').attr('disabled', false);
 		$('#boton_fec_fin').attr('disabled', false);
-		});
-		$('#tratamiento1').click(function(){
-			$('#boton_fec_ini').attr('disabled', true);
+	});
+	$('#tratamiento1').click(function(){
+		$('#boton_fec_ini').attr('disabled', true);
 		$('#boton_fec_fin').attr('disabled', true);
-		});	});	
-</script>
-<script type="text/javascript">
-    $(function() {       
+	});	
+});	
+ $(function() {       
         $("#medicamento").autocomplete({
             source: "completar_medicinas.php"
         });
     });
-</script>
-</script>
-<script type="text/javascript">   
 icremento =1;
 function crear(obj) {
 	if(icremento>5){
@@ -196,134 +189,13 @@ function borrar(obj) {
   field.removeChild(document.getElementById(obj));    
   icremento--; 
    if(icremento==1){
-	  $("#ocultar").css("display", "none");			
-
+	  $("#ocultar").css("display", "none");	
   }
   return true;
 }
 </script> 
-
 <style>
-.btn_act{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #09F;
-  border-right:1px solid #09F; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:black; 
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-  background-image: url(../../../Imagen_sistema/cancelar.jpg);
-}
-.btn_nuevo_act_img{
-	  background-image: url(../../../Imagen_sistema/nuevo.jpg);
-}
-.btn_cancelar_act_img{
-	 margin: auto;
-	 background-repeat: no-repeat; 
-	 cursor:hand; cursor:pointer;
-	 height: 21px;
-	 width: 22px;
-	 border: 0px;
-	 background-image: url(../../../Imagen_sistema/cancelar.jpg);
-}
-.btn_guardar_act_img{
-	  background-image: url(../../../Imagen_sistema/guardar.jpg);
-}
-.btn_guardar_act_img3{
-	  background-image: url(../../../Imagen_sistema/add.png);
-}
-.btn_guardar_act_img2{
-	  background-image: url(../../../Imagen_sistema/guardar.jpg);
-}
-.btn_act:hover{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #0F0;
-  border-right:1px solid #0F0; 
-  border-top:0px; 
-  border-left:0px;
-  font-size: 13px; 
-  color:black;
-  padding-left: 20px; 
-  background-repeat: no-repeat;
-  cursor:hand; 
-  cursor:pointer; 
-  margin-left:5px; 
-  margin-right:5px;
-  outline-width:0px;
-}
-
-.btn_guardar_desact{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #999;
-  border-right:1px solid #999; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-}
-.btn_guardar_desact:hover{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #333;
-  border-right:1px solid #333; 
-  border-top:0px; 
-  border-left:0px;
-  font-size: 13px; 
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat;
-  cursor:hand; 
-  cursor:pointer; 
-  margin-left:5px; 
-  margin-right:5px;
-  outline-width:0px;
-}
-.btn_act1 {  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #09F;
-  border-right:1px solid #09F; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:black; 
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-  background-image: url(../../../Imagen_sistema/cancelar.jpg);
-}
-.btn_guardar_desact1 {  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #999;
-  border-right:1px solid #999; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-}
+.btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{background-image: url(../../../Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(../../../Imagen_sistema/guardar.jpg);}.btn_guardar_act_img3{background-image: url(../../../Imagen_sistema/add.png);}.btn_guardar_act_img2{background-image: url(../../../Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_guardar_desact{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_guardar_desact:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_act1{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_desact1{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 </style>
 </head>
 <body> 
@@ -486,11 +358,11 @@ function borrar(obj) {
       <td>Recaudos:</td>
       <td colspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('Solicitud de Médicinas');
+			$recaudo->setTiporecaudo('SOLICITUD DE MÉDICINAS');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
-			if($consul[$i][3]=='Solicitud de Médicinas'){					
+			if($consul[$i][3]=='SOLICITUD DE MÉDICINAS'){					
 		?>  <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disabled">
         <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
         <?php		
@@ -507,17 +379,14 @@ function borrar(obj) {
   </table>  
 </form>
 </div>
-
 <script language="javascript" type="text/javascript">
-
 function recuados(){
 	if(icremento=='1'){
 		 jAlert("Debe ingresar al menos un medicamento!");  
           return false;	
 	}  
-	if($('input[name="recaudos[]"]').is(':checked')) 	
-	{ } 
-	else {  
+	if($('input[name="recaudos[]"]').is(':checked')){ 
+	}else{  
           jAlert("Debe seleccionar los recuados!");  
           return false;	  
      	}	
@@ -549,7 +418,5 @@ function abreVentana(ancho,alto){
     miPopup.focus();
 } 
 </script>
-
 </body>
-
 </html>

@@ -62,6 +62,24 @@ public function eProfesion(){
 			
 		parent::cerrar_bd();
 	}   
+public function valida_profesion() 
+	{ 
+		$c=0;
+		$sql="select * from tprofesion where nombre='$this->nom'"; 
+		$cursor=parent::ejecuta_sql($sql);
+		if($row= parent::proxima_tupla($cursor))
+		 {
+				$fila[$c][2]=$row["nombre"];
+				$c++;
+		 }
+		
+		if ( $fila>0 )
+			return $fila;
+		else
+			return -1;
+			
+			parent::cerrar_bd();
+	} 		
 //       Sentencia sql para listar
      public function sql_profesion(){
         $sql="SELECT * FROM tprofesion WHERE estatus='1' order by nombre";
