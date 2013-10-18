@@ -155,23 +155,13 @@ function limpiar_form(ele) {
  </table>
  <fieldset>  
  <legend></legend>
-<table width="682" height="115">
+<table width="682" height="45">
 <tbody>
 <tr>
  <td width="93" height="39"><input name="ope" type="hidden" id="ope" value="I" hidden="hidden" /></td>
  <td width="86">Nombre:</td>
  <td width="487" ><textarea name="nombre" cols="45" rows="2" disabled="disabled" id="nombre"></textarea>
  </td>
-</tr>
-<tr>
-  <td height="27">&nbsp;</td>
-  <td>Presentación: </td>
-  <td ><input name="presentacion" type="text" disabled="disabled" id="presentacion" size="48" title="Nombre del Cargo" /></td>
-</tr>
-<tr>
-  <td height="39">&nbsp;</td>
-  <td>Componente:</td>
-  <td ><textarea name="componente" cols="45" rows="2" disabled="disabled" id="componente"></textarea></td>
 </tr>    
 </tbody>
 </table>
