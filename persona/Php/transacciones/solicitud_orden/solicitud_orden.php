@@ -10,8 +10,8 @@ if($res){
 }else{
 	$idSolicitud='1';
 }
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE HTML>
+<html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Entrada de Articulos</title>        
@@ -242,14 +242,14 @@ if($res){
       <td>Recaudos:</td>
       <td colspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('Orden Medica');
+			$recaudo->setTiporecaudo('ORDEN MEDICA');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
-			if($consul[$i][3]=='Orden Medica'){					
+			if($consul[$i][3]=='ORDEN MEDICA'){					
 		?>
           <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disabled">
-        <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
+        <?php echo "<label  for='$i'>".ucfirst(strtolower($consul[$i][2]))."</label>"; ?><br>
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Medicinas. Por favor <a href='#'>click</a></div>";}			
 		}?></td>

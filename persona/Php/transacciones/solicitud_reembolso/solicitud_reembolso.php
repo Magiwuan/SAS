@@ -404,7 +404,7 @@ function borrar(obj) {
 			if($consul[$i][3]=='REEMBOLSOS'){					
 		?>
      <input name="recaudos[]" type="checkbox" disabled id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>">
-        <?php echo "<label  for='$i'>".mb_convert_case($consul[$i][2], MB_CASE_TITLE, "utf-8")."</label>"; ?><br>
+        <?php setlocale(LC_ALL,'es');  echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Reembolso. Por favor <a href='#'>click</a></div>";}			
 		}?></td>
