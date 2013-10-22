@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-10-2013 a las 16:18:19
+-- Tiempo de generación: 22-10-2013 a las 15:25:49
 -- Versión del servidor: 5.5.32
 -- Versión de PHP: 5.3.10-1ubuntu3.8
 
@@ -47,7 +47,14 @@ CREATE TABLE IF NOT EXISTS `tbeneficiario` (
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_beneficiario`),
   KEY `id_titular` (`id_titular`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `tbeneficiario`
+--
+
+INSERT INTO `tbeneficiario` (`id_beneficiario`, `id_titular`, `nacionalidad`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `sexo`, `fecha_nac`, `celular`, `telefono`, `parentesco`, `participacion`, `estado_civ`, `id_motivo`, `observación`, `estatus`) VALUES
+(1, 1, 'V', '20388179-01', 'ADDIEL', 'ANDRES', 'ALVARADO', 'VILLALBA', 'M', '2010-06-16', '0416-2531333', '0255-6222628', 'HIJO', '50%', 'S', 0, '', '1');
 
 -- --------------------------------------------------------
 
@@ -71,7 +78,8 @@ CREATE TABLE IF NOT EXISTS `tbeneficiario_discapacidad` (
 
 INSERT INTO `tbeneficiario_discapacidad` (`id_beneficiario_discapacidad`, `id_beneficiario`, `id_discapacidad`, `estatus`) VALUES
 (1, 1, 0, '1'),
-(2, 2, 0, '1');
+(2, 2, 0, '1'),
+(3, 1, 0, '1');
 
 -- --------------------------------------------------------
 
@@ -100,7 +108,10 @@ INSERT INTO `tbeneficiario_recaudo` (`id_beneficiario_recaudo`, `id_beneficiario
 (3, 1, 11, 'I', '1'),
 (4, 2, 9, 'I', '1'),
 (5, 2, 10, 'I', '1'),
-(6, 2, 11, 'I', '1');
+(6, 2, 11, 'I', '1'),
+(7, 1, 9, 'I', '1'),
+(8, 1, 10, 'I', '1'),
+(9, 1, 11, 'I', '1');
 
 -- --------------------------------------------------------
 
@@ -113,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `tcargo` (
   `nombre` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=57 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=75 ;
 
 --
 -- Volcado de datos para la tabla `tcargo`
@@ -125,7 +136,19 @@ INSERT INTO `tcargo` (`id_cargo`, `nombre`, `estatus`) VALUES
 (52, 'TÉCNICO', '1'),
 (54, 'ESPECIALISTA', '1'),
 (55, 'ESPECIALISTA INTEGRAL', '1'),
-(56, 'PRUEBA DOS', '0');
+(56, 'PRUEBA DOS', '0'),
+(57, 'COORDINADOR', '1'),
+(58, 'FDFF', '1'),
+(59, 'FDFF', '1'),
+(66, 'CCC', '1'),
+(67, 'CCC', '1'),
+(68, 'CCC', '1'),
+(69, 'SSS', '1'),
+(70, 'ASAFASF', '0'),
+(71, 'ASFAFAF', '0'),
+(72, 'GGFSDGS', '1'),
+(73, 'SSSS', '1'),
+(74, 'ABC', '1');
 
 -- --------------------------------------------------------
 
@@ -199,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `tcobertura` (
   `fecha_fin` date NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_cobertura`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `tcobertura`
@@ -219,15 +242,15 @@ CREATE TABLE IF NOT EXISTS `tdepartamento` (
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_departamento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=25 ;
 
 --
 -- Volcado de datos para la tabla `tdepartamento`
 --
 
 INSERT INTO `tdepartamento` (`id_departamento`, `nombre`, `estatus`) VALUES
-(10, 'COMERCIALIZACIÓN', '1'),
-(11, 'TECNOLOGÍA', '1'),
+(4, 'TECNOLOGÍA', '1'),
+(7, 'COMERCIALIZACIÓN', '1'),
 (14, 'RECURSOS HUMANOS', '1'),
 (15, 'PRODUCCION', '0'),
 (16, 'PRODUCCIÓN AGRÍCOLA', '1'),
@@ -236,7 +259,9 @@ INSERT INTO `tdepartamento` (`id_departamento`, `nombre`, `estatus`) VALUES
 (19, 'CC D', '0'),
 (20, 'S FD', '1'),
 (21, 'SD F', '1'),
-(22, 'D FF', '1');
+(22, 'D FF', '1'),
+(23, 'CCC', '1'),
+(24, 'CCC', '1');
 
 -- --------------------------------------------------------
 
@@ -477,7 +502,7 @@ CREATE TABLE IF NOT EXISTS `texamen` (
   `tipo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_examen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `texamen`
@@ -21174,7 +21199,7 @@ CREATE TABLE IF NOT EXISTS `tpatologia` (
   `nombre` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_patologia`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `tpatologia`
@@ -21182,9 +21207,10 @@ CREATE TABLE IF NOT EXISTS `tpatologia` (
 
 INSERT INTO `tpatologia` (`id_patologia`, `nombre`, `estatus`) VALUES
 (1, 'DIABETIS', '1'),
-(2, 'CANCER', '1'),
+(2, 'CANCER', '0'),
 (3, 'PRUEBA', '1'),
-(4, 'PRUEBA B', '0');
+(4, 'PRUEBA B', '0'),
+(5, 'CANCER', '1');
 
 -- --------------------------------------------------------
 
@@ -21243,21 +21269,23 @@ CREATE TABLE IF NOT EXISTS `tprofesion` (
   `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_profesion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=24 ;
 
 --
 -- Volcado de datos para la tabla `tprofesion`
 --
 
 INSERT INTO `tprofesion` (`id_profesion`, `nombre`, `estatus`) VALUES
-(11, 'MAGISTER', '1'),
-(12, 'CONTADOR', '1'),
-(13, 'INGENIERO', '1'),
-(17, 'LICENCIADO', '1'),
-(18, 'TÉCNICO SUPERIOR UNIVERSITARIO', '1'),
-(19, 'TÉCNICO MEDIO', '1'),
-(20, 'DD D', '1'),
-(21, 'DC D', '1');
+(1, 'MAGISTER', '1'),
+(2, 'CONTADOR', '1'),
+(3, 'INGENIERO', '1'),
+(4, 'LICENCIADO', '1'),
+(5, 'TÉCNICO SUPERIOR UNIVERSITARIO', '1'),
+(6, 'TÉCNICO MEDIO', '1'),
+(7, 'DD D', '1'),
+(8, 'DC D', '1'),
+(9, 'CONTADOR', '1'),
+(10, 'CONTADOR', '1');
 
 -- --------------------------------------------------------
 
@@ -21571,7 +21599,7 @@ CREATE TABLE IF NOT EXISTS `ttitular` (
 --
 
 INSERT INTO `ttitular` (`id_titular`, `tipo_nomina`, `nacionalidad`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `sexo`, `fecha_nac`, `estado_civ`, `celular`, `telefono`, `correo_elect`, `correo_corp`, `fecha_ingr`, `direccion_hab`, `id_profesion`, `id_cargo`, `id_ciudad`, `id_departamento`, `id_upsa`, `id_ciudad_nacimiento`, `grupo`, `observacion`, `estatus`) VALUES
-(1, 'P', 'V', '20388179', 'ANDRES', 'ALFONSO', 'ALVARADO', 'ROSALES', 'M', '1990-12-28', 'S', '0416-2531333', '0255-6222628', 'ANDASDASD.CMASDAS@ASDA.COM', '', '2013-10-03', 'ASASDASD', 4, 42, 1, 4, 2, 1, '', '', '1'),
+(1, 'P', 'V', '20388179', 'ANDRES', 'ALFONSO', 'ALVARADO', 'ROSALES', 'M', '1990-12-28', 'S', '0416-2531333', '0255-6222628', 'ANDRES.ALVARADO@GMAIL.COM', 'ANDRES.ALVARADO@GMAIL.COM', '2013-10-03', 'ACARIGUA EDO PORTUGUESA', 4, 42, 1, 4, 2, 1, '', '', '1'),
 (2, 'E', 'V', '20643089', 'YELIX', '', 'MONSALVE', '', 'F', '1990-07-27', 'S', '0416-6550916', '0255-6218882', 'YELIX@HB.COM', '', '2013-10-09', 'ADASD', 2, 44, 1, 7, 7, 1, '', '', '1');
 
 -- --------------------------------------------------------
