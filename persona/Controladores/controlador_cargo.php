@@ -17,16 +17,15 @@ function incluir(){
 	$cargo = new cargo();
 	$cargo->setNom($_POST["nombre"]);
 	$val_car=$cargo->valida_cargo();
-	if($val_car='-1'){
+	if($val_car!='1'){
 		$iCargo=$cargo->iCargo();
 		if($iCargo<0){
 		echo "Los datos se guardaron con Exito!!!";
-		exit();
 		}else{
 		echo "Error al incluir cargo";
 		}
 	}else{
-		echo "El cargo ya existe!";
+		echo "No";
 	}
 }
 

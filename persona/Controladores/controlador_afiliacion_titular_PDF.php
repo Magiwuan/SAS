@@ -92,17 +92,16 @@
 
 	}
 	$pdf->Cell(45,6,'DATOS DEL TITULAR',1,0,'C',true);
-	$pdf->SetFont('Times','',10);
 	$pdf->Cell(109,6,'','L',0,'C',true);
 	$pdf->Cell(15,6,$elDia,1,0,'C',true);
 	$pdf->Cell(15,6,$elMes,1,0,'C',true);
 	$pdf->Cell(15,6,$elYear,1,1,'C',true);
 	$pdf->SetFont('Times','B',10);
-	$pdf->Cell(90,6,'Apellidos y Nombres',1,0,'C',true);
-	$pdf->Cell(32,6,'Nacionanlidad',1,0,'C',true);
-	$pdf->Cell(47,6,'Cedula de Identidad',1,0,'C',true);
-	$pdf->Cell(30,6,'Sexo',1,1,'C',true);	
-	$pdf->SetFont('Times','',11);
+	$pdf->Cell(90,6,'APELLIDO(S) Y NOMBRE(S)',1,0,'C',true);
+	$pdf->Cell(32,6,'NACIONALIDAD',1,0,'C',true);
+	$pdf->Cell(47,6,utf8_decode('CÉDULA DE IDENTIDAD'),1,0,'C',true);
+	$pdf->Cell(30,6,'SEXO',1,1,'C',true);	
+	$pdf->SetFont('Times','',10);
 	$pdf->Cell(90,6,$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2,1,0,'C',true);
 	$pdf->Cell(32,6,$nacionalidad,1,0,'C',true);
 	$pdf->Cell(47,6,$cedula,1,0,'C',true);
@@ -134,7 +133,7 @@
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,utf8_decode("DIRECCIÓN DE HABITACIÓN"),1,1,'C',true);	
-	$pdf->SetFont('Times','',10);
+	$pdf->SetFont('Times','',9);
 	$pdf->Cell(199,6,$direccion_hab,1,1,'L',true);
 	$ciudad->setidCiudad($id_ciudad);
 	$consulta=$ciudad->buscar_c_e_p();
@@ -143,12 +142,12 @@
 		$nombEstado= utf8_decode($consulta[$i][2]);
 		$nombPais= $consulta[$i][3];
 	}
-	$pdf->Cell(26,6,'Pais: '.$nombPais,1,0,'L',true);	
+	$pdf->Cell(32,6,'Pais: '.$nombPais,1,0,'L',true);	
 	$pdf->Cell(42,6,'Estado: '.$nombEstado,1,0,'L',true);
 	$pdf->Cell(44,6,'Ciudad: '.$nombCiudad,1,0,'L',true);
-	$pdf->Cell(87,6,'E-mail: '.$correo_elect,1,1,'L',true);
+	$pdf->Cell(81,6,'E-mail: '.$correo_elect,1,1,'L',true);
 	$pdf->Ln(5);
-	$pdf->SetFont('Times','B',10);
+	$pdf->SetFont('Times','B',9);
 	$upsa->setidUpsa($id_upsa);
 	$consulta=$upsa->Buscar_upsa();
 	for($i=0;$i<count($consulta);$i++){
@@ -161,8 +160,8 @@
 	}	
 	$pdf->Cell(199,6,utf8_decode('DIRECCIÓN DE TRABAJO'),1,1,'C',true);	
 	$pdf->SetFont('Times','',10);
-	$pdf->Cell(40,6,'Upsa: '.$nombre,1,0,'L',true);
-	$pdf->Cell(109,6,utf8_decode('Dirección: ').$direccion,1,0,'L',true);
+	$pdf->Cell(35,6,'Upsa: '.$nombre,1,0,'L',true);
+	$pdf->Cell(114,6,utf8_decode('Dirección: ').$direccion,1,0,'L',true);
 	$pdf->Cell(50,6,'Ciudad: '.$ciudad_upsa,1,1,'L',true);
 	$pdf->Cell(50,6,'Estado: '.$estado_upsa,1,0,'L',true);
 	$pdf->Cell(40,6,'Pais: '.$pais_upsa,1,0,'L',true);	
@@ -223,7 +222,5 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	}else{
 		echo 'Ha ocurrido un error generando el PDF.';
 	}
-// Fin del Controlador que el General PDF de la consulta de articulos
-		
-		
+// Fin del Controlador que el General PDF de la consulta de articulos		
 ?>

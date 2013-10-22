@@ -39,6 +39,17 @@ public function eespecialidad(){
 				
 				parent::cerrar_bd();
 }
+public function valida_especialidad() { 
+		$sql="select * from tespecialidad where nombre='$this->nom'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
+		else
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	} 	
 //       Metodo para listar especialidad en los combos
 	function lista_especialidad()
 	{ 
@@ -66,14 +77,13 @@ public function eespecialidad(){
         $sql="SELECT * FROM tespecialidad WHERE estatus='1' order by nombre";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
+		if(parent::getNRegistro($cursor)<0)
 			return 1;//fallo la operacion
 			else 
 			return $sql;		
 			
 			parent::cerrar_bd();
      }	
-	
+
 }//cierra la clase
 ?>

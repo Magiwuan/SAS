@@ -243,7 +243,7 @@ public function eTitular(){
 //       Metodo Para Buscar idTitular
      public function buscar_id(){
 		$c=0;
-        $sql="select * from ttitular where id_titular = '$this->idTitular' ";
+        $sql="select a.*, b.nombre as profesion from ttitular as a, tprofesion as b  where a.id_titular = '$this->idTitular' and a.id_profesion=b.id_profesion";
 		$cursor=parent::ejecuta_sql($sql);		 
 		if($row= parent::proxima_tupla($cursor)){
 								
@@ -272,6 +272,7 @@ public function eTitular(){
 				$fila[$c][23]=$row["correo_corp"];
 				$fila[$c][24]=$row["observacion"];
 				$fila[$c][25]=$row["grupo"];
+				$fila[$c][26]=$row["profesion"];
 				
 				$c++;			
 				
@@ -350,22 +351,17 @@ public function eTitular(){
 			parent::cerrar_bd();
      }  
 //       Metodo Para Buscar Cedula
-     public function validar_titular(){
-		 $c=0;
-        $sql="select * from ttitular where cedula = '$this->ced' ";
-		$cursor=parent::ejecuta_sql($sql);		 
-		if($row= parent::proxima_tupla($cursor)){	
-				$fila[$c][1]=$row["id_titular"];				
-		 		$fila[$c][3]=$row["cedula"];				
-				$c++;			
-		 }
-		if ( $fila>0 )
-			return $fila;
+     public function validar_titular(){ 
+		 $sql="select * from ttitular where cedula = '$this->ced' ";
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return ($cursor= parent::ejecuta_sql($sql));
 		else
-			return -1;
-			
-			parent::cerrar_bd();
-     }	
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	}  
 	 
 	  public function verificar(){
 		if($this->ced!=NULL){ 
@@ -407,8 +403,7 @@ public function eTitular(){
 			$sql .= " order by 5,2 desc";			
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta>0)
+		if(parent::getNRegistro($cursor)>0)
 			return $sql;
 			else 
 			return -1;		

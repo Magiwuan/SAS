@@ -66,22 +66,15 @@ class medico extends conectaBDMy{
     }
 //       Metodo Modificar
 	function mMedico() {
-		$sql= "UPDATE tmedico SET 
-				nacionalidad		='$this->nac',
-				nombre 				='$this->nomb',
-				apellido		 	='$this->apell',
-				cedula	 			='$this->ced',
-				id_especialidad		='$this->espec',
-				estatus 			='1' 
-			   WHERE 
-			   	id_medico =  '$this->idMedico'";
+		$sql= "UPDATE tmedico SET nacionalidad='$this->nac',nombre='$this->nomb',apellido='$this->apell',cedula='$this->ced',id_especialidad='$this->espec',
+				estatus ='1' WHERE id_medico =  '$this->idMedico'";
 		$respuesta = parent::ejecuta_sql( $sql );
 			if ( $respuesta>0 )
 				return -1;// Exito
 			else
 				return 1;//fallo la operacion
 			
-				parent::cerrar_bd();
+		parent::cerrar_bd();
 
 	}
 //       Metodo Eliminar
@@ -144,22 +137,19 @@ function lista_medico()
 			
 			parent::cerrar_bd();
      }
-//       Metodo Para Buscar RIF
-        public function validar_medico(){
-		 $c=0;
+//       Metodo Para Buscar RIF	     
+      public function validar_medico() { 
         $sql="select * from tmedico where cedula = '$this->ced' ";
-		$cursor=parent::ejecuta_sql($sql);		 
-		if($row= parent::proxima_tupla($cursor)){				
-		 		$fila[$c][5]=$row["cedula"];				
-				$c++;			
-		 }
-		if ( $fila>0 )
-			return $fila;
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
 		else
-			return -1;
-			
-			parent::cerrar_bd();
-     }		 
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	}   
+//       	 
 //       Sentencia sql para Buscar el listar
       public function sql(){
         $sql="select a.id_medico, a.nombre, a.apellido, a.cedula, a.id_especialidad, b.nombre as especialidad from tmedico as a, tespecialidad as b where a.estatus=1 and a.id_especialidad=b.id_especialidad";
@@ -175,8 +165,7 @@ function lista_medico()
 			$sql .= " order by 3,4 desc";				
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta>0)
+		if(parent::getNRegistro($cursor)>0)
 			return $sql;
 			else 
 			return -1;		

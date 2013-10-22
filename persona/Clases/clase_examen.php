@@ -46,6 +46,17 @@ public function eExamen(){
 				parent::cerrar_bd();
 
 }
+public function valida_examen() { 
+		$sql="select * from texamen where descripcion='$this->descripcion' and tipo='$this->tipoExamen'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
+		else
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	} 
 //       Metodo para listar cargo en los combos
 	function lista_examen()
 	{ 
@@ -158,8 +169,7 @@ public function validar_examen(){
         $sql="SELECT * FROM texamen WHERE estatus='1' order by descripcion";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
+		if(parent::getNRegistro($cursor)<0)
 			return 1;//fallo la operacion
 			else 
 			return $sql;		

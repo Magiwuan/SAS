@@ -47,12 +47,12 @@ function incluir(){
 		$beneficiario->setCel($_POST["celular"]);
 		$beneficiario->setTlf($_POST["telefono"]);
 		$beneficiario->setParentesco($_POST["parentesco"]);
-		$beneficiario->setParticipacion($_POST["participacion"]);
-		// Se verifica que no exista para poder incluir
-		//$Validabeneficiario=$beneficiario->validar_beneficiario();
-				// Se inicia la Transacción
-				$beneficiario->IniciaTransaccion();
-	//	if ($Validabeneficiario=='-1'){
+		$beneficiario->setParticipacion($_POST["participacion"]);		
+		// Se inicia la Transacción
+		$beneficiario->IniciaTransaccion();
+		// Se verifica que no exista para poder incluir	
+		$Val_benef=$beneficiario->valida_beneficiario();			
+		if ($Val_benef=='-1'){
 		// Si $vadila_beneficiario no encuentra nada (-1) 
 		// Busca el ultimo registro de la entrada e incrementa el id
 				$result = $beneficiario->buscaUltimoID();	
@@ -110,12 +110,12 @@ function incluir(){
 					 }
 			 $cont_rec++;	 	
 			 }
-	/*este else es el del vaildar no sera activado hasta pensar el metodo de validacion de beneficiario
+	//este else es el del vaildar no sera activado hasta pensar el metodo de validacion de beneficiario
 	}else{
 			echo "No";//usuario ya registrado			
 			$var_control=true;
 			exit();
-		}*/
+		}
 		
 		if ($var_control){	
 			$beneficiario->RompeTransaccion();		
@@ -271,7 +271,7 @@ function eliminar(){
 			exit();
 		}else{
 			$beneficiario->FinTransaccion();	
-			echo "Los Datos fueron actualizados con exito!!!";
+			echo "Los Datos fueron actualizados con exito!!";
 			exit();	
 		}
 }	

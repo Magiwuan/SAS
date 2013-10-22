@@ -18,21 +18,19 @@
 	$id2=$_GET["id2"];
 	$id=$_GET["id"];
 
-	$titular->setidTitular($id2);
+	$titular->setidTitular(1);
 	$resultado=$titular->buscar_id();
 	if($resultado!='-1'){
 	$pdf=new PDF('P','mm','A4');
-	$d= "DÍA";
-	$dia = utf8_decode($d);
-	$a= "AÑO";	
-	$año = utf8_decode($a);
 	$pdf->Open();
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
-  	$pdf->SetFont('Times','B',10);
+	$pdf->Ln(4);  	
+	$pdf->SetFont('Times','B',10);
 	$pdf->SetFillColor(255);
     $pdf->SetTextColor(000);
 	$pdf->SetMargins(6,6,6,6);
+	
 	$Fecha=date("d/m/Y");
 	if (strlen($Fecha)==10)
 	{
@@ -40,12 +38,13 @@
   	 	$elMes=substr($Fecha,3,2);
   	 	$elYear=substr($Fecha,6,4);
 	}
+	
 	$pdf->Cell(150);
 	$pdf->Cell(45,6,'FECHA',1,1,'C',true);
 	$pdf->Cell(154);
-	$pdf->Cell(15,6,$dia,1,0,'C',true);
+	$pdf->Cell(15,6,utf8_decode('DÍA'),1,0,'C',true);
 	$pdf->Cell(15,6,'MES',1,0,'C',true);
-	$pdf->Cell(15,6,$año,1,1,'C',true);
+	$pdf->Cell(15,6,utf8_decode('AÑO'),1,1,'C',true);
 	   	for($i=0;$i<count($resultado);$i++){
 			
 		if($resultado[$i][2]=='V'){
@@ -92,6 +91,7 @@
 		$id_upsa 		=$resultado[$i][19];
 		$CiudadNac		=$resultado[$i][22];
 		$correo_corp	=$resultado[$i][23];
+		$profesion	=$resultado[$i][26];
 		}
 	$ciudad->setidCiudad($CiudadNac);
 	$consulta=$ciudad->buscar_c_e_p();
@@ -169,12 +169,10 @@
 	$pdf->Cell(64,6,'E-mail: '.$correo_elect,1,1,'L',true);
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);
-	$h= "DIRECCIÓN DE TRABAJO";
-	$h = utf8_decode($h);
 	$upsa->setidUpsa($id_upsa);
 	$consulta=$upsa->Buscar_upsa();
 	for($i=0;$i<count($consulta);$i++){
-		$nombre			=$consulta[$i][1];
+		$upsa			=$consulta[$i][1];
 		$direccion		=$consulta[$i][2];
 		$ciudad_upsa	=$consulta[$i][3];
 		$estado_upsa	=$consulta[$i][4];
@@ -190,28 +188,20 @@
 	for($i=0;$i<count($consulta);$i++){
 		$cargo			=$consulta[$i][2];
 	}
-	$detalle_pro->setidTitular($id2);
-	$consulta=$detalle_pro->buscar_profesion_pdf();
-	for($i=0;$i<count($consulta);$i++){
-		$profesion	=utf8_decode($consulta[$i][2]);
-	}
-	$p= "Profesión: ";
-	$p = utf8_decode($p);
-	$pdf->Cell(199,6,$h,1,1,'C',true);	
-	$pdf->SetFont('Times','',10);
+	$pdf->Cell(199,6,utf8_decode("DIRECCIÓN DE TRABAJO"),1,1,'C',true);	
+	$pdf->SetFont('Times','',9);
 	$pdf->Cell(199,6,$direccion,1,1,'L',true);
 	$pdf->Cell(40,6,'Pais: '.$pais_upsa,1,0,'L',true);	
 	$pdf->Cell(45,6,'Estado: '.$estado_upsa,1,0,'L',true);
 	$pdf->Cell(50,6,'Ciudad: '.$ciudad_upsa,1,0,'L',true);
-	$pdf->Cell(64,6,'E-mail: '.$correo_corp,1,1,'L',true);
-	$pdf->Cell(135,6,'Departamento / UPSA: '.utf8_decode($departamento).' / '.$nombre,1,0,'L',true);
+	$pdf->Cell(64,6,utf8_decode("Profesión: ").$profesion,1,1,'L',true);
+	$pdf->Cell(77,6,'Departamento: '.utf8_decode($departamento),1,0,'L',true);
+	$pdf->Cell(58,6,'UPSA: '.utf8_decode($upsa),1,0,'L',true);
 	$pdf->Cell(64,6,'Fecha de Ingreso: '.$fecha_Ingr,1,1,'L',true);
-	$pdf->Cell(135,6,$p.$profesion,1,0,'L',true);
+	$pdf->Cell(135,6,'E-mail: '.$correo_corp,1,0,'L',true);
 	$pdf->Cell(64,6,'Cargo: '.$cargo,1,1,'L',true);
 	$pdf->Ln(5);
-	$e="EXCLUSIÓN DE BENEFICIARIO";
-	$e = utf8_decode($e);
-	$pdf->Cell(199,6,$e,1,1,'C',true);	
+	$pdf->Cell(199,6,utf8_decode("EXCLUSIÓN DE BENEFICIARIO"),1,1,'C',true);	
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,'BENEFICIARIOS',1,1,'C',true);	
 	$pdf->Cell(80,6,'Apellidos y Nombres',1,0,'C',true);
@@ -249,7 +239,7 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	$cadena2=" de Salud de la Empresa Mixta Arroz del ALBA S.A. La exclusión del beneficiario arriba señalado y anexo recaudos";
 	$cadena = utf8_decode($cadena);
 	$cadena2 = utf8_decode($cadena2);
-	$pdf->Cell(199,5,'Yo: '.$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2.' portador de la C.I.:'.$cedula.' '.$cadena,0,1,'C');
+	$pdf->Cell(199,5,'Yo: '.$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2.' portador de la C.I.:'.$resultado[$i][2].'-'.$cedula.' '.$cadena,0,1,'C');
 	$pdf->Cell(199,5,$cadena2,0,1,'C');
 	$pdf->SetFont('Times','B',10);
 	$pdf->Ln(5);

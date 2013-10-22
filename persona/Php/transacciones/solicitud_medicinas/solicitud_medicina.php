@@ -10,8 +10,8 @@ if($res){
 }else{
 	$idSolicitud='1';
 }
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+?><!DOCTYPE HTML>
+<html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:Solicitud de Medicinas:.</title>        
@@ -100,6 +100,8 @@ if($res){
 	$('#tratamiento1').click(function(){
 		$('#boton_fec_ini').attr('disabled', true);
 		$('#boton_fec_fin').attr('disabled', true);
+		$('#fecha_ini').val('');
+		$('#fecha_fin').val('');
 	});	
 });	
  $(function() {       

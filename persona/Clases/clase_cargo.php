@@ -56,12 +56,13 @@ public function buscar_cargo(){
 	} 	
 	public function valida_cargo() { 
 		$sql="select * from tcargo where nombre='$this->nom'"; 
-		$cursor = parent::ejecuta_sql( $sql );
-		parent::cerrar_bd();
-		if ( $cursor>0 )
-			return -1;// Exito
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
 		else
-			return 2;//fallo la operacion
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	 		
 	} 	
 //       Metodo para listar cargo en los combos
 public function lista_cargo(){ 
@@ -91,13 +92,14 @@ public function lista_cargo(){
         $sql="SELECT * FROM tcargo WHERE estatus='1' order by nombre";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
+		if(parent::getNRegistro($cursor)<0)
 			return 1;//fallo la operacion
 			else 
 			return $sql;		
 			
 			parent::cerrar_bd();
      }	
+  
+
 }//cierra la clase
 ?>

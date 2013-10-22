@@ -46,6 +46,17 @@ public function eCiudad(){
 				parent::cerrar_bd();
 
 }	
+public function valida_ciudad() { 
+		$sql="select * from tciudad where nombre='$this->nom'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
+		else
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	} 
 //       Metodo Para Listar  Ciudad por Estado
     public function combo(){		
 			$combo = array();
@@ -162,6 +173,11 @@ public function combo_error(){
 			
 			parent::cerrar_bd();		
 	}	 	 
-	
+//--------------------------------------------------------------------
+//       Metodo indica la cantidad de tuplas leidas
+//--------------------------------------------------------------------
+     public function getNTupla($resultado){
+        return ( parent::getNRegistro($resultado)  );
+     }	
 }//cierra la clase
 ?>

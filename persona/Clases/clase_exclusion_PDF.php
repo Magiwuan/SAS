@@ -18,7 +18,7 @@ class PDF extends FPDF
 		$this->SetFont('Times','B',8);
 		$this->Cell(0,1,'Sistema Autogestionado de Salud',0,1,'C');
 		$this->SetFont('Times','B',12);
-		$this->Cell(0,10,'EMPRESA MIXTA SOCIALISTA ARROZ DEL ALBA, S.A.',0,1,'C');
+	//	$this->Cell(0,10,'EMPRESA MIXTA SOCIALISTA ARROZ DEL ALBA, S.A.',0,1,'C');
 		$this->Ln(0);		
 	}
 	function Footer()

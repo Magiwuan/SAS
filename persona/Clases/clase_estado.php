@@ -49,6 +49,17 @@ public function eEstado(){
 				parent::cerrar_bd();
 
 }	
+public function valida_estado() { 
+		$sql="select * from testado where nombre='$this->nom' and id_pais='$this->idPais'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
+		else
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	} 
 //       Metodo para consulta
 	function buscar_estado()
 	{ 
@@ -98,8 +109,7 @@ function lista_estado()
         $sql="SELECT a.id_estado, a.nombre, a.id_pais, b.id_pais, b.nombre as pais FROM testado as a, tpais as b WHERE a.estatus='1' and a.id_pais=b.id_pais order by pais";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
+		if(parent::getNRegistro($cursor)<0)
 			return 1;//fallo la operacion
 			else 
 			return $sql;	

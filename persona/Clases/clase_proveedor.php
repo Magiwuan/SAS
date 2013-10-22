@@ -148,6 +148,17 @@ public function eProveedor(){
 			
 				parent::cerrar_bd();
 }
+public function valida_proveedor() { 
+		$sql="select * from tproveedor where rif='$this->rif'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
+		else
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	}   
 //       Metodo Buscar ultmimo
     public function proveedor_UltimoID(){
        $sql="SELECT * FROM tproveedor ORDER BY id_proveedor DESC LIMIT 1";
@@ -346,8 +357,7 @@ function lista_proveedor_ordenes()
 			$sql .= " order by 2,3 desc";		
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta>0)
+		if(parent::getNRegistro($cursor)>0)
 			return $sql;
 			else 
 			return -1;		

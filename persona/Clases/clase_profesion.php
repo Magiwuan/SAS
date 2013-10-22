@@ -62,31 +62,24 @@ public function eProfesion(){
 			
 		parent::cerrar_bd();
 	}   
-public function valida_profesion() 
-	{ 
-		$c=0;
+public function valida_profesion() { 
 		$sql="select * from tprofesion where nombre='$this->nom'"; 
-		$cursor=parent::ejecuta_sql($sql);
-		if($row= parent::proxima_tupla($cursor))
-		 {
-				$fila[$c][2]=$row["nombre"];
-				$c++;
-		 }
-		
-		if ( $fila>0 )
-			return $fila;
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
 		else
-			return -1;
-			
-			parent::cerrar_bd();
-	} 		
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	}   
+		
 //       Sentencia sql para listar
      public function sql_profesion(){
         $sql="SELECT * FROM tprofesion WHERE estatus='1' order by nombre";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
+		if(parent::getNRegistro($cursor)<0)
 			return 1;//fallo la operacion
 			else 
 			return $sql;		

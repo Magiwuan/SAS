@@ -7,7 +7,7 @@ function valida(){
 		return false;
 	}
 	valor1=document.form_solicitud_medicina.cedTitular.value;
-	if(!/\d[0-9]$/.test(valor1) ) {//4
+	if(!/\d[0-9]$/.test(valor1) ) {
 		document.form_solicitud_medicina.cedTitular.focus();
 		jAlert('El campo \"Cedula\" no es valido! Ejemplo: 123456789, sin caracteres especiales y letras','Dialogo de Alerta');
 		return false;
@@ -45,7 +45,7 @@ function valida(){
 		} 
 	
 		valor5=document.form_solicitud_medicina.cedAutorizado.value;
-		if(!/\d{8}$/.test(valor5) ) {//4		
+		if(!/\d{8}$/.test(valor5) ) {		
 			jAlert('El campo \"Nro. Cedula\" no es valido! Ejemplo: 123456789, sin caracteres especiales y letras','Dialogo de Alerta');
 			document.form_solicitud_medicina.cedAutorizado.focus();
 			return false;

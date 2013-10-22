@@ -95,25 +95,17 @@ public function eMedicamento(){
 			parent::cerrar_bd();
      }  
 	 
-	  public function validar_medicamento(){
-		 $c=0;
-        $sql="select * from tmedicamento where descripcion='$this->nom'";
-		$cursor=parent::ejecuta_sql($sql);		 
-		if($row= parent::proxima_tupla($cursor))
-		 {
-			 	$fila[$c][1]=$row["id_medicamento"];
-				$fila[$c][2]=$row["descripcion"];
-				$fila[$c][3]=$row["presentacion"];
-				$fila[$c][4]=$row["componente"];		
-				$c++;
-		 }		
-		if ( $fila>0 )
-			return $fila;
+     public function validar_medicamento() { 
+		$sql="select * from tmedicamento where descripcion='$this->nom'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
 		else
-			return -1;
-			
-			parent::cerrar_bd();
-     }  
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
+	}   
 //       Sentencia sql para listar
      public function sql_medicamento(){
         $sql="SELECT * FROM tmedicamento WHERE estatus='1' order by descripcion";
@@ -121,8 +113,7 @@ public function eMedicamento(){
 		$sql .= " and nombre like '$this->nom%'";	*/
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
+		if(parent::getNRegistro($cursor)<0)
 			return 1;//fallo la operacion
 			else 
 			return $sql;		

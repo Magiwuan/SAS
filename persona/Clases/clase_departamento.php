@@ -76,23 +76,16 @@ public function eDepartamento(){
 			
 			parent::cerrar_bd();
      }	  
-	public function valida_departamento() 
-	{ 
-		$c=0;
-		$sql="select * from tdepartamento where nombre='$this->nom'"; 
-		$cursor=parent::ejecuta_sql($sql);
-		if($row= parent::proxima_tupla($cursor))
-		 {
-				$fila[$c][2]=$row["nombre"];
-				$c++;
-		 }
-		
-		if ( $fila>0 )
-			return $fila;
+public function valida_departamento() { 
+		$sql="select * from tdeartamento where nombre='$this->nom'"; 
+		$cursor=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($cursor)>0)
+		return 1;//Si encuentra registro envia 1 para validar
 		else
-			return -1;
-			
-			parent::cerrar_bd();
+		return -1; //si no encuentra registro procede a registrar	
+		
+		parent::cerrar_bd();	
+						 		
 	} 	
 	public function buscar() 
 	{ 
@@ -112,6 +105,12 @@ public function eDepartamento(){
 			return -1;
 			
 			parent::cerrar_bd();
-	} 	
+	} 
+//--------------------------------------------------------------------
+//       Metodo indica la cantidad de tuplas leidas
+//--------------------------------------------------------------------
+     public function getNTupla($resultado){
+        return ( parent::getNRegistro($resultado)  );
+     }	
 }//cierra la clase
 ?>
