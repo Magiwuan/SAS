@@ -52,8 +52,7 @@ function incluir(){
 		$beneficiario->IniciaTransaccion();
 		// Se verifica que no exista para poder incluir	
 		$Val_benef=$beneficiario->valida_beneficiario();			
-		if ($Val_benef=='-1'){
-		// Si $vadila_beneficiario no encuentra nada (-1) 
+		if ($Val_benef=='0'){
 		// Busca el ultimo registro de la entrada e incrementa el id
 				$result = $beneficiario->buscaUltimoID();	
 					if ($result){
