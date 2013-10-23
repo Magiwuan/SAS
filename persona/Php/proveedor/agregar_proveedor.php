@@ -1,5 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<!DOCTYPE HTML PUBLIC >
+<html lang="es">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />      
   	<link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />      
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  	
@@ -11,11 +12,10 @@
 	<script src="../../JavaScript/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/proveedor_jquery.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/proveedor.js"></script>
-    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>    	
+    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>  
+    <script src="../../JavaScript/es.js"></script>  	
 	<script src="../../JavaScript/jscal2.js"></script>    
-    <script src="../../JavaScript/es.js"></script>
     <script language="JavaScript" type="text/JavaScript">	
-
 	   $(document).ready(function(){
 
 			$('#nuevo').click(function(){
@@ -25,8 +25,8 @@
 			$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
 			$('#nuevo').attr('disabled', true);
 					
-			$('#boton_fec_ini').attr('disabled', false);
-			$('#boton_fec_fin').attr('disabled', false);
+			$('#bt_i').attr('disabled', false);
+			$('#bt_f').attr('disabled', false);
 			$('#nombre').attr('disabled', false);
 			$('#alias').attr('disabled', false);
 			$('#persona_cont').attr('disabled', false);
@@ -50,8 +50,8 @@
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
 		$('#agregar').attr('disabled', true);
 			
-			$('#boton_fec_ini').attr('disabled', true);
-			$('#boton_fec_fin').attr('disabled', true);
+			$('#bt_i').attr('disabled', true);
+			$('#bt_f').attr('disabled', true);
 			$('#nombre').attr('disabled', true);
 			$('#alias').attr('disabled', true);
 			$('#persona_cont').attr('disabled', true);
@@ -94,112 +94,7 @@
   	    
 </script>
 <style>
-.btn_act{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #09F;
-  border-right:1px solid #09F; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:black; 
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-  background-image: url(../../Imagen_sistema/cancelar.jpg);
-}
-.btn_nuevo_act_img{
-	  background-image: url(../../Imagen_sistema/nuevo.jpg);
-}
-.btn_cancelar_act_img{
-	 margin: auto;
-	 background-repeat: no-repeat; 
-	 cursor:hand; cursor:pointer;
-	 height: 21px;
-	 width: 22px;
-	 border: 0px;
-	 background-image: url(../../Imagen_sistema/cancelar.jpg);
-}
-.btn_guardar_act_img{
-	  background-image: url(../../Imagen_sistema/guardar.jpg);
-}
-.btn_act:hover{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #0F0;
-  border-right:1px solid #0F0; 
-  border-top:0px; 
-  border-left:0px;
-  font-size: 13px; 
-  color:black;
-  padding-left: 20px; 
-  background-repeat: no-repeat;
-  cursor:hand; 
-  cursor:pointer; 
-  margin-left:5px; 
-  margin-right:5px;
-  outline-width:0px;
-}
-
-.btn_guardar_desact{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #999;
-  border-right:1px solid #999; 
-  border-top:0px; 
-  border-left:0px; 
-  font-size: 13px;
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat; 
-  cursor:hand; cursor:pointer;
-  margin-left:5px; 
-  margin-right:5px; 
-  outline-width:0px;
-}
-/*.btn_guardar_desact_img{
-  background-image: url(Imagen_sistema/guardar_desac.jpg);
-
-}*/
-.btn_guardar_desact:hover{
-  height: 23px; 
-  background-color: #f5f5f0; 
-  border-bottom: 1px solid #333;
-  border-right:1px solid #333; 
-  border-top:0px; 
-  border-left:0px;
-  font-size: 13px; 
-  color:#CCC;
-  padding-left: 20px; 
-  background-repeat: no-repeat;
-  cursor:hand; 
-  cursor:pointer; 
-  margin-left:5px; 
-  margin-right:5px;
-  outline-width:0px;
-}
-#popup {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1001;
-}
-.content-popup {
-	 margin:0px;
-    padding:10px;
-    width:732px;
-    min-height:250px;
-    border-radius:4px;
-    background-color:#FFFFFF;
-    box-shadow: 0 2px 5px #666666;
-}
-.close {
- position:relative;
- left:700px;}
+.btn_act{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{background-image: url(../../Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(../../Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px;font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_guardar_desact{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer;  margin-left:5px; margin-right:5px;  outline-width:0px;}/*.btn_guardar_desact_img{background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}#popup {left: 0; position: absolute; top: 0; width: 100%; z-index: 1001;}.content-popup {margin:0px;  padding:10px;  width:732px;   min-height:250px; border-radius:4px; background-color:#FFFFFF; box-shadow: 0 2px 5px #666666;}.close {position:relative; left:700px;}
 </style>
 </head>
 <body>
@@ -292,19 +187,19 @@
           <td>Fecha Convenio:</td>
           <td width="41" align="right">Inicio:</td>
           <td width="108" align="right"><span>
-            <input name="fecha_inicio" type="text" disabled id="fecha_inicio" size="12" maxlength="10" title="Fecha desde" readonly />
+            <input name="fecha_inicio" type="text" id="fecha_inicio" size="12" maxlength="10" title="Fecha desde" readonly />
           </span></td>
-          <td width="88" align="left"><button name="boton_fec_ini" id="boton_fec_ini" class="button" disabled="disebled" title="Fecha hasta"><img src="../../Imagen_sistema/calend.png" width="20" height="20" title="Calendario para selecionar la fecha"/></button></td>
+          <td width="88" align="left"><button name="bt_i" id="bt_i" class="button" disabled="disabled"><img src="../../Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
           <td>Servicio:</td>
           <td colspan="2" rowspan="3" valign="top"><div id="cap_dis" style="width:20px" title="Servicio que establece convenio"></div>
 </td>
-        </tr>
+    </tr>
     <tr>
       <td>&nbsp;</td>
       <td height="28">&nbsp;</td>
       <td align="right">Fin:</td>
-      <td align="right"><input name="fecha_fin" type="text" disabled id="fecha_fin" size="12" title="Fecha Hasta" maxlength="10" readonly /></td>
-      <td align="left"><button name="boton_fec_fin" id="boton_fec_fin" class="button" disabled="disebled" title="Calendario para selecionar la fecha"><img src="../../Imagen_sistema/calend.png" width="20" height="20"/></button></td>
+      <td align="right"><input name="fecha_fin" type="text" id="fecha_fin" size="12" title="Fecha Hasta" maxlength="10" readonly /></td>
+      <td align="left"><button name="bt_f" id="bt_f" class="button" disabled="disabled"><img src="../../Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
       <td>&nbsp;</td>
       </tr>
  

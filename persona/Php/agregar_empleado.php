@@ -17,7 +17,6 @@
     <script language="javascript" type="text/javascript" src="JavaScript/empleado.js"></script>   
      <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){	
-		  
 	    $('#nuevo').click(function(){	
 		$("#disc_capa").css("display","block");
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');

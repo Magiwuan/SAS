@@ -1,15 +1,4 @@
-       Calendar.setup({
-        inputField : "fecha_inicio",
-		dateFormat: "%d-%m-%Y",
-        trigger    : "boton_fec_ini",
-        onSelect   : function() { this.hide() },
-      });
-         Calendar.setup({
-        inputField : "fecha_fin",
-		dateFormat: "%d-%m-%Y",
-        trigger    : "boton_fec_fin",
-        onSelect   : function() { this.hide() },
-      });  
+      
     $(document).ready(function(){
 		$("select[multiple]").asmSelect({					
 		});					
@@ -36,7 +25,19 @@
 		$('#select_ciuad').load('select_ciudad.php');
 		$("#cap1").css("display","block");	
 		$("#cap2").css("display","none"); 
-    });		
+    });	
+	 Calendar.setup({
+        inputField : "fecha_inicio",
+		dateFormat: "%d-%m-%Y",
+        trigger    : "boton_fec_ini",
+        onSelect   : function() { this.hide() },
+      });
+      Calendar.setup({
+        inputField : "fecha_fin",
+		dateFormat: "%d-%m-%Y",
+        trigger    : "boton_fec_fin",
+        onSelect   : function() { this.hide() },
+      });  	
 });	 		    
 function valida() {
 		   if (document.form_proveedor.nombre.value.length <1) 
