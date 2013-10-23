@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-10-2013 a las 15:25:49
+-- Tiempo de generación: 23-10-2013 a las 08:17:12
 -- Versión del servidor: 5.5.32
 -- Versión de PHP: 5.3.10-1ubuntu3.8
 
@@ -21139,7 +21139,7 @@ CREATE TABLE IF NOT EXISTS `tmodulo` (
 INSERT INTO `tmodulo` (`idmodulo`, `url`, `descripcion`, `icono`, `estatus`) VALUES
 (1, 'configuracion.php?id=1', 'Registro', 'Imagenes/configuracion.jpg', '1'),
 (2, 'servicios.php?id=2', 'Servicio Primario', 'Imagenes/medicamentos.jpg', '1'),
-(3, '', 'Reportes', 'Imagenes/Reportes.jpg', '1');
+(3, 'servicios.php?id=3', 'Reportes', 'Imagenes/reportes.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -21256,7 +21256,9 @@ INSERT INTO `tpermisos` (`idvista`, `idrol`, `incluir`, `consultar`, `modificar`
 (20, 2, '1', '1', '1', '1'),
 (21, 2, '1', '1', '1', '1'),
 (22, 2, '1', '1', '1', '1'),
-(23, 2, '1', '1', '1', '1');
+(23, 2, '1', '1', '1', '1'),
+(24, 2, '1', '1', '1', '1'),
+(25, 2, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -21269,7 +21271,7 @@ CREATE TABLE IF NOT EXISTS `tprofesion` (
   `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_profesion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `tprofesion`
@@ -21422,7 +21424,7 @@ CREATE TABLE IF NOT EXISTS `tseccion` (
   `estatus` char(1) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `idmodulo` (`idmodulo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `tseccion`
@@ -21435,7 +21437,9 @@ INSERT INTO `tseccion` (`idseccion`, `descripcion`, `idmodulo`, `estatus`) VALUE
 (4, 'Servicio', 1, '1'),
 (5, 'Solicitud de Servicio', 2, '1'),
 (6, 'Solicitudes Pendientes', 2, '1'),
-(7, 'Finalizar Solicitud', 2, '1');
+(7, 'Finalizar Solicitud', 2, '1'),
+(8, 'Personal', 3, '1'),
+(9, 'Ordenes', 3, '1');
 
 -- --------------------------------------------------------
 
@@ -21701,7 +21705,7 @@ CREATE TABLE IF NOT EXISTS `tvista` (
   `idseccion` int(11) NOT NULL,
   PRIMARY KEY (`idvista`),
   KEY `fk_idmodulo` (`idseccion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=26 ;
 
 --
 -- Volcado de datos para la tabla `tvista`
@@ -21730,7 +21734,9 @@ INSERT INTO `tvista` (`idvista`, `descripcion`, `url`, `estatus`, `idseccion`) V
 (20, 'Orden Medica', 'persona/Php/transacciones/solicitud_orden/solicitud_orden.php    ', '1', 5),
 (21, 'Solicitudes Pendientes', 'persona/Php/transacciones/index_solicitud.php', '1', 6),
 (22, 'Finalizar Solicitud', 'persona/Php/transacciones/buscar_solicitud.php   ', '1', 7),
-(23, 'Reembolso', 'persona/Php/transacciones/solicitud_reembolso/solicitud_reembolso.php', '1', 5);
+(23, 'Reembolso', 'persona/Php/transacciones/solicitud_reembolso/solicitud_reembolso.php', '1', 5),
+(24, 'Personal', 'persona/Php/reportes/personal.php', '1', 8),
+(25, 'Ordenes', 'persona/Php/reportes/orden.php', '1', 9);
 
 -- --------------------------------------------------------
 
