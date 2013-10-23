@@ -255,18 +255,35 @@ function borrar(obj) {
   return true;
 }
 </script>
-  <style type="text/css">
-  .btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; 
-  border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img {background-image: url(../../../Imagen_sistema/add.png);}.btn_act1 {height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_act1 {height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img1 {background-image: url(../../../Imagen_sistema/add.png);}.btn_guardar_act_img1 {background-image: url(../../../Imagen_sistema/guardar.jpg);}.btn_guardar_desact {height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_nuevo_act_img {background-image: url(../../../Imagen_sistema/nuevo.jpg);}
+ <style>
+.btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; 
+font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; 
+outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}
+.btn_nuevo_act_img{background-image: url(../../../Imagen_sistema/nuevo.jpg);}
+.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; 
+background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(../../../Imagen_sistema/guardar.jpg);}
+.btn_guardar_act_img3{background-image: url(../../../Imagen_sistema/add.png);}.btn_guardar_act_img2{background-image: url(../../../Imagen_sistema/guardar.jpg);}
+.btn_act:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px; font-size: 13px; 
+color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_guardar_desact{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; 
+font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_guardar_desact:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; 
+font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_act1{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; 
+color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; 
+background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_desact1{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; 
+border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand;
+cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 </style>
 </head>
 <body> 
-<div id="cuerpo1">
+<div id="cuerpo">
 <form action="" method="POST" id="from_solicitud_reembolso" name="from_solicitud_reembolso">
 
-<table width="664" height="37" border="0" cellpadding="0" cellspacing="0">
+<table width="692" height="37" border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td width="664" height="37"> <h1>Solicitud de Reembolsos</h1></td>
+      <td width="664" height="37"><h1>Solicitud de Reembolsos</h1></td>
+       <td width="22" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img'   onclick="location.href='../../../../html/blanco2.html'"title="Salir"/></td>
     </tr>
   </table>
   <fieldset>

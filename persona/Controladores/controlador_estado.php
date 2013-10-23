@@ -22,7 +22,7 @@ function incluir(){
 	$estado->setNom($_POST["nombre"]);
 	$estado->setidPais($_POST["pais"]);
 	$val_estado=$estado->valida_estado();
-	if($val_estado){
+	if($val_estado==0){
 		$iEstado=$estado->iEstado();
 		if($iEstado<0){
 			echo "Los datos se guardaron con Exito!";

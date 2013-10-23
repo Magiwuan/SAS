@@ -157,10 +157,10 @@ public function eBeneficiario(){
 				parent::cerrar_bd();
 }
 public function excluir_Beneficiario(){
+		$c=0;
 		$sql= "select * from tbeneficiario  where id_beneficiario='$this->idBeneficiario'";
 		$cursor=parent::ejecuta_sql($sql);		 
 		if($row= parent::proxima_tupla($cursor)){
-								
 				$fila[$c][1]=$row["id_beneficiario"];
 				$fila[$c][2]=$row["id_titular"];	
 				$fila[$c][3]=$row["nacionalidad"];

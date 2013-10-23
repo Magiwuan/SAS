@@ -19,7 +19,7 @@ function incluir(){
 	$ciudad->setidEstado($_POST["estado"]);
 	$iCiudad=$ciudad->iCiudad();
 	$val_city=$ciudad->valida_ciudad();
-	if($val_city){
+	if($val_city==0){
 		if($iCiudad<0){
 			echo "Los datos se guardaron con Exito!";
 		}else{

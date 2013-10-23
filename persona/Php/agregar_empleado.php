@@ -381,7 +381,7 @@ function limpiar_form(ele) {
 			for($i=0;$i<count($lista_recaudo);$i++)			
 			{				
 				if($lista_recaudo[$i][3]=='AFILIACIÓN - TITULAR'){					
-		?><input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $lista_recaudo[$i][1];?>" disabled="disables">
+		?><input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $lista_recaudo[$i][1];?>" disabled="disabled">
         <?php echo "<label  for='$i'>".$lista_recaudo[$i][2]."</label>"; ?>
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Afiliacion Titular. Por favor <a href='#'>click</a></div>";}			

@@ -43,15 +43,13 @@
 			$recaudo->setTiporecaudo('EXCLUSIÓN - BENEFICIARIO');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
-			{
+			{				
 				if($consul[$i][3]=='EXCLUSIÓN - BENEFICIARIO'){					
-		?>
-          <input type="checkbox" name="recaudos[]" id="checkbox" value="<?php echo $consul[$i][1];?>">
-          <?php echo $consul[$i][2]; ?>
-          <?php		
-		}else { echo "<div id='color_error' style='color:#F00'> Alerta: No se han asignado recaudos de exclusión</div>";}			
-		}?>
-        </td>
+		?><input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>">
+        <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?>
+        <?php		
+		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos de exclusión. Por favor <a href='#'>click</a></div>";}			
+		}?></td> 
       </tr>
       <tr>
         <td>&nbsp;</td>

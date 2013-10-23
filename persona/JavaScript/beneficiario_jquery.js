@@ -102,17 +102,19 @@ jConfirm('Desea excluir este Beneficiario?', 'Mensaje Confirmación', function(r
 	});	
 }
 
-function fn_enviar_eliminar(){		
+function fn_enviar_eliminar(){	
+abreVentana();	
+/*
 		var str = $("#form_exclusion").serialize();
 		$.ajax({
 			url: 'Controladores/controlador_beneficiario.php',
 			data: str,
 			type: 'post',
 			success: function(data){				
-					abreVentana();
-												
+					
+							
 			}
-		});
+		});*/
 	};
 var miPopup=0;
 function abreVentana(ancho,alto){ 

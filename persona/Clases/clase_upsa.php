@@ -6,13 +6,15 @@ class upsa extends conectaBDMy{
 	private $nom;
 	private $direccion;
 	private $idCiudad;
+	private $idEstado;
 //       Metodo Constructor de la clase
     public function upsa(){
 		parent::conectaBDMy();	    
 		$this->idUpsa="";		
 		$this->nom="";	
 		$this->direccion="";	
-		$this->idCiudad="";		
+		$this->idCiudad="";	
+		$this->idEstado="";		
 	}//cirre del constructor
 //       Metodos Set para cada propiedad de la clase
  	public function setidUpsa($Valor){
@@ -26,6 +28,9 @@ class upsa extends conectaBDMy{
     } 
 	public function setidCiudad($Valor){
         $this->idCiudad = trim($Valor);
+    } 
+    public function setidEstado($Valor){
+        $this->idEstado = trim($Valor);
     } 
 //       Metodo registrar
 //-------------------------------------------------------------------- 
@@ -53,7 +58,7 @@ public function eUpsa(){
 
 }
     public function valida_upsa(){ 
-		 $sql="select * from tupsa where nombre = '$this->nom' and id_ciudad='$this->idCiudad'";
+		$sql="select a.*, b.id_estado from tupsa as a, tciudad as b where a.nombre ='$this->nom' and a.id_ciudad='$this->idCiudad' and b.id_estado='$this->idEstado' and a.id_ciudad=b.id_ciudad";
 		$cursor=parent::ejecuta_sql( $sql );
 		return ( parent::getNRegistro($cursor) );
 		//Si encuentra registro envia 1 para validar	

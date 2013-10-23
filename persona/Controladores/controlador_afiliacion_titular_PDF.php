@@ -5,10 +5,14 @@
 	include_once("../Clases/clase_beneficiario.php");
 	include_once("../Clases/clase_ciudad.php");
 	include_once("../Clases/clase_upsa.php");
+	include_once("../Clases/clase_cargo.php");
+
 	$titular= new titular();	
 	$beneficiario= new beneficiario();	
 	$ciudad= new ciudad();
 	$upsa= new upsa();
+	$cargo= new cargo();
+
 // Se envia el valor del tipo de articulo.
 	$id=$_GET["id"];
 	$titular->setidTitular($id);
@@ -147,7 +151,7 @@
 	$pdf->Cell(44,6,'Ciudad: '.$nombCiudad,1,0,'L',true);
 	$pdf->Cell(81,6,'E-mail: '.$correo_elect,1,1,'L',true);
 	$pdf->Ln(5);
-	$pdf->SetFont('Times','B',9);
+	$pdf->SetFont('Times','B',10);
 	$upsa->setidUpsa($id_upsa);
 	$consulta=$upsa->Buscar_upsa();
 	for($i=0;$i<count($consulta);$i++){
@@ -157,15 +161,22 @@
 		$estado_upsa	=utf8_decode($consulta[$i][4]);
 		$pais_upsa		=$consulta[$i][5];
 
+	}
+	$cargo->setidCargo($id_cargo);
+	$consulta=$cargo->buscar_cargo();
+	for($i=0;$i<count($consulta);$i++){
+		$nomCargo			=$consulta[$i][2];
 	}	
 	$pdf->Cell(199,6,utf8_decode('DIRECCIÓN DE TRABAJO'),1,1,'C',true);	
-	$pdf->SetFont('Times','',10);
-	$pdf->Cell(35,6,'Upsa: '.$nombre,1,0,'L',true);
-	$pdf->Cell(114,6,utf8_decode('Dirección: ').$direccion,1,0,'L',true);
+	$pdf->SetFont('Times','',9);
+	$pdf->Cell(32,6,'Upsa: '.$nombre,1,0,'L',true);
+	$pdf->Cell(117,6,utf8_decode('Dirección: ').$direccion,1,0,'L',true);
 	$pdf->Cell(50,6,'Ciudad: '.$ciudad_upsa,1,1,'L',true);
-	$pdf->Cell(50,6,'Estado: '.$estado_upsa,1,0,'L',true);
-	$pdf->Cell(40,6,'Pais: '.$pais_upsa,1,0,'L',true);	
-	$pdf->Cell(109,6,'E-mail: '.$correo_corp,1,1,'L',true);
+	$pdf->Cell(40,6,'Estado: '.$estado_upsa,1,0,'L',true);
+	$pdf->Cell(35,6,'Pais: '.$pais_upsa,1,0,'L',true);	
+	$pdf->Cell(74,6,'E-mail: '.$correo_corp,1,0,'L',true);
+	$pdf->Cell(50,6,'Cargo: '.utf8_decode($nomCargo),1,1,'L',true);
+
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,'BENEFICIARIOS',1,1,'C',true);	
