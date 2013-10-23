@@ -75,22 +75,11 @@ function fn_paginar(var_div, url){
 	$(div).load(url);
 }
 function fn_eliminar(id_titular){
-	jConfirm('Desea eliminar este Trabajador?', 'Mensaje Confirmación', function(r) {
-		if(r==true){
-			
-		$.ajax({
-			
-			url: 'Php/eliminar_empleado.php',
-			data: 'id_titular='+id_titular,
-			type: 'post',
-			success: function(data){
-				if(data!="")
-						jAlert(data, 'Resultado de la confirmación');
-						fn_buscar()
-							}
-					});
-			}
-			});	
+jConfirm('Desea excluir este Titular?', 'Mensaje Confirmación', function(r) {
+	if(r==true){		
+		$("#cuerpo").load("Php/exclusion_titular.php", {id_titular: id_titular});		
+	}
+	});	
 }
 function fn_buscar(){	
 	var str = $("#frm_buscar").serialize();

@@ -1,5 +1,5 @@
 	
-		 function valida() {
+	function valida() {
 	if(document.form_exclusion.motivo.value=="0"){//6
 		jAlert("Debe seleccionar el motivo de la exclusión!");
 		document.form_exclusion.motivo.focus();
