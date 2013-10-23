@@ -17,12 +17,15 @@ function incluir(){
 	$pais = new pais();
 	$pais->setNom($_POST["nombre"]);
 	$iPais=$pais->iPais();
-	if($iPais<0)
-	{
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_pais=$pais->valida_pais();
+	if($val_pais=='0'){
+		if($iPais<0){
+			echo "Los datos se guardaron con Exito!";
+		}else{
+			echo "Error al incluir País";
+		}
 	}else{
-	echo "Error al incluir País";
+		echo "No";
 	}
 }
 

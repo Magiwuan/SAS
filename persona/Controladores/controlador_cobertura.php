@@ -22,7 +22,7 @@ function incluir(){
 	$cobertura->setFecha_ini($_POST["fecha_inicio"]);
 	$cobertura->setFecha_fin($_POST["fecha_fin"]);
 	if($cobertura->iCobertura()){		
-	echo "Se agregaron los Datos con exito¡¡¡¡";
+	echo "Se agregaron los Datos con exito!";
 	}
 	else
 	echo "Error al incluir cobertura";

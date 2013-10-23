@@ -21,13 +21,16 @@ function incluir(){
 	$estado = new estado();
 	$estado->setNom($_POST["nombre"]);
 	$estado->setidPais($_POST["pais"]);
-	$iEstado=$estado->iEstado();
-	if($iEstado<0)
-	{
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_estado=$estado->valida_estado();
+	if($val_estado){
+		$iEstado=$estado->iEstado();
+		if($iEstado<0){
+			echo "Los datos se guardaron con Exito!";
+		}else{
+			echo "Error al incluir estado";
+		}
 	}else{
-	echo "Error al incluir estado";
+		echo "No";
 	}
 	
 }

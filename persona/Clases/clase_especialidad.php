@@ -42,13 +42,10 @@ public function eespecialidad(){
 public function valida_especialidad() { 
 		$sql="select * from tespecialidad where nombre='$this->nom'"; 
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
-		
-		parent::cerrar_bd();	
-						 		
+		return (parent::getNRegistro($cursor));
+		//Si encuentra registro envia 1 para validar
+		//si no encuentra registro procede a registrar		
+		parent::cerrar_bd();							 		
 	} 	
 //       Metodo para listar especialidad en los combos
 	function lista_especialidad()

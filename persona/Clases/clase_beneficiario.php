@@ -188,15 +188,13 @@ public function excluir_Beneficiario(){
 			parent::cerrar_bd();
      }
 public function valida_beneficiario(){ 
-		 $sql="select * from tbeneficiario where cedula = '$this->ced' and id_titular='$this->idTitular'";
+		$sql="select * from tbeneficiario where cedula = '$this->ced' and id_titular='$this->idTitular'";
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
-		parent::cerrar_bd();	
-						 		
+		parent::cerrar_bd();							 		
 	} 
 //       Metodo Buscar ultmimo
     public function buscaUltimoID(){

@@ -49,13 +49,11 @@ public function eCiudad(){
 public function valida_ciudad() { 
 		$sql="select * from tciudad where nombre='$this->nom'"; 
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
-		parent::cerrar_bd();	
-						 		
+		parent::cerrar_bd();							 		
 	} 
 //       Metodo Para Listar  Ciudad por Estado
     public function combo(){		

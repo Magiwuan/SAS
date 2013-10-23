@@ -46,12 +46,11 @@ public function eRecaudos(){
 				parent::cerrar_bd();
 }
 public function valida_recaudo(){ 
-		$sql="select * from trecaudo where descripcion='$this->descripcion' and tipo='$this->tipoRecuado'"; 
+		$sql="select * from trecaudo where descripcion='$this->descripcion' and tipo='$this->tipoRecaudo'"; 
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return (parent::getNRegistro($cursor));
+		//Si encuentra registro envia 1 para validar
+		//si no encuentra registro procede a registrar	
 		
 		parent::cerrar_bd();	
 						 		

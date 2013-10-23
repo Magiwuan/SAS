@@ -55,10 +55,9 @@ public function eUpsa(){
     public function valida_upsa(){ 
 		 $sql="select * from tupsa where nombre = '$this->nom' and id_ciudad='$this->idCiudad'";
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
 		parent::cerrar_bd();	
 						 		

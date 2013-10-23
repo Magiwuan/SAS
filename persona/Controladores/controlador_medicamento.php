@@ -19,13 +19,15 @@ function incluir(){
 	$medicamento->setNom($_POST["nombre"]);
 	$medicamento->setPres($_POST["presentacion"]);
 	$medicamento->setComp($_POST["componente"]);
-	$iMedicamento=$medicamento->iMedicamento();
-	if($iMedicamento<0)
-	{
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_med=$medicamento->valida_medicamento();
+	if($val_med){
+		$iMedicamento=$medicamento->iMedicamento();
+		if($iMedicamento<0){
+			echo "Los datos se guardaron con Exito!";
+		}else{
+			echo "Error al incluir medicamento";
 	}else{
-    echo "Error al incluir medicamento";
+		echo "No";
 	}
 }
 

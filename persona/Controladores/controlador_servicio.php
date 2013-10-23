@@ -1,4 +1,6 @@
 <?php
+//NOTA ESTE CONTROLADOR SERVIRA PARA CUANDO SE AGREGUEN LOS OTROS MODULOS
+/*
 // Llamado a la clase a usarse
 include_once("../Clases/clase_servicio.php");
 $ope = $_POST['ope'];
@@ -24,6 +26,8 @@ function incluir(){
 	$servicio = new servicio();
 	$servicio->setNom($_POST["nombre"]);
 	$servicio->setDescripcion($_POST["descripcion"]);
+	
+	if()
 	$iServicio=$servicio->iServicio();
 	if($iServicio<0)
 	{
@@ -32,5 +36,5 @@ function incluir(){
 	}else{
 	echo "Error al incluir Servicio";
 	}
-}
+}*/
 ?>

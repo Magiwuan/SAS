@@ -29,13 +29,16 @@ function incluir(){
 	$examen = new examen();
 	$examen->setDescripcion($_POST["nombre"]);
 	$examen->setTipoexamen($_POST["tipo"]);
-	$iExamen=$examen->iExamen();
-	if($iExamen<0)
-	{
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_examen=$examen->valida_examen();
+	if($val_examen=='0'){
+		$iExamen=$examen->iExamen();
+		if($iExamen<0){
+			echo "Los datos se guardaron con Exito!";
+		}else{
+			echo "Error al incluir Examen";
+		}
 	}else{
-	echo "Error al incluir Examen";
+		echo "No";
 	}
 }
 

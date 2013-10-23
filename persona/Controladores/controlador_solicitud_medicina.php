@@ -105,7 +105,7 @@ function incluir(){
 	$cont_med='0';
 	while($cont_med<count($arregloMed) && $cont_med<count($arregloCant)){	
 		$Medicamento->setNom($arregloMed[$cont_med]);
-		$vMedicamento=$Medicamento->validar_medicamento();
+		$vMedicamento=$Medicamento->valida_medicamento();
 		if($vMedicamento=='-1'){
 			$incluirMedicamento=$Medicamento->iMedicamento();
 			if($incluirMedicamento!='-1'){

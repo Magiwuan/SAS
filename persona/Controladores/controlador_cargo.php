@@ -17,10 +17,10 @@ function incluir(){
 	$cargo = new cargo();
 	$cargo->setNom($_POST["nombre"]);
 	$val_car=$cargo->valida_cargo();
-	if($val_car!='1'){
+	if($val_car=='0'){
 		$iCargo=$cargo->iCargo();
 		if($iCargo<0){
-		echo "Los datos se guardaron con Exito!!!";
+		echo "Los datos se guardaron con Exito!";
 		}else{
 		echo "Error al incluir cargo";
 		}

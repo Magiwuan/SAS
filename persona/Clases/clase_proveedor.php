@@ -151,13 +151,11 @@ public function eProveedor(){
 public function valida_proveedor() { 
 		$sql="select * from tproveedor where rif='$this->rif'"; 
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
-		parent::cerrar_bd();	
-						 		
+		parent::cerrar_bd();							 		
 	}   
 //       Metodo Buscar ultmimo
     public function proveedor_UltimoID(){

@@ -172,7 +172,7 @@
                                   <td>Tipo:</td>
                                   <td ><select name="tipo" id="tipo" disabled="disabled" title="Donde es utilizado el recaudo">
                                    <option value="0" selected="selected" disabled="disabled"> Seleccionar</option>
-                                    <option value="Afiliación - Titular">Afiliación - Titular</option>
+                                    <option value="AFILIACIÓN - TITULAR">Afiliación - Titular</option>
                                     <option value="Afiliación - Beneficiario">Afiliación - Beneficiario</option>
                                     <option value="Exclusión - Titular">Exclusión - Titular</option>
                                     <option value="Exclusión - Beneficiario">Exclusión - Beneficiario</option>

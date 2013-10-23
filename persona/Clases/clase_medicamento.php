@@ -95,16 +95,14 @@ public function eMedicamento(){
 			parent::cerrar_bd();
      }  
 	 
-     public function validar_medicamento() { 
+     public function valida_medicamento() { 
 		$sql="select * from tmedicamento where descripcion='$this->nom'"; 
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
-		parent::cerrar_bd();	
-						 		
+		parent::cerrar_bd();							 		
 	}   
 //       Sentencia sql para listar
      public function sql_medicamento(){

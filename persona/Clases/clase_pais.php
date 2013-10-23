@@ -40,16 +40,14 @@ public function ePais(){
 				parent::cerrar_bd();
 
 }
-     public function validar_pais() { 
+     public function valida_pais() { 
         $sql="select * from tpais where nombre = '$this->nom' ";
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
-		parent::cerrar_bd();	
-						 		
+		parent::cerrar_bd();							 		
 	}   
 //       Metodo para listar pais en los combos
 	function lista_pais()

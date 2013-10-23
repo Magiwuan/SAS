@@ -38,7 +38,7 @@ function incluir(){
 	$medico->setCedula($_POST["ced2"]);
 	$medico->setEspecialidad($_POST["especialidad"]);		
 		// Se verifica que no exista para poder incluir
-		$Validamedicos=$medico->validar_medico();
+		$Validamedicos=$medico->valida_medico();
 		// Se inicia la Transacción
 		$medico->IniciaTransaccion();
 		if ($Validamedicos=='-1'){

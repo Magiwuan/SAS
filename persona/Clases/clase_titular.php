@@ -355,7 +355,7 @@ public function eTitular(){
 		 $sql="select * from ttitular where cedula = '$this->ced' ";
 		$cursor=parent::ejecuta_sql( $sql );
 		if(parent::getNRegistro($cursor)>0)
-		return ($cursor= parent::ejecuta_sql($sql));
+		return $cursor;
 		else
 		return -1; //si no encuentra registro procede a registrar	
 		

@@ -45,7 +45,7 @@ function incluir(){
 		$proveedor->setFechaInicio($_POST["fecha_inicio"]);
 		$proveedor->setFechaFin($_POST["fecha_fin"]);
 		// Se verifica que no exista para poder incluir
-		$Validaproveedor=$proveedor->validar_proveedor();
+		$Validaproveedor=$proveedor->valida_proveedor();
 				// Se inicia la Transacción
 				$proveedor->IniciaTransaccion();
 		if ($Validaproveedor=='-1'){

@@ -18,11 +18,15 @@ function incluir(){
 	$especialidad = new especialidad();
 	$especialidad->setNom($_POST["nombre"]);
 	$iespecialidad=$especialidad->iespecialidad();
-	if($iespecialidad<0){
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_espe=$especialidad->valida_especialidad();
+	if($val_espe=='0'){
+		if($iespecialidad<0){
+			echo "Los datos se guardaron con Exito!";	
+		}else{
+			echo "Error al incluir especialidad";
+		}
 	}else{
-	echo "Error al incluir especialidad";
+		echo "No";
 	}
 }
 ?>

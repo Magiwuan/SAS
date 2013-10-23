@@ -16,13 +16,16 @@ switch($ope){
 function incluir(){
 	$discapacidad = new discapacidad();
 	$discapacidad->setNom($_POST["nombre"]);
-	$iDiscapacidad=$discapacidad->iDiscapacidad();
-	if($iDiscapacidad<0)
-{
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_dis=$discapacidad->valida_discapacidad();
+	if($val_dis=='0'){
+		$iDiscapacidad=$discapacidad->iDiscapacidad();
+		if($iDiscapacidad<0){
+			echo "Los datos se guardaron con Exito!!!";
+		}else{
+			echo "Error al incluir discapacidad";
+		}
 	}else{
-    echo "Error al incluir discapacidad";
+		echo "No";
 	}
 	
 }

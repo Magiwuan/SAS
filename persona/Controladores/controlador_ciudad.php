@@ -18,13 +18,15 @@ function incluir(){
 	$ciudad->setNom($_POST["nombre"]);
 	$ciudad->setidEstado($_POST["estado"]);
 	$iCiudad=$ciudad->iCiudad();
-	if($iCiudad<0)
-	{
-	echo "Los datos se guardaron con Exito!!!";
-	exit();
+	$val_city=$ciudad->valida_ciudad();
+	if($val_city){
+		if($iCiudad<0){
+			echo "Los datos se guardaron con Exito!";
+		}else{
+			echo "Error al incluir ciudad";
+		}
 	}else{
-	echo "Error al incluir ciudad";
+	 echo "No";	
 	}
-	
 }
 ?>

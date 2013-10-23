@@ -138,16 +138,14 @@ function lista_medico()
 			parent::cerrar_bd();
      }
 //       Metodo Para Buscar RIF	     
-      public function validar_medico() { 
+      public function valida_medico() { 
         $sql="select * from tmedico where cedula = '$this->ced' ";
 		$cursor=parent::ejecuta_sql( $sql );
-		if(parent::getNRegistro($cursor)>0)
-		return 1;//Si encuentra registro envia 1 para validar
-		else
-		return -1; //si no encuentra registro procede a registrar	
+		return ( parent::getNRegistro($cursor) );
+		//Si encuentra registro envia 1 para validar	
+		//si no encuentra registro procede a registrar	
 		
 		parent::cerrar_bd();	
-						 		
 	}   
 //       	 
 //       Sentencia sql para Buscar el listar

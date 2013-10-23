@@ -17,16 +17,15 @@ function incluir(){
 	$profesion = new profesion();
 	$profesion->setNom($_POST["nombre"]);	
 	$val_profes=$profesion->valida_profesion();
-	if($val_profes=='-1'){
+	if($val_profes=='0'){
 		$iProfesion=$profesion->iProfesion();
 		if($iProfesion<0){
-		echo "Los datos se guardaron con Exito!!!";
-		exit();
+		echo "Los datos se guardaron con Exito!";
 		}else{
 		 echo "Error al incluir Profesión";
 		}
 	}else{
-		echo "La profesión ya existe!";
+		echo "No";
 	}
 	
 }

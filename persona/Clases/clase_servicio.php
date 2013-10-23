@@ -1,4 +1,6 @@
 <?php
+//NOTA ESTA CLASE SERVIRA PARA CUANDO SE AGREGUEN LOS OTROS MODULOS
+/*
 include_once("clase_mysql.php");
 //       Clase cargo hereda a clase CModeloDatos para conectar BD MYSql
 class servicio extends conectaBDMy{
@@ -82,4 +84,5 @@ public function eServicio(){
      }	
 		
 }//cierra la clase
+* */
 ?>
