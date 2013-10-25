@@ -2,7 +2,7 @@
 include_once("clase_mysql.php");
 //       Clase Entrada hereda a clase CModeloDatos para conectar BD MYSql
 class titular extends conectaBDMy{
-		private $idTitular;	
+	private $idTitular;	
 	private $tipoNomina;
 	private $nac;	
 	private $ced;
@@ -29,7 +29,6 @@ class titular extends conectaBDMy{
 	private $idUpsa;
 	private $observ;
 	private $ordenar_por;
-
 //       Metodo Constructor de la clase
     public function titular(){
 		parent::conectaBDMy();	    
