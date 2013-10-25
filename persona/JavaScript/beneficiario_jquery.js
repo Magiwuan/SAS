@@ -81,6 +81,9 @@ function fn_listar_beneficiario(){
 		url: 'Php/beneficiario/listar_beneficiario.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_beneficiario").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},	
 		success: function(data){		
 			$("#div_listar_beneficiario").html(data);				
 		}

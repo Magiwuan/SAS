@@ -46,6 +46,9 @@ function fn_listar_examen(){
 		url: '../../Php/examen/listar_examen.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_examen").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_examen").html(data);				
 		}

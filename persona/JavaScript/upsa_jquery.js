@@ -48,6 +48,9 @@ function fn_listar_upsa(){
 		url: '../../Php/upsa/listar_upsa.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_upsa").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_upsa").html(data);				
 		}

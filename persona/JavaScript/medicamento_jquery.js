@@ -46,6 +46,8 @@ function fn_listar_medicamento(){
 		url: '../../Php/medicamento/listar_medicamento.php',
 		type: 'get',
 		data: str,
+		$("#div_listar_medicamento").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_medicamento").html(data);				
 		}

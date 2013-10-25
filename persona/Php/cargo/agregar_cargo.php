@@ -93,7 +93,7 @@ background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{b
 </tr>
 </table>      
 <hr />
-<div id="div_listar_cargo"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>                   
+<div id="div_listar_cargo"></div>                   
 </form>    
 </div>
     </body>

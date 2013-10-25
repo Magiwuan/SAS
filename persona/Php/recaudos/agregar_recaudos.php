@@ -192,7 +192,7 @@
    </tr>
    </table>      
 <hr />
-<div id="div_listar_recaudos"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>                   
+<div id="div_listar_recaudos"></div>                   
 </form>    
 </div>
 </body>

@@ -42,6 +42,9 @@ function fn_listar_especialidad(){
 		url: '../../Php/especialidad/listar_especialidad.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_especialidad").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_especialidad").html(data);				
 		}

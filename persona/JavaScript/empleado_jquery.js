@@ -63,7 +63,7 @@ function fn_mostrar_frm_modificar(id_titular){
 function fn_mostrar_agregar_grupo(id_titular,nombre1,apellido1){
 	 $.ajax({
 	beforeSend: function(){                         
-    $("#cuerpo").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');
+    	$("#cuerpo").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');
   	},
 	success: function(){
 		$("#cuerpo").load("Php/beneficiario/agregar_beneficiario.php",{id_titular: id_titular, nombre1: nombre1, apellido1: apellido1});	
@@ -83,13 +83,16 @@ jConfirm('Desea excluir este Titular?', 'Mensaje Confirmación', function(r) {
 }
 function fn_buscar(){	
 	var str = $("#frm_buscar").serialize();
-	$.ajax({
-		url: 'Php/listar_empleado.php',
+	$.ajax({	
+	url: 'Php/listar_empleado.php',
 		type: 'get',
 		data: str,		
-		success: function(data){			
-				$("#div_listar").html(data);				 		
-		}
+		beforeSend: function(){ 
+		$("#div_listar").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');		
+		},		
+		success: function(data){
+		$("#div_listar").html(data);							 		
+		}		
 	});
 }
 

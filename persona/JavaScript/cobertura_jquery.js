@@ -57,6 +57,9 @@ function fn_listar_cobertura(){
 		url: '../../Php/cobertura/listar_cobertura.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_cobertura").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_cobertura").html(data);				
 		}

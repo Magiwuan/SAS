@@ -42,6 +42,9 @@ function fn_listar_patologia(){
 		url: '../../Php/patologia/listar_patologia.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_patologia").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_patologia").html(data);				
 		}

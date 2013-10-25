@@ -42,6 +42,9 @@ function fn_listar_profesion(){
 		url: '../../Php/profesion/listar_profesion.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
+		$("#div_listar_proveedor").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
+		},
 		success: function(data){		
 			$("#div_listar_profesion").html(data);				
 		}

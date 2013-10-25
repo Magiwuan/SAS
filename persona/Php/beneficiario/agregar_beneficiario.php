@@ -284,7 +284,7 @@ include_once("../../Clases/clase_titular.php");
       <td width="294"></td>
       </tr>
   </table>
-   <div id="div_listar_beneficiario"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>
+   <div id="div_listar_beneficiario"></div>
    <div id="div_oculto_beneficiario" style="display: none;"></div> 
 </form>
  </div> 

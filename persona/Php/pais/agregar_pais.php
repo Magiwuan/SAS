@@ -166,7 +166,7 @@
            </tr>
         </table>
 <hr />
-<div id="div_listar_pais"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>
+<div id="div_listar_pais"></div>
 </div>                  
 </form>    
 </div>

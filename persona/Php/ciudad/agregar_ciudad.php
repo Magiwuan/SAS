@@ -194,7 +194,7 @@ for($i=0;$i<count($lista);$i++)
                            </tr>
                        </table>
           <hr />
-           <div id="div_listar_ciudad"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>
+           <div id="div_listar_ciudad"></div>
            </div>             
           </form>    
         </div>

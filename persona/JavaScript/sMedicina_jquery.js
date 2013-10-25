@@ -60,7 +60,10 @@ function fn_buscar(){
 	$.ajax({
 		url: 'listar_solicitud.php',
 		type: 'get',
-		data: str,		
+		data: str,
+		beforeSend: function(){ 
+		$("#div_listar").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');		
+		},	
 		success: function(data){			
 				$("#div_listar").html(data);				 		
 		}

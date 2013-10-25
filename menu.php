@@ -43,7 +43,7 @@ $vist->setlogin($_SESSION["login"]);
       			<img src="Imagenes/modificar.png" width="20" height="20" align="absmiddle"/>Cambiar Mi Clave
              </div>!-->
            <div id="fecha" class="texto">
-            <img src="Imagenes/calendario.png" width="25" height="25" align="absmiddle"/><?php date_default_timezone_set('America/Caracas'); echo " Fecha: ".date('d / m  / Y') ?> 
+            <img src="Imagenes/calendario.png" width="25" height="25" align="absmiddle"/><?php date_default_timezone_set('America/Caracas');   echo " ".date('d / m  / Y') ?> 
             </div>                
          </div>
      <div id="capa-index">

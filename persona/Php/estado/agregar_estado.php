@@ -192,7 +192,7 @@
  </tr>
 </table>
 <hr/>
- <div id="div_listar_estado"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>        
+ <div id="div_listar_estado"></div>        
 </form>    
 </div>
 </body>

@@ -188,7 +188,7 @@ function limpiar_form(ele) {
        </tr>
    </table>      
 <hr />
-  <div id="div_listar_examen"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>         
+  <div id="div_listar_examen"></div>         
 </form>    
 </div>
 </body>

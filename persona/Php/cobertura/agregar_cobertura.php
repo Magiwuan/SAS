@@ -260,7 +260,7 @@ return (key <= 13 || (key >= 48 && key <= 57) || key == 46);
       			    </tr>
              </table> 
           		<hr />
-                <div id="div_listar_cobertura"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>             
+                <div id="div_listar_cobertura"></div>             
           </form>    
         </div>
     </body>

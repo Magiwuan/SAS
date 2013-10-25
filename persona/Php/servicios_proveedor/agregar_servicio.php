@@ -179,8 +179,7 @@ function limpiar_form(ele) {
                            </tr>
                        </table>
           <hr/>
-           <div id="div_listar_servicio"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>
-           </div>                   
+           <div id="div_listar_servicio"></div>
           </form>    
         </div>
 </body>

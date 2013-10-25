@@ -172,7 +172,7 @@
 </tr>
 </table>
 <hr />
-<div id="div_listar_discapacidad"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>
+<div id="div_listar_discapacidad"></div>
 </form>    
 </div> 
 </body>

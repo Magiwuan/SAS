@@ -169,7 +169,7 @@
 </tr>
 </table>      
 <hr />
-<div id="div_listar_patologia"><div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div></div>                   
+<div id="div_listar_patologia"></div>                   
 </form>    
 </div>
     </body>
