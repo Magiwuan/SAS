@@ -23,14 +23,15 @@ include_once("../Clases/clase_titular.php");
 		$correo_elect	= $consulta[$i][13];
 		$fecha_i		= $consulta[$i][14];
 		$direccion_hab	= $consulta[$i][15];
-		$idCargo		= $consulta[$i][16]; //Igual problema que ciudad
-		$idCiudad		= $consulta[$i][17];//Problema $ciudad es el objeto instanciando la clase...  CHOQUE DE VARIABLES dejar idCiudad
-		$idDepartamento	= $consulta[$i][18];//.. 
-		$idUpsa			= $consulta[$i][19];//igual problema que ciudad
+		$idCargo		= $consulta[$i][16]; 
+		$idCiudad		= $consulta[$i][17];
+		$idDepartamento	= $consulta[$i][18];
+		$idUpsa			= $consulta[$i][19];
 		$tipo			= $consulta[$i][21];
 		$idCiudadnac	= $consulta[$i][22];	
 		$Correo			= $consulta[$i][23];
 		$Observ			= $consulta[$i][24];
+		$idProfesion	= $consulta[$i][26];
 		$elDia=substr($fecha_n,8,2);
 		$elMes=substr($fecha_n,5,2);
 		$elYear=substr($fecha_n,0,4);
@@ -51,8 +52,8 @@ include_once("../Clases/clase_ciudad.php");
 	{
 		$id_estado2		= $consult[$i][3];
 	}
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE HTML>
+<html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Entrada de Articulos</title>        
@@ -61,10 +62,7 @@ include_once("../Clases/clase_ciudad.php");
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="Css/border-radius.css" />
     <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
-     <link rel="stylesheet" href="Css/validationEngine.jquery.css" type="text/css"/>
     <script src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>
-	<script src="JavaScript/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
-	<script src="JavaScript/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>		 	
 	<script src="JavaScript/jscal2.js"></script>    
     <script src="JavaScript/es.js"></script>    
 	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>
@@ -339,9 +337,7 @@ include_once("../Clases/clase_ciudad.php");
            </td>
           <td width="136" >Nro. C.I o Pasaporte:</td>
           <td colspan="2" ><input name="ced" type="text" disabled="disabled" id="ced" value="<?php echo $cedula;?>" size="20" maxlength="16"/></td>
-          <td ><a href="#" onclick="jQuery('#test').validationEngine('showPrompt', 'Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667', 'pass')" title="Ayuda">
-			      <div id="test" class="test" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
-			    </a></td>
+          <td><div id="test" style="cursor: pointer;" title="Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667" class="test" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div></td>
           </tr>
         <tr>
           <td>Primer Nombre:</td>
@@ -511,21 +507,14 @@ Obrero</td>
             $fecha_ingr=$elDia."-".$elMes."-".$elYear;		echo $fecha_ingr;?>" size="12" maxlength="10" readonly /></td>
           <td width="81"><button name="bt_fna" id="bt_fna" class="button" disabled="disabled" title="Calendario para buscar fecha"><img src="Imagen_sistema/calend.png" width="20" height="20" /></button></td>
           <td width="87" >Profesión:</td>
-          <td colspan="3" rowspan="2" valign="top"><select name="profesion[]" id="profesion" multiple="multiple" title="Seleccionar">
-            <?php	include_once("../Clases/clase_profesion.php"); 
-            include_once("../Clases/clase_detalle_profesion.php"); 
-            $detalle_pro	= new detalle_pro();
-            $profesion		= new profesion();            
-            $detalle_pro->setidTitular($_POST['id_titular']);
-            $buscar_profesiones = $detalle_pro->buscar_profesiones();            
-            $lista_profesion=$profesion->lista_profesion();
-            for($i=0;$i<count($lista_profesion);$i++){
-           ?><option value="<?php echo $lista_profesion[$i][1];?>"
-                            <?php	for($x=0;$x<count($buscar_profesiones);$x++){ 
-                                        if($lista_profesion[$i][1]==$buscar_profesiones[$x][2]){echo "Selected=\"Selected\"";}
-                                    }?>       
-                    ><?php echo $lista_profesion[$i][2];?></option>
-            <?php }?>
+          <td colspan="3" rowspan="2" valign="top">    <select name="profesion" id="profesion" disabled="disabled" >
+              <option value="0" selected="selected" disabled="disabled">Seleccionar</option>
+              <?php include_once("../Clases/clase_profesion.php");
+                    $profesion=new profesion();
+                    $lista_profesion=$profesion->lista_profesion();
+                    for($i=0;$i<count($lista_profesion);$i++){
+             ?><option value="<?php echo $lista_profesion[$i][1];?>" <?php if($lista_profesion[$i][2]==$idProfesion){echo "selected=\"selected\"";}?>><?php echo $lista_profesion[$i][2];?></option>
+              <?php }?>
           </select></td>
           </tr>
         <tr>
@@ -593,11 +582,11 @@ Obrero</td>
                 $recaudo= new recaudos();		
                 $detalle_rec= new detalle_rec();
                 $detalle_rec->setidTitular($_POST["id_titular"]);
-                $recaudo->setTiporecaudo('Afiliación - Titular');
+                $recaudo->setTiporecaudo('AFILIACIÓN - TITULAR');
                 $buscar_recaudos=$detalle_rec->buscar_recaudos();
                 $lista_recaudo=$recaudo->lista_recaudo();
                 for($i=0;$i<count($lista_recaudo);$i++){
-                  if($lista_recaudo[$i][3]=='Afiliación - Titular'){								
+                  if($lista_recaudo[$i][3]=='AFILIACIÓN - TITULAR'){								
             ?><input type="checkbox" disabled="disabled" name="recaudos[]" id="checkbox" value="<?php echo $lista_recaudo[$i][1];?>" 
                                 <?php 
                                 for($x=0;$x<count($buscar_recaudos);$x++){	                              

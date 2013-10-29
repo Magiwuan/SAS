@@ -17,7 +17,7 @@
 <table id="grilla" class="lista" width="624">
   <thead>
         <tr> 
-        <th width="281"></th>
+        <th width="290"></th>
         <th width="108"></th>
         <th width="110"></th>
         <th width="27"></th>

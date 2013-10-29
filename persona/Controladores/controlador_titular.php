@@ -183,7 +183,7 @@ function modificar(){
 		$titular->setUpsa($_POST["upsa"]);
 		$titular->setObserv($_POST["observacion"]);	
 				// Se inicia la Transacción
-				$titular->IniciaTransaccion();	
+		$titular->IniciaTransaccion();	
 		$mTitular=$titular->mTitular();
 		if($mTitular!='-1'){				
 			$var_control=true;
@@ -218,35 +218,6 @@ function modificar(){
 					 }
 			 $cont_disc++;	 
 			 }	
-//Para trabajo mas facil borramos el detalle de las discapacidades e insertamos nuevamente.
-//Detalle Titular - Profesion
-		$detalle_pro->setidTitular($_POST['id_titular']);
-			$eTitular_Profesion=$detalle_pro->eTitular_Profesion();
-				if($eTitular_Profesion!='-1'){				
-					$var_control=true;
-					echo "Error interno de la Base de Datos 4!";
-					exit();
-				}
-			 $arreglo_pro = $_POST["profesion"]; //Arreglo de Profesion
-			 $cont_pro='0';	
-			 while($cont_pro<count($arreglo_pro)){	
-		//Consultamos el ultimo $id_profesion_titular y traemos el ultimo	
-		// Busca el ultimo registro de la entrada e incrementa el id
-					$result = $detalle_pro->tUltimoID_Pro();
-						if ($result){
-						$result = $detalle_pro->sig_tupla($result);		
-						$idTitular_pro = $result["id_titular_profesion"] + 1;
-						}		
-						$detalle_pro->setId_titular_pro($idTitular_pro);
-						$detalle_pro->setidProfesion($arreglo_pro[$cont_pro]);
-		//Registramos el detalle de profesion			
-						$iTular_Profesion=$detalle_pro->iTitular_Profesion();
-						if($iTular_Profesion!='-1'){
-							$var_control=true;	 
-							echo "Error interno de la Base de Datos 5!";
-						}
-				$cont_pro++;	 
-				}
 //Para trabajo mas facil borramos el detalle de las discapacidades e insertamos nuevamente.
 // Detalle Titular - Recaudos
 				$detalle_rec->setidTitular($_POST['id_titular']);

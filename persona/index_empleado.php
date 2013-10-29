@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Documento sin título</title>          
@@ -15,21 +15,21 @@
         <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
         <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
         <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>    
-          <script language="javascript" type="text/javascript">
+        <script language="javascript" type="text/javascript">
 	    $(document).ready(function() {
-  	$("#b5").click(function(event) {
-		$("#buscar").val('');
-		var miPopup 
-		miPopup = window.open("Php/transacciones/buscar_trabajador.php","miwin","width=530px,height=300px,scrollbars=yes,resizable=yes") 
-		miPopup.focus();
-	});
-   });
+			$("#b5").click(function(event) {
+			$("#buscar").val('');	
+			var miPopup 
+			miPopup = window.open("Php/transacciones/buscar_trabajador.php","miwin","width=530px,height=300px,scrollbars=yes,resizable=yes") 
+			miPopup.focus();
+			});
+		});
 </script>      
    </head>
     <body>
      <div id="cuerpo"> 
             <form action="javascript: fn_consultar();" id="frm_buscar" name="frm_buscar" method="post">
-                <table width="686" height="45" class="formulario">
+                <table width="700" height="45	" class="formulario">
                     <tbody>
                         <tr>
         <th width="32" align="right"><div title="Buscar Trabajadores" id="b5" style="width:25px; cursor:pointer"><img src="Imagen_sistema/lupa.png" alt="Consultar" width="20" height="20" align="absmiddle"/></div></th>
@@ -82,10 +82,8 @@ function fn_consultar(){
 			}			
 		}
 	});
-}
-
-	 
-	 </script>
-     </div>
-    </body>
+} 
+</script>
+</div>
+</body>
 </html>
