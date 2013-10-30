@@ -7,8 +7,8 @@ include_once("persona/Clases/clase_vistas.php");
 $vist=new vistas;
 $vist->setlogin($_SESSION["login"]);
 
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE HTML>
+<html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:Menu Configuración:.</title>
@@ -60,7 +60,7 @@ $vist->setlogin($_SESSION["login"]);
 					$link=$lista[$k][3];						
 					if($descripser!='Beneficiario'){
 			?> 
-             		<li><a href="<? echo $link;?>" target="g" ><?php echo $descripser;}?></a></li>
+             		<li><a href="<?php echo $link;?>" target="g" ><?php echo $descripser;}?></a></li>
 					<?php } ?>                
 
               </ul>	
@@ -72,7 +72,7 @@ $vist->setlogin($_SESSION["login"]);
                    </br>				
 			    </li>            
 			  <li class="derecha">
-			   <a href="persona/Controladores/cerrarsesion.php">Cerrar Sesión<img src="Imagenes/Exit.png" width="20" height="20" align="absmiddle"/></a>					
+			   <a href="	persona/Controladores/cerrarsesion.php">Cerrar Sesión<img src="Imagenes/Exit.png" width="20" height="20" align="absmiddle"/></a>					
 			   </br> </li>
 		 </ul>
  		     

@@ -21,17 +21,14 @@ include_once("../../Clases/clase_titular.php");
 		$celular		= $consulta[$i][11];
 		$telefono		= $consulta[$i][12];	
 	}
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE HTML>
+<html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Entrada de Articulos</title>          
+    <title>.:Agregar Beneficiario:.</title>          
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css"/>
     <link rel="stylesheet" type="text/css" href="Css/border-radius.css"/> 	
  	<link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />  
-    <link rel="stylesheet" href="Css/validationEngine.jquery.css" type="text/css"/>
-	<script src="JavaScript/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
-	<script src="JavaScript/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>    
 	<script src="JavaScript/jscal2.js"></script>    
     <script src="JavaScript/es.js"></script> 
    	<script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script> 
@@ -44,8 +41,7 @@ include_once("../../Clases/clase_titular.php");
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#nuevo').attr('disabled', true);
-		
+		$('#nuevo').attr('disabled', true);		
 		$('#bt').attr('disabled', false);
 		$('#nacionalidad1').attr('disabled', false);
 	    $('#nacionalidad1').focus();

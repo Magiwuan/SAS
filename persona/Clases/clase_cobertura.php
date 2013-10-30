@@ -3,6 +3,7 @@ include_once("clase_mysql.php");
 //       Clase cobertura hereda a clase CModeloDatos para conectar BD MYSql
 class cobertura extends conectaBDMy{
 	private $idCobertura;	
+	private $idTitular;
 	private $desc;
 	private $tipo;
 	private $monto;
@@ -12,6 +13,7 @@ class cobertura extends conectaBDMy{
     public function cobertura(){
 		parent::conectaBDMy();	    
 		$this->idCobertura="";		
+		$this->idTitular="";
 		$this->desc="";
 		$this->tipo="";	
 		$this->monto="";	
@@ -21,6 +23,9 @@ class cobertura extends conectaBDMy{
 //       Metodos Set para cada propiedad de la clase
  	public function setidCobertura($Valor){
         $this->idCobertura = trim($Valor);
+    }  
+    public function setidTitular($Valor){
+        $this->idTitular = trim($Valor);
     }  
 	public function setDesc($Valor){
         $this->desc = mb_strtoupper(trim($Valor), "utf-8");
@@ -62,6 +67,10 @@ public function eCobertura(){
 				parent::cerrar_bd();
 
 }
+public function bDetalle_cobertura(){
+			  $sql="SELECT * FROM tdetalle_cobertura WHERE id_titular='$this->idTitular' order by fecha DESC LIMIT 1";
+		return ($cursor= parent::ejecuta_sql($sql));
+	}
 //       Metodo para listar cobertura en los combos
 	function lista_cobertura()
 	{ 
@@ -97,6 +106,16 @@ public function eCobertura(){
 			
 			parent::cerrar_bd();
      }	
-
+//       Metodo transforma un recorset en una arreglo
+    public function sig_tupla( $registro ) 
+	{ 
+		return( parent::proxima_tupla( $registro ) ); 
+	} 
+ //--------------------------------------------------------------------
+//       Metodo indica la cantidad de tuplas leidas
+//--------------------------------------------------------------------
+     public function getNTupla($resultado){
+        return ( parent::getNRegistro($resultado)  );
+     }	
 }//cierra la clase
 ?>

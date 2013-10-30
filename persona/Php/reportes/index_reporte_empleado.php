@@ -11,7 +11,6 @@
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.js"></script>
        	<script language="javascript" src="../../JavaScript/jquery-1.8.2.min.js" type="text/javascript" ></script>    
-        <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.blockUI.js"></script>       
         <script language="javascript" type="text/javascript" src="../../JavaScript/empleado_reporteJquery.js"></script>  
         <script language="JavaScript" type="text/javascript" src="../../JavaScript/jquery.asmselect.js"></script> 
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>    
@@ -71,7 +70,7 @@ function limpiar(){
 function fn_consultar(){
 	var str = $("#frm_buscar").serialize();
 	$.ajax({
-		url: '../../Controladores/control_verificar_filtro_titular.php',
+		url: '../../Controladores/control_verificar_filtro_reporte.php',
 		type: 'get',
 		data: str,
 		success: function(data){
