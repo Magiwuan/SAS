@@ -8,6 +8,7 @@ include_once("../Clases/clase_titular.php");
 include_once("../Clases/clase_detalle_recaudos.php");
 include_once("../Clases/clase_detalle_solicitud.php");
 include_once("../Clases/clase_examen.php");
+include_once("../Clases/clase_cobertura.php");
 $ope = $_POST['op'];
 switch($ope){
   case "iSolicitud":{
@@ -232,6 +233,7 @@ function incluir(){
 function modificar(){
 	$detalle_solicitud= new detalle_solicitud();
 	$sOrden= new sOrden();
+	$cobertura= new cobertura();
 	$id_detalle_coberutra=0;
 	$Total=0;
 	$Resta=0;	
@@ -273,24 +275,24 @@ function modificar(){
 	}
 	$sOrden->IniciaTransaccion();	
 	//obtenemos el ultimo id del detalle de la cobertura
-	$id = $sOrden->UltimoID_dCobertura();
+	$id = $cobertura->UltimoID_dCobertura();
 		if ($id){
-			$id = $sOrden->sig_tupla($id);		
+			$id = $cobertura->sig_tupla($id);		
 			$id_detalle_coberutra = $id["id_detalle_cobertura"] + 1;
 		}
 	
 	//Buscamos la cobertura para el primer registro del consumo inicial.	
-	$result=$sOrden->buscar_cobertura();
+	$result=$cobertura->buscar_cobertura();
 	if ($result){
-			$result = $sOrden->sig_tupla($result);	
+			$result = $cobertura->sig_tupla($result);	
 //El Monto de la cobertura	
 			$Monto = $result["monto"];
 //El id de la cobertura para el detalle
 			$idCobertura=$result["id_cobertura"];
 		}
-	$buscar=$sOrden->montoDisponible();
+	$buscar=$cobertura->montoDisponible();
 	if ($buscar){
-			$buscar = $sOrden->sig_tupla($buscar);	
+			$buscar = $cobertura->sig_tupla($buscar);	
 //El Monto de la cobertura	
 			$montoDisponible = $buscar["monto_disponible"];	
 		}	
@@ -301,14 +303,13 @@ function modificar(){
 		}			
 	$Resta=$montoDisponible-$Total;
 	if($Resta<0){
-		echo "Error cobertura resta";
-	// echo "Sobrepasa el limite de cobertura. \n"	;
+	 echo "Sobrepasa el limite de cobertura. \n"	;
 	 $var_control=true;
 	}
-	$sOrden->setidCobertura($idCobertura);
-	$sOrden->setidDetalle_cobertura($id_detalle_coberutra);
-	$sOrden->setmontoDisponible($Resta);
-	$iDetalle_cobertura=$sOrden->iDetalle_cobertura();
+	$cobertura->setidCobertura($idCobertura);
+	$cobertura->setidDetalle_cobertura($id_detalle_coberutra);
+	$cobertura->setmontoDisponible($Resta);
+	$iDetalle_cobertura=$cobertura->iDetalle_cobertura();
 	if($iDetalle_cobertura!='-1'){
 		echo "Error DetalleCobertura";
 		$var_control=true;

@@ -31,9 +31,13 @@ include_once("../../Clases/clase_titular.php");
  	<link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />  
 	<script src="JavaScript/jscal2.js"></script>    
     <script src="JavaScript/es.js"></script> 
+             <script language="javascript" type="text/javascript" src="JavaScript/jquery.js"></script>
+       	<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>  
    	<script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script> 
     <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
     <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script> 
+    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
+   
     <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
     	$('#nuevo').click(function(){
@@ -91,10 +95,7 @@ include_once("../../Clases/clase_titular.php");
 		}
     });
     });
-	jQuery(document).ready(function(){
-			// binds form submission and fields to the validation engine
-			jQuery("#form_beneficiario").validationEngine();
-		});
+
 	function limpiar_form(ele) {
    $(ele).find('input').each(function() {
       switch(this.type) {
@@ -131,8 +132,6 @@ include_once("../../Clases/clase_titular.php");
   margin-left:5px; margin-right:5px; outline-width:0px;}/*.btn_guardar_desact_img{background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{
   height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; font-size: 13px; 
   color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
-#popup{ left: 0; position: absolute; top: 0; width: 100%; z-index: 1001;}.content-popup{margin:0px; padding:10px; width:732px; min-height:250px; border-radius:4px;
-    background-color:#FFFFFF; box-shadow: 0 2px 5px #666666;}.close{position:relative;left:700px;}
 </style>
 </head>
 <body> 

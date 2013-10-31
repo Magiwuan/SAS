@@ -4,6 +4,7 @@ include_once("../Clases/clase_titular.php");
 include_once("../Clases/clase_detalle_discapacidad.php");
 include_once("../Clases/clase_detalle_profesion.php");
 include_once("../Clases/clase_detalle_recaudos.php");
+include_once("../Clases/clase_cobertura.php");
 $ope = $_POST['ope'];
 switch($ope){
   case "I":	{
@@ -27,6 +28,7 @@ switch($ope){
 function incluir(){
 // Se crea un Objeto  de la clase 
 	$titular = new titular();
+	$cobertura = new cobertura();
 	$detalle_disc = new detalle_disc();
 	$detalle_pro = new detalle_pro();
 	$detalle_rec = new detalle_rec();
@@ -133,6 +135,33 @@ function incluir(){
 					 }
 			 $cont_rec++;	 	
 			 }
+			 	//obtenemos el ultimo id del detalle de la cobertura
+				$id = $cobertura->UltimoID_dCobertura();
+					if ($id){
+						$id = $cobertura->sig_tupla($id);		
+						$id_detalle_coberutra = $id["id_detalle_cobertura"] + 1;
+					}
+			//Buscamos la cobertura para el primer registro del consumo inicial.	
+				$result=$cobertura->buscar_cobertura();
+				if ($result){
+						$result = $cobertura->sig_tupla($result);	
+			//El Monto de la cobertura	
+						$Monto = $result["monto"];
+			//El id de la cobertura para el detalle
+						$idCobertura=$result["id_cobertura"];
+					}
+					$cobertura->setidTitular($idTitular);
+					$cobertura->setidBeneficiario('0');
+					$cobertura->settipoBeneficiario('T');		
+					$cobertura->setidCobertura($idCobertura);
+					$cobertura->setidDetalle_cobertura($id_detalle_coberutra);
+					$cobertura->setmontoDisponible($Monto);
+					$iDetalle_cobertura=$cobertura->iDetalle_cobertura();
+					if($iDetalle_cobertura!='-1'){
+						echo "Error DetalleCobertura";
+						$var_control=true;
+					}
+					
 		}else{
 			echo 'Este usuario ya ha sido incluido al sistema.';//usuario ya registrado			
 			$var_control=true;

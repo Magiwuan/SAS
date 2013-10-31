@@ -1,11 +1,14 @@
-<!DOCTYPE HTML>
-<html lang="es">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>.:Agregar Titular:.</title>        
+    <title>Entrada de Articulos</title>        
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
     <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="Css/validationEngine.jquery.css" type="text/css"/>
+	<script src="JavaScript/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
+	<script src="JavaScript/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>	
 	<script src="JavaScript/jscal2.js"></script>    
     <script src="JavaScript/es.js"></script>        
 	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
@@ -149,8 +152,9 @@ function limpiar_form(ele) {
       </td>
       <td width="138">Nro. C.I o Pasaporte:</td>
       <td colspan="2"><input name="cedula" type="text" disabled="disabled" id="cedula" size="20" maxlength="16" /></td>
-    <td><div id="test" style="cursor:pointer;" title="Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667" class="test" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
-			</td>
+      <td><a href="#" onclick="jQuery('#test').validationEngine('showPrompt', 'Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667', 'pass')" title="Ayuda">
+			      <div id="test" class="test" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
+			    </a></td>
       </tr>
     <tr>
       <td>Primer Nombre:</td>

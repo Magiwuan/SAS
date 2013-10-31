@@ -16,10 +16,12 @@
     $pdf->SetTextColor(000);
 	$pdf->SetMargins(10,10,10,10);
 	$titular->setCed($_GET['cd']);
-		$buscarTitular=$titular->validar_titular();
-		for($i=0;$i<count($buscarTitular);$i++){
-			$idTitular=$buscarTitular[$i][1]; //Obtenemos el Id titular por la cedula
-		}		
+		$rspTitular=$titular->validar_titular();
+		if($rspTitular){
+			$resutl=$titular->sig_tupla($rspTitular);
+			$idTitular=$result["id_titular"];
+		}
+		echo $idTitular;
 	$sOrden->setidTitular($idTitular);
 	$consulta = $sOrden->cabecera_SM();			
 	$pdf->Cell(43,6,' ',0,0,'C',true);

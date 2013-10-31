@@ -4,7 +4,7 @@
 	$beneficiario = new beneficiario();
 	$paging = new PHPPaging;		
 	$pagina=6;
-	$beneficiario->setidTitular(1);
+	$beneficiario->setidTitular($_SESSION['idTitular']);
 	$consulta=$beneficiario->listar_beneficiario();	
 	$paging->agregarConsulta($consulta); 	
 	$paging->porPagina($pagina);
@@ -43,7 +43,7 @@
             <td> <?php echo $result['nacionalidad'].'-'.$result['cedula'];?></td>
             <td><?php echo $result['apellido1'];?> <?php echo $result['nombre1'];?></td>
             <td><?php echo $result['parentesco'];?></td>
-           <td></td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -60,3 +60,6 @@
         </tr>
     </tfoot>  
 </table>
+<?php
+session_unset($_SESSION['idTitular']);
+?>

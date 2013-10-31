@@ -130,25 +130,7 @@ class sOrden extends conectaBDMy{
 		  
 		  parent::cerrar_bd();
     }
-	public function iDetalle_cobertura(){
-		$fecha  = date('Y-m-d');
-		$sql= "insert into tdetalle_cobertura(id_detalle_cobertura,id_cobertura,id_titular,id_beneficiario,tipo_beneficiario,id_solicitud,monto_disponible,fecha,estatus)  values('$this->idDetalle_cobertura',
-		'$this->idCobertura',
-		'$this->idTitular',
-		'$this->idBeneficiario',
-		'$this->tipoBeneficiario',
-		'$this->idSolicitud',
-		'$this->montoDisponible',
-		'$fecha',
-		'1')";
-		$respuesta = parent::ejecuta_sql( $sql );
-			if ( $respuesta>0 )
-				return -1;// Exito
-			else
-				return 1;//fallo la operacion
-			
-				parent::cerrar_bd();
-}
+
 
 	//       Metodo Eliminar
 public function solicitudProcesada(){

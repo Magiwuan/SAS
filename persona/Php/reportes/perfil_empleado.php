@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 include_once("../../Clases/clase_titular.php");
 	$titular= new titular();	
 	$idTitular=$_POST["id_titular"];
@@ -19,7 +19,7 @@ include_once("../../Clases/clase_cobertura.php");
 $cobertura= new cobertura();
 $cobertura->setidTitular($idTitular);
 $resp=$cobertura->bDetalle_cobertura();
-$numFilas=$cobertura->getNTupla($resp);
+$numFilas=1-$cobertura->getNTupla($resp);
 	if($resp){ 
 		$resp=$cobertura->sig_tupla($resp);		
 		$montoDisponible=$resp["monto_disponible"];
@@ -113,7 +113,8 @@ $numFilas=$cobertura->getNTupla($resp);
     </tbody>
  
 </table>
-  <div id="div_listar_beneficiario">d</div>
+<?php $_SESSION['idTitular']=$idTitular; ?>
+  <div id="div_listar_beneficiario"></div>
 </form>
  </div> 
 </body>

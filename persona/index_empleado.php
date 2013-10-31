@@ -10,8 +10,7 @@
         <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
         <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>            
         <script language="javascript" type="text/javascript" src="JavaScript/jquery.js"></script>
-       	<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>    
-        <script language="javascript" type="text/javascript" src="JavaScript/jquery.blockUI.js"></script>       
+       	<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>    
         <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
         <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
         <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>    

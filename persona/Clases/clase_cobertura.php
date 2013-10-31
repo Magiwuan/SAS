@@ -9,7 +9,11 @@ class cobertura extends conectaBDMy{
 	private $monto;
 	private $fecha_inicio;
 	private $fecha_fin;
-//       Metodo Constructor de la clase
+	private $montoDisponible;
+	private $idDetalle_cobertura;
+	private $tipoBeneficiario;	
+	private $idBeneficiario;
+//  Metodo Constructor de la clase
     public function cobertura(){
 		parent::conectaBDMy();	    
 		$this->idCobertura="";		
@@ -17,8 +21,12 @@ class cobertura extends conectaBDMy{
 		$this->desc="";
 		$this->tipo="";	
 		$this->monto="";	
+		$this->idDetalle_cobertura="";
+		$this->montoDisponible="";	
 		$this->fecha_inicio="";	
-		$this->fecha_fin="";			
+		$this->fecha_fin="";
+		$this->tipoBeneficiario="";
+		$this->idBeneficiario="";			
 	}
 //       Metodos Set para cada propiedad de la clase
  	public function setidCobertura($Valor){
@@ -42,6 +50,18 @@ class cobertura extends conectaBDMy{
 	public function setFecha_fin($Valor){
         $this->fecha_fin = trim($Valor);
     }
+    public function setidDetalle_cobertura($Valor){
+        $this->idDetalle_cobertura = trim($Valor);
+    }
+    public function setmontoDisponible($Valor){
+        $this->montoDisponible = trim($Valor);
+    }
+    public function setidBeneficiario($Valor){
+        $this->idBeneficiario = trim($Valor);
+    }
+    	public function settipoBeneficiario($Valor){
+        $this->tipoBeneficiario = trim($Valor);
+    }
 //       Metodo registrar
  public function iCobertura(){
 	 	$this->fecha_inicio = parent::fecha_bd($this->fecha_inicio);
@@ -55,6 +75,25 @@ class cobertura extends conectaBDMy{
 		  
 		  parent::cerrar_bd();
     }
+ 	public function iDetalle_cobertura(){
+		$fecha  = date('Y-m-d');
+		$sql= "insert into tdetalle_cobertura(id_detalle_cobertura,id_cobertura,id_titular,id_beneficiario,tipo_beneficiario,id_solicitud,monto_disponible,fecha,estatus)  values('$this->idDetalle_cobertura',
+		'$this->idCobertura',
+		'$this->idTitular',
+		'$this->idBeneficiario',
+		'$this->tipoBeneficiario',
+		'$this->idSolicitud',
+		'$this->montoDisponible',
+		'$fecha',
+		'1')";
+		$respuesta = parent::ejecuta_sql( $sql );
+			if ( $respuesta>0 )
+				return -1;// Exito
+			else
+				return 1;//fallo la operacion
+			
+				parent::cerrar_bd();
+}
 //       Metodo Eliminar
 public function eCobertura(){
 		$sql="update tcobertura set estatus='0' where id_cobertura='$this->idCobertura'";
@@ -105,7 +144,16 @@ public function bDetalle_cobertura(){
 			return $sql;		
 			
 			parent::cerrar_bd();
-     }	
+     }
+	public function buscar_cobertura(){
+		  $sql="SELECT * FROM tcobertura WHERE descripcion='SERVICIOS PRIMARIOS'";
+		return ($cursor= parent::ejecuta_sql($sql));
+	}	
+//       Metodo Buscar ultmimo
+    public function UltimoID_dCobertura(){
+       $sql="SELECT * FROM tdetalle_cobertura ORDER BY id_detalle_cobertura DESC LIMIT 1";
+		return ($cursor= parent::ejecuta_sql($sql));
+    }
 //       Metodo transforma un recorset en una arreglo
     public function sig_tupla( $registro ) 
 	{ 
