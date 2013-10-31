@@ -327,7 +327,8 @@ public function valida_beneficiario(){
      }		 
 //       Sentencia sql para listar
      public function listar_beneficiario(){
-        $sql="select id_beneficiario, id_titular,nacionalidad, cedula, nombre1, nombre2, apellido1, apellido2, sexo, parentesco, participacion from tbeneficiario where estatus=1 and id_titular='$this->idTitular'";
+        $sql="select id_beneficiario, id_titular,nacionalidad, cedula, nombre1, nombre2, apellido1, apellido2, sexo, 
+        parentesco, participacion from tbeneficiario where estatus=1 and id_titular='$this->idTitular'";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
 		$resulta=parent::getNRegistro($cursor); 		

@@ -78,7 +78,7 @@ $numFilas=1-$cobertura->getNTupla($resp);
 <form action=""  method="POST" id="from_perfil" name="from_perfil">
 	<h1>Historial del Titular</h1>
 
-<table id="grilla" class="lista" width="624">
+<table id="grilla" class="lista" width="700">
   <thead>
         <tr> 
         <th width="100"></th>
