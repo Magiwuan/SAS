@@ -95,19 +95,21 @@ function incluir(){
 						$var_control=true;
 						echo "Error 1";
 					}
-			$arreglo_disc = $_POST["discapacidad"]; //Arreglo de discapacidad
+			$arreglo_disc = $_POST["discapacidad"]; //Arreglo de discapacidad			
 			$cont_disc='0';
+				
 			while($cont_disc<count($arreglo_disc)){	
-		//Consultamos el ultimo $id_detalle_discapacidad y traemos el ultimo	
+			//Consultamos el ultimo $id_detalle_discapacidad y traemos el ultimo	
 		// Busca el ultimo registro de la entrada e incrementa el id	
 					$result = $detalle_disc->tUltimoID_Disc();
 					if ($result){
 						$result = $detalle_disc->sig_tupla($result);		
 						$idTitular_disc = $result["id_titular_discapacidad"] + 1;
-					}	
+					}		
+				
 					$detalle_disc->setId_titular_disc($idTitular_disc);	
 					$detalle_disc->setidTitular($idTitular);	
-					$detalle_disc->setidDiscapacidad($arreglo_disc[$cont_disc]);
+					$detalle_disc->setidDiscapacidad($arreglo_disc[$cont_disc]);				
 		//Registramos el Detalle de la Discapacidad
 				$iTitular_Discapacidad=$detalle_disc->iTitular_Discapacidad();
 					if($iTitular_Discapacidad!='-1'){

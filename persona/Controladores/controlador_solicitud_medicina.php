@@ -212,11 +212,12 @@ function modificar(){
 	$sMedicina->setnroFactura($arregloFactura[$cont_cant]);
 	$sMedicina->setnroControl($arregloControl[$cont_cant]);
 	$moficiar=$sMedicina->mDetalle_solcitud();
+
 	if($moficiar!='-1'){
 		echo "Error 1";
 		$var_control=true;
 	}else{
-		$Total+=$cantidad[$cont_cant];
+		$Total+=$plata;
 	}
 	$cont_cant++;	
 	}	
@@ -263,6 +264,7 @@ function modificar(){
 	// echo "Sobrepasa el limite de cobertura. \n"	;
 	 $var_control=true;
 	}
+
 	$sMedicina->setidCobertura($idCobertura);
 	$sMedicina->setidDetalle_cobertura($id_detalle_coberutra);
 	$sMedicina->setmontoDisponible($Resta);

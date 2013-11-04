@@ -221,7 +221,7 @@ function limpiar_form(ele) {
 			for($i=0;$i<count($lista_discapacidad);$i++)
 			{			
 			?>
-  <option value="<?php echo $$lista_discapacidad[$i][1];?>" 
+  <option value="<?php echo $lista_discapacidad[$i][1];?>" 
 		  	<?php /*if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";

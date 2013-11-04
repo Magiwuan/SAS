@@ -49,7 +49,8 @@
 		
 	$cobertura->setidBeneficiario($result['id_beneficiario']);
 	$resp=$cobertura->bDetalle_coberturaBenef();
-	$numFilas=1-$cobertura->getNTupla($resp);
+	$mov=$cobertura->cant_movientos_b();
+	$numFilas=$cobertura->getNTupla($mov)-1;
 		if($resp){ 
 		$resp=$cobertura->sig_tupla($resp);		
 			$montoDisponible=$resp["monto_disponible"];

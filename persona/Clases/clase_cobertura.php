@@ -107,11 +107,19 @@ public function eCobertura(){
 
 }
 public function bDetalle_cobertura(){
-			  $sql="SELECT * FROM tdetalle_cobertura WHERE id_titular='$this->idTitular' order by fecha DESC LIMIT 1";
+	$sql="SELECT * FROM tdetalle_cobertura WHERE id_titular='$this->idTitular' order by monto_disponible asc LIMIT 1";
+		return ($cursor= parent::ejecuta_sql($sql));
+	}
+public function cant_movientos(){
+	$sql="SELECT * FROM tdetalle_cobertura WHERE id_titular='$this->idTitular'";
 		return ($cursor= parent::ejecuta_sql($sql));
 	}
 	public function bDetalle_coberturaBenef(){
-			  $sql="SELECT * FROM tdetalle_cobertura WHERE id_beneficiario='$this->idBeneficiario' order by fecha DESC LIMIT 1";
+			  $sql="SELECT * FROM tdetalle_cobertura WHERE id_beneficiario='$this->idBeneficiario' order by monto_disponible asc LIMIT 1";
+		return ($cursor= parent::ejecuta_sql($sql));
+	}
+public function cant_movientos_b(){
+			  $sql="SELECT * FROM tdetalle_cobertura WHERE id_beneficiario='$this->idBeneficiario'";
 		return ($cursor= parent::ejecuta_sql($sql));
 	}
 //       Metodo para listar cobertura en los combos

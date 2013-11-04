@@ -1,6 +1,6 @@
 <?php
-include_once("../../clases/clase_solicitud_medicina.php");
-include_once("../../clases/clase_solicitud_orden.php");
+include_once("../../Clases/clase_solicitud_medicina.php");
+include_once("../../Clases/clase_solicitud_orden.php");
  $sMedicina= new sMedicina(); 
  $cod=$_GET['id'];
  $sMedicina->setcodHoja($cod);
@@ -26,24 +26,23 @@ include_once("../../clases/clase_solicitud_orden.php");
 		$elYear=substr($resul['fecha_fin'],0,4);
 		$fecha_fin=$elDia."-".$elMes."-".$elYear;
 		} 
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE HTML>
+<html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>.:Aprobar Solicitud:.</title>        
   	<link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />       
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" /> 
-    <link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />	
     <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	
-    <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>            
+    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>
     <script src="../../JavaScript/solicitud_medicina.js"></script> 
       <script language="JavaScript" type="text/JavaScript">
 	   $(document).ready(function(){
 		  $('input[name="monto[]"]').change(function(event){            
 			    var amt = parseFloat(this.value);
-                $(this).val('Bs ' + amt.toFixed(2));        
-			
+                $(this).val('Bs ' + amt.toFixed(2));    			
         });
 		});
 		</script> 
@@ -151,25 +150,7 @@ return (key <= 13 || (key >= 48 && key <= 57));
   margin-right:5px;
   outline-width:0px;
 }
-#popup {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1001;
-}
-.content-popup {
-	 margin:0px;
-    padding:10px;
-    width:732px;
-    min-height:250px;
-    border-radius:4px;
-    background-color:#FFFFFF;
-    box-shadow: 0 2px 5px #666666;
-}
-.close {
- position:relative;
- left:700px;}
+
 .btn_act1 {  height: 23px; 
   background-color: #f5f5f0; 
   border-bottom: 1px solid #09F;
@@ -217,8 +198,7 @@ return (key <= 13 || (key >= 48 && key <= 57));
       <td><input name="cedTitular" type="text" id="cedTitular" value="<?php echo $resul['nacionalidad'];?>-<?php echo $resul['cedula'];?>" size="16" readonly /></td>
       <td colspan="5"><input name="vacio" type="text" disabled id="box" value="<?php echo $resul['apellido1'];?> <?php echo $resul['apellido2'];?>, <?php echo $resul['nombre1'];?> <?php echo $resul['nombre2'];?>" size="45" /></td>
       </tr>
-    <tr>
-   
+    <tr>   
       <td height="23">Beneficiario:</td>
       <td colspan="6">
 	  <?php if($resul['id_beneficiario']=='0'){
@@ -349,9 +329,9 @@ return (key <= 13 || (key >= 48 && key <= 57));
       <td colspan="2"><?php 	include_once("../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();	
 			if($resul['id_servicio']=='1'){
-				$var='Solicitud de Médicinas';
+				$var='SOLICITUD DE MÉDICINAS';
 			}else{
-				$var='Orden Medica';
+				$var='REEMBOLSOS';
 			}
 			$recaudo->setTiporecaudo($var);
 			$consul=$recaudo->lista_recaudo();

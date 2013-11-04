@@ -19,7 +19,8 @@ include_once("../../Clases/clase_cobertura.php");
 $cobertura= new cobertura();
 $cobertura->setidTitular($idTitular);
 $resp=$cobertura->bDetalle_cobertura();
-$numFilas=1-$cobertura->getNTupla($resp);
+$mov=$cobertura->cant_movientos();
+$numFilas=$cobertura->getNTupla($mov)-1;
 	if($resp){ 
 		$resp=$cobertura->sig_tupla($resp);		
 		$montoDisponible=$resp["monto_disponible"];

@@ -228,7 +228,8 @@ public function eSolicitud(){
 				parent::cerrar_bd();
 }
 public function mDetalle_solcitud(){
-		$sql= "update  tdetalle_solicitud  set nro_factura='$this->nroFactura', nro_control='$this->nroControl', monto_unitario='$this->monto',estatus='1' where id_solicitud='$this->idSolicitud' and id_medicamento='$this->idMedicamento'";
+		$sql= "update  tdetalle_solicitud  set nro_factura='$this->nroFactura', nro_control='$this->nroControl', 
+		monto_unitario='$this->monto',estatus='1' where id_solicitud='$this->idSolicitud' and id_medicamento='$this->idMedicamento'";
 		$respuesta = parent::ejecuta_sql( $sql );
 			if ( $respuesta>0 )
 				return -1;// Exito
@@ -238,14 +239,12 @@ public function mDetalle_solcitud(){
 				parent::cerrar_bd();			
 }
 	public function buscar_id_solicitud(){
-		$c=0;
-		  $sql="SELECT * from tsolicitud_servicio where cod_hoja='$this->idSolicitud' and estatus='3'";		
+		$sql="SELECT * from tsolicitud_servicio where cod_hoja='$this->idSolicitud' and estatus='3'";		
 		$cursor=parent::ejecuta_sql($sql);	
-		$resulta=$this->getNTupla($cursor);
-		if($resulta>0)
-			return $cursor;
-		else	
-			return -1;	
+		if ($this->getNTupla($cursor)>0)
+		return $cursor;
+		else
+		return -1;
 		
     }
 	 public function validar_solicitud(){
