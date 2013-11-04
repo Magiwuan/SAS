@@ -37,11 +37,12 @@ function incluir(){
 	$medico->setApellido($_POST["apellido"]);
 	$medico->setCedula($_POST["ced2"]);
 	$medico->setEspecialidad($_POST["especialidad"]);		
-		// Se verifica que no exista para poder incluir
-		$Validamedicos=$medico->valida_medico();
+	
 		// Se inicia la Transacción
 		$medico->IniciaTransaccion();
-		if ($Validamedicos=='-1'){
+		// Se verifica que no exista para poder incluir
+		$val_med=$medico->valida_medico();
+		if ($val_med=='0'){
 		// Si $vadila_medico no encuentra nada (-1) 
 		// Busca el ultimo registro de la entrada e incrementa el id
 				$result = $medico->medico_UltimoID();	

@@ -17,10 +17,11 @@
 	if(isset($_GET['cd'])){
 		$titular->setCed($_GET['cd']);
 		$buscarTitular=$titular->validar_titular();
-		for($i=0;$i<count($buscarTitular);$i++){
-			$idTitular=$buscarTitular[$i][1]; //Obtenemos el Id titular por la cedula
+		if($buscarTitular){
+			$resl=$titular->sig_tupla($buscarTitular);
+			$idTitular=$resl['id_titular'];
 		}
-		$sMedicina->setidTitular($idTitular);
+	$sMedicina->setidTitular($idTitular);
 	$consulta = $sMedicina->cabecera_SM();	
 	if ($consulta){
 		$consulta = $sMedicina->sig_tupla($consulta);			
@@ -59,16 +60,17 @@
 	$pdf->Cell(35,6,'Cedula:',1,1,'C',true);
 	$pdf->Cell(90,6,$consulta["upsa"],1,0,'C',true);
 	$pdf->Cell(63,6,$consulta["autorizado"],1,0,'C',true);
-	$pdf->Cell(35,6,$consulta["ced_autorizado"],1,1,'C',true);
+	if($consulta["ced_autorizado"]==0){ $ced_auto="";}else{ $ced_auto==$consulta["ced_autorizado"];}
+	$pdf->Cell(35,6,$ced_auto,1,1,'C',true);
 	$pdf->Cell(188,6,'PARA USO DEL SISTEMA AUTOGESTIONADO DE SALUD',1,1,'C',true);
-	$pdf->Cell(85,6,'MEDICAMENTOS',1,0,'C',true);
-	$pdf->Cell(73,6,'DENOMINACION',1,0,'C',true);
+	$pdf->Cell(158,6,'MEDICAMENTOS',1,0,'C',true);
+	//$pdf->Cell(73,6,'DENOMINACION',1,0,'C',true);
 	$pdf->Cell(30,6,'CANTIDAD',1,1,'C',true);
 	$sMedicina->setidSolicitud($consulta['id_solicitud']);
 	$consulta_detalle=$sMedicina->detalle_SM();
 	for($i=0;$i<count($consulta_detalle);$i++){		
-	$pdf->Cell(85,6,$consulta_detalle[$i]['1'],1,0,'C',true);
-	$pdf->Cell(73,6,''/*$consulta_detalle['denominacion']*/,1,0,'C',true);
+	$pdf->Cell(158,6,$consulta_detalle[$i]['1'],1,0,'C',true);
+	/*$pdf->Cell(73,6,''$consulta_detalle['denominacion'],1,0,'C',true);*/
 	$pdf->Cell(30,6,$consulta_detalle[$i]['2'],1,1,'C',true);
 	}
 	$pdf->Cell(188,6,'OBSERVACIONES: ','LTR',1,'l',true);
@@ -145,14 +147,14 @@
 	$pdf->Cell(35,6,'',1,0,'C',true);
 	$pdf->Cell(35,6,'',1,1,'C',true);
 	$pdf->Cell(188,6,'PARA USO DEL SISTEMA AUTOGESTIONADO DE SALUD',1,1,'C',true);
-	$pdf->Cell(85,6,'MEDICAMENTOS',1,0,'C',true);
-	$pdf->Cell(73,6,'DENOMINACION',1,0,'C',true);
+	$pdf->Cell(158,6,'MEDICAMENTOS',1,0,'C',true);
+	/*$pdf->Cell(73,6,'DENOMINACION',1,0,'C',true);*/
 	$pdf->Cell(30,6,'CANTIDAD',1,1,'C',true);
 	$sMedicina->setidSolicitud($consulta['id_solicitud']);
 	$consulta_detalle=$sMedicina->detalle_SM();
 	for($i=0;$i<count($consulta_detalle);$i++){		
-	$pdf->Cell(85,6,$consulta_detalle[$i]['1'],1,0,'C',true);
-	$pdf->Cell(73,6,''/*$consulta_detalle['denominacion']*/,1,0,'C',true);
+	$pdf->Cell(158,6,$consulta_detalle[$i]['1'],1,0,'C',true);
+	/*$pdf->Cell(73,6,''$consulta_detalle['denominacion'],1,0,'C',true);*/
 	$pdf->Cell(30,6,$consulta_detalle[$i]['2'],1,1,'C',true);
 	}
 	$pdf->Cell(188,6,'OBSERVACIONES: ','LTR',1,'l',true);

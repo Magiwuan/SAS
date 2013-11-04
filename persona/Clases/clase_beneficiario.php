@@ -331,11 +331,10 @@ public function valida_beneficiario(){
         parentesco, participacion from tbeneficiario where estatus=1 and id_titular='$this->idTitular'";
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
-		$resulta=parent::getNRegistro($cursor); 		
-		if($resulta<0)
-			return 1;//fallo la operacion
+		if(parent::getNRegistro($cursor)>0)
+			return $sql;
 			else 
-			return $sql;		
+			return -1;		
 			
 			parent::cerrar_bd();
      }		 

@@ -44,7 +44,7 @@ $numFilas=1-$cobertura->getNTupla($resp);
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 
     
     <script language="javascript" type="text/javascript" >
-	  $(document).ready(function(){  	
+	  $(document).ready(function(){  
 		fn_listar_benef();
     });
 	function limpiar_form(ele) {

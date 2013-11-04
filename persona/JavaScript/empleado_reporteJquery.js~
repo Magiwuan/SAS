@@ -4,8 +4,7 @@ $(document).ready(function(){
 		$(this).addClass("over");
 	}).mouseout(function(){
 		$(this).removeClass("over");
-	});
-	
+	});	
 });
 
 function fn_agregar(){		
@@ -41,16 +40,13 @@ jConfirm('Desea excluir este Titular?', 'Mensaje Confirmación', function(r) {
 	}
 	});	
 }
-
-
 function fn_verPerfil(id_titular){	
  $.ajax({
 	beforeSend: function(){                         
     	$("#cuerpo").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');
   	},
 	success: function(){
-		$("#cuerpo").load("perfil_empleado.php",{id_titular: id_titular});
-		$("#div_listar").load(id_titular);		
+		$("#cuerpo").load("perfil_empleado.php",{id_titular: id_titular});		
 	}
 	});		
 };
@@ -71,7 +67,7 @@ function fn_buscar(){
 		type: 'get',
 		data: str,					
 		success: function(data){
-		$("#div_listar").html(data);							 		
+		$("#div_listar").html("ddd");							 		
 		}		
 	});
 }

@@ -72,14 +72,14 @@
 				$pdf->Cell(63,6,'',1,0,'C',true);
 				$pdf->Cell(35,6,'',1,1,'C',true);
 				$pdf->Cell(188,6,'PARA USO DEL SISTEMA AUTOGESTIONADO DE SALUD',1,1,'C',true);
-				$pdf->Cell(85,6,'MEDICAMENTOS',1,0,'C',true);
-				$pdf->Cell(73,6,'DENOMINACION',1,0,'C',true);
+				$pdf->Cell(158,6,'MEDICAMENTOS',1,0,'C',true);
+				//$pdf->Cell(73,6,'DENOMINACION',1,0,'C',true);
 				$pdf->Cell(30,6,'CANTIDAD',1,1,'C',true);
 				$sMedicina->setidSolicitud($consulta['id_solicitud']);
 					$consulta_detalle=$sMedicina->detalle_SM();
 					for($i=0;$i<count($consulta_detalle);$i++){		
-						$pdf->Cell(85,6,$consulta_detalle[$i]['1'],1,0,'C',true);
-						$pdf->Cell(73,6,''/*$consulta_detalle['denominacion']*/,1,0,'C',true);
+						$pdf->Cell(158,6,$consulta_detalle[$i]['1'],1,0,'C',true);
+						//$pdf->Cell(73,6,''/*$consulta_detalle['denominacion']*/,1,0,'C',true);
 						$pdf->Cell(30,6,$consulta_detalle[$i]['2'],1,1,'C',true);
 					}
 				$pdf->Cell(188,6,'OBSERVACIONES: ','LTR',1,'l',true);

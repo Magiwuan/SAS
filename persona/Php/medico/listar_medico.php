@@ -33,7 +33,7 @@
     <tbody><?php  while ($result = $paging->fetchResultado()){?> 
      <tr>        
             <td><?php echo $result['apellido']; ?>, <?php echo $result['nombre']; ?></td>
-            <td><?php echo $result['cedula']?></td>
+            <td><?php echo $result['nacionalidad'].'-'.$result['cedula']?></td>
             <td><?php echo $result['especialidad']?></td>
             <td align="center" valign="middle"><a href="javascript: fn_modificar(<?php echo $result['id_medico']?>);"><img src="../../Imagen_sistema/page_edit.png" width="16" height="16"  align="center" title="Editar" /></a></td>
             <td align="center" valign="middle"><a href="javascript: fn_eliminar(<?php echo $result['id_medico']?>);"><img src="../../Imagen_sistema/delete.png" width="16" height="16" align="center" title="Eliminar"/></a></td>

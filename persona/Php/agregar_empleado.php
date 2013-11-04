@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Entrada de Articulos</title>        
@@ -127,23 +127,19 @@ function limpiar_form(ele) {
 </script>  
 <style>
 .btn_act{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #09F;border-right:1px solid #09F;border-top:0px;border-left:0px;font-size: 13px;color:black;padding-left: 20px;background-repeat: no-repeat;cursor:hand; cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;background-image: url(Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{background-image: url(Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto;background-repeat: no-repeat;cursor:hand; cursor:pointer;height: 21px;width: 22px;border: 0px;background-image: url(Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #0F0;border-right:1px solid #0F0;border-top:0px;border-left:0px;font-size: 13px;color:black;padding-left: 20px;  background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}.btn_guardar_desact{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #999;border-right:1px solid #999;border-top:0px;border-left:0px;font-size: 13px;color:#CCC;padding-left: 20px;background-repeat: no-repeat;cursor:hand; cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}/*.btn_guardar_desact_img{background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #333;border-right:1px solid #333;border-top:0px;border-left:0px;font-size: 13px;color:#CCC;padding-left: 20px;background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}.btn_act1 {height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #09F;border-right:1px solid #09F;border-top:0px;border-left:0px;font-size: 13px;color:black; padding-left: 20px;background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;background-image: url(Imagen_sistema/cancelar.jpg);}
-  
-#popup{left: 0;position: absolute;top: 0;width: 100%;z-index: 1001;}
-.content-popup {margin:0px;padding:10px;width:732px; min-height:250px;border-radius:4px;background-color:#FFFFFF;box-shadow: 0 2px 5px #666666;}
-.close { position:relative; left:700px;}
 </style>
 </head>
 <body> 
 <form action="" method="POST" id="form_titular" name="form_titular">
-<table width="686" height="25" border="0" cellpadding="1" cellspacing="1">
+<table width="696" height="25" border="0" cellpadding="0" cellspacing="o">
     <tr>
-      <td width="657"><h1>Agregando Titular</h1></td>
-       <td width="22" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar();" title="Salir" /></td>
+      <td width="687"><h1>Agregando Titular</h1></td>
+       <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar();" title="Salir" /></td>
     </tr>
   </table>
   <fieldset>
   <legend align="left">Datos Personales</legend>
-    <table width="686" border="0" cellpadding="1" cellspacing="1">
+    <table width="686" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="120">Nacionalidad:</td>
       <td width="181">
@@ -238,19 +234,13 @@ function limpiar_form(ele) {
       </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><div id="popup" style="display: none;">
-   	 <div class="content-popup">
-       <div class="close"><a href="#" id="close"><img src="Imagen_sistema/close.png"></a></div>
-        <div id="cap"></div> 
-    </div>
-</div>&nbsp;</td>
       <td><input name="ope" type="hidden" id="ope" value="I" hidden="hidden" /></td>     
     </tr>
     </table>    
   </fieldset>
      <fieldset> 
       <legend align="left">Dirección de Habitación</legend>   
-     <table width="686" border="0">   
+     <table width="686" border="0" cellpadding="0" cellspacing="0">   
     <tr>
       <td width="128">Estado:</td>
       <td width="160">
@@ -285,12 +275,12 @@ function limpiar_form(ele) {
   </fieldset>
   <fieldset>  
     <legend align="left">Datos del Trabajo</legend>   
-    <table width="686" border="0">  
+    <table width="686" border="0" cellpadding="0" cellspacing="0">  
       <tr>
-        <td height="28">Tipo Nómina:</td>
+        <td>Tipo Nómina:</td>
         <td><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina1" value="P" /><label for="tipo_nomina1">Presidente</label></td>
         <td><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina2" value="D" /><label for="tipo_nomina2">Directivo</label></td>
-        <td ><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina3" value="E" /><label for="tipo_nomina3">Empleado</label></td>
+        <td width="108"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina3" value="E" /><label for="tipo_nomina3">Empleado</label></td>
         <td width="108"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina4" value="C" /><label for="tipo_nomina4">Contratado</label></td>
         <td width="145"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina5" value="O" /><label for="tipo_nomina5">Obrero</label></td>
         <td>&nbsp;</td>
@@ -301,7 +291,8 @@ function limpiar_form(ele) {
       <td width="89"><button name="bt_fna" id="bt_fna" class="button" disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha" /></button> 
       </td>
       <td width="88" >Profesión:</td>
-      <td colspan="2" rowspan="2" valign="top"><select name="profesion" disabled="disabled" id="profesion">
+      <td colspan="2" valign="top"><select name="profesion" disabled="disabled" id="profesion">
+		    <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
   <?php include_once("../Clases/clase_profesion.php");
 			$profesion=new profesion();
 			$lista_profesion=$profesion->lista_profesion();
@@ -327,8 +318,8 @@ function limpiar_form(ele) {
 			<?php }?>
       </select>
       </td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>     
+      <td>Correo Corporativo:</td> 
+      <td colspan="3"><input name="correo2" type="text" disabled="disabled" id="correo2" size="35" /></td>
     </tr>
     <tr>
       <td height="24">Departamento:</td>
@@ -356,17 +347,12 @@ function limpiar_form(ele) {
             <?php }?>
         </select>
      </td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td></td>
+      <td></td>
     </tr>
-      <tr>
-        <td height="24">Correo Corporativo:</td>
-        <td colspan="6"><input name="correo2" type="text" disabled="disabled" id="correo2" size="50" /></td>
-      </tr>
-      <tr>
+       <tr>
       <td height="37">Dirección:</td>
-      <td colspan="6"><div id="cap4" style="width:320px;"><textarea name="direccion2" id="direccion2" cols="45" rows="2" readonly></textarea>
-      </div></td>
+      <td colspan="6"><div id="cap4" style="width:320px;"><textarea name="direccion2" id="direccion2" cols="45" rows="2" readonly></textarea></div></td>
     </tr>
       <tr>
         <td height="37">Observaciones:</td>
@@ -390,12 +376,12 @@ function limpiar_form(ele) {
       </tr>    
     </table>
   </fieldset>
-  <table  width="686" border="0">
+  <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
-      <td width="235">&nbsp;</td>
+      <td width="245">&nbsp;</td>
       <td width="90"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" onclick="limpiar_form(this.form)" /></td>
       <td width="97"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
-      <td width="294"></td>
+      <td width="248"></td>
       </tr>
   </table> 
 </form>

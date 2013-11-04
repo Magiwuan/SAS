@@ -11,7 +11,7 @@
 	$sMedicina->setidTitular($_GET['buscar']);	
 	$sql=$sMedicina->sql();
 	if($sql=='-1'){
-		echo "No hay registros.";
+		echo "<br /><h1>No hay registros !</h1>";
 		exit();
 	}
 	$paging->agregarConsulta($sql); 

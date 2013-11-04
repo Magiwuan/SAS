@@ -3,19 +3,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>.:Reporte de Titulares:.</title>          
-      <link href="../../Css/estilo2.css" rel="stylesheet" type="text/css" />   
+		<link href="../../Css/estilo2.css" rel="stylesheet" type="text/css" />   
         <link href="../../Css/estilos.css" rel="stylesheet" type="text/css" />
-        <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
+        <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" />         
         <link rel="stylesheet" type="text/css" href="../../Css/jquery.asmselect.css" />
-        <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
+        <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />                
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.js"></script>
-       	<script language="javascript" src="../../JavaScript/jquery-1.8.2.min.js" type="text/javascript" ></script>    
+        <script language="javascript" src="../../JavaScript/jquery-1.8.2.min.js" type="text/javascript" ></script>    
         <script language="javascript" type="text/javascript" src="../../JavaScript/empleado_reporteJquery.js"></script>  
         <script language="JavaScript" type="text/javascript" src="../../JavaScript/jquery.asmselect.js"></script> 
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>    
           <script language="javascript" type="text/javascript">
-	    $(document).ready(function() {
+	    $(document).ready(function(){
+		fn_listar_benef();
 			$("#b5").click(function(event) {
 			$("#buscar").val('');
 			var miPopup; 
@@ -75,7 +76,7 @@ function fn_consultar(){
 		data: str,
 		success: function(data){
 			if(data=='No'){
-				jAlert("BOOM!! No hay Resultados :(");
+				jAlert("No hay resultados!");
 			}else{
 			fn_buscar();						
 			}			

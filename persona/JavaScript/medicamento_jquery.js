@@ -1,5 +1,16 @@
 // JavaScript Document
-	function fn_agregar(){		
+
+$(document).ready(function(){
+	fn_listar_medicamento();
+	$("#grilla tbody tr").mouseover(function(){
+		$(this).addClass("over");
+	}).mouseout(function(){
+		$(this).removeClass("over");
+	});
+});
+
+	function fn_agregar(){	
+	
 		var str = $("#form_medicamento").serialize();
 		$.ajax({
 			url: '../../Controladores/controlador_medicamento.php',
@@ -16,14 +27,6 @@
 		});
 	};
 	
-$(document).ready(function(){
-	fn_listar_medicamento();
-	$("#grilla tbody tr").mouseover(function(){
-		$(this).addClass("over");
-	}).mouseout(function(){
-		$(this).removeClass("over");
-	});
-});
 function limpiar(){		
 			$('#nombre').val("");		
 		}	

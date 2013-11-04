@@ -23,23 +23,23 @@
 		return false;
 	}
 	if(document.form_titular.cedula.value=='') {
-		jAlert('El campo \"Cedula o Pasaporte\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo "Cedula o Pasaporte" no puede estar vacio!','Dialogo de Alerta');
 		document.form_titular.cedula.focus();
 		return false;
 	}
 	valor0=document.form_titular.cedula.value;
-	if(!/\d{8}$/.test(valor0) ) {//4
+	if(!/\d{8}$/.test(valor0) ) {
 		document.form_titular.cedula.focus();
-		jAlert('El campo \"Cedula\" no es valido! Ejemplo: 20643089, sin caracteres especiales y letras','Dialogo de Alerta');
+		jAlert('El campo "Cedula" no es valido! Ejemplo: 20643089, sin caracteres especiales y letras','Dialogo de Alerta');
 		return false;
 	}
 	if(document.form_titular.nombre1.value.length < 1){
-		jAlert('El campo  \"Primer Nombre\"  no puede estar vacio','Dialogo de Alerta');
+		jAlert('El campo  "Primer Nombre"  no puede estar vacio','Dialogo de Alerta');
 		document.form_titular.nombre1.focus();
 		return false;
 	}
 	if(document.form_titular.nombre1.value.length < 3){
-  		jAlert('El campo \"Nombres" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+  		jAlert('El campo "Primer Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
   		document.form_titular.nombre1.focus();
   		return false;
 	}
@@ -57,13 +57,13 @@
 			}
 	}
 	if(!allValid){ 
-		jAlert('El campo \"Primer Nombre\" admite solo letras.','Dialogo de Alerta');
+		jAlert('El campo "Primer Nombre" admite solo letras.','Dialogo de Alerta');
 		document.form_titular.nombre1.value='';  
 		document.form_titular.nombre1.focus(); 
 		return false; 
 	} 
 	if(document.form_titular.nombre2.value.length>15){
-		jAlert('El campo \"Segundo Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		jAlert('El campo "Segundo Nombre" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		document.form_titular.nombre2.focus();
 		return false;
 	}
@@ -81,18 +81,18 @@
 			}
   	}
   	if(!allValid){ 
-		jAlert('El campo \"Segundo Nombre\" admite solo letras.','Dialogo de Alerta');
+		jAlert('El campo "Segundo Nombre" admite solo letras.','Dialogo de Alerta');
 		document.form_titular.nombre2.value='';  
 		document.form_titular.nombre2.focus(); 
 		return false; 
   	}   
    	if(document.form_titular.apellido1.value.length<1){
-		jAlert('El campo \"Primer Apellido\" no puede estar vacio','Dialogo de Alerta');
+		jAlert('El campo "Primer Apellido" no puede estar vacio','Dialogo de Alerta');
 		document.form_titular.apellido1.focus();
 		return false;
   	} 
     if(document.form_titular.apellido1.value.length<3){
-		jAlert('El campo \"Primer Apellido" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		jAlert('El campo "Primer Apellido" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
 		document.form_titular.apellido1.focus();
 		return false;
 	}

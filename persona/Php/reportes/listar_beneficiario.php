@@ -8,11 +8,16 @@
 	$pagina=10;
 	$beneficiario->setidTitular($_SESSION['idTitular']);
 	$consulta=$beneficiario->listar_beneficiario();	
+	if($consulta=='-1'){
+		echo "<br /><h1>No se han asigandos Beneficiarios !</h1>";
+		exit();
+	}
 	$paging->agregarConsulta($consulta); 	
 	$paging->porPagina($pagina);
 	$paging->div('div_listar_beneficiario');
 	$paging->verPost(true);
-	$paging->ejecutar();		
+	$paging->ejecutar();	
+	
 ?>
 <hr />
 <table id="grilla" class="lista" width="700">
@@ -59,7 +64,7 @@
             <td> <?php echo $result['nacionalidad'].'-'.$result['cedula'];?></td>
             <td><?php echo $result['apellido1'];?> <?php echo $result['nombre1'];?></td>
             <td><?php echo $result['parentesco'];?></td>
-			<td><?php echo $montoDisponible." Bs.	";?></td>
+			<td><?php echo $montoDisponible." Bs.";?></td>
 			<td><?php echo $fecha;?></td>
 			<td><?php echo $numFilas;?></td>
 			<td align="center" valign="middle">
@@ -80,5 +85,5 @@
     </tfoot>  
 </table>
 <?php
-session_unset($_SESSION['idTitular']);
+unset($_SESSION['idTitular']);
 ?>

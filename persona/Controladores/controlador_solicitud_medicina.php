@@ -39,9 +39,11 @@ function incluir(){
 //envio la cedula para buscar el id del titular
 	$titular->setCed($_POST['cedTitular']);
 	$buscarTitular=$titular->validar_titular();
-	for($i=0;$i<count($buscarTitular);$i++){
-		$idTitular=$buscarTitular[$i][1]; //Obtenemos el Id titular por la cedula
-	}
+	if($buscarTitular){
+			$resl=$titular->sig_tupla($buscarTitular);
+			$idTitular=$resl['id_titular'];
+		}
+	
 	$sMedicina->setidTitular($idTitular);
 		$consulta = $sMedicina->validar_solicitud();
 				if ($consulta){
@@ -106,7 +108,7 @@ function incluir(){
 	while($cont_med<count($arregloMed) && $cont_med<count($arregloCant)){	
 		$Medicamento->setNom($arregloMed[$cont_med]);
 		$vMedicamento=$Medicamento->valida_medicamento();
-		if($vMedicamento=='-1'){
+		if($vMedicamento=='0'){
 			$incluirMedicamento=$Medicamento->iMedicamento();
 			if($incluirMedicamento!='-1'){
 				$var_control=true;	 

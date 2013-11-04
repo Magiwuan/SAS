@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
@@ -9,7 +9,6 @@
     <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
 	<link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	 	
 	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>    
-    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.blockUI.js"></script>   
    	<script language="javascript" type="text/javascript" src="../../JavaScript/medicamento_jquery.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/medicamento.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>

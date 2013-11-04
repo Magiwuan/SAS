@@ -50,10 +50,10 @@ class medico extends conectaBDMy{
  public function iMedico(){
        $sql="INSERT INTO tmedico(id_medico,nacionalidad,cedula, nombre, apellido, id_especialidad,estatus)VALUES(
 	   '$this->idMedico',
-	   '$this->nac', 
-	   '$this->nomb', 
-	   '$this->apell', 
+	   '$this->nac',
 	   '$this->ced', 
+	   '$this->nomb', 
+	   '$this->apell',  	
 	   '$this->espec',
 	   '1')";
      $respuesta= parent::ejecuta_sql($sql);
@@ -150,7 +150,7 @@ function lista_medico()
 //       	 
 //       Sentencia sql para Buscar el listar
       public function sql(){
-        $sql="select a.id_medico, a.nombre, a.apellido, a.cedula, a.id_especialidad, b.nombre as especialidad from tmedico as a, tespecialidad as b where a.estatus=1 and a.id_especialidad=b.id_especialidad";
+        $sql="select a.id_medico, a.nombre, a.apellido, a.cedula, a.nacionalidad, a.id_especialidad, b.nombre as especialidad from tmedico as a, tespecialidad as b where a.estatus=1 and a.id_especialidad=b.id_especialidad";
 		if ($this->apell!=NULL)
 		$sql .= " and apellido like '$this->apell%'";	
 		if($this->ordenar_por=='0')						

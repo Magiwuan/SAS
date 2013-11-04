@@ -15,7 +15,7 @@
         <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
         <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>    
         <script language="javascript" type="text/javascript">
-	    $(document).ready(function() {
+	    $(document).ready(function() {			
 			$("#b5").click(function(event) {
 			$("#buscar").val('');	
 			var miPopup 

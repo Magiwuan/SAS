@@ -27,7 +27,7 @@ class medicamento extends conectaBDMy{
     }
 //       Metodo registrar
  public function iMedicamento(){	  
-       $sql="INSERT INTO tmedicamento(descripcion, presentacion, componente, estatus) values('$this->nom','$this->pres','$this->comp','1')";
+       $sql="INSERT INTO tmedicamento(descripcion, estatus) values('$this->nom','1')";
      $respuesta= parent::ejecuta_sql($sql);
 	 if($respuesta>0)
 		  return -1;//Exito

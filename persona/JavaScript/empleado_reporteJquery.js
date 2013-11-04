@@ -4,8 +4,7 @@ $(document).ready(function(){
 		$(this).addClass("over");
 	}).mouseout(function(){
 		$(this).removeClass("over");
-	});
-	
+	});	
 });
 
 function fn_agregar(){		
@@ -41,8 +40,6 @@ jConfirm('Desea excluir este Titular?', 'Mensaje Confirmación', function(r) {
 	}
 	});	
 }
-
-
 function fn_verPerfil(id_titular){	
  $.ajax({
 	beforeSend: function(){                         

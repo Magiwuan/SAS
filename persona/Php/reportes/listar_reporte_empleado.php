@@ -3,7 +3,9 @@
 	include_once("../../Clases/clase_reportes.php");
 	$reporte = new reporte();
 	$paging = new PHPPaging();
+	if(isset($_GET["buscar"]))
 	$reporte->setCed($_GET["buscar"]);
+	if(isset($_GET["ordenar_por"]))
 	$reporte->setOrden($_GET["ordenar_por"]);	
 	$consulta=$reporte->sql();
 	$paging->agregarConsulta($consulta); 	
@@ -11,7 +13,6 @@
 	$paging->div('div_listar');
 	$paging->verPost(true);
 	$paging->ejecutar();
-
 ?>
 <table id="grilla" class="lista" width="624">
   <thead>

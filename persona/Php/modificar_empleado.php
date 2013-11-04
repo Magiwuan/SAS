@@ -55,8 +55,7 @@ include_once("../Clases/clase_ciudad.php");
 ?><!DOCTYPE HTML>
 <html lang="es">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Entrada de Articulos</title>        
+    <title>.:Modificar Titular:.</title>        
   	<link rel="stylesheet" type="text/css" href="Css/estilo2.css" />  
      <link rel="stylesheet" type="text/css" href="Css/estilo.css" />  
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
@@ -157,10 +156,7 @@ include_once("../Clases/clase_ciudad.php");
 		}
     });
     });
-	jQuery(document).ready(function(){
-			// binds form submission and fields to the validation engine
-			jQuery("#form_titular").validationEngine();
-		});
+</script>  
 </script>  
 <style>
 .btn_act{
@@ -229,10 +225,6 @@ include_once("../Clases/clase_ciudad.php");
   margin-right:5px; 
   outline-width:0px;
 }
-/*.btn_agregar_desact_img{
-  background-image: url(Imagen_sistema/agregar_desac.jpg);
-
-}*/
 .btn_agregar_desact:hover{
   height: 23px; 
   background-color: #f5f5f0; 
@@ -250,25 +242,7 @@ include_once("../Clases/clase_ciudad.php");
   margin-right:5px;
   outline-width:0px;
 }
-#popup {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1001;
-}
-.content-popup {
-	 margin:0px;
-    padding:10px;
-    width:732px;
-    min-height:250px;
-    border-radius:4px;
-    background-color:#FFFFFF;
-    box-shadow: 0 2px 5px #666666;
-}
-.close {
- position:relative;
- left:700px;}
+
 .btn_act1 {  height: 23px; 
   background-color: #f5f5f0; 
   border-bottom: 1px solid #09F;
