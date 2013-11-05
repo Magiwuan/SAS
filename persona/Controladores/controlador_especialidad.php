@@ -17,7 +17,6 @@ switch($ope){
 function incluir(){
 	$especialidad = new especialidad();
 	$especialidad->setNom($_POST["nombre"]);
-	$iespecialidad=$especialidad->iespecialidad();
 	$val_espe=$especialidad->valida_especialidad();
 	if($val_espe=='0'){
 		if($iespecialidad<0){

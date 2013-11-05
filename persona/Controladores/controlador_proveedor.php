@@ -42,13 +42,13 @@ function incluir(){
 		$proveedor->setCorreo($_POST["correo"]);	
 		$proveedor->setidCiudad($_POST["ciudad"]);
 		$proveedor->setDireccion($_POST["direccion"]);
-		$proveedor->setFechaInicio($_POST["fecha_inicio"]);
+		$proveedor->setFechaInicio($_POST["fecha_ini"]);
 		$proveedor->setFechaFin($_POST["fecha_fin"]);
 		// Se verifica que no exista para poder incluir
 		$Validaproveedor=$proveedor->valida_proveedor();
 				// Se inicia la Transacción
 				$proveedor->IniciaTransaccion();
-		if ($Validaproveedor=='-1'){
+		if ($Validaproveedor=='0'){
 		// Si $vadila_proveedor no encuentra nada (-1) 
 		// Busca el ultimo registro de la entrada e incrementa el id
 				$result = $proveedor->proveedor_UltimoID();	
@@ -121,7 +121,7 @@ function modificar(){
 		$proveedor->setCorreo($_POST["correo"]);	
 		$proveedor->setidCiudad($_POST["ciudad"]);
 		$proveedor->setDireccion($_POST["direccion"]);
-		$proveedor->setFechaInicio($_POST["fecha_inicio"]);
+		$proveedor->setFechaInicio($_POST["fecha_ini"]);
 		$proveedor->setFechaFin($_POST["fecha_fin"]);
 				// Se inicia la Transacción
 				$proveedor->IniciaTransaccion();

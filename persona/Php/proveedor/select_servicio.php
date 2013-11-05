@@ -14,7 +14,7 @@
 		</script> 
         </head>
 <body>
- <div id="disc_capa"> 
+ <div id="servi_capa"> 
   <select name="servicio[]" id="servicio" multiple="multiple" title="Seleccionar">
               <?php include_once("../../Clases/clase_servicio.php");
 				$servicio=new servicio();

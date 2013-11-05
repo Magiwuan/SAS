@@ -29,42 +29,48 @@ if($res){
     <script language="JavaScript" type="text/JavaScript">	
 	   $(document).ready(function(){		
 		$("#organizacion").change(function(event){				
-			$("#medico").load('../../../Controladores/control_select_medico.php?select='+$("#organizacion option:selected").val());	
+			var org=$("#organizacion option:selected").val();
+			$("#medico").load('../../../Controladores/control_select_medico.php?select='+org);	
 			$("#cap1").css("display","none");
 			$("#cap2").css("display","block"); 
-			$("#cap3").load('../../../Controladores/control_direccion_organizacion.php?select='+$("#organizacion").val());
+			$("#cap3").load('../../../Controladores/control_direccion_organizacion.php?select='+org);
+			$("#Tipo").load('../../../Controladores/control_select_serProveedor.php?select='+org);
+			
 		});			
 			$("#cedTitular").change(function(event){
-				$("#cap4").load('../../../Controladores/control_caja_titular.php?caja='+$("#cedTitular").val());
+				var cd=$("#cedTitular").val();
+				$("#cap4").load('../../../Controladores/control_caja_titular.php?caja='+cd);
 				$("#cap4").css("display","block");					
-					$("#cap4").load('../../../Controladores/control_caja_titular.php?caja='+$("#cedTitular").val(), function(event){
+					$("#cap4").load('../../../Controladores/control_caja_titular.php?caja='+cd, function(event){
 						if ($("#box").val() == "No existen registros relacionados") {
 						$("#cap5").css("display","block");	
 						$("#cap6").css("display","none");
 						}else{						
-						$("#beneficiario").load('../../../Controladores/control_select_beneficiario.php?select='+$("#cedTitular").val());					
+						$("#beneficiario").load('../../../Controladores/control_select_beneficiario.php?select='+cd);					
 						$("#cap5").css("display","none");	
 						$("#cap6").css("display","block"); 	
 						}
 					});				
 				});	 
 				$("#Tipo").change(function(event){   
-				if($("#Tipo").val()=='C'){
-					$("#cap7").load('orden_de_consulta.php');
-					$("#bt_agregar").css("display","none");
-				}	
-				if($("#Tipo").val()=='E'){
+				
+				if($("#Tipo").val()=='2'){
 					$("#cap7").load('examenes_especiales.php');
 					$("#bt_agregar").css("display","block");
 				}
-				if($("#Tipo").val()=='I'){
+				if($("#Tipo").val()=='3'){
+					$("#cap7").load('examenes_laboratorios.php');
+					$("#bt_agregar").css("display","block");
+				}	
+				if($("#Tipo").val()=='4'){
 					$("#cap7").load('examenes_imagenes.php');
 					$("#bt_agregar").css("display","block");
 				}	
-				if($("#Tipo").val()=='L'){
-					$("#cap7").load('examenes_laboratorios.php');
-					$("#bt_agregar").css("display","block");
-				}	 
+				if($("#Tipo").val()=='5'){
+					$("#cap7").load('orden_de_consulta.php');
+					$("#bt_agregar").css("display","none");
+				}	
+				 
 			});	        
 		});		
 </script>
@@ -194,12 +200,9 @@ if($res){
     <tr>
       <td >&nbsp;</td>
       <td >Tipor de Orden:</td>
-      <td colspan="3" ><select name="Tipo" disabled id="Tipo" >
-        <option value="0" selected> Seleccionar</option>
-        <option value="L">Examenes de Laboratorio</option>
-        <option value="I">Examenes de Imagen</option>
-        <option value="E">Examenes Especiales</option>
-        <option value="C">Orden de Consulta</option>
+      <td colspan="3" ><select name="Tipo" disabled id="Tipo" >  
+
+      <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
       </select></td>
       <td>&nbsp;</td>
       </tr>

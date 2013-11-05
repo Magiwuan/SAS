@@ -7,6 +7,18 @@ $(document).ready(function(){
 	});
 	
 });
+function fn_modificar(){
+            var str = $("#form_titular").serialize();
+            $.ajax({
+                url: 'Controladores/controlador_titular.php',
+                data: str,
+                type: 'post',
+                success: function(data){
+                    if(data != "")
+                    jAlert(data);
+                }
+            });
+        };	
 function fn_agregar(){		
 		var str=$("#form_titular").serialize();
 		$.ajax({

@@ -18,6 +18,19 @@ function fn_agregar(){
           }
   });
 };
+function fn_modificar(){
+
+ var str = $("#form_proveedor").serialize();
+  $.ajax({
+    url: '../../Controladores/controlador_proveedor.php',
+    data: str,
+    type: 'post',
+    success: function(data){           
+	      jAlert(data);					
+           }
+    });
+};
+	
 
 function fn_cerrar(){
 	$("#cuerpo").load("../../Php/proveedor/index_proveedor.php");

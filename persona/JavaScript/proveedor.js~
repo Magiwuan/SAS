@@ -8,7 +8,6 @@
 	});			
 });		    
 function valida() {
-/*
 		   if (document.form_proveedor.nombre.value.length <1) 
 		  {
 			jAlert('El campo  \"Organización\"  no puede estar vacio','Mensaje  de Alerta');
@@ -181,6 +180,6 @@ function valida() {
 		  document.form_proveedor.fecha_fin.focus();
 		  return false;
 	      }
-	*/
+	
 	return true;
 }

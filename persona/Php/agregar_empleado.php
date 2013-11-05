@@ -2,15 +2,12 @@
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Entrada de Articulos</title>        
+    <title>.:Agregar Titular:.</title>        
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
     <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="Css/validationEngine.jquery.css" type="text/css"/>
-	<script src="JavaScript/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
-	<script src="JavaScript/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>	
-	<script src="JavaScript/jscal2.js"></script>    
-    <script src="JavaScript/es.js"></script>        
+	<script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
+	<script language="javascript" type="text/javascript" src="JavaScript/es.js"></script>  	   
 	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
     <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script>     
 	<script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
@@ -148,8 +145,9 @@ function limpiar_form(ele) {
       </td>
       <td width="138">Nro. C.I o Pasaporte:</td>
       <td colspan="2"><input name="cedula" type="text" disabled="disabled" id="cedula" size="20" maxlength="16" /></td>
-      <td><a href="#" onclick="jQuery('#test').validationEngine('showPrompt', 'Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667', 'pass')" title="Ayuda">
-			      <div id="test" class="test" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
+      <td><a href="#"
+			      <div id="test" class="test" title="Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667" style="width:30px;">
+					  <img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
 			    </a></td>
       </tr>
     <tr>
@@ -174,8 +172,7 @@ function limpiar_form(ele) {
       <td>Fecha de Nacimiento:</td>
       <td width="74"><input name="fecha_nac" type="text" id="fecha_nac" size="12" maxlength="10" readonly /></td>
       <td width="43"><button name="bt" id="bt" class="button" disabled="disabled"><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
-      <td width="111">
-    </td>
+      <td width="111"></td>
     </tr>
         <tr>
           <td>Lugar Nacimiento:</td>

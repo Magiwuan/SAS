@@ -230,13 +230,16 @@ AND a.id_medico = b.id_medico AND b.id_especialidad = c.id_especialidad";
     public function combo(){		
 			$combo = array();
 			$c=0;
-			$sql="SELECT a. * , b. * , c. * FROM tproveedor_medico AS a, tmedico AS b, tespecialidad AS c WHERE id_proveedor ='$this->idProveedor'
-AND a.id_medico = b.id_medico AND b.id_especialidad = c.id_especialidad";		   
+			$sql="SELECT a. * ,b.id_medico, b.nombre, b.apellido, c.nombre AS especialidad
+FROM tproveedor_medico AS a, tmedico AS b, tespecialidad AS c
+WHERE id_proveedor ='$this->idProveedor'
+AND a.id_medico = b.id_medico
+AND b.id_especialidad = c.id_especialidad";		   
 			$cursor = parent::ejecuta_sql($sql);
 			$combo[$c] .= '<option value="0" disabled="disabled" selected="selected">Seleccionar</option>';
 			while($fila=parent::proxima_tupla($cursor)) 
 			{
-				$combo[$c] .= '<option value="'.$fila['id_medico'].'">'.$fila['nombre'].' '.$fila['apellido'].' - '.$fila['nombre'].'</option>';	
+				$combo[$c] .= '<option value="'.$fila['id_medico'].'">'.$fila['nombre'].' '.$fila['apellido'].'  -  '.$fila['especialidad'].'</option>';	
 				$c++;
 			}
 			
@@ -260,7 +263,7 @@ function lista_proveedor_ordenes()
 		$sql="select a.id_proveedor,a.nombre, b.id_servicio
 			from tproveedor as a, tdetalle_servicio as b
 			where a.id_proveedor=b.id_proveedor and a.estatus='1' and b.id_servicio!='1'
-			order by a.nombre";		
+			order by a.nombre limit 1";		
 		 $cursor=parent::ejecuta_sql($sql);
 		 if($row= parent::proxima_tupla($cursor))
 		 {
@@ -278,6 +281,30 @@ function lista_proveedor_ordenes()
 			
 		parent::cerrar_bd();
 	}   
+	//       Metodo Combo
+    public function l_servicios_proveedor(){		
+			$combo = array();
+			$c=0;
+			$sql="SELECT a.id_proveedor, a.nombre, b.id_servicio as id, c.nombre as servicio
+				FROM tproveedor AS a, tdetalle_servicio AS b, tservicio_proveedor AS c
+				WHERE b.id_servicio = c.id_servicio
+				AND a.id_proveedor = b.id_proveedor
+				AND a.estatus =  '1'
+				AND b.id_servicio !=  '1'
+				AND b.id_proveedor =  '$this->idProveedor'";
+			$cursor = parent::ejecuta_sql($sql);
+			$combo[$c] .= '<option value="0" disabled="disabled" selected="selected">Seleccionar</option>';
+			while($fila=parent::proxima_tupla($cursor)) 
+			{
+				$combo[$c] .= '<option value="'.$fila['id'].'">'.$fila['servicio'].'</option>';	
+				$c++;
+			}
+			return $combo;		
+			
+			parent::cerrar_bd();
+		
+	}
+
 //       Metodo Para Buscar idProveedor
      public function buscar_id(){
 		$c=0;
