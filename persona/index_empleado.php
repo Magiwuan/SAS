@@ -19,7 +19,6 @@ if(empty($_SESSION["login"]))
        	<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>    
         <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
         <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
-        <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>    
         <script language="javascript" type="text/javascript">
 	    $(document).ready(function() {			
 			$("#b5").click(function(event) {

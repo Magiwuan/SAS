@@ -8,12 +8,9 @@ if(empty($_SESSION["login"]))
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
-	<link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
-    <link rel="stylesheet" type="text/css" href="../../Css/border-radius.css" /> 
     <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
 	<link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />    	
 	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
-    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.blockUI.js"></script>   
    	<script language="javascript" type="text/javascript" src="../../JavaScript/recaudos_jquery.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/recaudos.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 

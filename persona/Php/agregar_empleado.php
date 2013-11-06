@@ -14,8 +14,8 @@ if(empty($_SESSION["login"]))
 	<script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
 	<script language="javascript" type="text/javascript" src="JavaScript/es.js"></script>  	   
 	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
-    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script>     
-	<script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
+    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script>  
+     <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>      
     <script language="javascript" type="text/javascript" src="JavaScript/empleado.js"></script>   
      <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){	

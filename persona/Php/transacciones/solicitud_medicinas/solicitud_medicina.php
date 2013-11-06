@@ -27,14 +27,13 @@ if($res){
 <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	        
 <script src="../../../JavaScript/solicitud_medicamentos.js"></script>        
 
-<script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>    
+<script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>    
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery.alerts.js"></script>     
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jscal2.js"></script>    
 <script language="javascript" type="text/javascript" src="../../../JavaScript/es.js"></script> 
 
   <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.theme.css" />
   <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.autocomplete.css" />	
-  <script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
   <script type="text/javascript" src="../jquery/ui/jquery.ui.core.js"></script>
   <script type="text/javascript" src="../jquery/ui/jquery.ui.widget.js"></script>
   <script type="text/javascript" src="../jquery/ui/jquery.ui.position.js"></script>
