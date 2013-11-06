@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-11-2013 a las 15:02:21
+-- Tiempo de generación: 06-11-2013 a las 14:58:55
 -- Versión del servidor: 5.5.32
 -- Versión de PHP: 5.3.10-1ubuntu3.8
 
@@ -227,14 +227,14 @@ CREATE TABLE IF NOT EXISTS `tcobertura` (
   `fecha_fin` date NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_cobertura`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `tcobertura`
 --
 
 INSERT INTO `tcobertura` (`id_cobertura`, `descripcion`, `tipo`, `monto`, `fecha_inicio`, `fecha_fin`, `estatus`) VALUES
-(1, 'SERVICIOS PRIMARIOS', 'INIDIVIDUAL', 150000.00, '0000-00-00', '0000-00-00', '1');
+(1, 'SERVICIOS PRIMARIOS', 'INIDIVIDUAL', 150000.00, '2013-01-01', '2014-01-01', '1');
 
 -- --------------------------------------------------------
 
@@ -429,7 +429,7 @@ CREATE TABLE IF NOT EXISTS `tespecialidad` (
   `nombre` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_especialidad`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `tespecialidad`
@@ -487,8 +487,7 @@ INSERT INTO `testado` (`id_estado`, `nombre`, `id_pais`, `estatus`) VALUES
 (22, 'TRUJILLO', 1, '1'),
 (23, 'VARGAS', 1, '1'),
 (24, 'YARACUY', 1, '1'),
-(25, 'ZULIA', 1, '1'),
-(27, 'ASAS', 3, '0');
+(25, 'ZULIA', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -502,18 +501,17 @@ CREATE TABLE IF NOT EXISTS `texamen` (
   `tipo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_examen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `texamen`
 --
 
 INSERT INTO `texamen` (`id_examen`, `descripcion`, `tipo`, `estatus`) VALUES
-(6, 'examen laboratorio', 'LABORATORIO', '1'),
-(7, 'examen de labotorio de prueba', 'LABORATORIO', '1'),
-(11, 'Exame de Imagen', 'IMAGEN', '1'),
-(12, 'Examen Especial de prueba', 'ESPECIALES', '1'),
-(13, 'AAAAA', 'ESPECIALES', '0');
+(6, 'EXAMEN LABORATORIO', 'LABORATORIO', '1'),
+(7, 'EXAMEN DE LABOTORIO DE PRUEBA', 'LABORATORIO', '1'),
+(11, 'EXAME DE IMAGEN', 'IMAGEN', '1'),
+(12, 'EXAMEN ESPECIAL DE PRUEBA', 'ESPECIALES', '1');
 
 -- --------------------------------------------------------
 
