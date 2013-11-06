@@ -133,7 +133,7 @@ class vistas extends conectaBDMy  // clase conectada a la BD
 	function lista()
 	{ 
 		$c=0;
-			$sql="SELECT * FROM tvista where estatus=1 order by descripcion asc";
+			$sql="SELECT * FROM tvista where estatus=1 order by descripcion d";
 		 $cursor=parent::ejecuta_sql($sql);
 		 if($row= parent::proxima_tupla($cursor))
 		 {
@@ -244,7 +244,7 @@ class vistas extends conectaBDMy  // clase conectada a la BD
 				AND tpermisos.idvista = tvista.idvista
 				AND tvista.idseccion = tseccion.idseccion
 				AND tseccion.idmodulo = tmodulo.idmodulo
-				AND tseccion.idseccion='$this->seccion'";
+				AND tseccion.idseccion='$this->seccion' order by descrip";
 		 $cursor=parent::ejecuta_sql($sql);
 		 if($row= parent::proxima_tupla($cursor))
 		 {

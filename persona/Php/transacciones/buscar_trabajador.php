@@ -1,8 +1,13 @@
-﻿<html> 
+﻿<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
+?><html> 
 <head> 
     <title>Cat&aacute;logo</title> 
 <script> 
-//creamos la variable ventana_secundaria que contendr� una referencia al popup que vamos a abrir 
+//creamos la variable ventana_secundaria que contendra una referencia al popup que vamos a abrir 
 //la creamos como variable global para poder acceder a ella desde las distintas funciones 
 var ventana_secundaria 
 function cerrarVentana(){ 

@@ -106,6 +106,11 @@ public function eCobertura(){
 				parent::cerrar_bd();
 
 }
+public function val_cobertura(){
+	$sql="SELECT * FROM tcobertura WHERE estatus=1";
+	$cursor= parent::ejecuta_sql($sql);
+	return ($this->getNTupla($cursor));
+	}
 public function bDetalle_cobertura(){
 	$sql="SELECT * FROM tdetalle_cobertura WHERE id_titular='$this->idTitular' order by monto_disponible asc LIMIT 1";
 		return ($cursor= parent::ejecuta_sql($sql));

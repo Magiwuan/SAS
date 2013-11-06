@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>.:Acceso:.</title>
-  	 
+<title>.:Acceso:.</title>  	 
     <link href="persona/JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
    <script language="javascript" type="text/javascript" src="persona/JavaScript/jquery-1.4.2.min.js"></script>     

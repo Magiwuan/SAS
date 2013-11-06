@@ -1,5 +1,8 @@
-<?PHP
-
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
 if(empty($_POST['id_proveedor'])){
 		echo "BOOM!! Error :(";
 		exit();

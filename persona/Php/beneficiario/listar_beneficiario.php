@@ -1,4 +1,8 @@
-<?php session_start();
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
 	include_once("../../Clases/PHPPaging.lib.php");
 	include_once("../../Clases/clase_beneficiario.php");
 	$beneficiario = new beneficiario();

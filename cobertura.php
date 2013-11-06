@@ -1,8 +1,7 @@
-<!DOCTYPE html PUBLIC = "-//W3C/DTD XHTML 1.0 Strict//EN"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmins= "http://www.w3.org/1999/xhtml" xml=lang="es">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="content-language" content="ces" />
     <title>S.A.S</title>
     <link rel="stylesheet" media="screen,projection" type="text/css" href="./css/main.css" />
 </head>
@@ -152,23 +151,13 @@ REEMBOLSO</td>
             </form>
          
               </div> </div><!-- /about-me -->
-
-
-
                 <!-- Category -->
                 <h3 >Unidad de Apoyo</h3>
-
                 <div id="category">
                     <img src="./design/emergencia.png" width="205" height="200"; />
-                </div>
-
-              
-
-                <!-- Archive -->
+                </div>         <!-- Archive -->
                 <h3>Enlaces</h3>
-
                 <ul id="archive">
-
                     <li><a href="#">September 2006</a></li>
                     <li id="archive-active"><a href="#">August 2006</a></li> <!-- Active -->
               </ul>

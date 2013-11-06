@@ -1,5 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
+?><!DOCTYPE html>
+<html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:Solicitudes Pendientes:.</title>
@@ -11,7 +16,6 @@
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.js"></script>
        	<script language="javascript" src="../../JavaScript/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>    
-        <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.blockUI.js"></script>       
         <script language="javascript" type="text/javascript" src="../../JavaScript/sMedicina_jquery.js"></script>  
         <script language="JavaScript" type="text/javascript" src="../../JavaScript/jquery.asmselect.js"></script> 
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>  

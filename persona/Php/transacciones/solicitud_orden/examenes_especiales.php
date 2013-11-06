@@ -1,23 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../../usuario/denied.php");
+}
+?><!DOCTYPE html>
+<html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Documento sin título</title>
-  <link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.theme.css" />
-    <link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.autocomplete.css" />	
-    <script type="text/javascript" src="jquery/jquery-1.4.2.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.core.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.position.js"></script>
-    <script type="text/javascript" src="jquery/ui/jquery.ui.autocomplete.js"></script>
-    <script language="JavaScript" type="text/JavaScript">	 
+  <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.theme.css" />
+  <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.autocomplete.css" />	
+  <script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.position.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.autocomplete.js"></script>
+  <script language="JavaScript" type="text/JavaScript">	 
 	$(function() {       
         $("#campo").autocomplete({
             source: "completar_examen_e.php"
         });
     }); 
-</script>
-<script type="text/javascript">   
 icremento =1;
 function crear(obj) {
 	if(icremento>5){

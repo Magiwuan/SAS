@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}?><!DOCTYPE html>
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

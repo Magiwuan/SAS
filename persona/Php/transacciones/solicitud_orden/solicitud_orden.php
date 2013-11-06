@@ -1,4 +1,8 @@
-<?php
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../../usuario/denied.php");
+}
 include_once("../../../Clases/clase_solicitud_orden.php");
 $sOrden= new sOrden();
 $compl='SO-';
@@ -14,10 +18,9 @@ if($res){
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Entrada de Articulos</title>        
+    <title>.:Orden Solicitud:.</title>        
   	<link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
     <link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 	
-	<link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="../../../Css/border-radius.css" />
      <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	 	
     <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>     
@@ -72,10 +75,7 @@ if($res){
 				}	
 				 
 			});	        
-		});		
-</script>
- <script language="javascript" type="text/javascript" >	  
-	  $(document).ready(function(){		
+
 	    $('#nuevo').click(function(){	
 		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#guardar').attr('disabled', false);
@@ -112,14 +112,24 @@ if($res){
     });
 </script>  
 <style type="text/css">
-.btn_act{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; 
-  border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; 
-  margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img {	  background-image: url(../../../Imagen_sistema/add.png);}.btn_guardar_act_img2{ background-image: url(../../../Imagen_sistema/guardar.jpg);}.btn_act1 {height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}
-</style>
-<style>
-.btn_act{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{ background-image: url(../../../Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{ background-image: url(../../../Imagen_sistema/guardar.jpg);}.btn_guardar_act_img3{background-image: url(../../../Imagen_sistema/add.png);}.btn_guardar_act_img2{ background-image: url(../../../Imagen_sistema/guardar.jpg);}.btn_act:hover{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_guardar_desact{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;
-}.btn_guardar_desact:hover{  height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_act1{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);
-}.btn_guardar_desact1{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px;color:#CCC;padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; 
+font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; 
+outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}
+.btn_nuevo_act_img{background-image: url(../../../Imagen_sistema/nuevo.jpg);}
+.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; 
+background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(../../../Imagen_sistema/guardar.jpg);}
+.btn_guardar_act_img3{background-image: url(../../../Imagen_sistema/add.png);}.btn_guardar_act_img2{background-image: url(../../../Imagen_sistema/guardar.jpg);}
+.btn_act:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px; font-size: 13px; 
+color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_guardar_desact{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; 
+font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_guardar_desact:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; 
+font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
+.btn_act1{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; 
+color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; 
+background-image: url(../../../Imagen_sistema/cancelar.jpg);}.btn_guardar_desact1{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; 
+border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand;
+cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 </style>
 </head>
 <body> 

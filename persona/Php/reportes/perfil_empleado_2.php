@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}?><!DOCTYPE html>
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>.:Reporte de Titulares:.</title>          
-      <link href="../../Css/estilo2.css" rel="stylesheet" type="text/css" />   
-  
-
+      <link href="../../Css/estilo2.css" rel="stylesheet" type="text/css" /> 
         <link href="../../Css/estilos.css" rel="stylesheet" type="text/css" />
         <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
         <link rel="stylesheet" type="text/css" href="../../Css/jquery.asmselect.css" />

@@ -1,4 +1,9 @@
-<?php
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: usuario/denied.php");
+}
+
 	include_once("../Clases/PHPPaging.lib.php");
 	include_once("../Clases/clase_titular.php");
 	$titular = new titular();
@@ -12,8 +17,6 @@
 	$paging->verPost(true);
 	$paging->ejecutar();	
 ?>
-
-
 <table id="grilla" class="lista" width="624">
   <thead>
         <tr> 

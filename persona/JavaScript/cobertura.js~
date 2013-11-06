@@ -19,8 +19,32 @@
 		jAlert('El campo \"Descripción\" no puede estar vacio!','Dialogo de Alerta');
 		return false;
 		}
-		
-	
+		  if(document.form_cobertura.descripcion.value.length <3 ) {		
+		  jAlert('El campo \"Descripción" no puede ser menor a 3 caracteres!','Dialogo de Alerta');
+		  document.form_cobertura.descripcion.focus();
+		  return false;
+	      }
+		  //valida que se ingresen solo letras al campo nombre
+		  var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
+		  var checkStr = document.form_cobertura.descripcion.value;
+		  var allValid = true; 
+		  for (i = 0; i < checkStr.length; i++) {
+			ch = checkStr.charAt(i); 
+			for (j = 0; j < checkOK.length; j++)
+			  if (ch == checkOK.charAt(j))
+				break;
+			if (j == checkOK.length) { 
+			  allValid = false; 
+			  break; 
+			}
+		  }
+		  if (!allValid) { 
+			jAlert('El campo \"Descripción\" admite solo letras.','Dialogo de Alerta');
+			document.form_cobertura.descripcion.value='';  
+			document.form_cobertura.descripcion.focus(); 
+			return false; 
+		  }   
+		  //Valida  combos  tipo
 	
 	if(document.form_cobertura.tipo.value=="0"){//6
 		jAlert('Debe seleccionar el tipo de cobertura!','Dialogo de Alerta');

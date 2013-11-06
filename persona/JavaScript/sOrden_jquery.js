@@ -48,13 +48,6 @@ function fn_aprobar(id_solicitud){
 		}
 	});		
 }
-function fn_cerrar_popup(){
-	$.unblockUI({ 
-		onUnblock: function(){
-			$("#div_oculto").html("");
-		}
-	}); 
-};
 function fn_buscar(){	
 	var str = $("#frm_buscar").serialize();
 	$.ajax({

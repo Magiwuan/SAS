@@ -1,35 +1,28 @@
 // JavaScript Document
 $(document).ready(function(){
-	fn_listar_medicamento();
+	fn_listar_cargo();
 	$("#grilla tbody tr").mouseover(function(){
 		$(this).addClass("over");
 	}).mouseout(function(){
 		$(this).removeClass("over");
 	});
 });
-
-	function fn_agregar(){	
-	
-		var str = $("#form_medicamento").serialize();
+	function fn_agregar(){		
+		var str = $("#form_cargo").serialize();
 		$.ajax({
-			url: '../../Controladores/controlador_medicamento.php',
+			url: '../../Controladores/controlador_cargo.php',
 			data: str,
 			type: 'post',
 			success: function(data){
-				if(data== "No"){	
-					jAlert('Este Medicamento ya ha Sido incluido al Sistema.','Mensaje de Alerta');
+				if(data== "No"){				
+					jAlert('Este Cargo ya ha sido incluido al sistema.');
 				}else{
 					jAlert(data);
-					fn_listar_medicamento();
-				}	
+					fn_listar_cargo();
+				}				
 			}
 		});
 	};
-	
-function limpiar(){		
-			$('#nombre').val("");		
-		}	
-
 function fn_paginar(var_div, url){
 	var div = $("#" + var_div);
 	$(div).load(url);
@@ -42,9 +35,8 @@ function fn_paginar(var_div, url){
 	*/
 }
 
-
-function fn_listar_medicamento(){
-	var str = $("#form_medicamento").serialize();
+function fn_listar_cargo(){
+	var str = $("#form_cargo").serialize();
 	$.ajax({
 		url: '../../Php/medicamento/listar_medicamento.php',
 		type: 'get',
@@ -53,22 +45,26 @@ function fn_listar_medicamento(){
 		$("#div_listar_cargo").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
 		},	
 		success: function(data){		
-			$("#div_listar_medicamento").html(data);				
+			$("#div_listar_cargo").html(data);				
 		}
 	});
 
 }
-function fn_eliminar_medicamento(id_medicamento){
-	jConfirm('Desea eliminar este Medicamento?', 'Mensaje Confirmación', function(r) {
+function fn_cerrar(){
+	$("#cuerpo").load("../../../blanco.html", function(){
+	});
+};
+function fn_eliminar_cargo(id_cargo){
+	jConfirm('Desea eliminar a este Cargo?', 'Mensaje Confirmación', function(r) {
 		if(r==true){
 		$.ajax({
-			url: '../../Php/medicamento/eliminar_medicamento.php',
-			data: 'id_medicamento='+id_medicamento,
+			url: '../../Php/cargo/eliminar_cargo.php',
+			data: 'id_cargo='+id_cargo,
 			type: 'post',
 			success: function(data){
 				if(data!="")
 						jAlert(data, 'Resultado de la confirmación');
-						fn_listar_medicamento();
+						fn_listar_cargo();
 							}
 					});
 		}

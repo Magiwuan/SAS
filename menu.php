@@ -1,7 +1,7 @@
-<?php session_start(); //Función que permite trabajar con sesiones
+<?php session_start(); //Funcion que permite trabajar con sesiones
 if(empty($_SESSION["login"])) 
 {
-	header("Location: usuario/denegar.php");
+	header("Location: persona/Php/usuario/denied.php");
 }
 include_once("persona/Clases/clase_vistas.php");
 $vist=new vistas;

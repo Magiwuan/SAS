@@ -1,5 +1,4 @@
 // JavaScript Document
-
 $(document).ready(function(){
 	fn_listar_medicamento();
 	$("#grilla tbody tr").mouseover(function(){
@@ -43,21 +42,22 @@ function fn_paginar(var_div, url){
 	*/
 }
 
+
 function fn_listar_medicamento(){
 	var str = $("#form_medicamento").serialize();
 	$.ajax({
 		url: '../../Php/medicamento/listar_medicamento.php',
 		type: 'get',
 		data: str,
+		beforeSend: function(){ 
 		$("#div_listar_medicamento").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');		
-		},
+		},	
 		success: function(data){		
 			$("#div_listar_medicamento").html(data);				
 		}
 	});
 
 }
-
 function fn_eliminar_medicamento(id_medicamento){
 	jConfirm('Desea eliminar este Medicamento?', 'Mensaje Confirmación', function(r) {
 		if(r==true){

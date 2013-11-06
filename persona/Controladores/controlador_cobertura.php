@@ -21,10 +21,15 @@ function incluir(){
 	$cobertura->setMonto($plata);
 	$cobertura->setFecha_ini($_POST["fecha_inicio"]);
 	$cobertura->setFecha_fin($_POST["fecha_fin"]);
-	if($cobertura->iCobertura()){		
-	echo "Se agregaron los Datos con exito!";
+	$validar=$cobertura->val_cobertura();
+	if($validar=='0'){
+		if($cobertura->iCobertura()){		
+		echo "Se agregaron los Datos con exito!";
+		}
+		else
+		echo "Error al incluir cobertura!";
+	}else{
+		echo "Error al registrar cobertura!";
 	}
-	else
-	echo "Error al incluir cobertura";
 }
 ?>

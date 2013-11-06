@@ -31,13 +31,13 @@ function fn_eliminar(id_solicitud){
 			});			
 }
 
-function fn_aprobar(cod_hoja){
-	
+
+function fn_aprobar(id_solicitud){
 	jConfirm('Esta seguro?', 'Mensaje Confirmación', function(r) {
 		if(r==true){
 			$.ajax({
 				url: 'aceptar_solicitud.php',
-				data: 'cod_hoja='+cod_hoja,
+				data: 'id_solicitud='+id_solicitud,
 				type: 'post',
 				success: function(data){
 					if(data!="")
@@ -48,19 +48,24 @@ function fn_aprobar(cod_hoja){
 		}
 	});		
 }
-
+function fn_cerrar_popup(){
+	$.unblockUI({ 
+		onUnblock: function(){
+			$("#div_oculto").html("");
+		}
+	}); 
+};
 function fn_buscar(){	
 	var str = $("#frm_buscar").serialize();
 	$.ajax({
 		url: 'listar_solicitud.php',
 		type: 'get',
-		data: str,
+		data: str,	
 		beforeSend: function(){ 
-		$("#div_listar").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');		
+		$("#div_listar").html('<div  style="margin-left:300px;"><img src="../../../Imagen_sistema/loading.gif"/></div>');		
 		},	
 		success: function(data){			
 				$("#div_listar").html(data);				 		
 		}
 	});
 }
-

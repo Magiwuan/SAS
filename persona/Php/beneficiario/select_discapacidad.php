@@ -1,4 +1,9 @@
-<html>
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}?><!DOCTYPE html>
+<html lang="es">
 <head>
  <link rel="stylesheet" type="text/css" href="../../Css/jquery.asmselect.css" />	 
         <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.js"></script> 

@@ -1,5 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}?><!DOCTYPE html >
+<html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
@@ -172,14 +176,13 @@
                                   <td>Tipo:</td>
                                   <td ><select name="tipo" id="tipo" disabled="disabled" title="Donde es utilizado el recaudo">
                                    <option value="0" selected="selected" disabled="disabled"> Seleccionar</option>
-                                    <option value="AFILIACIÓN - TITULAR">Afiliación - Titular</option>
-                                    <option value="Afiliación - Beneficiario">Afiliación - Beneficiario</option>
-                                    <option value="Exclusión - Titular">Exclusión - Titular</option>
-                                    <option value="Exclusión - Beneficiario">Exclusión - Beneficiario</option>
+                                    <option value="AFILIACIÓN - TITULAR">Afiliaci&oacute;n - Titular</option>
+                                    <option value="Afiliación - Beneficiario">Afiliaci&oacute;n - Beneficiario</option>
+                                    <option value="Exclusión - Titular">Exclusi&oacute;n - Titular</option>
+                                    <option value="Exclusión - Beneficiario">Exclusi&oacute;n - Beneficiario</option>
                                     <option value="Reembolsos"> Reembolsos</option>
-                                    <option value="Solicitud de Médicinas">Solicitud de Médicinas</option>
-                                    <option value="Orden Médica">Orden Médica</option>
-                                    <option value="Otros">Otros</option>
+                                    <option value="Solicitud - Médicinas">Solicitud - M&eacute;dicinas</option>
+                                    <option value="Solicitud - Orden Médica">Solicitud - Orden M&eacute;dica</option>
                                   </select></td>
                               </tr>                    
                           </tbody>

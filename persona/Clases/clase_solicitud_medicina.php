@@ -241,7 +241,7 @@ public function mDetalle_solcitud(){
 	public function buscar_id_solicitud(){
 		$sql="SELECT * from tsolicitud_servicio where cod_hoja='$this->idSolicitud' and estatus='3'";		
 		$cursor=parent::ejecuta_sql($sql);	
-		if ($this->getNTupla($cursor)>0)
+		if($this->getNTupla($cursor)>0)
 		return $cursor;
 		else
 		return -1;

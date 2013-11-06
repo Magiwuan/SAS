@@ -1,4 +1,8 @@
-<?php session_start();
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
  if(isset($_POST["id_titular"]) && isset($_POST["nombre1"]) && isset($_POST["apellido1"])){
 	 $_SESSION["id_titular"]=$_POST["id_titular"];
 	 $_SESSION["nombre1"]	=$_POST["nombre1"];
@@ -24,23 +28,23 @@ include_once("../../Clases/clase_titular.php");
 ?><!DOCTYPE HTML>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>.:Agregar Beneficiario:.</title>          
-	<link rel="stylesheet" type="text/css" href="Css/jscal2.css"/>
-    <link rel="stylesheet" type="text/css" href="Css/border-radius.css"/> 	
- 	<link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />  
-	<script src="JavaScript/jscal2.js"></script>    
-    <script src="JavaScript/es.js"></script> 
-             <script language="javascript" type="text/javascript" src="JavaScript/jquery.js"></script>
-       	<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>  
-   	<script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script> 
-    <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
-    <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script> 
-    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
-   
-    <script language="javascript" type="text/javascript" >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>.:Agregar Beneficiario:.</title>          
+<link rel="stylesheet" type="text/css" href="Css/jscal2.css"/>
+<link rel="stylesheet" type="text/css" href="Css/border-radius.css"/> 	
+<link rel="stylesheet" type="text/css" href="JavaScript/jquery.alerts.css" />  
+<script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
+<script language="javascript" type="text/javascript" src="JavaScript/es.js"></script> 
+<script language="javascript" type="text/javascript" src="JavaScript/jquery.js"></script>
+<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>  
+<script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script> 
+<script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
+<script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script> 
+<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
+<script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
     	$('#nuevo').click(function(){
+		limpiar_form();
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
@@ -95,8 +99,7 @@ include_once("../../Clases/clase_titular.php");
 		}
     });
     });
-
-	function limpiar_form(ele) {
+function limpiar_form(ele) {
    $(ele).find('input').each(function() {
       switch(this.type) {
          case 'password':
@@ -121,7 +124,7 @@ include_once("../../Clases/clase_titular.php");
    });
    } 
 </script>
-<style>
+<style type="text/css">
 .btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px;
   color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(Imagen_sistema/cancelar.jpg);
 }.btn_nuevo_act_img{background-image: url(Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; background-image: url(Imagen_sistema/cancelar.jpg);}
@@ -137,10 +140,10 @@ include_once("../../Clases/clase_titular.php");
 <body> 
 <div id="cuerpo">
 <form action="" method="POST" id="form_beneficiario" name="form_beneficiario">
-<table width="686" height="25" border="0" cellpadding="0" cellspacing="0">
+<table width="696" height="25" border="0" cellpadding="0" cellspacing="0">
  <tr>
-   <td width="664" height="37" ><h1>Titular: <?php echo $_SESSION["nombre1"].' '.$_SESSION["apellido1"];?></h1></td>
-   <td width="22" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_agregar();" title="Salir" /></td>
+   <td width="684" height="37" ><h1>Titular: <?php echo $_SESSION["nombre1"].' '.$_SESSION["apellido1"];?></h1></td>
+   <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_agregar();" title="Salir" /></td>
  </tr>
 </table>
 <fieldset>
@@ -274,7 +277,7 @@ include_once("../../Clases/clase_titular.php");
 <table  width="686" border="0">
       <tr>
        <td width="235">&nbsp;</td>
-      <td width="90"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar los campos"/></td>
+      <td width="90"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar los campos"/></td>
       <td width="97"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
       <td width="294"></td>
       </tr>

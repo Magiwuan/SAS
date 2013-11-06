@@ -1,4 +1,9 @@
-<?php
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../../usuario/denied.php");
+}
+
 include_once('../../../Clases/clase_solicitud_reembolso.php');
 $sReembolso= new sReembolso();
 $codHoja=$_GET['id'];
@@ -11,15 +16,13 @@ $codHoja=$_GET['id'];
 		$elMes=substr($resul['fecha'],5,2);
 		$elYear=substr($resul['fecha'],0,4);
 		$fecha=$elDia."-".$elMes."-".$elYear;	 
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+?><!DOCTYPE HTML>
+<html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>.:Aprobar Reembolso:.</title>        
-  <link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
+	<link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
     <link rel="stylesheet" type="text/css" href="../../../Css/estilo.css" /> 	
-	<link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
-    <link rel="stylesheet" type="text/css" href="../../../Css/border-radius.css" /> 	
     <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>     
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.ui.js"></script>    
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.asmselect.js"></script>	

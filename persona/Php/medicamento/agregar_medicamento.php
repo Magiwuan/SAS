@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}?><!DOCTYPE html>
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
-	<link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
-    <link rel="stylesheet" type="text/css" href="../../Css/border-radius.css" /> 
     <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
 	<link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	 	
 	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>    
@@ -16,6 +18,7 @@
  <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){
     	$('#nuevo').click(function(){
+		limpiar_form();
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -70,22 +73,22 @@ function limpiar_form(ele) {
 <tr>
  <td width="93" height="39"><input name="ope" type="hidden" id="ope" value="I" hidden="hidden" /></td>
  <td width="86">Nombre:</td>
- <td width="487" ><textarea name="nombre" cols="45" rows="2" disabled="disabled" id="nombre"></textarea>
+ <td width="487"><textarea name="nombre" cols="45" rows="2" disabled="disabled" id="nombre"></textarea>
  </td>
 </tr>    
 </tbody>
 </table>
 </fieldset>
-<table  width="686" border="0">
+<table  width="686" border="0" cellpadding="1" cellspacing="1">
 <tr>
   <td width="249" height="26">&nbsp;</td>
-  <td width="95"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" /></td>
-      <td width="100"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
+  <td width="95"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' /></td>
+  <td width="100"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
   <td width="224">&nbsp;</td>
 </tr>
 </table>
 <hr />
- <div id="div_listar_medicamento"></div>   
+<div id="div_listar_medicamento"></div>   
 </form>    
 </div>
 </body>

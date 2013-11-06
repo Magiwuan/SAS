@@ -1,4 +1,9 @@
-<?php
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../../usuario/denied.php");
+}
+
 include_once("../../../Clases/clase_solicitud_medicina.php");
 $sMedicina= new sMedicina();
 $res=$sMedicina->buscaUltimoID();
@@ -18,19 +23,22 @@ if($res){
 <link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
 <link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 
 <link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
-<link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.theme.css" />
-<link type="text/css" rel="stylesheet" href="jquery/themes/base/jquery.ui.autocomplete.css" />
+
 <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	        
 <script src="../../../JavaScript/solicitud_medicamentos.js"></script>        
-<script type="text/javascript" src="jquery/jquery-1.4.2.js"></script>
-<script type="text/javascript" src="jquery/ui/jquery.ui.core.js"></script>
-<script type="text/javascript" src="jquery/ui/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="jquery/ui/jquery.ui.position.js"></script>
-<script type="text/javascript" src="jquery/ui/jquery.ui.autocomplete.js"></script>
+
 <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>    
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery.alerts.js"></script>     
-<script src="../../../JavaScript/jscal2.js"></script>    
-<script src="../../../JavaScript/es.js"></script> 
+<script language="javascript" type="text/javascript" src="../../../JavaScript/jscal2.js"></script>    
+<script language="javascript" type="text/javascript" src="../../../JavaScript/es.js"></script> 
+
+  <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.theme.css" />
+  <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.autocomplete.css" />	
+  <script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.position.js"></script>
+  <script type="text/javascript" src="../jquery/ui/jquery.ui.autocomplete.js"></script>
 <script language="JavaScript" type="text/JavaScript">
 	   $(document).ready(function(){		
 		$('#nuevo').click(function(){				
@@ -104,12 +112,8 @@ if($res){
 		$('#fecha_fin').val('');
 	});	
 });	
- $(function() {       
-        $("#medicamento").autocomplete({
-            source: "completar_medicinas.php"
-        });
-    });
-icremento =1;
+
+var icremento =1;
 function crear(obj) {
 	if(icremento>5){
 		$("#capa_datos").css({			     	   
@@ -195,8 +199,13 @@ function borrar(obj) {
   }
   return true;
 }
+ $(function() {       
+        $("#medicamento").autocomplete({
+            source: "completar_medicinas.php"
+        });
+});
 </script> 
-<style>
+<style type="text/css">
 .btn_act{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; 
 font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; 
 outline-width:0px; background-image: url(../../../Imagen_sistema/cancelar.jpg);}
@@ -335,9 +344,7 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
       <td width="93">Medicamentos:</td>
       <td width="257"><input style="color:#909090" name="medicamento" id="medicamento" disabled="disabled" size="40"  type="text" value="Buscar Medicinas" onfocus = "if(this.value=='Buscar Medicinas') {this.value=''; this.style.color='#000'}" onblur="if(this.value==''){this.value='Buscar Medicinas'; this.style.color='#909090'}" onClick="if(this.value!=''){this.value=''; this.style.color='#000'} "/></td>
       <td width="70">Cantidad:</td>
-      <td width="159">
-        <input name="cantidad" type="text" disabled="disabled" id="cantidad" size="20"  />
-       </td>
+      <td width="159"><input name="cantidad" type="text" disabled="disabled" id="cantidad" size="20"  /></td>
       <td width="86">&nbsp;</td>
     </tr>
      <tr>

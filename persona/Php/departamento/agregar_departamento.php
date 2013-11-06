@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}?><!DOCTYPE html>
+<html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
-	<link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
-    <link rel="stylesheet" type="text/css" href="../../Css/border-radius.css" /> 
     <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 
     <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		    	
 	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
-    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.blockUI.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/departamento_jquery.js"></script> 
     <script language="javascript" type="text/javascript" src="../../JavaScript/departamento.js"></script> 
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>   
@@ -65,10 +66,10 @@ background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{b
 <body>
 <div id="cuerpo">
 <form action=""  method="POST" id="form_departamento" name="form_departamento">
-<table width="686" height="37" border="0" cellpadding="0" cellspacing="0">
+<table width="696" height="37" border="0" cellpadding="0" cellspacing="0">
 <tr>
-<td width="664" height="37"><h1>Agregando Departamento</h1></td>
-       <td width="22" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onclick="location.href='../../../html/blanco.html'" title="Salir" /></td>
+<td width="684" height="37"><h1>Agregando Departamento</h1></td>
+<td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onclick="location.href='../../../html/blanco.html'" title="Salir" /></td>
 </tr>
 </table>
 <fieldset>  
@@ -84,7 +85,7 @@ background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{b
 </tbody>
 </table>                
 </fieldset>        
-<table  width="686" border="0" cellpadding="0" cellspacing="0">
+<table  width="686" border="0" cellpadding="1" cellspacing="1">
 <tr>
    <td width="338" align="right"><input name="nuevo" type="button" id="nuevo" value="Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar el campo" /></td>
    <td width="348"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" title="Guardar" /></td>

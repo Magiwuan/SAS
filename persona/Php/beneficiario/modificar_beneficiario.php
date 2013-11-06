@@ -1,4 +1,8 @@
-<?php
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
 if(empty($_POST['id_beneficiario'])){
 		echo "BOOM!! Error :(";
 		exit;
@@ -31,21 +35,22 @@ include_once("../../Clases/clase_beneficiario.php");
 		$fecha_nac=$elDia."-".$elMes."-".$elYear;	
 				
 	}
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Entrada de Articulos</title>        
- 	<link rel="stylesheet" type="text/css" href="Css/estilo2.css" />  
-    <link rel="stylesheet" type="text/css" href="Css/estilo.css" />
-	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
-    <link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
-    <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />			
-	<script src="JavaScript/jscal2.js"></script>    
-    <script src="JavaScript/es.js"></script> 
-    <script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script>
-     <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script>   
-	<script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>
-     <script language="javascript" type="text/javascript" >
+?><!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>.:Modificar Beneficiario:.</title>        
+<link rel="stylesheet" type="text/css" href="Css/estilo2.css" />  
+<link rel="stylesheet" type="text/css" href="Css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
+<link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
+<link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />			
+<script src="JavaScript/jscal2.js"></script>    
+<script src="JavaScript/es.js"></script> 
+<script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script>
+<script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script>   
+<script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>
+<script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
     	$('#modificar').click(function(){
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
@@ -103,7 +108,7 @@ include_once("../../Clases/clase_beneficiario.php");
     });
     });
 </script>
-<style>
+<style style="text/css">
 .btn_act{
   height: 23px; 
   background-color: #f5f5f0; 
@@ -152,9 +157,7 @@ include_once("../../Clases/clase_beneficiario.php");
   margin-left:5px; 
   margin-right:5px;
   outline-width:0px;
-}
-
-.btn_guardar_desact{
+}.btn_guardar_desact{
   height: 23px; 
   background-color: #f5f5f0; 
   border-bottom: 1px solid #999;
@@ -169,12 +172,10 @@ include_once("../../Clases/clase_beneficiario.php");
   margin-left:5px; 
   margin-right:5px; 
   outline-width:0px;
-}
-/*.btn_guardar_desact_img{
+}/*.btn_guardar_desact_img{
   background-image: url(Imagen_sistema/guardar_desac.jpg);
 
-}*/
-.btn_guardar_desact:hover{
+}*/.btn_guardar_desact:hover{
   height: 23px; 
   background-color: #f5f5f0; 
   border-bottom: 1px solid #333;
@@ -190,27 +191,7 @@ include_once("../../Clases/clase_beneficiario.php");
   margin-left:5px; 
   margin-right:5px;
   outline-width:0px;
-}
-#popup {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1001;
-}
-.content-popup {
-	 margin:0px;
-    padding:10px;
-    width:732px;
-    min-height:250px;
-    border-radius:4px;
-    background-color:#FFFFFF;
-    box-shadow: 0 2px 5px #666666;
-}
-.close {
- position:relative;
- left:700px;}
-.btn_act1 {  height: 23px; 
+}.btn_act1 {  height: 23px; 
   background-color: #f5f5f0; 
   border-bottom: 1px solid #09F;
   border-right:1px solid #09F; 
@@ -246,16 +227,15 @@ include_once("../../Clases/clase_beneficiario.php");
 <body> 
 <div id="cuerpo">
 <form action="javascript: fn_modificar();" method="POST" id="form_beneficiario" name="form_beneficiario">
-
-<table width="724" height="25" border="0" cellpadding="0" cellspacing="0">
+<table width="696" height="25" border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td width="661"><h1>Gestion de Beneficiario</h1></td>
-      <td width="63" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_modificar();"/></td>   
+      <td width="684"><h1>Gestion de Beneficiario</h1></td>
+      <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_modificar();"/></td>   
     </tr>
   </table>
   <fieldset>
   <legend align="left">Datos Personales</legend>
-    <table width="719" border="0" cellpadding="1" cellspacing="1">
+    <table width="686" border="0" cellpadding="1" cellspacing="1">
     <tr>
       <td class="formulario">&nbsp;</td>
       <td class="formulario">&nbsp;</td>
@@ -372,12 +352,12 @@ include_once("../../Clases/clase_beneficiario.php");
                 $recaudo= new recaudos();		
                 $detalle_rec= new detalle_rec();
                 $detalle_rec->setidBeneficiario($_POST["id_beneficiario"]);
-                $recaudo->setTiporecaudo('Afiliación - Beneficiario');
+                $recaudo->setTiporecaudo('AFILIACIÓN - BENEFICIARIO');
                 $consu=$detalle_rec->buscar_recaudos_beneficiario();
                 $consul=$recaudo->lista_recaudo();
                 for($i=0;$i<count($consul);$i++)			
                  {
-                if($consul[$i][3]=='Afiliación - Beneficiario')
+                if($consul[$i][3]=='AFILIACIÓN - BENEFICIARIO')
                {								
             ?><input type="checkbox" disabled="disabled" name="recaudos[]" id="checkbox" class="ck" value="<?php echo $consul[$i][1];?>" 
                                 <?php 

@@ -1,4 +1,9 @@
-<?php
+<?php session_start(); //Funcion que permite trabajar con sesiones
+if(empty($_SESSION["login"])) 
+{
+	header("Location: ../usuario/denied.php");
+}
+
 include_once("../../Clases/clase_solicitud_medicina.php");
 include_once("../../Clases/clase_solicitud_orden.php");
  $sMedicina= new sMedicina(); 
