@@ -1,9 +1,9 @@
-﻿<?php session_start(); //Funcion que permite trabajar con sesiones
-if(empty($_SESSION["login"])) 
-{
+﻿<?php @session_start();
+if(empty($_SESSION['login'])){
 	header("Location: ../usuario/denied.php");
 }
-?><html> 
+?>
+<html lang="es"> 
 <head> 
     <title>Cat&aacute;logo</title> 
 <script> 
