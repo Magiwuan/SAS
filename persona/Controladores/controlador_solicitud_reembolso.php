@@ -38,9 +38,10 @@ function incluir(){
 	$sReembolso->IniciaTransaccion();
 	$titular->setCed($_POST['cedTitular']);
 	$buscarTitular=$titular->validar_titular();
-	for($i=0;$i<count($buscarTitular);$i++){
-		$idTitular=$buscarTitular[$i][1]; //Obtenemos el Id titular por la cedula
-	}
+		if($buscarTitular){
+			$resl=$titular->sig_tupla($buscarTitular);
+			$idTitular=$resl['id_titular'];
+		}
 		$sReembolso->setidTitular($idTitular);
 			$consulta = $sReembolso->validar_solicitud_reembolso();
 					if ($consulta){
@@ -85,7 +86,7 @@ function incluir(){
 	$sReembolso->setObservacion($_POST['observacion']);	
 	$sReembolso->setDiagnostico($_POST['diagnostico']);
 	$sReembolso->setcodHoja($_POST['codHoja']);
-	if($_POST['Tipo']=='M'){
+		if($_POST['Tipo']=='M'){
 			$idServicio=1;
 		}elseif($_POST['Tipo']=='L'){
 			$idServicio=3;
