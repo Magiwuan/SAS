@@ -80,22 +80,15 @@ public function valida_examen() {
 		parent::cerrar_bd();
 	}
 public function validar_examen(){
-		 $c=0;
+		$c=0;
         $sql="select * from texamen where descripcion='$this->descripcion'";
-		$cursor=parent::ejecuta_sql($sql);		 
-		if($row= parent::proxima_tupla($cursor))
-		 {
-			 	$fila[$c][1]=$row["id_examen"];
-				$fila[$c][2]=$row["descripcion"];
-				$fila[$c][3]=$row["tipo"];
-				$c++;
-		 }		
-		if ( $fila>0 )
-			return $fila;
-		else
-			return -1;
-			
-			parent::cerrar_bd();
+		$cursor=parent::ejecuta_sql($sql);
+		// verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
+		if(parent::getNRegistro($cursor)<0)
+			return 1;//fallo la operacion
+			else 
+			return $cursor;
+		parent::cerrar_bd();
      }  
 //busca el medicamento del complete
 	 public function bExamen_e(){

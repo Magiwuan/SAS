@@ -56,20 +56,20 @@ if($res){
 					});				
 				});	 
 				$("#Tipo").change(function(event){   
-				
-				if($("#Tipo").val()=='2'){
+				var tip=$("#Tipo").val();
+				if(tip=='2'){
 					$("#cap7").load('examenes_especiales.php');
 					$("#bt_agregar").css("display","block");
 				}
-				if($("#Tipo").val()=='3'){
+				if(tip=='3'){
 					$("#cap7").load('examenes_laboratorios.php');
 					$("#bt_agregar").css("display","block");
 				}	
-				if($("#Tipo").val()=='4'){
+				if(tip=='4'){
 					$("#cap7").load('examenes_imagenes.php');
 					$("#bt_agregar").css("display","block");
 				}	
-				if($("#Tipo").val()=='5'){
+				if(tip=='5'){
 					$("#cap7").load('orden_de_consulta.php');
 					$("#bt_agregar").css("display","none");
 				}	
@@ -211,7 +211,6 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
       <td >&nbsp;</td>
       <td >Tipor de Orden:</td>
       <td colspan="3" ><select name="Tipo" disabled id="Tipo" >  
-
       <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
       </select></td>
       <td>&nbsp;</td>
@@ -272,7 +271,7 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
    </fieldset>
    <table  width="773" border="0" cellpadding="0" cellspacing="0">
       <tr>
-      <td width="348" align="right"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar campos"/></td>
+      <td width="348" align="right"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos"/></td>
       <td width="425"><input name="guardar" type="submit" class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="guardar" onClick="if(!recuados()){return false;}"  value=" Guardar" />
       </td>
       </tr>
@@ -281,11 +280,12 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 </div>
 <script language="javascript" type="text/javascript">
 function recuados(){
-	if($("#Tipo").val()=='0'){	
+	var tip=$("#Tipo").val();
+	if(tip=='0'){	
 			$('#Tipo').focus();
 			return false;	
 	}
-	if($("#Tipo").val()=='C'){
+	if(tip=='5'){
 		if($('#motivo').val().length < 1){
 			jAlert('El campo  "motivo"  no puede estar vacio','Dialogo de Alerta');
 			$('#motivo').focus();
@@ -296,7 +296,8 @@ function recuados(){
 			$('#diagnostico').focus();
 			return false;	
 		}
-	}else{
+	}
+	if(tip!='5'){
 		if(icremento=='1'){	
 			 jAlert("Debe ingresar al menos un detalle!"); 
 			 $('#Tipo').focus(); 
@@ -319,14 +320,20 @@ function recuados(){
 			data: str,
 			type: 'post',
 			success: function(data){
-				if(data!=""){
-				if(confirm(data)){	
-					abreVentana();
-					location.reload();						
-					}else{
-					location.reload();
-					}
+				if(data=="Los Datos se guardaron con Exito, Imprimir ?"){
+					jConfirm(data,'Mensaje de Confirmacion', function(r) {
+						if(r==true){
+							abreVentana();
+							location.reload();						
+						}else{
+							location.reload();
+						}
+					});				
+				}else{
+					jAlert(data,'Mensaje de Alerta');
 				}
+			
+				
 			}
 		});
 	};	

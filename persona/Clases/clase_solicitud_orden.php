@@ -195,9 +195,10 @@ AND a.id_medico = b.id_medico AND b.id_especialidad = c.id_especialidad";
 					$c++;
 				}while($row= parent::proxima_tupla($cursor));
 			 }			
-		 }else{			 
-			  $sql="SELECT a.* FROM tdetalle_solicitud AS a WHERE id_solicitud ='$this->idSolicitud'";			 
-		$cursor=parent::ejecuta_sql($sql);		 
+		 }
+		 if($this->tipoServicio=='5'){		 
+			  $sql="SELECT a.* FROM tdetalle_solicitud AS a WHERE a.id_solicitud ='$this->idSolicitud'";			 
+			$cursor=parent::ejecuta_sql($sql);		 
 			if($row= parent::proxima_tupla($cursor)){
 				do{
 					$fila[$c][1]=$row["cantidad"];		

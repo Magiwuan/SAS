@@ -19,7 +19,7 @@ switch($ope){
 	buscar();
 	break;
 	}
-  case "mSolicitud":	{	
+  case "mSolicitud":{	
   	modificar();
 	break;
 	}
@@ -33,7 +33,7 @@ function incluir(){
 	$sOrden= new sOrden();
 	$titular= new titular();
 	$detalle_rec= new detalle_rec();
-	$examen= new examen();
+	$examen= new examen();	
 	$detalle_solicitud= new detalle_solicitud(); 
 	$var_control= false;
 	$idSolicitud=0;
@@ -42,10 +42,11 @@ function incluir(){
 	//envio la cedula para buscar el id del titular
 	$sOrden->IniciaTransaccion();
 	$titular->setCed($_POST['cedTitular']);
-	$buscarTitular=$titular->validar_titular();
-	for($i=0;$i<count($buscarTitular);$i++){
-		$idTitular=$buscarTitular[$i][1]; //Obtenemos el Id titular por la cedula
-	}
+		$buscarTitular=$titular->validar_titular();
+		if($buscarTitular){
+			$resl=$titular->sig_tupla($buscarTitular);
+			$idTitular=$resl['id_titular'];
+		}
 		$sOrden->setidTitular($idTitular);
 			$consulta = $sOrden->validar_solicitud();
 					if ($consulta){
@@ -82,34 +83,19 @@ function incluir(){
 		$idBeneficiario=$idBeneficiario;
 //si el Beneficiario no es el titular Mandamos el ID de su Asociado
 	}
-		if($_POST['Tipo']=='L'){
-			$idServicio=3;
-		}
-		elseif($_POST['Tipo']=='I'){
-			$idServicio=4;
-		}
-		elseif($_POST['Tipo']=='E'){
-			$idServicio=2;
-		}
-		elseif($_POST['Tipo']=='C'){
-			$idServicio=5;
-		}
-		if($_POST['Tipo']=='L'){
-			$tipo='LABORATORIO';
-		}
-		elseif($_POST['Tipo']=='I'){
-			$tipo='IMAGEN';
-		}
-		elseif($_POST['Tipo']=='E'){
+		if($_POST['Tipo']=='2'){
 			$tipo='ESPECIALES';
-		}
-		elseif($_POST['Tipo']=='C'){
+		}elseif($_POST['Tipo']=='3'){
+			$tipo='LABORATORIO';
+		}elseif($_POST['Tipo']=='4'){
+			$tipo='IMAGEN';
+		}elseif($_POST['Tipo']=='5'){
 			$tipo='CONSULTA';
 		}
 	$sOrden->setidSolicitud($idSolicitud);
 	$sOrden->settipoBeneficiario($TipoBeneficiario);
 	$sOrden->setidBeneficiario($idBeneficiario);
-	$sOrden->setidServicio($idServicio);
+	$sOrden->setidServicio($_POST['Tipo']);
 	$sOrden->setPatologia($_POST['patologia']);
 	$sOrden->setObservacion($_POST['observacion']);
 	$sOrden->setidMedico($_POST['medico']);
@@ -142,20 +128,22 @@ function incluir(){
 	$arregloExamen = $_POST["campo"]; //Arreglo de Examen
 	$arregloDescrip = $_POST["descripcion"]; //Arreglo de Cantidad
 	while($cont_med<count($arregloExamen) && $cont_med<count($arregloDescrip)){	
-		$examen->setTipoexamen($tipo);			
+		$examen->setTipoexamen($tipo);		
 		$examen->setDescripcion($arregloExamen[$cont_med]);
-		$validar_examen=$examen->validar_examen();			
-		if($validar_examen=='-1'){
-			$iExamen=$examen->iExamen();						
+		$val_examen=$examen->validar_examen();	
+		if($val_examen=='0'){
+			$iExamen=$examen->iExamen();		
 			if($iExamen!='-1'){
 				$var_control=true;	 
 				echo "Error 2";
 			}else{
 				$examen->setDescripcion($arregloExamen[$cont_med]);
-				$validar_examen=$examen->validar_examen();	
-				for($i=0;$i<count($validar_examen);$i++){
-					$idExamen=$validar_examen[$i][1]; //Obtenemos el Id titular por la cedula
-				}		
+				$val_examen=$examen->validar_examen();	
+				if($val_examen){
+					$val_examen=$examen->sig_tupla($val_examen);
+					$idExamen=$val_examen['id_examen'];
+				}	
+			
 				$result = $detalle_solicitud->UltimoID_solicitud();
 				if ($result){
 					$result = $detalle_solicitud->sig_tupla($result);		
@@ -174,10 +162,12 @@ function incluir(){
 			}
 		}else{
 				$examen->setDescripcion($arregloExamen[$cont_med]);
-				$validar_examen=$examen->validar_examen();	
-				for($i=0;$i<count($validar_examen);$i++){
-					$idExamen=$validar_examen[$i][1]; //Obtenemos el Id titular por la cedula
-				}		
+				$val_examen=$examen->validar_examen();	
+				if($val_examen){
+					$resl=$examen->sig_tupla($val_examen);
+					$idExamen=$resl['id_examen'];
+				}
+			
 				$result = $detalle_solicitud->UltimoID_solicitud();
 				if ($result){
 					$result = $detalle_solicitud->sig_tupla($result);		
@@ -226,7 +216,7 @@ function incluir(){
 			exit();
 		}else{
 			$sOrden->FinTransaccion();	
-			echo "Los Datos se guardaron con Exito, Imprimir ? ";
+			echo "Los Datos se guardaron con Exito, Imprimir ?";
 			exit();	
 		}
 }
