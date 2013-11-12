@@ -208,7 +208,7 @@ function limpiar_form(ele) {
     <tr>
     <td height="29">&nbsp;</td>
     <td>Celular:</td>
-    <td><span>
+    <td>
         <input name="celular" type="text" disabled id="celular" size="15" maxlength="12" value="<?php echo $celular;?>"/>
       </span></td>
       <td>Teléfono:</td>
@@ -216,7 +216,7 @@ function limpiar_form(ele) {
       </tr>
         <tr>
           <td height="27">&nbsp;</td>
-          <td><span>Parentesco:</span></td>
+          <td>Parentesco:</span></td>
           <td><select name="parentesco" disabled= "disabled" id="parentesco">
             <option value="0" selected>Seleccionar</option>
             <option value="Madre">Madre</option>

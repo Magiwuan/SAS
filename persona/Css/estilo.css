@@ -47,9 +47,12 @@ border-radius:3px;
 	border-radius:3px;
 }
 #cuerpo{
-	width:710px;
-	margin-left:35px;	
-	height:100%;
+	position: absolute;
+	top: 2%; /* Buscamos el centro horizontal (relativo) del navegador */
+	left: 1%; /* Buscamos el centro vertical (relativo) del navegador */
+	width: 710 px; /* Definimos el ancho del objeto a centrar */
+	height:auto;
+	margin-left: 35px; /* Restamos la mitad de la anchura del objeto con un margin-left */
 	padding:0px;
 	background:#F0F8E7;
 	

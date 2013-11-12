@@ -279,7 +279,7 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 </style>
 </head>
 <body> 
-<div id="cuerpo">
+<div id="cuerpo2">
 <form action="" method="POST" id="from_solicitud_reembolso" name="from_solicitud_reembolso">
 
 <table width="692" height="37" border="0" cellpadding="0" cellspacing="0">
@@ -348,11 +348,11 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
         <tr>
       <td width="11" rowspan="2">&nbsp;</td>
       <td width="125" rowspan="2">Nro. Factura:</td>
-      <td width="114" rowspan="2"><label for="medicamento"><span>
+      <td width="114" rowspan="2"><label for="medicamento">
         <input name="nroFactura" type="text" disabled id="nroFactura" size="16" onkeypress="return isInteger(event);" />
       </span></label></td>
       <td width="81"></td>
-      <td width="301" rowspan="2"><span>
+      <td width="301" rowspan="2">
         <input name="nroControl" type="text" disabled id="nroControl" onkeypress="return isInteger(event);" size="16" />
       </span></td>
       <td width="12" rowspan="2">&nbsp;</td>

@@ -7,18 +7,6 @@ $(document).ready(function(){
 	});
 	
 });
-function fn_modificar(){
-            var str = $("#form_titular").serialize();
-            $.ajax({
-                url: 'Controladores/controlador_titular.php',
-                data: str,
-                type: 'post',
-                success: function(data){
-                    if(data != "")
-                    jAlert(data);
-                }
-            });
-        };	
 function fn_agregar(){		
 		var str=$("#form_titular").serialize();
 		$.ajax({
@@ -30,26 +18,51 @@ function fn_agregar(){
 			}
 		});
 	};
+/*
+function fn_cerrar(){
+	$("#cuerpo").load("index_empleado.php", function(){
+		$.blockUI({
+			message: $('#cuerpo'),
+			css:{
+				position: 'absolute',
+				border: '1px  double #09F',
+				top: '2%',
+				left: '1%' 
+				width: '710 px',
+				margin-left: '35px',
+				padding:'0px',
+				background:'#F0F8E7',
+			}
+		}); 
+	});
+};
+*/
 function fn_cerrar(){	
- $.ajax({
-	beforeSend: function(){                         
-    $("#cuerpo").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');
-  	},
-	success: function(){
-		$("#cuerpo").load("index_empleado.php");	
-	}
-	});		
+var str = $("#frm_buscar").serialize();
+	$.ajax({	
+	url: 'index_empleado.php',
+		type: 'get',
+		data: str,		
+		beforeSend: function(){ 
+		$("#cuerpo").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');		
+		},		
+		success: function(data){
+		$("#cuerpo").html('data');							 		
+		}		
+	});
+
 };
 function fn_mostrar_frm_agregar(){	
  $.ajax({
 	beforeSend: function(){                         
-    $("#cuerpo").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');
+   	 $("#cuerpo").html('<div  style="margin-left:300px; display:none;"><img src="Imagen_sistema/loading.gif"/></div>');
   	},
 	success: function(){
 		$("#cuerpo").load("Php/agregar_empleado.php");		
 	}
 	});		
 };
+
 function fn_mostrar_frm_modificar(id_titular){
 	 $.ajax({
 	beforeSend: function(){                         

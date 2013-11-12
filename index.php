@@ -10,12 +10,12 @@
    <script language="javascript" type="text/javascript" src="persona/JavaScript/jquery.alerts.js"></script> 
    <script language="JavaScript" type="text/javascript">
 	function Enviar() {
-		if(document.registro.login.value == '') {//8
+		if(document.registro.login.value == '') {
 			jAlert('El campo \"Usuario\" no puede estar vacio!');
 			document.registro.login.focus();
 			return false;	
 		}
-		if(document.forms.registro.clave.value == '') { //1
+		if(document.forms.registro.clave.value == '') {
 			jAlert('El campo \"Clave\" no puede estar vacio!');
 			document.registro.clave.focus();
 			return false;
@@ -55,7 +55,7 @@
       </tr>
        </tr>
       <tr>
-      <td align="center" valign="bottom"><p style="font-family: 'Lucida Sans Unicode'; font-size:11px;color: #E17919;">Desarrollado por: Estudiantes de la Universidad Politecnica Territorial Portuguesa J.J Montilla.<br /> Yelix Monsalve. | Andrés Alvarado. Todos los derechos reservados.</p></td>
+      <td align="center" valign="bottom"><p style="font-family: 'Lucida Sans Unicode'; font-size:11px;color: #E17919;">Desarrollado por: Estudiantes de la Universidad Politecnica Territorial Portuguesa J.J Montilla.<br /> Yelix Monsalve. | Andrés Alvarado.</p></td>
       </tr>
     </table>
 </div>

@@ -67,7 +67,6 @@ public function valida_ciudad() {
 				$combo[$c] .= '<option value="'.$fila['id_ciudad'].'">'.$fila['nombre'].'</option>';	
 				$c++;
 			}
-			$combo[$c] .= '<option value="-1"><div id="open"><a href="#">Agregar ciudad</a></div></option>';
 			return $combo;
 			
 			parent::cerrar_bd();
@@ -91,7 +90,7 @@ public function combo_error(){
 			$combo = array();
 			$c=0;			
 			$combo[$c] .= '<option value="0" selected="selected" disabled="disabled">Seleccionar</option>';	
-			$combo[$c] .= '<option value="-1"><div id="open"><a href="#">Agregar ciudad</a></div></option>';
+			$combo[$c] .= '<option value="-1"><div id="open"><a href="#">No hay ciudad registrada</a></div></option>';
 		
 			return $combo;		
 	}
