@@ -43,6 +43,16 @@ include_once("../../Clases/clase_titular.php");
 <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
 <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
+		  
+		$('#parentesco').change(function(){
+			var parent = $('#parentesco').val();
+			if(parent=='Hijo' || parent=='Hija'){
+				$('#estado_civ').val('S');
+				$('#estado_civ').attr('disabled', true);
+			}else{
+				$('#estado_civ').attr('disabled', false);
+			}
+		});	
     	$('#nuevo').click(function(){
 		limpiar_form();
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
@@ -229,9 +239,8 @@ function limpiar_form(ele) {
           </select></td>
           <td>Participación</td>
           <td><input name="participacion" type="text" disabled id="participacion" size="12"/></td>
-          <td> <a href="#" onclick="jQuery('#test2').validationEngine('showPrompt', 'Porcentaje de Poliza de Vida Ejemplo: 30%', 'pass')" title="Ayuda">
-			      <div id="test2" class="test2" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
-			    </a></td>
+          <td><div title="Porcentaje de Poliza de Vida Ejemplo: 30%" id="test2" class="test2" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
+			    </td>
           <td colspan="2">&nbsp;</td>
         </tr>
     <tr>
@@ -239,10 +248,11 @@ function limpiar_form(ele) {
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
         <option value="0">Seleccionar</option>
-        <option value="S">Soltero</option>
-        <option value="C">Casado</option>
-        <option value="D">Divorciado</option>
-        <option value="V">Viudo</option>
+        <option value="SOLTERO">Soltero</option>
+        <option value="CASADO">Casado</option>
+        <option value="CONCUBINATO">Concubinato</option>
+        <option value="DIVORCIADO">Divorciado</option>
+        <option value="VIUDO">Viudo</option>
       </select></td>
         <td>Discapacidad:</td>
       <td colspan="4" rowspan="2" valign="top"><div id="cap_dis" style="width:20px"></div>

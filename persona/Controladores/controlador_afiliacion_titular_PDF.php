@@ -53,28 +53,9 @@
 		$nombre2 		=utf8_decode($resultado[$i][5]);
 		$apellido1 		=utf8_decode($resultado[$i][6]);
 		$apellido2 		=utf8_decode($resultado[$i][7]);
-		if($resultado[$i][8]=='M'){
-			$sexo ='MASCULINO';
-		}else{
-			$sexo ='FEMENINO';
-		}
+		$estado_civ=$resultado[$i][10];
 		$fecha_nac 		=$resultado[$i][9];
-		if($resultado[$i][10]=='S'){
-			$estado_civ ='SOLTERO';
-		}else{
-			if($resultado[$i][10]=='C'){
-				$estado_civ ='CASADO';
-			}else{
-				if($resultado[$i][10]=='D'){
-					$estado_civ ='DIVORCIADO';
-				}else{
-					if($resultado[$i][10]=='V'){
-						$estado_civ ='VIUDO';
-					}
-					
-				}
-			}			
-		}
+		$sexo=$resultado[$i][8];
 		$celular 		=$resultado[$i][11];
 		$telefono 		=$resultado[$i][12];
 		$correo_elect 	=$resultado[$i][13];
@@ -109,7 +90,7 @@
 	$pdf->Cell(90,6,$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2,1,0,'C',true);
 	$pdf->Cell(32,6,$nacionalidad,1,0,'C',true);
 	$pdf->Cell(47,6,$cedula,1,0,'C',true);
-	$pdf->Cell(30,6,$sexo,1,1,'C',true);	
+	$pdf->Cell(30,6,$sexo,1,1,'C',true);	//sexo
 	$pdf->Ln(3);
 	$pdf->SetFont('Times','B',10);
 	$pdf->Cell(40,6,'FECHA DE NAC.',1,0,'C',true);

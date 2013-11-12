@@ -313,10 +313,11 @@ include_once("../../Clases/clase_beneficiario.php");
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
             <option value="0" selected> Seleccionar</option>
-            <option value="S" <?php if($estado_civ=='S') echo "Selected=\"Selected\""; ?>>Soltero</option>
-            <option value="C" <?php if($estado_civ=='C') echo "Selected=\"Selected\""; ?>>Casado</option>
-            <option value="D" <?php if($estado_civ=='D') echo "Selected=\"Selected\""; ?>>Divorciado</option>
-            <option value="V" <?php if($estado_civ=='V') echo "Selected=\"Selected\""; ?>>Viudo</option>
+            <option value="SOLTERO" <?php if($estado_civ=='SOLTERO') echo "Selected=\"Selected\""; ?>>Soltero</option>
+            <option value="CASADO" <?php if($estado_civ=='CASADO') echo "Selected=\"Selected\""; ?>>Casado</option>
+             <option value="CONCUBINATO" <?php if($estado_civ=='CONCUBINATO') echo "Selected=\"Selected\""; ?>>Concubinato</option>
+            <option value="DIVORCIADO" <?php if($estado_civ=='DIVORCIADO') echo "Selected=\"Selected\""; ?>>Divorciado</option>
+            <option value="VIUDO" <?php if($estado_civ=='VIUDO') echo "Selected=\"Selected\""; ?>>Viudo</option>
           </select></td>
       <td>Discapacidad:</td>
       <td colspan="2" rowspan="3" valign="top"><select name="discapacidad[]" id="discapacidad" multiple="multiple" title="Seleccionar" >

@@ -383,11 +383,11 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
       <td>Recaudos:</td>
       <td colspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('SOLICITUD DE MÉDICINAS');
+			$recaudo->setTiporecaudo('SOLICITUD - MÉDICINAS');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
-			if($consul[$i][3]=='SOLICITUD DE MÉDICINAS'){					
+			if($consul[$i][3]=='SOLICITUD - MÉDICINAS'){					
 		?>  <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disabled">
         <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
         <?php		

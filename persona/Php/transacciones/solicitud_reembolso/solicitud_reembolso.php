@@ -11,7 +11,7 @@ $res=$sReembolso->sig_tupla($res);
 $compl='SR-';
 $idReembolso='0';
 if($res){
-	$idReembolso=$res['id_solicitud_reembolso']+1;
+	$idReembolso=$res['id_solicitud_reembolso']+1;	
 }else{
 	$idReembolso='1';
 }

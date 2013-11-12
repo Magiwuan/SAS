@@ -208,11 +208,12 @@ function limpiar_form(ele) {
     <tr>
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
-        <option value="0"> seleccionar</option>
-        <option value="S"> Soltero</option>
-        <option value="C"> Casado</option>
-        <option value="D"> Divorciado</option>
-        <option value="E"> Viudo</option>
+        < <option value="0">Seleccionar</option>
+        <option value="SOLTERO">Soltero</option>
+        <option value="CASADO">Casado</option>
+        <option value="CONCUBINATO">Concubinato</option>
+        <option value="DIVORCIADO">Divorciado</option>
+        <option value="VIUDO">Viudo</option>
       </select></td>
       <td>Discapacidad:</td>
       <td colspan="3" rowspan="2" valign="top"><div id="disc_capa" style="display:none;"> 

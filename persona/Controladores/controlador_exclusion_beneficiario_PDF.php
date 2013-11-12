@@ -54,28 +54,11 @@
 		$nombre2 		=utf8_decode($resultado[$i][5]);
 		$apellido1 		=utf8_decode($resultado[$i][6]);
 		$apellido2 		=utf8_decode($resultado[$i][7]);
-			if($resultado[$i][8]=='M'){
-				$sexo ='Masculino';
-			}else{
-				$sexo ='Femenino';
-			}
+		$estado_civ =$resultado[$i][10];
+		$sexo=$resultado[$i][8];
 		$fecha_nac 		=$resultado[$i][9];
-			if($resultado[$i][10]=='S'){
-				$estado_civ ='Soltero';
-			}else{
-				if($resultado[$i][10]=='C'){
-					$estado_civ ='Casado';
-				}else{
-					if($resultado[$i][10]=='D'){
-						$estado_civ ='Divorciado';
-					}else{
-						if($resultado[$i][10]=='V'){
-							$estado_civ ='Viudo';
-					}
-					
-				}
-			}			
-		}
+		
+			
 		$celular 		=$resultado[$i][11];
 		$telefono 		=$resultado[$i][12];
 		$correo_elect 	=$resultado[$i][13];
@@ -112,7 +95,7 @@
 	$pdf->Cell(90,6,$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2,1,0,'C',true);
 	$pdf->Cell(32,6,$nacionalidad,1,0,'C',true);
 	$pdf->Cell(47,6,$cedula,1,0,'C',true);
-	$pdf->Cell(30,6,$sexo,1,1,'C',true);	
+	$pdf->Cell(30,6,$sexo,1,1,'C',true);	//sexo
 	$pdf->Ln(3);
 	$pdf->SetFont('Times','B',10);
 	$pdf->Cell(40,6,'FECHA DE NAC.',1,0,'C',true);
@@ -140,7 +123,7 @@
 	$pdf->Cell(20,6,$edad,1,0,'C',true);
 	$pdf->Cell(30,6,$nombCiudad,1,0,'C',true);
 	$pdf->Cell(30,6,$nombEstado,1,0,'C',true);
-	$pdf->Cell(30,6,$estado_civ,1,0,'C',true);
+	$pdf->Cell(30,6,$estado_civ,1,0,'C',true);//estado civil
 	$pdf->Cell(49,6,$telefono.' / '.$celular,1,1,'C',true);
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);
@@ -196,32 +179,22 @@
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,'BENEFICIARIO',1,1,'C',true);	
 	$pdf->Cell(80,6,'APELLIDO(S) Y NOMBRE(S)',1,0,'C',true);
-	$pdf->Cell(25,6,'C.I.',1,0,'C',true);
+	$pdf->Cell(27,6,'C.I.',1,0,'C',true);
 	$pdf->Cell(28,6,'FECHA NAC.',1,0,'C',true);
 	$pdf->Cell(18,6,'EDAD',1,0,'C',true);
-	$pdf->Cell(20,6,'SEXO',1,0,'C',true);
+	$pdf->Cell(18,6,'SEXO',1,0,'C',true);
 	$pdf->Cell(28,6,'PARENTESCO',1,1,'C',true);
 	$pdf->SetFont('Times','',10);
 	$beneficiario->setidBeneficiario($id);
 	$cons=$beneficiario->excluir_Beneficiario();
 	for ($i=0;$i<count($cons);$i++){		
-		if($cons[$i][9]=='M'){
-			$sex='Masculino';
-		}if($cons[$i][9]=='F'){
-			$sex='Femenino';
-		}
-		if($cons[$i][4]!='0'){
-			$ced=$cons[$i][3].'-'.$cons[$i][4];
-		}else{
-			$ced='N/A';
-		}
 	$titular->setFec_nac($cons[$i][10]);
 	$edad=$titular->edad();	
 $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8_decode($cons[$i][7]).' '.utf8_decode($cons[$i][8]),1,0,'C',true);
-		$pdf->Cell(25,6,$ced,1,0,'C',true);
+		$pdf->Cell(27,6,$ced=$cons[$i][3].'-'.$cons[$i][4],1,0,'C',true);
 		$pdf->Cell(28,6,$cons[$i][10],1,0,'C',true);
 		$pdf->Cell(18,6,$edad,1,0,'C',true);
-		$pdf->Cell(20,6,$sex,1,0,'C',true);
+		$pdf->Cell(18,6,$cons[$i][9],1,0,'C',true);
 		$pdf->Cell(28,6,$cons[$i][13],1,1,'C',true);
 	}
 	$pdf->Ln(5);
@@ -231,7 +204,7 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	}else{
 		$nac='E';
 	}
-	$pdf->Cell(199,5,'Yo: '.$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2.' portador de la C.I.:'.$nac.'-'.$cedula.' '.utf8_decode("por medio de la siguiente declaro ante Autogestión"),0,1,'C');
+	$pdf->Cell(199,5,'Yo: '.$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2.' portador de la C.I.: '.$nac.'-'.$cedula.' '.utf8_decode("por medio de la siguiente declaro ante Autogestión"),0,1,'C');
 	$pdf->Cell(199,5,utf8_decode(" de Salud de la Empresa Mixta Arroz del ALBA S.A. La exclusión del beneficiario arriba señalado y anexo recaudos"),0,1,'C');
 	$pdf->SetFont('Times','B',10);
 	$pdf->Ln(5);
