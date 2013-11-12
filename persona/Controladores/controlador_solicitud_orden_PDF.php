@@ -40,9 +40,9 @@
 				$pdf->Cell(195,6,'',0,1,'C',true);
 $pdf->Cell(195,6,'',0,1,'C',true);
 	$pdf->SetFont('Times','B',10);	
-	$pdf->Cell(22,6,utf8_decode('NOMBRE: '),0,0,'L',true);
+	$pdf->Cell(26,6,utf8_decode('PROVEEDOR: '),0,0,'L',true);
 	$pdf->SetFont('Times','',10);
-	$pdf->Cell(173,6,utf8_decode($consulta["alias"]),0,1,'L',true);
+	$pdf->Cell(169,6,utf8_decode($consulta["alias"]),0,1,'L',true);
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(25,6,utf8_decode('DIRECCIÓN: '),0,0,'L',true);	
 	$pdf->SetFont('Times','',10);
@@ -60,8 +60,9 @@ $pdf->Cell(195,6,'',0,1,'C',true);
 		$pdf->SetFont('Times','',10);
 	if($consulta["id_beneficiario"]=='0'){
 		$pdf->Cell(124,6,utf8_decode($consulta["nombre1"]).' '.$consulta["nombre2"].', '.$consulta["apellido1"].' '.$consulta["apellido2"],1,0,'C',true);
-	$pdf->Cell(36,$consulta["nacionalidad"].'-'.$consulta["cedula"],1,0,'C',true);
+	$pdf->Cell(36,6,$consulta["nacionalidad"].'-'.$consulta["cedula"],1,0,'C',true);
 	$pdf->Cell(35,6,'Titular',1,1,'C',true);
+
 	}else{
 		$sOrden->setidBeneficiario($consulta["id_beneficiario"]);
 		$consulta_B=$sOrden->consultar_beneficiario();

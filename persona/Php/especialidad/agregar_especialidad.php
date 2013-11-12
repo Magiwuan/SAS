@@ -64,7 +64,7 @@ background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{b
 <body>
 <div id="cuerpo">
 <form action=""   method="post" id="form_especialidad" name="form_especialidad">
- <table width="696" height="25" border="0" cellpadding="0" cellspacing="0">
+ <table width="696" border="0" cellpadding="0" cellspacing="0">
   <tr>
   <td width="684"><h1>Agregando Especialidad</h1></td>
    <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onclick="location.href='../../../html/blanco.html'" /></td>
@@ -72,12 +72,12 @@ background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{b
   </table>
 <fieldset>  
  <legend></legend>
-  <table width="386" height="69">
+  <table width="680" height="33">
   <tbody>
    <tr>
-   <td width="9" height="63"><input name="ope" type="hidden" id="ope" value="I" hidden="hidden" /></td>
-   <td width="79">Nombre:</td>
-   <td width="341" ><input name="nombre" type="text" disabled="disabled" class="required" id="nombre" size="50" /></td>
+    <td width="172" height="25"><input name="ope" type="hidden" id="ope" value="I" hidden="hidden" /></td>
+    <td width="63">Nombre:</td>
+   <td width="440"  ><input name="nombre" type="text" disabled="disabled" class="required" id="nombre" size="50" /></td>
  </tr> 
  </tbody>
  <tfoot> 

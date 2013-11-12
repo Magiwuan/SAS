@@ -20,14 +20,13 @@ if(empty($_SESSION["login"]))
 <table id="grilla" class="lista" width="624">
   <thead>
         <tr> 
-        <th width="290"></th>
-        <th width="108"></th>
+        <th width="285"></th>
+        <th width="106"></th>
         <th width="110"></th>
-        <th width="27"></th>
+        <th width="30"></th>
         <th width="20"></th>
         <th width="20"></th>
-        <th width="22"></th>
-        <th width="0"></th>
+        <th width="21"></th>
         </tr>       
         <tr>
             <th>Apellido(s) y Nombre(s)</th>
@@ -36,16 +35,16 @@ if(empty($_SESSION["login"]))
             <th>&nbsp;</th>
             <th></th>
             <th></th>
-            <th><a href="javascript: fn_mostrar_frm_agregar();" title="Agregar Titular"><img src="Imagen_sistema/add.png" width="17" height="17" align="center" ></a></th>
+            <th>&nbsp;<a href="javascript: fn_mostrar_frm_agregar();" title="Agregar Titular"><img src="Imagen_sistema/add.png" width="16" height="16" align="right" ></a></th>
         </tr>
     </thead>
     <tbody>
     <?php while ($result = $paging->fetchResultado()){?>
         <tr>        
-            <td><?php echo $result['apellido1']; ?> <?php echo $result['apellido2']; ?>, <?php echo $result['nombre1']; ?> <?php echo $result['nombre2']; ?></td>
+            <td ><?php echo $result['apellido1']; ?> <?php echo $result['apellido2']; ?>, <?php echo $result['nombre1']; ?> <?php echo $result['nombre2']; ?></td>
             <td> <?php echo  $result['nacionalidad'].'-'.$result['cedula']?></td>
             <td><?php 	echo $result['telefono']?></td>
-            <td align="center" ><a href="javascript: fn_mostrar_agregar_grupo(<?php echo $result['id_titular'] ?>,'<?php echo $result['nombre1'] ?>','<?php echo $result['apellido1'] ?>');" title="Grupo Familiar"><img src="Imagen_sistema/grupo.png" width="22" height="22" align="center"/></a></td>
+            <td align="center" ><a href="javascript: fn_mostrar_agregar_grupo(<?php echo $result['id_titular'] ?>,'<?php echo $result['nombre1'] ?>','<?php echo $result['apellido1'] ?>');" title="Grupo Familiar"><img src="Imagen_sistema/grupo.png" width="18" height="18" align="center"/></a></td>
             <td align="center" valign="middle"><a href="javascript: void(0)" 
 onclick="window.open('Controladores/controlador_afiliacion_titular_PDF.php?id=<?php echo $result['id_titular']?>','popup','width=770, height=800');return false;" title="Ver Planilla de Afiliación"><img src="Imagen_sistema/imp.png" width="16" height="16" align="center" /></a></td>
             <td align="center" valign="middle"><a href="javascript: fn_mostrar_frm_modificar(<? echo $result['id_titular']?>);" title="Editar"><img src="Imagen_sistema/page_edit.png" width="16" height="16"  align="center" /></a></td>

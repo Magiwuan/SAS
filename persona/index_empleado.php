@@ -32,10 +32,10 @@ if(empty($_SESSION["login"]))
     <body>
      <div id="cuerpo"> 
             <form action="javascript: fn_consultar();" id="frm_buscar" name="frm_buscar" method="post">
-                <table width="700" height="45	" class="formulario">
+                <table width="700" height="51" class="formulario">
                     <tbody>
                         <tr>
-        <th width="32" align="right"><div title="Buscar Trabajadores" id="b5" style="width:25px; cursor:pointer"><img src="Imagen_sistema/lupa.png" alt="Consultar" width="20" height="20" align="absmiddle"/></div></th>
+        <th width="32" height="45" align="right"><div title="Buscar Trabajadores" id="b5" style="width:25px; cursor:pointer"><img src="Imagen_sistema/lupa.png" alt="Consultar" width="20" height="20" align="absmiddle"/></div></th>
                             <th width="63">Cedula</th>
                             <td width="94"><input name="buscar" type="text" id="buscar" size="14" title="Escriba las primeras letras del Apellido" /></td>
                             <th width="90">Ordenar</th>
@@ -54,8 +54,8 @@ if(empty($_SESSION["login"]))
                                <option value="15" >15</option>
                                <option value="20">20</option>
                             </select></td>
-                            <td width="78"><input type="submit" value="  Buscar  " class="button" title="Buscar Titular"/></td>
-                            <td width="75"><input name="b4" type="button" id="b4" class="button" onclick="limpiar();" value=" Limpiar " title="Limpiar Campos" /></td>             
+                            <td width="78"><input type="submit" value="  Buscar  " class="btn btn-primary btn-small" title="Buscar Titular"/></td>
+                            <td width="75"><input name="b4" type="button" id="b4" class="btn btn-primary btn-small" onclick="limpiar();" value=" Limpiar " title="Limpiar Campos" /></td>             
                         </tr>
                     </tbody>
                   </table>
