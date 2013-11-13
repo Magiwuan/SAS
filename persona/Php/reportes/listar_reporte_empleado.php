@@ -39,7 +39,8 @@ if(empty($_SESSION["login"]))
             <td><?php echo $result['apellido1']; ?> <?php echo $result['apellido2']; ?>, <?php echo $result['nombre1']; ?> <?php echo $result['nombre2']; ?></td>
             <td> <?php echo  $result['nacionalidad'].'-'.$result['cedula'];?></td>
             <td><?php 	echo $result['telefono'];?></td>
-         <td align="center" valign="middle"><a href="javascript: fn_verPerfil(<?php echo $result['id_titular']; ?>);" title="Ver Perfil"><img src="../../Imagen_sistema/ver.png" width="16" height="16" align="center" /></a></td>
+         <td align="center" valign="middle"><a href="javascript: fn_verPerfil(<?php echo $result['id_titular']; ?>);" title="Ver Perfil">
+         <img src="../../Imagen_sistema/ver.png" width="18" height="18" align="center" /></a></td>
     
         </tr>
         

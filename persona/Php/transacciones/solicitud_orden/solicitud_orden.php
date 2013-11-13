@@ -23,7 +23,7 @@ if($res){
     <link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 	
     <link rel="stylesheet" type="text/css" href="../../../Css/border-radius.css" />
      <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	 	
-    <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>     
+    <script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.ui.js"></script>    
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.asmselect.js"></script>	
      <script language="JavaScript" type="text/javascript" src="../../../JavaScript/sOrden_jquery.js"></script>

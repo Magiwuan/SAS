@@ -8,7 +8,7 @@ if(empty($_SESSION["login"]))
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Documento sin título</title>
-<script language="javascript" type="text/javascript" src="../JavaScript/jquery-1.4.2.min.js"></script>  
+<script language="javascript" type="text/javascript" src="../JavaScript/jquery-1.8.2.min.js"></script>  
     <script language="JavaScript" type="text/JavaScript">
 	   $(document).ready(function(){
 // Envia al Combo de Ciudad El id Del Estado seleccionado, 

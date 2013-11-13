@@ -23,7 +23,7 @@ $codHoja=$_GET['id'];
     <title>.:Aprobar Reembolso:.</title>        
 	<link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
     <link rel="stylesheet" type="text/css" href="../../../Css/estilo.css" /> 	
-    <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>     
+    <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.8.2.min.js"></script>     
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.ui.js"></script>    
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.asmselect.js"></script>	
      <script language="JavaScript" type="text/javascript" src="../../../JavaScript/sReembolso_jquery.js"></script>	

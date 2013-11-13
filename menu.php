@@ -15,22 +15,25 @@ $vist->setlogin($_SESSION["login"]);
 </head>
 <body>
 <div id="principal">
-<table width="100%" height="auto" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">	
+  <tr>
+    <td class="shadow_left">&nbsp;</td>
+    <td class="shadow_top" height="5px">&nbsp;</td> 
+    <td class="shadow_right"></td>  
+  </tr>
   <tr> 
     <td class="shadow_left">&nbsp;</td>
-    <td>    
+     <td>    
         <table width="100%" border="0" cellspacing="0" cellpadding="0">   
           <tr> 
-            <td><img src="Imagenes/banner.jpg" width="850" height="140" /></td>       
-          </tr>
-          
+            <td><img src="Imagenes/banner.jpg" width="850" height="140" /></td>      
+            </tr>         
         </table>
     <td class="shadow_right"></td>
      </td>    
   </tr>
   <tr>
-    <td height="0" class="shadow_left">
-</td>   
+    <td class="shadow_left"></td>   
    </tr>
   <tr>
     <td height="450" class="shadow_left"></td>
@@ -59,8 +62,7 @@ $vist->setlogin($_SESSION["login"]);
 					$idm=$modulos[$i][1];		
 					$ico=$modulos[$i][2];
 					$descrip=$modulos[$i][3];
-					$url=$modulos[$i][4];
-							
+					$url=$modulos[$i][4];							
 				?>
 		<li><a href="<? echo $url;?>"><center><? echo $descrip;?></center><img src="<? echo $ico;?>" width="196" height="130" title="<? echo $descrip;?>" /></a></li>
         <?php }?>

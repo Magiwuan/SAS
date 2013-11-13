@@ -17,7 +17,7 @@ if(empty($_SESSION["login"]))
 	$paging->verPost(true);
 	$paging->ejecutar();	
 ?>
-<table id="grilla" class="lista" width="624">
+<table id="grilla" class="lista" width="624" title="Lista de Empleados">
   <thead>
         <tr> 
         <th width="285"></th>
@@ -30,8 +30,8 @@ if(empty($_SESSION["login"]))
         </tr>       
         <tr>
             <th>Apellido(s) y Nombre(s)</th>
-            <th>Cedula</th>
-            <th>Teléfono</th>
+            <th>C&eacute;dula</th>
+            <th>Tel&eacute;fono</th>
             <th>&nbsp;</th>
             <th></th>
             <th></th>

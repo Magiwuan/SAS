@@ -10,16 +10,13 @@ if(empty($_SESSION["login"]))
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  	
 	<link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="../../Css/border-radius.css" />   
-    <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	
-    <script language="javascript" type="text/javascript" src="../../JavaScript/proveedor_jquery.js"></script>
+	<link rel="stylesheet" type="text/css"  href="../../JavaScript/jquery.alerts.css" />	
     <script language="javascript" type="text/javascript" src="../../JavaScript/proveedor.js"></script>
-    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 
 	<script language="javascript" type="text/javascript" src="../../JavaScript/jscal2.js"></script>    
 	<script language="javascript" type="text/javascript" src="../../JavaScript/es.js"></script>  	
     <script language="JavaScript" type="text/JavaScript">	
 	   $(document).ready(function(){
-
 			$('#nuevo').click(function(){
 			$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 			$('#agregar').attr('disabled', false);

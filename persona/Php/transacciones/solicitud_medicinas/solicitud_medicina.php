@@ -23,11 +23,9 @@ if($res){
 <link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
 <link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 
 <link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
-
 <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	        
 <script src="../../../JavaScript/solicitud_medicamentos.js"></script>        
-
-<script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>    
+<script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery.alerts.js"></script>     
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jscal2.js"></script>    
 <script language="javascript" type="text/javascript" src="../../../JavaScript/es.js"></script> 

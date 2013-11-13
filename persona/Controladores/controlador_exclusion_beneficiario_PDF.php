@@ -55,7 +55,7 @@
 		$apellido1 		=utf8_decode($resultado[$i][6]);
 		$apellido2 		=utf8_decode($resultado[$i][7]);
 		$estado_civ =$resultado[$i][10];
-		$sexo=$resultado[$i][8];
+		$sexo=$resultado[$i][8];	 
 		$fecha_nac 		=$resultado[$i][9];
 		
 			

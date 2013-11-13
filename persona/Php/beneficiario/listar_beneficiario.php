@@ -16,7 +16,7 @@ if(empty($_SESSION["login"]))
 	$paging->verPost(true);
 	$paging->ejecutar();		
 ?>
-<table id="grilla" class="lista" width="624">
+<table id="grilla" class="lista" width="624" title="Lista de Beneficiarios">
   <thead>
   		<tr>        	
         	<th></th>
@@ -29,11 +29,11 @@ if(empty($_SESSION["login"]))
         	<th colspan="7"  style=" text-align:center; ">Lista de beneficiario por titular</th> 
         </tr>       
         <tr>       	
-            <th width="101">Cedula</th>
+            <th width="101">C&eacute;dula</th>
             <th width="214">Apellidos y nombres</th>
             <th width="33">Sexo</th>
             <th width="74">Parentesco</th>
-            <th width="96">%  Participacion</th>
+            <th width="96">%  Participaci&oacute;n</th>
             <th width="36"></th>
             <th width="38"></th>
         </tr>

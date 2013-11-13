@@ -32,11 +32,17 @@ font-size: 12px;
 color: #000; 
 border-radius:3px;
 }
+#cuerpo_index{
+	position: absolute;
+	top: 30%; /* Buscamos el centro horizontal (relativo) del navegador */
+	left: 45%; /* Buscamos el centro vertical (relativo) del navegador */
+	background:#FFF;
+}
 #cuerpo_acceso{
 	position: absolute;
 	top: 45%; /* Buscamos el centro horizontal (relativo) del navegador */
 	left: 50%; /* Buscamos el centro vertical (relativo) del navegador */
-	width: 600 px; /* Definimos el ancho del objeto a centrar */
+	width: 602px; /* Definimos el ancho del objeto a centrar */
 	height: 400px; /* Definimos el alto del objeto a centrar */
 	margin-top: -200px; /* Restamos la mitad de la altura del objeto con un margin-top */
 	margin-left: -300px; /* Restamos la mitad de la anchura del objeto con un margin-left */
@@ -48,7 +54,7 @@ border-radius:3px;
 }
 #cuerpo{
 	position: absolute;
-	top: 2%; /* Buscamos el centro horizontal (relativo) del navegador */
+	top: 0%; /* Buscamos el centro horizontal (relativo) del navegador */
 	left: 1%; /* Buscamos el centro vertical (relativo) del navegador */
 	width: 710 px; /* Definimos el ancho del objeto a centrar */
 	height:auto;

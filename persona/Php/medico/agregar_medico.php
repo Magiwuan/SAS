@@ -8,7 +8,7 @@ if(empty($_SESSION["login"]))
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
-    <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	
+	<link rel="stylesheet" type="text/css"  href="../../JavaScript/jquery.alerts.css" />	
     <script language="JavaScript" type="text/javascript" src="../../JavaScript/medico_jquery.js"></script>
     <script language="JavaScript" type="text/javascript" src="../../JavaScript/medico.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 

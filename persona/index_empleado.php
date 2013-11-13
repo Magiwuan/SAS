@@ -6,18 +6,16 @@ if(empty($_SESSION["login"]))
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>.:Index TitulAR:.</title>          
-        <link href="Css/estilo2.css" rel="stylesheet" type="text/css" />   
-        <link href="Css/estilo.css" rel="stylesheet" type="text/css" />
-        <link href="Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
-        <link rel="stylesheet" type="text/css" href="Css/jquery.asmselect.css" />
-        <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
-        <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>     
-        <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
-        <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
-        <script language="javascript" type="text/javascript">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>.:Index TitulAR:.</title>          
+    <link href="Css/estilo2.css" rel="stylesheet" type="text/css" />   
+    <link href="Css/estilo.css" rel="stylesheet" type="text/css" />
+    <link href="Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
+    <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
+    <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
+    <script language="javascript" type="text/javascript">
 	    $(document).ready(function() {			
 			$("#b5").click(function(event) {
 			$("#buscar").val('');	
@@ -53,7 +51,7 @@ if(empty($_SESSION["login"]))
                                <option value="15" >15</option>
                                <option value="20">20</option>
                             </select></td>
-                            <td width="78"><input type="submit" value="  Buscar  " class="btn btn-primary btn-small" title="Buscar Titular"/></td>
+                            <td width="78"><input type="submit" value="  Buscar  " class="btn btn-primary btn-small" title="Buscar Titular" /></td>
                             <td width="75"><input name="b4" type="button" id="b4" class="btn btn-primary btn-small" onclick="limpiar();" value=" Limpiar " title="Limpiar Campos" /></td>             
                         </tr>
                     </tbody>

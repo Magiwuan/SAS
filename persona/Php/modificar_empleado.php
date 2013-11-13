@@ -1,9 +1,7 @@
 <?php session_start(); //Funcion que permite trabajar con sesiones
-if(empty($_SESSION["login"])) 
-{
+if(empty($_SESSION["login"])){
 	header("Location: usuario/denied.php");
 }
-
 if(empty($_POST['id_titular'])){
 		echo "BOOM!! Error :(";
 		exit();
@@ -61,31 +59,28 @@ include_once("../Clases/clase_ciudad.php");
 <html lang="es">
   <head>
     <title>.:Modificar Titular:.</title>        
-  	<link rel="stylesheet" type="text/css" href="Css/estilo2.css" />  
-     <link rel="stylesheet" type="text/css" href="Css/estilo.css" />  
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
-    <link rel="stylesheet" type="text/css" href="Css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
     <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
-    <script src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>
-	<script src="JavaScript/jscal2.js"></script>    
-    <script src="JavaScript/es.js"></script>    
-	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>
-	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
-    <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>  
-    <script language="javascript" type="text/javascript" src="JavaScript/empleado.js"></script>
+	<script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
+	<script language="javascript" type="text/javascript" src="JavaScript/es.js"></script>  	   
+	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
+    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script>  
+     <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>      
+    <script language="javascript" type="text/javascript" src="JavaScript/empleado.js"></script>   
      <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){		
 	    $('#nuevo').click(function(){	
-		$("#cap_dis").load('Php/select_discapacidad.php #disc_capa');
-		$("#cap_prof").load('Php/select_profesion.php');
-		$('#agregar').removeClass('btn_agregar_desact').addClass('btn_act');
+		$("#disc_capa").css("display","block");
+		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
-		$('#nuevo').removeClass('btn_act').addClass('btn_agregar_desact');
+		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
 		$('#nuevo').attr('disabled', true);
 		
-		$('#bt').attr('disabled', false);
+	    $('#bt').attr('disabled', false);
 		$('#bt_fna').attr('disabled', false);
 		$('#nacionalidad1').attr('disabled', false);
+		$('#nacionalidad1').focus();
 		$('#nacionalidad2').attr('disabled', false);
 		$('#cedula').attr('disabled', false);
 		$('#nombre1').attr('disabled', false);
@@ -94,37 +89,35 @@ include_once("../Clases/clase_ciudad.php");
 		$('#apellido2').attr('disabled', false);
 		$('#sexo1').attr('disabled', false);
 		$('#sexo2').attr('disabled', false);
-		$('#estado2').attr('disabled', false);
-		$('#ciudad2').attr('disabled', false);
+		$('#estado').attr('disabled', false);
 		$('#celular').attr('disabled', false);
 		$('#telefono').attr('disabled', false);
 		$('#estado_civ').attr('disabled', false);
 		$('#discapacidad').attr('disabled', false);
-		$('#estado').attr('disabled', false);
-		$('#ciudad').attr('disabled', false);
+		$('#estado2').attr('disabled', false);
 		$('#correo').attr('disabled', false);
 		$('#direccion').attr('disabled', false);
 		$('#tipo_nomina1').attr('disabled', false);
 		$('#tipo_nomina2').attr('disabled', false);
 		$('#tipo_nomina3').attr('disabled', false);
 		$('#tipo_nomina4').attr('disabled', false);
+		$('#tipo_nomina5').attr('disabled', false);
 		$('#profesion').attr('disabled', false);
 		$('#cargo').attr('disabled', false);
 		$('#departamento').attr('disabled', false);
 		$('#upsa').attr('disabled', false);
 		$('#correo2').attr('disabled', false);
 		$('#observacion').attr('disabled', false);
-		$('input[name="recaudos[]"]').attr('disabled', false);
-				
+		$('input[name="recaudos[]"]').attr('disabled', false);				
     });	
      $('#agregar').click(function(){
 		if(valida()){	
 		fn_agregar();			
-		$('#nuevo').removeClass('btn_agregar_desact').addClass('btn_act');
+		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
-		$('#agregar').removeClass('btn_act').addClass('btn_agregar_desact');
+		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
 		$('#agregar').attr('disabled', true);	
-		
+		$("#disc_capa").css("display","none");		
 		$('#bt').attr('disabled', true);
 		$('#bt_fna').attr('disabled', true);
 		$('#nacionalidad1').attr('disabled', true);
@@ -136,48 +129,46 @@ include_once("../Clases/clase_ciudad.php");
 		$('#apellido2').attr('disabled', true);
 		$('#sexo1').attr('disabled', true);
 		$('#sexo2').attr('disabled', true);
-		$('#ciudad2').attr('disabled', true);
-		$('#ciudad2').attr('disabled', true);
+		$('#estado').attr('disabled', true);
 		$('#celular').attr('disabled', true);
 		$('#telefono').attr('disabled', true);
 		$('#estado_civ').attr('disabled', true);
 		$('#discapacidad').attr('disabled', true);
-		$('#estado').attr('disabled', true);
-		$('#ciudad').attr('disabled', true);
+		$('#estado2').attr('disabled', true);
 		$('#correo').attr('disabled', true);
 		$('#direccion').attr('disabled', true);
 		$('#tipo_nomina1').attr('disabled', true);
 		$('#tipo_nomina2').attr('disabled', true);
 		$('#tipo_nomina3').attr('disabled', true);
 		$('#tipo_nomina4').attr('disabled', true);
+		$('#tipo_nomina5').attr('disabled', true);
 		$('#profesion').attr('disabled', true);
 		$('#cargo').attr('disabled', true);
 		$('#departamento').attr('disabled', true);
 		$('#upsa').attr('disabled', true);
 		$('#correo2').attr('disabled', true);
 		$('#observacion').attr('disabled', true);
-		$('input[name="recaudos[]"]').attr('disabled', true);
-				
+		$('input[name="recaudos[]"]').attr('disabled', true);	
 		}
-    });
+    });;
     });
 </script>  
 </script>  
-<style>
-.btn_act{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #09F; border-right:1px solid #09F; border-top:0px; border-left:0px; font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px; background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{background-image: url(../../Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto; background-repeat: no-repeat; cursor:hand; cursor:pointer; height: 21px; width: 22px; border: 0px; background-image: url(../../Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(../../Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #0F0; border-right:1px solid #0F0; border-top:0px; border-left:0px;font-size: 13px; color:black; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}.btn_guardar_desact{height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #999; border-right:1px solid #999; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer;  margin-left:5px; margin-right:5px;  outline-width:0px;}/*.btn_guardar_desact_img{background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{ height: 23px; background-color: #f5f5f0; border-bottom: 1px solid #333; border-right:1px solid #333; border-top:0px; border-left:0px; font-size: 13px; color:#CCC; padding-left: 20px; background-repeat: no-repeat; cursor:hand; cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}#popup {left: 0; position: absolute; top: 0; width: 100%; z-index: 1001;}.content-popup {margin:0px;  padding:10px;  width:732px;   min-height:250px; border-radius:4px; background-color:#FFFFFF; box-shadow: 0 2px 5px #666666;}.close {position:relative; left:700px;}
+<style type="text/css">
+.btn_act{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #09F;border-right:1px solid #09F;border-top:0px;border-left:0px;font-size: 13px;color:black;padding-left: 20px;background-repeat: no-repeat;cursor:hand; cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;background-image: url(Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{background-image: url(Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto;background-repeat: no-repeat;cursor:hand; cursor:pointer;height: 21px;width: 22px;border: 0px;background-image: url(Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #0F0;border-right:1px solid #0F0;border-top:0px;border-left:0px;font-size: 13px;color:black;padding-left: 20px;  background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}.btn_guardar_desact{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #999;border-right:1px solid #999;border-top:0px;border-left:0px;font-size: 13px;color:#CCC;padding-left: 20px;background-repeat: no-repeat;cursor:hand; cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}/*.btn_guardar_desact_img{background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #333;border-right:1px solid #333;border-top:0px;border-left:0px;font-size: 13px;color:#CCC;padding-left: 20px;background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}.btn_act1 {height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #09F;border-right:1px solid #09F;border-top:0px;border-left:0px;font-size: 13px;color:black; padding-left: 20px;background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;background-image: url(Imagen_sistema/cancelar.jpg);}
 </style>
 </head> 
 <body> 
     <form action="javascript: fn_nuevo();" method="POST" id="form_titular" name="form_titular">    
-    <table width="700px" height="36" border="0" cellpadding="0" cellspacing="0">
+    <table width="696" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="666" height="36"><h1>Modificar Datos del Titular</h1></td> 
-          <td width="34" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar();" title="Salir" /></td>   
+          <td width="690"><h1>Modificar Datos del Titular</h1></td> 
+          <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar();" title="Salir" /></td>   
         </tr>
       </table>
       <fieldset>
       <legend align="left">Datos Personales</legend>
-        <table width="701" border="0" cellpadding="1" cellspacing="1">
+        <table width="686" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td width="115" >Nacionalidad:</td>
           <td width="185" >
@@ -290,7 +281,7 @@ include_once("../Clases/clase_ciudad.php");
         </fieldset>
          <fieldset> 
           <legend align="left">Dirección de Habitación</legend>   
-         <table width="700" border="0">   
+        <table width="686" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td width="123">Estado:</td>
           <td width="197"><select name="estado" disabled="disabled" id="estado">
@@ -334,14 +325,14 @@ include_once("../Clases/clase_ciudad.php");
       </fieldset>
       <fieldset>  
         <legend align="left">Datos del Trabajado</legend>   
-        <table width="697" border="0">  
+        <table width="686" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <td height="28">Tipo Nómina:</td>
             <td><input type="radio" name="tipo_nomina" id="tipo_nomina1" value="P" <?php if($tipo=='P') echo "Checked=\"checked\""?>disabled="disabled">
               Presidente</td>
             <td><input type="radio" name="tipo_nomina" id="tipo_nomina2" value="D" <?php if($tipo=='D') echo "Checked=\"checked\""?>disabled="disabled">
               Directivo</td>
-            <td ><input type="radio" name="tipo_nomina" id="tipo_nomina3" value="E" <?php if($tipo=='E') echo "Checked=\"checked\""?>disabled="disabled">
+            <td width="108"><input type="radio" name="tipo_nomina" id="tipo_nomina3" value="E" <?php if($tipo=='E') echo "Checked=\"checked\""?>disabled="disabled">
               Empleado</td>
             <td width="82"><input type="radio" name="tipo_nomina" id="tipo_nomina4" value="C" <?php if($tipo=='C') echo "Checked=\"checked\""?>disabled="disabled">
             Contrato</td>
@@ -356,8 +347,8 @@ Obrero</td>
             $elYear=substr($fecha_i,0,4);
             $fecha_ingr=$elDia."-".$elMes."-".$elYear;		echo $fecha_ingr;?>" size="12" maxlength="10" readonly /></td>
           <td width="81"><button name="bt_fna" id="bt_fna" class="button" disabled="disabled" title="Calendario para buscar fecha"><img src="Imagen_sistema/calend.png" width="20" height="20" /></button></td>
-          <td width="87" >Profesión:</td>
-          <td colspan="3" rowspan="2" valign="top">    <select name="profesion" id="profesion" disabled="disabled" >
+          <td width="88" >Profesión:</td>
+          <td colspan="3"><select name="profesion" id="profesion" disabled="disabled" >
               <option value="0" selected="selected" disabled="disabled">Seleccionar</option>
               <?php include_once("../Clases/clase_profesion.php");
                     $profesion=new profesion();
@@ -380,8 +371,9 @@ Obrero</td>
               <?php }?>
           </select>
           </td>
-          <td >&nbsp;</td>
-          </tr>
+		<td>Correo Corporativo:</td> 
+		<td colspan="3"><input name="correo2" type="text" disabled="disabled" id="correo2" size="42" value="<?php echo $Correo; ?>" /></td>         
+		 </tr>
         <tr>
           <td height="24">Departamento:</td>
           <td colspan="2">
@@ -415,11 +407,7 @@ Obrero</td>
           </td>        
           <td width="13">&nbsp;</td>
         </tr>
-          <tr>
-            <td height="24">Correo Corporativo:</td>
-            <td colspan="5"><input name="correo2" type="text" disabled id="correo2" value="<?php echo $Correo;?>" size="50"/></td>
-            <td>&nbsp;</td>
-          </tr>
+        
           <tr>
             <td height="24">Observaciones:</td>
             <td colspan="5"><textarea name="observacion" cols="45" rows="2" disabled id="observacion"><?php echo $Observ;?></textarea></td>
@@ -438,24 +426,24 @@ Obrero</td>
                 for($i=0;$i<count($lista_recaudo);$i++){
                   if($lista_recaudo[$i][3]=='AFILIACIÓN - TITULAR'){								
             ?><input type="checkbox" disabled="disabled" name="recaudos[]" id="checkbox" value="<?php echo $lista_recaudo[$i][1];?>" 
-                                <?php 
-                                for($x=0;$x<count($buscar_recaudos);$x++){	                              
-                                 if ($lista_recaudo[$i][1]==$buscar_recaudos[$x][3]){echo "checked=\"checked\"";}
-                                }?>/><?php echo $lista_recaudo[$i][2]; ?>          
-                 <?php		
+            <?php 
+             for($x=0;$x<count($buscar_recaudos);$x++){	                              
+             if($lista_recaudo[$i][1]==$buscar_recaudos[$x][3]){echo "checked=\"checked\"";}
+             }?>/><?php echo $lista_recaudo[$i][2]; ?>          
+            <?php		
 		}else { echo "<div id='color_error' style='color:#F00'> Alerta: No se han asignado recaudos por Titular</div>";}			
 		}?>
            </td>         
-          <td>&nbsp;</td>
-          </tr>
+         <td>&nbsp;</td>
+         </tr>
         </table>
        </fieldset>
-       <table  width="700px" border="0">
+        <table width="686" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="220">&nbsp;</td>
-            <td width="76"><input name="nuevo" type="button" id="nuevo" value=" Modificar" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos"/></td>
-          <td width="78"><input name="agregar" type="submit"  class='btn_agregar_desact btn_agregar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Guardar" /></td>
-          <td width="308">&nbsp;</td>
+          <td width="265">&nbsp;</td>
+      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" onclick="limpiar_form(this.form)" /></td>
+      <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
+          <td width="265">&nbsp;</td>
           </tr>
       </table> 
       </form>

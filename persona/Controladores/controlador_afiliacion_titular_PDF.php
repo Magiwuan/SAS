@@ -67,6 +67,7 @@
 		$id_upsa 		=$resultado[$i][19];
 		$CiudadNac		=$resultado[$i][22];
 		$correo_corp 	=$resultado[$i][23];
+		$obs			=$resultado[$i][24];
 		}
 	$ciudad->setidCiudad($CiudadNac);
 	$consulta=$ciudad->buscar_c_e_p();
@@ -158,6 +159,11 @@
 	$pdf->Cell(74,6,'E-mail: '.$correo_corp,1,0,'L',true);
 	$pdf->Cell(50,6,'Cargo: '.utf8_decode($nomCargo),1,1,'L',true);
 
+	$pdf->Ln(5);
+	$pdf->SetFont('Times','B',10);	
+	$pdf->Cell(30,6,'OBSERVACION:',1,0,'C',true);	 
+	$pdf->SetFont('Times','',10);	
+	$pdf->MultiCell(169,6,$obs,1,1,'C',true);	
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,'BENEFICIARIOS',1,1,'C',true);	

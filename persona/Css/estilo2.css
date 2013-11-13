@@ -1,9 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
-
-
 input[type=text]{
-    background-color: #fff;
+	background-color: #fff;
 	border: 1px  double #09F;
 	border-radius: 3px;  
 }

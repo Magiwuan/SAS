@@ -10,7 +10,8 @@ if(empty($_SESSION["login"]))
     <title>.:Agregar Titular:.</title>        
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
-    <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="JavaScript/jquery.alerts.css"  />
+    <link rel="stylesheet" type="text/css" href="Css/jquery.asmselect.css" />
 	<script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
 	<script language="javascript" type="text/javascript" src="JavaScript/es.js"></script>  	   
 	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
@@ -127,7 +128,7 @@ function limpiar_form(ele) {
  
    }
 </script>  
-<style>
+<style type="text/css">
 .btn_act{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #09F;border-right:1px solid #09F;border-top:0px;border-left:0px;font-size: 13px;color:black;padding-left: 20px;background-repeat: no-repeat;cursor:hand; cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;background-image: url(Imagen_sistema/cancelar.jpg);}.btn_nuevo_act_img{background-image: url(Imagen_sistema/nuevo.jpg);}.btn_cancelar_act_img{margin: auto;background-repeat: no-repeat;cursor:hand; cursor:pointer;height: 21px;width: 22px;border: 0px;background-image: url(Imagen_sistema/cancelar.jpg);}.btn_guardar_act_img{background-image: url(Imagen_sistema/guardar.jpg);}.btn_act:hover{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #0F0;border-right:1px solid #0F0;border-top:0px;border-left:0px;font-size: 13px;color:black;padding-left: 20px;  background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}.btn_guardar_desact{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #999;border-right:1px solid #999;border-top:0px;border-left:0px;font-size: 13px;color:#CCC;padding-left: 20px;background-repeat: no-repeat;cursor:hand; cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}/*.btn_guardar_desact_img{background-image: url(Imagen_sistema/guardar_desac.jpg);}*/.btn_guardar_desact:hover{height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #333;border-right:1px solid #333;border-top:0px;border-left:0px;font-size: 13px;color:#CCC;padding-left: 20px;background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;}.btn_act1 {height: 23px;background-color: #f5f5f0;border-bottom: 1px solid #09F;border-right:1px solid #09F;border-top:0px;border-left:0px;font-size: 13px;color:black; padding-left: 20px;background-repeat: no-repeat;cursor:hand;cursor:pointer;margin-left:5px;margin-right:5px;outline-width:0px;background-image: url(Imagen_sistema/cancelar.jpg);}
 </style>
 </head>
@@ -176,7 +177,7 @@ function limpiar_form(ele) {
        </td>
       <td>Fecha de Nacimiento:</td>
       <td width="74"><input name="fecha_nac" type="text" id="fecha_nac" size="12" maxlength="10" readonly /></td>
-      <td width="43"><button name="bt" id="bt" class="button" disabled="disabled"><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
+      <td width="43"><button name="bt" id="bt"   disabled="disabled"><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
       <td width="111"></td>
     </tr>
         <tr>
@@ -291,10 +292,10 @@ function limpiar_form(ele) {
       <tr>
       <td width="133" height="28">Fecha de ingreso:</td>
       <td width="87"><input name="fecha_ingr" id="fecha_ingr" type="text" size="12" maxlength="10" readonly /></td>
-      <td width="89"><button name="bt_fna" id="bt_fna" class="button" disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha" /></button> 
+      <td width="89"><button name="bt_fna" id="bt_fna"  disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha" /></button> 
       </td>
       <td width="88" >Profesión:</td>
-      <td colspan="2" valign="top"><select name="profesion" disabled="disabled" id="profesion">
+      <td colspan="2"><select name="profesion" disabled="disabled" id="profesion">
 		    <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
   <?php include_once("../Clases/clase_profesion.php");
 			$profesion=new profesion();
@@ -322,7 +323,7 @@ function limpiar_form(ele) {
       </select>
       </td>
       <td>Correo Corporativo:</td> 
-      <td colspan="3"><input name="correo2" type="text" disabled="disabled" id="correo2" size="35" /></td>
+      <td colspan="3"><input name="correo2" type="text" disabled="disabled" id="correo2" size="42" /></td>
     </tr>
     <tr>
       <td height="24">Departamento:</td>
@@ -381,10 +382,10 @@ function limpiar_form(ele) {
   </fieldset>
   <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
-      <td width="245">&nbsp;</td>
-      <td width="90"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" onclick="limpiar_form(this.form)" /></td>
-      <td width="97"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
-      <td width="248"></td>
+      <td width="265">&nbsp;</td>
+      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" onclick="limpiar_form(this.form)" /></td>
+      <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
+      <td width="265"></td>
       </tr>
   </table> 
 </form>
