@@ -279,13 +279,12 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 </style>
 </head>
 <body> 
-<div id="cuerpo2">
+<div id="cuerpo">
 <form action="" method="POST" id="from_solicitud_reembolso" name="from_solicitud_reembolso">
-
-<table width="692" height="37" border="0" cellpadding="0" cellspacing="0">
+<table width="692"  border="0"  cellpadding="0" cellspacing="0">
     <tr>
-      <td width="664" height="37"><h1>Solicitud de Reembolsos</h1></td>
-       <td width="22" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img'   onclick="location.href='../../../../html/blanco2.html'"title="Salir"/></td>
+      <td width="684"><h1>Solicitud de Reembolsos</h1></td>
+       <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img'   onclick="location.href='../../../../html/blanco2.html'"title="Salir"/></td>
     </tr>
   </table>
   <fieldset>
@@ -384,10 +383,10 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
   
     <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="288">&nbsp;</td>
-        <td width="96">
+        <td width="265">&nbsp;</td>
+        <td width="76">
           <input name="agregar" type="button" disabled class='btn_guardar_desact btn_guardar_act_img' id="agregar"  onclick="if(!crear(this)){return false;}" value="Agregar" /></td>
-        <td width="302">&nbsp;</td>
+        <td width="265">&nbsp;</td>
       </tr>      
     </table>
       <div id="ocultar" style="display:none; text-align:justify; margin:auto; padding:4px;">
@@ -413,7 +412,7 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
     </tr>
     <tr>
       <td width="10">&nbsp;</td>
-      <td width="116" height="24">Recaudos:</td>
+      <td width="116" >Recaudos:</td>
       <td width="493" rowspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
 			$recaudo->setTiporecaudo('REEMBOLSOS');
@@ -431,16 +430,17 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td height="24">&nbsp;</td>
       <td>&nbsp;</td>
-    </tr>
-     
+      <td>&nbsp;</td>
+    </tr>     
     </table>
  </fieldset>
-    <table  width="773" border="0" cellpadding="0" cellspacing="0">
+    <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="348" align="right"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar campos"/></td>
-        <td width="425"><input name="guardar" type="submit" class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="guardar" onClick="if(!recuados()){return false;}"  value=" Guardar" /></td>
+		<td width="265"></td>
+        <td width="76" align="right"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar campos"/></td>
+		<td width="76"><input name="guardar" type="submit" class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="guardar" onClick="if(!recuados()){return false;}"  value=" Guardar" /></td>
+		<td width="265">&nbsp;</td>
       </tr>
     </table>
 </form>

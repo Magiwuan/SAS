@@ -12,6 +12,7 @@ if(empty($_SESSION["login"]))
     <link href="Css/estilo2.css" rel="stylesheet" type="text/css" />   
     <link href="Css/estilo.css" rel="stylesheet" type="text/css" />
     <link href="Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
+    <link rel="stylesheet" type="text/css" href="Css/jquery.asmselect.css" />
     <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
     <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  

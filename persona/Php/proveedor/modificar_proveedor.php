@@ -111,7 +111,6 @@ $(document).ready(function(){
 </style>
 </head>
 <body> 
-<div id="cuerpo">
 <form action="" method="POST" id="form_proveedor" name="form_proveedor">
 <table width="688" height="25" border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -265,6 +264,5 @@ $(document).ready(function(){
           </tr>
       </table> 
     </form>    
-</div>
 </body>
 </html>

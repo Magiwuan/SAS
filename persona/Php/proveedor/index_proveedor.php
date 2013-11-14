@@ -8,6 +8,7 @@ if(empty($_SESSION["login"]))
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>.:Inicio Proveedor:.</title>          
         <link href="../../Css/estilo.css" rel="stylesheet" type="text/css" />
+        <link href="../../Css/estilo2.css" rel="stylesheet" type="text/css" />
         <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
         <link rel="stylesheet" type="text/css" href="../../Css/jquery.asmselect.css" />
         <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		 
@@ -42,8 +43,8 @@ if(empty($_SESSION["login"]))
                                <option value="15" >15</option>
                                <option value="20">20</option>
                           </select></td>
-                            <td width="80"><input type="submit" value="  Buscar  " class="button" title="Buscar Proveedor"/></td>
-                            <td width="83"><input name="b4" type="button" id="b4" class="button" onclick="limpiar();" value=" Limpiar "  title="Limpiar campos" /></td>             
+                            <td width="80"><input type="submit" value="  Buscar  " class="btn btn-primary" title="Buscar Proveedor"/></td>
+                            <td width="83"><input name="b4" type="button" id="b4" class="btn btn-primary" onclick="limpiar();" value=" Limpiar "  title="Limpiar campos" /></td>             
                         </tr>
                     </tbody>
                   </table>

@@ -39,20 +39,20 @@ include_once("../../Clases/clase_solicitud_orden.php");
   	<link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />       
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" /> 
     <link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />	
-    <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	
+    <link rel="stylesheet" type="text/css" href="../../JavaScript/jquery.alerts.css"/>	
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.8.2.min.js"></script>            
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>
     <script src="../../JavaScript/solicitud_medicina.js"></script> 
-      <script language="JavaScript" type="text/JavaScript">
+    <script language="JavaScript" type="text/JavaScript">
 	   $(document).ready(function(){
 		  $('input[name="monto[]"]').change(function(event){            
 			    var amt = parseFloat(this.value);
                 $(this).val('Bs ' + amt.toFixed(2));    			
         });
 		});
-		</script> 
-    <script language="javascript" type="text/javascript">   
-    var nav4 = window.Event ? true : false;
+	</script> 
+<script language="javascript" type="text/javascript">   
+var nav4 = window.Event ? true : false;
 function IsNumber(evt){
 // Backspace = 8, Enter = 13, ’0′ = 48, ’9′ = 57, ‘.’ = 46
 var key = nav4 ? evt.which : evt.keyCode;
@@ -174,17 +174,16 @@ return (key <= 13 || (key >= 48 && key <= 57));
 }
 </style>
 <body> 
-<div id="cuerpo">
 <form action="javascript: fn_agregar();" method="POST" id="form_solicitud_medicina" name="form_solicitud_medicina">
-<table width="677" height="25" border="0" cellpadding="0" cellspacing="0">
+<table width="720" height="25" border="1" class="formulario" cellpadding="0" cellspacing="0">
     <tr>
-      <td width="763"> <h1>Finalizar Solicitud</h1></td>
-      <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' value="    Salir   " onclick="location.href='../../../html/blanco2.html'"/></td>
+      <td width="720"> <h1>Finalizar Solicitud</h1></td>
+      <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onclick="location.href='../../../html/blanco2.html'"/></td>
     </tr>
   </table>
   <fieldset>
   <legend align="left">Datos Principales</legend>
-    <table width="677" border="0" cellpadding="0" cellspacing="0">
+    <table width="720" border="1" class="formulario" cellpadding="0" cellspacing="0">
     <tr>
       <td>Código:</td>
       <td><input name="codigo" type="text" disabled id="codigo" size="14" maxlength="10" value="<?php echo $resul['cod_hoja']; ?>" /></td>
@@ -209,7 +208,6 @@ return (key <= 13 || (key >= 48 && key <= 57));
 	  <?php if($resul['id_beneficiario']=='0'){
       	echo '<input name="beneficiario" type="text" id="beneficiario" size="45" readonly value="Mismo Titular" />';
 			echo '<input name="idTitular" type="hidden" id="id" size="6" value="'.$resul['id_titular'].'" />';
-
          }else{
 		echo '<input name="idBeneficiario" type="hidden" id="id" size="6" value="'.$resul['id_beneficiario'].'" />';
 		$sMedicina->setidBeneficiario($resul["id_beneficiario"]);
@@ -265,9 +263,9 @@ return (key <= 13 || (key >= 48 && key <= 57));
     </tr>
     </table>   
     </fieldset>
-    <table  width="677" border="0">
+    <table  width="720" border="1" class="formulario" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="747"><div id="ocultar" style="margin:auto; text-align:center; padding:2px;">
+        <td width="720"><div id="ocultar" style="margin:auto; text-align:center; padding:2px;">
           <fieldset>
             <legend align="left"><?php if($resul['id_servicio']!='1'){ echo 'Detalle de orden Medica'; }else{ echo 'Detalle de Medicamentos';}?></legend>  
             <div id="capa_datos" style="margin:auto; text-align:center; padding:2px;"> 
@@ -319,10 +317,10 @@ return (key <= 13 || (key >= 48 && key <= 57));
   </table>
   <fieldset>  
     <legend align="left">Area de Observaciones</legend>   
-    <table width="677" border="0" cellpadding="0" cellspacing="0">
+    <table width="720" border="1" class="formulario" cellpadding="0" cellspacing="0">
     <tr>
       <td width="4">&nbsp;</td>
-      <td width="101" height="24">Obsevación:</td>
+      <td width="101">Obsevación:</td>
       <td width="545"><span>
         <textarea name="observacion" cols="50" rows="2" disabled id="observacion" ><?php echo $resul['observacion'];?> </textarea>
       </span></td>
@@ -356,7 +354,7 @@ return (key <= 13 || (key >= 48 && key <= 57));
       </tr>     
     </table>
    </fieldset>
-   <table  width="677" border="0">
+   <table  width="700" border="1" class="formulario" cellpadding="0" cellspacing="0">
       <tr>
       <td width="312">
       </td>
@@ -364,8 +362,6 @@ return (key <= 13 || (key >= 48 && key <= 57));
       </tr>
   </table>  
 </form>
-</div>
-
 <script language="javascript" type="text/javascript">
 function valMonto(){
 	var m=$('#monto').val();
@@ -409,8 +405,6 @@ function valMonto(){
 		});
 	};	
 <?php }?>
-
-
 </script>
 </body>
 </html>

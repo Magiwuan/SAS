@@ -11,7 +11,6 @@ if(empty($_SESSION["login"]))
 	<link rel="stylesheet" type="text/css" href="Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="Css/border-radius.css" /> 
     <link rel="stylesheet" type="text/css" href="JavaScript/jquery.alerts.css"  />
-    <link rel="stylesheet" type="text/css" href="Css/jquery.asmselect.css" />
 	<script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
 	<script language="javascript" type="text/javascript" src="JavaScript/es.js"></script>  	   
 	<script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
