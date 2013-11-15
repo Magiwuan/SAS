@@ -71,11 +71,9 @@ $vist->setlogin($_SESSION["login"]);
 				   <a href="menu.php">Menu Principal</a>	
                    </br>				
 			    </li>            
-			  <li class="derecha">
-			   <a href="	persona/Controladores/cerrarsesion.php">Cerrar Sesión<img src="Imagenes/Exit.png" width="20" height="20" align="absmiddle"/></a>					
-			   </br> </li>
-		 </ul>
- 		     
+			  <li class="derecha"><a href="persona/Controladores/cerrarsesion.php"><img src="Imagenes/Exit.png" width="25" height="25" align="absmiddle" title="Cerrar Sesión"/></a>					
+			   </br></li>
+		 </ul> 		     
       </div>
           <td class="shadow_right"></td>
        </td>    
