@@ -11,7 +11,7 @@ if(empty($_SESSION["login"]))
 <link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
 <link rel="stylesheet" type="text/css" href="../../Css/border-radius.css" />
 <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
-<script language="javascript" src="../../JavaScript/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script> 
+<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.8.2.min.js"></script> 
 <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>               
 <script language="javascript" type="text/javascript" src="../../JavaScript/cobertura_jquery.js"></script>
 <script language="javascript" type="text/javascript" src="../../JavaScript/cobertura.js"></script>

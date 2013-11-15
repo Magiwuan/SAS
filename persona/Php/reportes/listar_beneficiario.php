@@ -23,7 +23,6 @@ if(empty($_SESSION["login"]))
 	$paging->ejecutar();	
 	
 ?>
-<hr />
 <table id="grilla" class="lista" width="700">
   <thead> 
   		<tr>        	
@@ -39,7 +38,7 @@ if(empty($_SESSION["login"]))
         	<h1>Historial Grupo del Familiar</h1>
         </tr>       
         <tr>       	
-            <th>Cedula</th>
+            <th>C&eacute;dula</th>
             <th>Nombre y Apellido</th>
             <th>Parentesco</th>
             <th>Disponible</th>
@@ -74,7 +73,7 @@ if(empty($_SESSION["login"]))
 			<td><?php echo $numFilas;?></td>
 			<td align="center" valign="middle">
 		<a href="javascript: fn_verHistorial('<?php echo $result['id_beneficiario']; ?>','<?php echo $result['nombre1']; ?>','<?php echo $result['apellido1']; ?>');" title="Ver Perfil">
-		<img src="../../Imagen_sistema/ver.png" width="16" height="16" align="center" />
+		<img src="../../Imagen_sistema/ver.png" width="18" height="18" align="center" />
 		</a>
         </tr>        
     <?php } ?>

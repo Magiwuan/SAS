@@ -66,7 +66,7 @@ public function valida_recaudo(){
 			 DO
 			 {
 				$fila[$c][1]=$row["id_recaudo"];			
-				$fila[$c][2]=ucfirst(strtolower($row["descripcion"]));
+				$fila[$c][2]=$row["descripcion"];
 				$fila[$c][3]=$row["tipo"];		
 				
 				$c++;				 

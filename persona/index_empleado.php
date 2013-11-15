@@ -6,19 +6,17 @@ if(empty($_SESSION["login"]))
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Documento sin título</title>          
-        <link href="Css/estilo2.css" rel="stylesheet" type="text/css" />   
-        <link href="Css/estilo.css" rel="stylesheet" type="text/css" />
-        <link href="Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
-        <link rel="stylesheet" type="text/css" href="Css/jquery.asmselect.css" />
-        <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
-        <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.4.2.min.js"></script>            
-       	<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>    
-        <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
-        <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
-        <script language="javascript" type="text/javascript">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>.:Index TitulAR:.</title>          
+    <link href="Css/estilo2.css" rel="stylesheet" type="text/css" />   
+    <link href="Css/estilo.css" rel="stylesheet" type="text/css" />
+    <link href="Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
+    <link rel="stylesheet" type="text/css" href="Css/jquery.asmselect.css" />
+    <link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />		
+    <script language="javascript" type="text/javascript" src="JavaScript/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="JavaScript/empleado_jquery.js"></script>  
+    <script language="javascript" type="text/javascript">
 	    $(document).ready(function() {			
 			$("#b5").click(function(event) {
 			$("#buscar").val('');	
@@ -32,7 +30,7 @@ if(empty($_SESSION["login"]))
     <body>
      <div id="cuerpo"> 
             <form action="javascript: fn_consultar();" id="frm_buscar" name="frm_buscar" method="post">
-                <table width="700" height="51" class="formulario">
+                <table width="696" height="51" class="formulario">
                     <tbody>
                         <tr>
         <th width="32" height="45" align="right"><div title="Buscar Trabajadores" id="b5" style="width:25px; cursor:pointer"><img src="Imagen_sistema/lupa.png" alt="Consultar" width="20" height="20" align="absmiddle"/></div></th>
@@ -54,21 +52,20 @@ if(empty($_SESSION["login"]))
                                <option value="15" >15</option>
                                <option value="20">20</option>
                             </select></td>
-                            <td width="78"><input type="submit" value="  Buscar  " class="btn btn-primary btn-small" title="Buscar Titular"/></td>
+                            <td width="78"><input type="submit" value="  Buscar  " class="btn btn-primary btn-small" title="Buscar Titular" /></td>
                             <td width="75"><input name="b4" type="button" id="b4" class="btn btn-primary btn-small" onclick="limpiar();" value=" Limpiar " title="Limpiar Campos" /></td>             
                         </tr>
                     </tbody>
                   </table>
-           <div id="div_listar"><div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div></div>           
-            </form>
+           <div id="div_listar"></div>     
+              </form>
 
 <script language="javascript" type="text/javascript">
-	$(document).ready(function(){
-});
+
 function limpiar(){		
-			$('#ordenar_ape').val('');		
+			$('#buscar').val('');	
 			$('#ordenar_por').val('0');
-			fn_buscar();	
+			$('#paginas').val('10');
 		}	 
 <!-- Creamos una funcion consultar para Enviar un mensaje de Alerta cuando no encuentre datos !-->
 function fn_consultar(){

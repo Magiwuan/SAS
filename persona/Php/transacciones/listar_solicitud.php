@@ -24,12 +24,9 @@ if(empty($_SESSION["login"]))
 	$paging->verPost(true);
 	$paging->ejecutar();
 ?>
-<table id="grilla" class="lista" width="777" cellpadding="0" cellspacing="0">
+<table id="grilla" class="lista" width="777" cellpadding="0" cellspacing="0" title="Lista de Solicitudes">
   <thead>       
-        <tr>
-            <th colspan="8">Lista de Solicitudes</th>
-            
-        </tr>   
+ 
          <tr>
             	<th width="149">Nombre y Apellido</th>    
          <th width="101">Cedula</th>      

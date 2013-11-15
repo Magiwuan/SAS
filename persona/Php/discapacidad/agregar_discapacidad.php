@@ -10,7 +10,7 @@ if(empty($_SESSION["login"]))
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
     <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
 	<link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />     	
-	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
+	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.8.2.min.js"></script>            
    	<script language="javascript" type="text/javascript" src="../../JavaScript/discapacidad_jquery.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/discapacidad.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script>  

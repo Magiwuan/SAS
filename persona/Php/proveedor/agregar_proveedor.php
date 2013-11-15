@@ -10,17 +10,15 @@ if(empty($_SESSION["login"]))
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  	
 	<link rel="stylesheet" type="text/css" href="../../Css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="../../Css/border-radius.css" />   
-    <link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	
-    <script language="javascript" type="text/javascript" src="../../JavaScript/proveedor_jquery.js"></script>
+	<link rel="stylesheet" type="text/css"  href="../../JavaScript/jquery.alerts.css" />	
     <script language="javascript" type="text/javascript" src="../../JavaScript/proveedor.js"></script>
-    <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.ui.js"></script>    
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 
 	<script language="javascript" type="text/javascript" src="../../JavaScript/jscal2.js"></script>    
 	<script language="javascript" type="text/javascript" src="../../JavaScript/es.js"></script>  	
     <script language="JavaScript" type="text/JavaScript">	
 	   $(document).ready(function(){
-
 			$('#nuevo').click(function(){
+			limpiar_form();
 			$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 			$('#agregar').attr('disabled', false);
 			$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -90,7 +88,6 @@ if(empty($_SESSION["login"]))
 </style>
 </head>
 <body>
-<div id="cuerpo"> 
 <form action="" method="POST" id="form_proveedor" name="form_proveedor">
 <table width="686" border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -211,12 +208,11 @@ if(empty($_SESSION["login"]))
    <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
             <td width="258">&nbsp;</td>
-      <td width="95"><input name="nuevo" onClick="limpiar_form(this);" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" /></td>
+      <td width="95"><input name="nuevo"  type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" /></td>
       <td width="100"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" title="Guardar" /></td>
       <td width="237"></td>
       </tr>
   </table>        
   </form>
-</div>    
 </body>
 </html>

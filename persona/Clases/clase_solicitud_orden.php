@@ -152,8 +152,9 @@ public function solicitudProcesada(){
 		return ($cursor= parent::ejecuta_sql($sql));
     }
 	 public function buscar_medico(){
-       $sql="SELECT a. * , b. * , c. * FROM tproveedor_medico AS a, tmedico AS b, tespecialidad AS c WHERE a.id_medico='$this->idMedico' 
-AND a.id_medico = b.id_medico AND b.id_especialidad = c.id_especialidad";
+       $sql="SELECT a.id_proveedor, a.id_medico, b.nombre, b.apellido, b.nacionalidad, b.cedula, c.nombre AS especialidad
+FROM tproveedor_medico AS a, tmedico AS b, tespecialidad AS c WHERE a.id_medico =  '$this->idMedico' AND a.id_medico = b.id_medico
+AND b.id_especialidad = c.id_especialidad";
 		return ($cursor= parent::ejecuta_sql($sql));
     }
 	

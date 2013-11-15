@@ -36,13 +36,23 @@ include_once("../../Clases/clase_titular.php");
 <script language="javascript" type="text/javascript" src="JavaScript/jscal2.js"></script>    
 <script language="javascript" type="text/javascript" src="JavaScript/es.js"></script> 
 <script language="javascript" type="text/javascript" src="JavaScript/jquery.js"></script>
-<script language="javascript" src="JavaScript/jquery-1.8.2.min.js" type="text/javascript"></script>  
+<script language="javascript" type="text/javascript" src="JavaScript/jquery-1.8.2.min.js" ></script>  
 <script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script> 
 <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
 <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script> 
 <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
 <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
+		  
+		$('#parentesco').change(function(){
+			var parent = $('#parentesco').val();
+			if(parent=='Hijo' || parent=='Hija'){
+				$('#estado_civ').val('S');
+				$('#estado_civ').attr('disabled', true);
+			}else{
+				$('#estado_civ').attr('disabled', false);
+			}
+		});	
     	$('#nuevo').click(function(){
 		limpiar_form();
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
@@ -173,9 +183,9 @@ function limpiar_form(ele) {
        </td>
       <td width="145">Nro. C.I o Pasaporte:</td>
       <td colspan="2"><input name="cedula" type="text" disabled id="cedula" value="<?php echo $cedula;?>-" size="20" maxlength="16"/></td>
-      <td colspan="2"><a href="#" onclick="jQuery('#test').validationEngine('showPrompt', 'Si es menor de edad y no posee identificación, favor deje la cedula del titular y siga el correlativo del numero de hijos registrados en sistema', 'pass')" title="Ayuda">
-			      <div id="test" class="test" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
-			    </a></td>
+      <td colspan="2"><div title="Si es menor de edad y no posee identificación, favor deje la cedula del titular y siga el correlativo del numero de hijos registrados en sistema" style="width:30px; cursor:pointer;">
+					  <img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
+		</td>
       </tr>
     <tr>
       <td height="29">&nbsp;</td>
@@ -208,7 +218,7 @@ function limpiar_form(ele) {
     <tr>
     <td height="29">&nbsp;</td>
     <td>Celular:</td>
-    <td><span>
+    <td>
         <input name="celular" type="text" disabled id="celular" size="15" maxlength="12" value="<?php echo $celular;?>"/>
       </span></td>
       <td>Teléfono:</td>
@@ -216,7 +226,7 @@ function limpiar_form(ele) {
       </tr>
         <tr>
           <td height="27">&nbsp;</td>
-          <td><span>Parentesco:</span></td>
+          <td>Parentesco:</span></td>
           <td><select name="parentesco" disabled= "disabled" id="parentesco">
             <option value="0" selected>Seleccionar</option>
             <option value="Madre">Madre</option>
@@ -229,9 +239,8 @@ function limpiar_form(ele) {
           </select></td>
           <td>Participación</td>
           <td><input name="participacion" type="text" disabled id="participacion" size="12"/></td>
-          <td> <a href="#" onclick="jQuery('#test2').validationEngine('showPrompt', 'Porcentaje de Poliza de Vida Ejemplo: 30%', 'pass')" title="Ayuda">
-			      <div id="test2" class="test2" style="width:30px;"><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
-			    </a></td>
+          <td><div title="Porcentaje de Poliza de Vida Ejemplo: 30%" id="test2" class="test2" style="width:30px; cursor:pointer;" ><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
+			    </td>
           <td colspan="2">&nbsp;</td>
         </tr>
     <tr>
@@ -239,10 +248,11 @@ function limpiar_form(ele) {
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
         <option value="0">Seleccionar</option>
-        <option value="S">Soltero</option>
-        <option value="C">Casado</option>
-        <option value="D">Divorciado</option>
-        <option value="V">Viudo</option>
+        <option value="SOLTERO">Soltero</option>
+        <option value="CASADO">Casado</option>
+        <option value="CONCUBINATO">Concubinato</option>
+        <option value="DIVORCIADO">Divorciado</option>
+        <option value="VIUDO">Viudo</option>
       </select></td>
         <td>Discapacidad:</td>
       <td colspan="4" rowspan="2" valign="top"><div id="cap_dis" style="width:20px"></div>
@@ -276,10 +286,10 @@ function limpiar_form(ele) {
 </fieldset>
 <table  width="686" border="0">
       <tr>
-       <td width="235">&nbsp;</td>
-      <td width="90"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar los campos"/></td>
-      <td width="97"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
-      <td width="294"></td>
+       <td width="265">&nbsp;</td>
+      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar los campos"/></td>
+      <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
+      <td width="265"></td>
       </tr>
   </table>
    <div id="div_listar_beneficiario"></div>

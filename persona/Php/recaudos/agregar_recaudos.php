@@ -8,14 +8,13 @@ if(empty($_SESSION["login"]))
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../Css/estilo2.css" />  
     <link rel="stylesheet" type="text/css" href="../../Css/estilo.css" />  
-    <link href="../../Css/PHPPaging.lib.css" rel="stylesheet" type="text/css" /> 	
-	<link href="../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />    	
-	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>            
+    <link rel="stylesheet" type="text/css" href="../../Css/PHPPaging.lib.css" /> 	
+	<link rel="stylesheet" type="text/css" href="../../JavaScript/jquery.alerts.css" />    	
+	<script language="javascript" type="text/javascript" src="../../JavaScript/jquery-1.8.2.min.js"></script>            
    	<script language="javascript" type="text/javascript" src="../../JavaScript/recaudos_jquery.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/recaudos.js"></script>
     <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 
-  </head><script language="javascript" type="text/javascript" >
-	  
+  <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){
 
     	$('#nuevo').click(function(){
@@ -61,7 +60,7 @@ if(empty($_SESSION["login"]))
  
    }   
 </script>
-  <style>
+<style type="text/css">
 .btn_act{
   height: 23px; 
   background-color: #f5f5f0; 
@@ -150,6 +149,7 @@ if(empty($_SESSION["login"]))
   outline-width:0px;
 }
 </style> 
+</head>
 <body>
 <div id="cuerpo">
 <form action="" method="post" id="form_recaudos" name="form_recaudos">

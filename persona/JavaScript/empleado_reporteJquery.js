@@ -42,21 +42,18 @@ jConfirm('Desea excluir este Titular?', 'Mensaje Confirmación', function(r) {
 }
 function fn_verPerfil(id_titular){	
  $.ajax({
-	beforeSend: function(){                         
-    	$("#cuerpo").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');
-  	},
 	success: function(){
-		$("#cuerpo").load("perfil_empleado.php",{id_titular: id_titular});		
+	$("#cuerpo").load("perfil_empleado.php",{id_titular: id_titular});		
 	}
 	});		
 };
 function fn_verHistorial(id_titular,nombre1,apellido1){	
  $.ajax({
 	beforeSend: function(){                         
-    	$("#cuerpo").html('<div  style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');
+    	$("#cuerpo").html('<div style="margin-left:300px;"><img src="../../Imagen_sistema/loading.gif"/></div>');
   	},
 	success: function(){
-		$("#cuerpo").load("perfil_empleado_2.php",{id_titular: id_titular, nomb: nombre1, ape: apellido1});	
+	$("#cuerpo").load("perfil_empleado_2.php",{id_titular: id_titular, nomb: nombre1, ape: apellido1});	
 	}
 	});		
 };

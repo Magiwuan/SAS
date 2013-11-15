@@ -6,7 +6,7 @@ if(empty($_SESSION["login"]))
 include_once("../../Clases/clase_titular.php");
 	$titular= new titular();	
 	$idTitular=$_POST["id_titular"];
-	$titular->setidTitular($idTitular);
+	$titular->setidTitular(1);
 	$consulta=$titular->buscar_id();
 	for($i=0;$i<count($consulta);$i++)			
 	{
@@ -38,51 +38,17 @@ $numFilas=$cobertura->getNTupla($mov)-1;
 ?><!DOCTYPE HTML>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>.:Agregar Beneficiario:.</title>          
-	<link rel="stylesheet" type="text/css" href="../../Css/PHPPaging.lib.css"/>
-      <link href="../../Css/estilo2.css" rel="stylesheet" type="text/css" />   
-        <link href="../../Css/estilo.css" rel="stylesheet" type="text/css" />
- 	<link href="JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />  
-	<script src="JavaScript/jscal2.js"></script>    
-    <script src="JavaScript/es.js"></script> 
-    <script language="javascript" type="text/javascript" src="../../JavaScript/jquery.alerts.js"></script> 
-    
-    <script language="javascript" type="text/javascript" >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>.:Perfil Empleado:.</title>          
+      <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){  
 		fn_listar_benef();
     });
-	function limpiar_form(ele) {
-   $(ele).find('input').each(function() {
-      switch(this.type) {
-         case 'password':
-         case 'select':
-         case 'textarea':
-				 $(this).val('');
-               	 break;
-		case 'text':
-		if($('input[name="cedula"]')){}else {$(this).val('');}
-		break;
-         case 'checkbox':
-         case 'radio':
-         	this.checked = false;
-			   break;
-      }
-   }); 			
-   $(ele).find('select').each(function() {
-       $("#"+this.id + " option[value=0]").attr("selected",true);
-   });
- 	 $(ele).find('select').each(function() {
-       $("#"+this.id).val('0');
-   });
-   } 
 </script>
 </head>	
 <body> 
-<div id="cuerpo">
 <form action=""  method="POST" id="from_perfil" name="from_perfil">
-	<h1>Historial del Titular</h1>
-
+<h1>Historial del Titular</h1>
 <table id="grilla" class="lista" width="700">
   <thead>
         <tr> 
@@ -111,16 +77,14 @@ $numFilas=$cobertura->getNTupla($mov)-1;
 		<td><?php echo $numFilas; ?></td>
 		<td align="center" valign="middle">
 		<a href="javascript: fn_verHistorial('<?php echo $idTitular; ?>','<?php echo $nombre1; ?>','<?php echo $apellido1; ?>');" title="Ver Perfil">
-		<img src="../../Imagen_sistema/ver.png" width="16" height="16" align="center" />
+		<img src="../../Imagen_sistema/ver.png" width="18" height="18" align="center" />
 		</a>
 		</td>
     </tr>	
-    </tbody>
- 
+    </tbody> 
 </table>
 <?php $_SESSION['idTitular']=$idTitular; ?>
   <div id="div_listar_beneficiario"></div>
 </form>
- </div> 
 </body>
 </html>

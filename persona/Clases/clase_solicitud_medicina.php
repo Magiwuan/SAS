@@ -356,7 +356,7 @@ FROM tsolicitud_servicio as a, ttitular as b, tservicio_proveedor as c WHERE a.e
     }
 	public function buscar_reacudos_solicitud(){
 		$c=0;
-       $sql="SELECT a.*,b.* FROM  tsolicitud_recaudo as a, trecaudo as b WHERE a.id_solicitud ='$this->idSolicitud' and a.id_recaudo=b.id_recaudo	";			 
+       $sql="SELECT a.*,b.* FROM  tsolicitud_recaudo as a, trecaudo as b WHERE a.id_solicitud ='$this->idSolicitud' and a.id_recaudo=b.id_recaudo";			 
 		$cursor=parent::ejecuta_sql($sql);		 
 		if($row= parent::proxima_tupla($cursor))
 		 {
@@ -370,7 +370,6 @@ FROM tsolicitud_servicio as a, ttitular as b, tservicio_proveedor as c WHERE a.e
     }
 	
 		public function buscar_idSolicitud(){
-		$c=0;
        $sql="SELECT * FROM  tsolicitud_servicio WHERE id_solicitud =  '$this->idSolicitud'";			 
 		return ($cursor= parent::ejecuta_sql($sql));		
     }

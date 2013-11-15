@@ -16,14 +16,12 @@ a:hover{
 }
 
 body{
-
 	margin: auto;
 	width:100%;
 	min-width:600px;
 	max-width:2000px;
 	background-color:transparent;
 	font:Tahoma, Geneva, sans-serif;
-
 }
 
 body, input, select{
@@ -32,11 +30,17 @@ font-size: 12px;
 color: #000; 
 border-radius:3px;
 }
+#cuerpo_index{
+	position: absolute;
+	top: 30%; /* Buscamos el centro horizontal (relativo) del navegador */
+	left: 45%; /* Buscamos el centro vertical (relativo) del navegador */
+	background:#FFF;
+}
 #cuerpo_acceso{
 	position: absolute;
 	top: 45%; /* Buscamos el centro horizontal (relativo) del navegador */
 	left: 50%; /* Buscamos el centro vertical (relativo) del navegador */
-	width: 600 px; /* Definimos el ancho del objeto a centrar */
+	width: 602px; /* Definimos el ancho del objeto a centrar */
 	height: 400px; /* Definimos el alto del objeto a centrar */
 	margin-top: -200px; /* Restamos la mitad de la altura del objeto con un margin-top */
 	margin-left: -300px; /* Restamos la mitad de la anchura del objeto con un margin-left */
@@ -46,15 +50,18 @@ border-radius:3px;
 	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .4);
 	border-radius:3px;
 }
-#cuerpo{
-	width:710px;
-	margin-left:35px;	
-	height:100%;
+#cuerpo1{
+	position: absolute;
+	top: 0%; /* Buscamos el centro horizontal (relativo) del navegador */
+	left: 1%; /* Buscamos el centro vertical (relativo) del navegador */
+	width: 680 px; /* Definimos el ancho del objeto a centrar */
+	height:auto;
+	margin-left: 35px; /* Restamos la mitad de la anchura del objeto con un margin-left */
 	padding:0px;
 	background:#F0F8E7;
 	
 }
-#cuerpo1{
+#cuerpo3{
 	margin-top: 15px;
 	margin-right:150px;
 	width:710px;
@@ -90,7 +97,7 @@ table.formulario{
 }
 
 table.formulario td, table.formulario th{
-	padding: 5px;
+	padding: 0px;
 	vertical-align: middle;
 }
 

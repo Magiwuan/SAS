@@ -41,7 +41,7 @@ class proveedor extends conectaBDMy{
         $this->idProveedor = trim($Valor);
     }
     public function setRif($Valor){
-        $this->rif = trim($Valor);
+        $this->rif = mb_strtoupper(trim($Valor), "utf-8");
     }
 	  public function setAlias($Valor){
         $this->alias = mb_strtoupper(trim($Valor), "utf-8");

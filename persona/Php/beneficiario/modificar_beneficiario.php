@@ -237,37 +237,37 @@ include_once("../../Clases/clase_beneficiario.php");
   <legend align="left">Datos Personales</legend>
     <table width="686" border="0" cellpadding="1" cellspacing="1">
     <tr>
-      <td class="formulario">&nbsp;</td>
-      <td class="formulario">&nbsp;</td>
-      <td class="formulario">&nbsp;</td>
-      <td class="formulario">&nbsp;</td>
-      <td colspan="2" class="formulario">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
     </tr>
     <tr>
-      <td width="8" height="30" class="formulario">&nbsp;</td>
-      <td width="109" class="formulario">Nacionalidad:</td>
-      <td width="187" class="formulario">
+      <td width="8" height="30">&nbsp;</td>
+      <td width="109">Nacionalidad:</td>
+      <td width="187">
       	<input type="radio" name="nacionalidad" id="nacionalidad1" value="V" <?php if($nacionalidad=='V') echo "checked=\"checked\""?> disabled="disabled" >Venezolano 
         <input type="radio" name="nacionalidad" id="nacionalidad2" value="E" <?php if($nacionalidad=='E') echo "checked=\"checked\""?> disabled="disabled"> Extranjero
        </td>
-      <td width="135" class="formulario">Nro. C.I o Pasaporte:</td>
-      <td colspan="2" class="formulario"><input name="cedula" type="text" disabled id="cedula" value="<?php if($cedula==0){echo "N/A";}else{ echo $cedula;};?>" size="16" readonly />
+      <td width="135">Nro. C.I o Pasaporte:</td>
+      <td colspan="2"><input name="cedula" type="text" disabled id="cedula" value="<?php if($cedula==0){echo "N/A";}else{ echo $cedula;};?>" size="16" readonly />
         <input name="ope" type="hidden" id="ope" value="M" hidden="hidden" />
         <input name="id_beneficiario" type="hidden" id="id_beneficiario" value="<?php echo $_POST['id_beneficiario']; ?>" hidden="hidden" /></td>
       </tr>
     <tr>
-      <td height="29" class="formulario">&nbsp;</td>
-      <td class="formulario">Primer Nombre:</td>
-      <td class="formulario"><input name="nombre1" type="text" disabled id="nombre1" value="<?php echo $nombre1;?>" size="20"  /></td>
+      <td height="29">&nbsp;</td>
+      <td>Primer Nombre:</td>
+      <td><input name="nombre1" type="text" disabled id="nombre1" value="<?php echo $nombre1;?>" size="20"  /></td>
       <td>Segundo Nombre:</td>
-      <td colspan="2"><span class="formulario">
+      <td colspan="2">
         <input name="nombre2" type="text" disabled id="nombre2" value="<?php echo $nombre2;?>" size="20"  />
-      </span></td>
+      </td>
       </tr>
     <tr>
-      <td height="29" class="formulario">&nbsp;</td>
-      <td class="formulario">Primer Apellido:</td>
-      <td class="formulario"><input name="apellido1" type="text" disabled id="apellido1" value="<?php echo $apellido1;?>" size="20" /></td>
+      <td height="29">&nbsp;</td>
+      <td>Primer Apellido:</td>
+      <td><input name="apellido1" type="text" disabled id="apellido1" value="<?php echo $apellido1;?>" size="20" /></td>
       <td>Segundo Apellido:</td>
       <td colspan="2">
         <input name="apellido2" type="text" disabled id="apellido2" value="<?php echo $apellido2;?>" size="20" />
@@ -287,36 +287,37 @@ include_once("../../Clases/clase_beneficiario.php");
         <tr>
       <td height="28">&nbsp;</td>
       <td>Celular:</td>
-      <td><span class="formulario">
+      <td>
         <input name="celular" type="text" disabled id="celular"  value="<?php echo $celular;?>" size="15" maxlength="12" />
-      </span></td>
-      <td class="formulario">Teléfono:</td>
-      <td colspan="2" class="formulario"><input name="telefono" type="text" disabled id="telefono" value="<?php echo $telefono;?>" size="15" maxlength="12"  /></td>
+      </td>
+      <td>Teléfono:</td>
+      <td colspan="2"><input name="telefono" type="text" disabled id="telefono" value="<?php echo $telefono;?>" size="15" maxlength="12"  /></td>
       </tr>
         <tr>
           <td height="29">&nbsp;</td>
-          <td><span class="formulario">Parentesco:</span></td>
+          <td>Parentesco:</td>
           <td><select name="parentesco" disabled="disabled" id="parentesco">
             <option value="0" selected> Seleccionar</option>
-            <option value="Madre" <?php if($parentesco=='Madre') echo "Selected=\"Selected\""; ?>>Madre</option>
-            <option value="Padre" <?php if($parentesco=='Padre') echo "Selected=\"Selected\""; ?>>Padre</option>
-            <option value="Esposa" <?php if($parentesco=='Esposa') echo "Selected=\"Selected\""; ?>>Esposa</option>
-            <option value="Concubinato" <?php if($parentesco=='Concubinato') echo "Selected=\"Selected\""; ?>>Concubinato</option>
-            <option value="Hijo" <?php if($parentesco=='Hijo') echo "Selected=\"Selected\""; ?>>Hijo</option>
-            <option value="Hija" <?php if($parentesco=='Hija') echo "Selected=\"Selected\""; ?>>Hija</option>
+            <option value="MADRE" <?php if($parentesco=='MADRE') echo "Selected=\"Selected\""; ?>>Madre</option>
+            <option value="PADRE" <?php if($parentesco=='PADRE') echo "Selected=\"Selected\""; ?>>Padre</option>
+            <option value="ESPOSA" <?php if($parentesco=='ESPOSA') echo "Selected=\"Selected\""; ?>>Esposa</option>
+            <option value="CONCUBINATO" <?php if($parentesco=='CONCUBINATO') echo "Selected=\"Selected\""; ?>>Concubinato</option>
+            <option value="HIJO" <?php if($parentesco=='HIJO') echo "Selected=\"Selected\""; ?>>Hijo</option>
+            <option value="HIJA" <?php if($parentesco=='HIJA') echo "Selected=\"Selected\""; ?>>Hija</option>
           </select></td>
-          <td class="formulario">Participacion:</td>
-          <td colspan="2" class="formulario"><input name="participacion" type="text" disabled id="participacion"  value="<?php echo $participacion;?>" size="12"/></td>
+          <td>Participacion:</td>
+          <td colspan="2"><input name="participacion" type="text" disabled id="participacion"  value="<?php echo $participacion;?>" size="12"/></td>
         </tr>
     <tr>
-      <td height="29" class="formulario">&nbsp;</td>
+      <td height="29">&nbsp;</td>
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
             <option value="0" selected> Seleccionar</option>
-            <option value="S" <?php if($estado_civ=='S') echo "Selected=\"Selected\""; ?>>Soltero</option>
-            <option value="C" <?php if($estado_civ=='C') echo "Selected=\"Selected\""; ?>>Casado</option>
-            <option value="D" <?php if($estado_civ=='D') echo "Selected=\"Selected\""; ?>>Divorciado</option>
-            <option value="V" <?php if($estado_civ=='V') echo "Selected=\"Selected\""; ?>>Viudo</option>
+            <option value="SOLTERO" <?php if($estado_civ=='SOLTERO') echo "Selected=\"Selected\""; ?>>Soltero</option>
+            <option value="CASADO" <?php if($estado_civ=='CASADO') echo "Selected=\"Selected\""; ?>>Casado</option>
+             <option value="CONCUBINATO" <?php if($estado_civ=='CONCUBINATO') echo "Selected=\"Selected\""; ?>>Concubinato</option>
+            <option value="DIVORCIADO" <?php if($estado_civ=='DIVORCIADO') echo "Selected=\"Selected\""; ?>>Divorciado</option>
+            <option value="VIUDO" <?php if($estado_civ=='VIUDO') echo "Selected=\"Selected\""; ?>>Viudo</option>
           </select></td>
       <td>Discapacidad:</td>
       <td colspan="2" rowspan="3" valign="top"><select name="discapacidad[]" id="discapacidad" multiple="multiple" title="Seleccionar" >

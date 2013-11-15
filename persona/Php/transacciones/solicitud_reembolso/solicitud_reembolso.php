@@ -11,7 +11,7 @@ $res=$sReembolso->sig_tupla($res);
 $compl='SR-';
 $idReembolso='0';
 if($res){
-	$idReembolso=$res['id_solicitud_reembolso']+1;
+	$idReembolso=$res['id_solicitud_reembolso']+1;	
 }else{
 	$idReembolso='1';
 }
@@ -23,7 +23,7 @@ if($res){
  	<link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
     <link rel="stylesheet" type="text/css" href="../../../Css/estilo.css" /> 	
     <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>     
+    <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.8.2.min.js"></script>     
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.ui.js"></script>    
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/jquery.asmselect.js"></script>	
     <script language="JavaScript" type="text/javascript" src="../../../JavaScript/sReembolso.js"></script>	
@@ -281,11 +281,10 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
 <body> 
 <div id="cuerpo">
 <form action="" method="POST" id="from_solicitud_reembolso" name="from_solicitud_reembolso">
-
-<table width="692" height="37" border="0" cellpadding="0" cellspacing="0">
+<table width="692"  border="0"  cellpadding="0" cellspacing="0">
     <tr>
-      <td width="664" height="37"><h1>Solicitud de Reembolsos</h1></td>
-       <td width="22" valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img'   onclick="location.href='../../../../html/blanco2.html'"title="Salir"/></td>
+      <td width="684"><h1>Solicitud de Reembolsos</h1></td>
+       <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img'   onclick="location.href='../../../../html/blanco2.html'"title="Salir"/></td>
     </tr>
   </table>
   <fieldset>
@@ -348,11 +347,11 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
         <tr>
       <td width="11" rowspan="2">&nbsp;</td>
       <td width="125" rowspan="2">Nro. Factura:</td>
-      <td width="114" rowspan="2"><label for="medicamento"><span>
+      <td width="114" rowspan="2"><label for="medicamento">
         <input name="nroFactura" type="text" disabled id="nroFactura" size="16" onkeypress="return isInteger(event);" />
       </span></label></td>
       <td width="81"></td>
-      <td width="301" rowspan="2"><span>
+      <td width="301" rowspan="2">
         <input name="nroControl" type="text" disabled id="nroControl" onkeypress="return isInteger(event);" size="16" />
       </span></td>
       <td width="12" rowspan="2">&nbsp;</td>
@@ -384,10 +383,10 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
   
     <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="288">&nbsp;</td>
-        <td width="96">
+        <td width="265">&nbsp;</td>
+        <td width="76">
           <input name="agregar" type="button" disabled class='btn_guardar_desact btn_guardar_act_img' id="agregar"  onclick="if(!crear(this)){return false;}" value="Agregar" /></td>
-        <td width="302">&nbsp;</td>
+        <td width="265">&nbsp;</td>
       </tr>      
     </table>
       <div id="ocultar" style="display:none; text-align:justify; margin:auto; padding:4px;">
@@ -413,7 +412,7 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
     </tr>
     <tr>
       <td width="10">&nbsp;</td>
-      <td width="116" height="24">Recaudos:</td>
+      <td width="116" >Recaudos:</td>
       <td width="493" rowspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
 			$recaudo->setTiporecaudo('REEMBOLSOS');
@@ -431,16 +430,17 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td height="24">&nbsp;</td>
       <td>&nbsp;</td>
-    </tr>
-     
+      <td>&nbsp;</td>
+    </tr>     
     </table>
  </fieldset>
-    <table  width="773" border="0" cellpadding="0" cellspacing="0">
+    <table  width="686" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="348" align="right"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar campos"/></td>
-        <td width="425"><input name="guardar" type="submit" class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="guardar" onClick="if(!recuados()){return false;}"  value=" Guardar" /></td>
+		<td width="265"></td>
+        <td width="76" align="right"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' onclick="limpiar_form(this.form)" title="Pulse para activar campos"/></td>
+		<td width="76"><input name="guardar" type="submit" class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="guardar" onClick="if(!recuados()){return false;}"  value=" Guardar" /></td>
+		<td width="265">&nbsp;</td>
       </tr>
     </table>
 </form>

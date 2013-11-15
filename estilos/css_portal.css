@@ -16,8 +16,8 @@ body {
 	width: 850px;
 	height: 40px;
 	margin-top:2px;
-    background: -moz-linear-gradient(#39F, #069); 
-    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #069),color-stop(1, #39F));	
+	background: -moz-linear-gradient(#39F, #069); 
+	background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #069),color-stop(1, #39F));	
 	background: -webkit-linear-gradient(#39F, #069);	
 	background: -o-linear-gradient(#39F, #069);
 	background: -ms-linear-gradient(#39F, #069);
@@ -84,15 +84,13 @@ body {
 	height: 600px;
 	display:block; 
 	position: relative;
-	}
-	
+	}	
 	#capa{
 		width:850px;
 		height:850px;
 		overflow:hidden;
 		background:#F0F8E7;
-		border-radius: 10px 10px 0px 0px;
-	
+		border-radius: 10px 10px 0px 0px;	
 	}
 	#sub-capa{
 		width:400px;
@@ -122,7 +120,6 @@ body {
 	position: relative;
 
 	}
-
     #cuadro li {
 	display:inline;
 	float:left;
@@ -155,8 +152,7 @@ body {
 	position:absolute;
 	background-color:transparent;
 	font: bold 11px/25px Arial, Helvetica;
-	color:#03C;
-	
+	color:#03C;	
 	}
 	fieldset{
 	border:1px solid #000;
@@ -177,7 +173,6 @@ body {
 	}
 	td.shadow_top {
 	background-image: url(../imagenes_estilos/border_top.jpg);
-
 	margin-top:10px;
 	background-position:top;
 	}
@@ -199,13 +194,13 @@ body {
 	line-height: 0;
 }
 	#formu iframe{
-    width: 825px;
-    height: 104%;
-	float:none;
+    width: 830px;
+    height: 120%;
+	 float:none;
     border: 0px solid;
     position: absolute;
-	margin-top: 70px;
-	margin-left:50px;
+	margin-top: 65px;
+	margin-left:35px;
 	background-color:transparent;
 	}
 	#menu
@@ -216,7 +211,7 @@ body {
 	list-style: none;  
 	background: #069;
 	background: -moz-linear-gradient(#39F, #069); 
-    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #069),color-stop(1, #39F));	
+	background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #069),color-stop(1, #39F));	
 	background: -webkit-linear-gradient(#39F, #069);	
 	background: -o-linear-gradient(#39F, #069);
 	background: -ms-linear-gradient(#39F, #069);
@@ -233,9 +228,7 @@ body {
 	padding: 0 0 10px 0;
 	position: relative;
 	line-height: 0;
-    border-right: 1px solid #fff;
-
-	
+    border-right: 1px solid #CCC;	
 	}	
 	#menu a 
 	{
@@ -260,7 +253,6 @@ body {
 	{
 	display: block;
 	}
-
 	/* Sub-menu */
 	#menu ul
 	{
@@ -356,10 +348,7 @@ body {
     border-bottom: 5px solid transparent;
     border-top: 5px solid transparent;
     border-right: 8px solid #04acec;
-	
-	
 	}
-
 	#menu ul li:first-child a:hover:after
 	{
     border-bottom-color: #04acec; 
@@ -390,6 +379,5 @@ body {
 	float: right;
 	padding: 0 10px 10px 0;
 	position: relative;
-	line-height: 0;
-	border-right: 1px solid #06F;
+	border-right:  none;
 }

@@ -9,7 +9,7 @@ if(empty($_SESSION["login"]))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.theme.css" />
   <link type="text/css" rel="stylesheet" href="../jquery/themes/base/jquery.ui.autocomplete.css" />	
-  <script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
   <script type="text/javascript" src="../jquery/ui/jquery.ui.core.js"></script>
   <script type="text/javascript" src="../jquery/ui/jquery.ui.widget.js"></script>
   <script type="text/javascript" src="../jquery/ui/jquery.ui.position.js"></script>

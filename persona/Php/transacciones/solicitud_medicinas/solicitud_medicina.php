@@ -23,11 +23,9 @@ if($res){
 <link rel="stylesheet" type="text/css" href="../../../Css/estilo2.css" />       
 <link rel="stylesheet" type="text/css" href="../../../Css/estilos.css" /> 
 <link rel="stylesheet" type="text/css" href="../../../Css/jscal2.css" />
-
 <link href="../../../JavaScript/jquery.alerts.css" rel="stylesheet" type="text/css" />	        
 <script src="../../../JavaScript/solicitud_medicamentos.js"></script>        
-
-<script language="javascript" type="text/javascript" src="../../../JavaScript/jquery-1.4.2.min.js"></script>    
+<script type="text/javascript" src="../jquery/jquery-1.4.2.js"></script>
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jquery.alerts.js"></script>     
 <script language="javascript" type="text/javascript" src="../../../JavaScript/jscal2.js"></script>    
 <script language="javascript" type="text/javascript" src="../../../JavaScript/es.js"></script> 
@@ -341,7 +339,7 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
     <tr>
       <td width="47">&nbsp;</td>
       <td width="93">Medicamentos:</td>
-      <td width="257"><input style="color:#909090" name="medicamento" id="medicamento" disabled="disabled" size="40"  type="text" value="Buscar Medicinas" onfocus = "if(this.value=='Buscar Medicinas') {this.value=''; this.style.color='#000'}" onblur="if(this.value==''){this.value='Buscar Medicinas'; this.style.color='#909090'}" onClick="if(this.value!=''){this.value=''; this.style.color='#000'} "/></td>
+      <td width="257"><input style="color:#909090" name="medicamento" id="medicamento" disabled="disabled" size="40"  type="text" value="Buscar Medicinas" onfocus = "if(this.value=='Buscar Medicinas') {this.value=''; this.style.color='#000'}" onblur="if(this.value==''){this.value='Buscar Medicinas'; this.style.color='#909090'}" /></td>
       <td width="70">Cantidad:</td>
       <td width="159"><input name="cantidad" type="text" disabled="disabled" id="cantidad" size="20"  /></td>
       <td width="86">&nbsp;</td>
@@ -383,11 +381,11 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
       <td>Recaudos:</td>
       <td colspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('SOLICITUD DE MÉDICINAS');
+			$recaudo->setTiporecaudo('SOLICITUD - MÉDICINAS');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
-			if($consul[$i][3]=='SOLICITUD DE MÉDICINAS'){					
+			if($consul[$i][3]=='SOLICITUD - MÉDICINAS'){					
 		?>  <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disabled">
         <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
         <?php		

@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 // Llamado a la clase a usarse.
 	include_once("../Clases/clase_afiliacion_PDF.php");
 	include_once("../Clases/clase_titular.php");
@@ -12,7 +12,7 @@
 	$ciudad= new ciudad();
 	$upsa= new upsa();
 	$cargo= new cargo();
-
+    $log=strtoupper($_SESSION["login"]);
 // Se envia el valor del tipo de articulo.
 	$id=$_GET["id"];
 	$titular->setidTitular($id);
@@ -53,46 +53,28 @@
 		$nombre2 		=utf8_decode($resultado[$i][5]);
 		$apellido1 		=utf8_decode($resultado[$i][6]);
 		$apellido2 		=utf8_decode($resultado[$i][7]);
-		if($resultado[$i][8]=='M'){
-			$sexo ='MASCULINO';
-		}else{
-			$sexo ='FEMENINO';
-		}
+		$estado_civ=$resultado[$i][10];
 		$fecha_nac 		=$resultado[$i][9];
-		if($resultado[$i][10]=='S'){
-			$estado_civ ='SOLTERO';
-		}else{
-			if($resultado[$i][10]=='C'){
-				$estado_civ ='CASADO';
-			}else{
-				if($resultado[$i][10]=='D'){
-					$estado_civ ='DIVORCIADO';
-				}else{
-					if($resultado[$i][10]=='V'){
-						$estado_civ ='VIUDO';
-					}
-					
-				}
-			}			
-		}
+		$sexo=$resultado[$i][8];
 		$celular 		=$resultado[$i][11];
 		$telefono 		=$resultado[$i][12];
 		$correo_elect 	=$resultado[$i][13];
 		$fecha_ingr 	=$resultado[$i][14];
-		$direccion_hab 	=$resultado[$i][15];
+		$direccion_hab 	=utf8_decode($resultado[$i][15]);
 		$id_cargo 		=$resultado[$i][16];
 		$id_ciudad 		=$resultado[$i][17];
 		$id_departamento=$resultado[$i][18];
 		$id_upsa 		=$resultado[$i][19];
 		$CiudadNac		=$resultado[$i][22];
 		$correo_corp 	=$resultado[$i][23];
+		$obs			=$resultado[$i][24];
 		}
 	$ciudad->setidCiudad($CiudadNac);
 	$consulta=$ciudad->buscar_c_e_p();
 	for($i=0;$i<count($consulta);$i++){
-		$nombCiudad= $consulta[$i][1];
-		$nombEstado= $consulta[$i][2];
-		$nombPais= $consulta[$i][3];
+		$nombCiudad= utf8_decode($consulta[$i][1]);
+		$nombEstado= utf8_decode($consulta[$i][2]);
+		$nombPais= utf8_decode($consulta[$i][3]);
 
 	}
 	$pdf->Cell(45,6,'DATOS DEL TITULAR',1,0,'C',true);
@@ -109,7 +91,7 @@
 	$pdf->Cell(90,6,$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2,1,0,'C',true);
 	$pdf->Cell(32,6,$nacionalidad,1,0,'C',true);
 	$pdf->Cell(47,6,$cedula,1,0,'C',true);
-	$pdf->Cell(30,6,$sexo,1,1,'C',true);	
+	$pdf->Cell(30,6,$sexo,1,1,'C',true);	//sexo
 	$pdf->Ln(3);
 	$pdf->SetFont('Times','B',10);
 	$pdf->Cell(40,6,'FECHA DE NAC.',1,0,'C',true);
@@ -179,12 +161,17 @@
 
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);	
+	$pdf->Cell(30,6,'OBSERVACION:',1,0,'C',true);	 
+	$pdf->SetFont('Times','',10);	
+	$pdf->MultiCell(169,6,$obs,1,1,'C',true);	
+	$pdf->Ln(5);
+	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,'BENEFICIARIOS',1,1,'C',true);	
 	$pdf->Cell(80,6,'APELLIDOS Y NOMBRES',1,0,'C',true);
-	$pdf->Cell(22,6,'C.I.',1,0,'C',true);
+	$pdf->Cell(26,6,'C.I.',1,0,'C',true);
 	$pdf->Cell(23,6,'FECHA NAC.',1,0,'C',true);
 	$pdf->Cell(11,6,'EDAD',1,0,'C',true);
-	$pdf->Cell(22,6,'SEXO',1,0,'C',true);
+	$pdf->Cell(18,6,'SEXO',1,0,'C',true);
 	$pdf->Cell(25,6,'PARENTESCO',1,0,'C',true);
 	$pdf->Cell(16,6,'PARTIC.',1,1,'C',true);
 	$pdf->SetFont('Times','',10);
@@ -195,16 +182,8 @@
 	}else{
 		
 	for ($i=0;$i<count($cons);$i++){		
-		if($cons[$i][9]=='M'){
-			$sex='MASCULINO';
-		}else{
-			$sex='FEMENINO';
-		}
-		if($cons[$i][4]!='0'){
-			$ced=$cons[$i][3].'-'.$cons[$i][4];
-		}else{
-			$ced='N/A';
-		}
+		
+	
 	$titular->setFec_nac($cons[$i][10]);
 	$edad=$titular->edad();	
 $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8_decode($cons[$i][7]).' '.utf8_decode($cons[$i][8]),1,0,'C',true);
@@ -212,10 +191,10 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 		$elMes=substr($cons[$i][10],5,2);
 		$elYear=substr($cons[$i][10],0,4);
 	$fb=$elDia.'-'.$elMes.'-'.$elYear;
-		$pdf->Cell(22,6,$ced,1,0,'C',true);
+		$pdf->Cell(26,6,$cons[$i][3].'-'.$cons[$i][4],1,0,'C',true);
 		$pdf->Cell(23,6,$fb,1,0,'C',true);
 		$pdf->Cell(11,6,$edad,1,0,'C',true);
-		$pdf->Cell(22,6,$sex,1,0,'C',true);
+		$pdf->Cell(18,6,$cons[$i][9],1,0,'C',true);
 		$pdf->Cell(25,6,$cons[$i][13],1,0,'C',true);
 		$pdf->Cell(16,6,$cons[$i][14],1,1,'C',true);
 	}
@@ -223,7 +202,10 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	$pdf->SetFont('Times','B',10);
 	$pdf->Ln(3);
 	$pdf->Cell(99,6,'TITULAR',0,0,'L',true);
-	$pdf->Cell(100,6,'REGISTRADO POR: nombre de la persona logeada en el sistema.',0,1,'L',true);
+	$pdf->Cell(35,6,'REGISTRADO POR:  ',0,0,'L',true);
+	$pdf->SetFont('Times','',10);
+	$pdf->Cell(65,6,$log,0,1,'L',true);
+	$pdf->SetFont('Times','B',10);
 	$pdf->Cell(99,6,'FIRMA Y HUELLA',0,0,'L',true);
 	$pdf->Cell(100,6,'FIRMA Y SELLO',0,1,'L',true);	
 	$pdf->Cell(99,6,' ','0',0,'L',true);

@@ -20,8 +20,7 @@ if(empty($_SESSION["login"]))
             source: "completar_examen_i.php"
         });
     }); 
- 
-icremento =1;
+ icremento =1;
 function crear(obj) {
 	if(icremento>5){
 		$("#capa_datos").css({			     	   
@@ -104,7 +103,6 @@ function borrar(obj) {
 }
 </script>
 </head>
-
 <body>
 <table width="686" border="0">
   <tr>
