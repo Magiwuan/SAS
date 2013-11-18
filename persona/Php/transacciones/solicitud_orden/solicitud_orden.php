@@ -254,14 +254,14 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
       <td>Recaudos:</td>
       <td colspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('ORDEN MEDICA');
+			$recaudo->setTiporecaudo('SOLICITUD - ORDEN MÉDICA');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
-			if($consul[$i][3]=='ORDEN MEDICA'){					
+			if($consul[$i][3]=='SOLICITUD - ORDEN MÉDICA'){					
 		?>
           <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disabled">
-        <?php echo "<label  for='$i'>".ucfirst(strtolower($consul[$i][2]))."</label>"; ?><br>
+        <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Medicinas. Por favor <a href='#'>click</a></div>";}			
 		}?></td>

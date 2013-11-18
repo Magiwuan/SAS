@@ -27,7 +27,7 @@ if(empty($_SESSION["login"]))
         </tr>       
         <tr>
       		<th width="243">Apellidos y Nombres</th>
-            <th>Cedula</th>
+            <th>C&eacute;dula</th>
             <th>Especialidad</th>
             <th>&nbsp;</th>            
           <th><a href="javascript: fn_agregar_medico();"><img src="../../Imagen_sistema/add.png"  width="18" height="18" title="Agregar Médico"/></a></th>

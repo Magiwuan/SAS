@@ -177,9 +177,9 @@ if(empty($_SESSION["login"]))
                                     <option value="Afiliación - Beneficiario">Afiliaci&oacute;n - Beneficiario</option>
                                     <option value="Exclusión - Titular">Exclusi&oacute;n - Titular</option>
                                     <option value="Exclusión - Beneficiario">Exclusi&oacute;n - Beneficiario</option>
-                                    <option value="Reembolsos"> Reembolsos</option>
-                                    <option value="Solicitud - Médicinas">Solicitud - M&eacute;dicinas</option>
-                                    <option value="Solicitud - Orden Médica">Solicitud - Orden M&eacute;dica</option>
+                                    <option value="SOLICITUD - REEMBOLSOS">Solicitud - Reembolsos</option>
+                                    <option value="SOLICITUD - MÉDICINAS">Solicitud - M&eacute;dicinas</option>
+                                    <option value="SOLICITUD - ORDEN MÉDICA">Solicitud - Orden M&eacute;dica</option>
                                   </select></td>
                               </tr>                    
                           </tbody>

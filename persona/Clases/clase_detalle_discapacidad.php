@@ -84,7 +84,7 @@ public function iBeneficiario_Discapacidad(){
 		 {
 			 DO
 			 {
-				$fila[$c][1]=$row["	id_titular_discapacidad"];
+				$fila[$c][1]=$row["id_titular_discapacidad"];
 				$fila[$c][2]=$row["id_titular"];	
 				$fila[$c][3]=$row["id_discapacidad"];						
 				$c++;				 

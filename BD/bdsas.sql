@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-11-2013 a las 16:14:33
+-- Tiempo de generación: 18-11-2013 a las 16:12:48
 -- Versión del servidor: 5.5.32
 -- Versión de PHP: 5.3.10-1ubuntu3.8
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `tbeneficiario` (
   `id_beneficiario` int(11) NOT NULL AUTO_INCREMENT,
   `id_titular` int(11) NOT NULL,
   `nacionalidad` char(1) COLLATE utf8_spanish_ci NOT NULL,
-  `cedula` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
+  `cedula` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
   `nombre1` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `nombre2` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `apellido1` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
@@ -47,15 +47,26 @@ CREATE TABLE IF NOT EXISTS `tbeneficiario` (
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_beneficiario`),
   KEY `id_titular` (`id_titular`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `tbeneficiario`
 --
 
 INSERT INTO `tbeneficiario` (`id_beneficiario`, `id_titular`, `nacionalidad`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `sexo`, `fecha_nac`, `celular`, `telefono`, `parentesco`, `participacion`, `estado_civ`, `id_motivo`, `observación`, `estatus`) VALUES
-(1, 1, 'V', '20388179-01', 'ADDIEL', 'ANDRES', 'ALVARADO', 'ROSALES', 'M', '2010-06-16', '0416-2531333', '0255-6212236', 'HIJO', '50%', 'SOLTERO', 0, '', '1'),
-(2, 1, 'V', '12964590', 'MARIA', 'ABIGAIL', 'ROSALES', 'FERNANDEZ', 'F', '1974-10-29', '0416-2531333', '0255-6212236', 'MADRE', '50%', 'SOLTERO', 0, '', '1');
+(1, 1, 'V', '5369243', 'ROSA', 'MARIA', 'GALLARDO', 'DE MENDEZ', 'F', '0007-02-06', '0426-8080521', '0255-6228293', 'MADRE', '70%', 'VIUDO', 0, '', '1'),
+(2, 1, 'V', '12526449', 'LEORNADO', 'AGUSTIN', 'BONILA', 'VARGAS', 'M', '1975-03-20', '0426-8080521', '0255-6228293', 'ESPOSO', '30%', 'CASADO', 0, '', '1'),
+(3, 1, 'V', '12090662-01', 'RAINA', 'SOPHIA', 'BONILLA', 'MENDEZ', 'F', '2011-11-01', '0426-8080521', '0255-6228293', 'HIJA', '0%', 'SOLTERO', 0, '', '1'),
+(4, 2, 'V', '04606167', 'BALDOMERO', 'ANTONIO', 'RODRIGUEZ', '', 'M', '1951-02-27', '0416-5539497', '0416-5539497', 'PADRE', '0%', 'SOLTERO', 0, '', '1'),
+(5, 2, 'V', '09655515', 'NORMA', 'DEL CARMEN', 'JUAREZ', 'MEJIAS', 'F', '1964-06-16', '0416-5539497', '0416-5539497', 'MADRE', '100%', 'SOLTERO', 0, '', '1'),
+(6, 2, 'V', '21563795-01', 'CARLOS', 'VALENTIN', 'MARCHAN', 'RODRIGUEZ', 'M', '2005-05-28', '0416-5539497', '0416-5539497', 'HIJO', '0%', 'SOLTERO', 0, '', '1'),
+(7, 3, 'V', '3319981', 'ENRIQUE', 'ALFONSO', 'GAINZA', 'VASQUEZ', 'M', '1947-04-29', '0414-1574282', '0255-6640013', 'PADRE', '50%', 'SOLTERO', 0, '', '1'),
+(8, 2, 'V', '21563795-02', 'ALEXANDER', 'ENRRIQUE', 'RODRIGUEZ', 'JUAREZ', 'M', '2001-11-02', '0426-8080521', '0255-6228293', 'HIJO', '0%', 'SOLTERO', 0, '', '1'),
+(9, 3, 'V', '3869477', 'DEISY', 'DEL CARMEN', 'LOPEZ', 'RIVERO', 'F', '1951-07-24', '0414-1574282', '0255-6640013', 'MADRE', '50%', 'SOLTERO', 0, '', '1'),
+(10, 2, 'V', '21563795-03', 'ALEJANDRO', 'MIGUEL', 'RODRIGUEZ', 'JUAREZ', 'M', '0001-02-03', '0416-5539497', '0416-5539497', 'HIJO', '0%', 'SOLTERO', 0, '', '1'),
+(11, 4, 'V', '01107884', 'GUMERSINDA', '', 'PEREZ', '', 'F', '0000-00-00', '0426-4085155', '0426-4085155', 'MADRE', '0%', 'SOLTERO', 0, '', '1'),
+(12, 4, 'V', '12965923-01', 'LEONELLA', 'AIMAR', 'PEREZ', 'ESCALONA', 'F', '0002-01-09', '0426-4085155', '0426-4085155', 'HIJA', '50%', 'SOLTERO', 0, '', '1'),
+(13, 4, 'V', '23579313', 'MARIANELA', '', 'ESCALONA', '', 'F', '0000-00-00', '0426-4085155', '0426-4085155', 'ESPOSA', '50%', 'SOLTERO', 0, '', '1');
 
 -- --------------------------------------------------------
 
@@ -78,8 +89,19 @@ CREATE TABLE IF NOT EXISTS `tbeneficiario_discapacidad` (
 --
 
 INSERT INTO `tbeneficiario_discapacidad` (`id_beneficiario_discapacidad`, `id_beneficiario`, `id_discapacidad`, `estatus`) VALUES
+(1, 1, 1, '1'),
 (2, 2, 1, '1'),
-(3, 1, 8, '1');
+(3, 3, 1, '1'),
+(4, 4, 1, '1'),
+(5, 5, 1, '1'),
+(6, 6, 1, '1'),
+(8, 8, 1, '1'),
+(9, 9, 1, '1'),
+(10, 7, 1, '1'),
+(11, 10, 1, '1'),
+(12, 11, 0, '1'),
+(13, 13, 0, '1'),
+(14, 12, 1, '1');
 
 -- --------------------------------------------------------
 
@@ -103,12 +125,22 @@ CREATE TABLE IF NOT EXISTS `tbeneficiario_recaudo` (
 --
 
 INSERT INTO `tbeneficiario_recaudo` (`id_beneficiario_recaudo`, `id_beneficiario`, `id_recaudo`, `tipo`, `estatus`) VALUES
-(4, 2, 9, '', '1'),
-(5, 2, 10, '', '1'),
-(6, 2, 11, '', '1'),
-(7, 1, 9, '', '1'),
-(8, 1, 10, '', '1'),
-(9, 1, 11, '', '1');
+(1, 1, 11, 'I', '1'),
+(2, 2, 11, 'I', '1'),
+(3, 3, 9, 'I', '1'),
+(4, 4, 11, 'I', '1'),
+(5, 5, 11, 'I', '1'),
+(8, 8, 9, 'I', '1'),
+(9, 9, 9, 'I', '1'),
+(10, 9, 11, 'I', '1'),
+(11, 9, 24, 'I', '1'),
+(12, 7, 11, '', '1'),
+(13, 7, 24, '', '1'),
+(14, 10, 9, 'I', '1'),
+(15, 11, 11, 'I', '1'),
+(18, 13, 10, 'I', '1'),
+(19, 12, 9, '', '1'),
+(20, 12, 24, '', '1');
 
 -- --------------------------------------------------------
 
@@ -121,32 +153,24 @@ CREATE TABLE IF NOT EXISTS `tcargo` (
   `nombre` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=76 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `tcargo`
 --
 
 INSERT INTO `tcargo` (`id_cargo`, `nombre`, `estatus`) VALUES
-(42, 'TÉCNICO', '1'),
-(49, 'PRESIDENTE', '1'),
-(50, 'COORDINADOR', '0'),
-(54, 'ESPECIALISTA', '1'),
-(55, 'ESPECIALISTA INTEGRAL', '1'),
-(56, 'PRUEBA DOS', '0'),
-(57, 'COORDINADOR', '1'),
-(58, 'FDFF', '1'),
-(59, 'FDFF', '1'),
-(66, 'CCC', '1'),
-(67, 'CCC', '0'),
-(68, 'CCC', '0'),
-(69, 'SSS', '1'),
-(70, 'ASAFASF', '0'),
-(71, 'ASFAFAF', '0'),
-(72, 'GGFSDGS', '1'),
-(73, 'SSSS', '1'),
-(74, 'ABC', '1'),
-(75, 'AUXILIAR', '1');
+(1, 'TÉCNICO', '1'),
+(2, 'PRESIDENTE', '1'),
+(3, 'COORDINADOR', '1'),
+(4, 'ESPECIALISTA', '1'),
+(5, 'ESPECIALISTA INTEGRAL', '1'),
+(7, 'COORDINADOR', '1'),
+(8, 'AUXILIAR', '1'),
+(9, 'MANTENIMIENTO', '1'),
+(10, 'ADMINISTRACION', '1'),
+(11, 'ESPECIALISTA I', '1'),
+(12, 'JEFE DE OPERACIÓN', '1');
 
 -- --------------------------------------------------------
 
@@ -161,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `tciudad` (
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_ciudad`),
   KEY `id_estado` (`id_estado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1003 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1004 ;
 
 --
 -- Volcado de datos para la tabla `tciudad`
@@ -1169,7 +1193,8 @@ INSERT INTO `tciudad` (`id_ciudad`, `nombre`, `id_estado`, `estatus`) VALUES
 (999, 'SINAMAICA', 24, '1'),
 (1000, 'SUR AMÉRICA', 24, '1'),
 (1001, 'TAMARE', 24, '1'),
-(1002, 'TÍA JUANA', 24, '1');
+(1002, 'TÍA JUANA', 24, '1'),
+(1003, 'TUREN', 18, '1');
 
 -- --------------------------------------------------------
 
@@ -1206,22 +1231,22 @@ CREATE TABLE IF NOT EXISTS `tdepartamento` (
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_departamento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `tdepartamento`
 --
 
 INSERT INTO `tdepartamento` (`id_departamento`, `nombre`, `estatus`) VALUES
-(4, 'TECNOLOGÍA', '1'),
-(7, 'COMERCIALIZACIÓN', '1'),
-(14, 'RECURSOS HUMANOS', '1'),
-(15, 'PRODUCCION', '0'),
-(16, 'PRODUCCIÓN AGRÍCOLA', '1'),
-(17, 'PRODUCCIÓN INDUSTRIAL', '1'),
-(30, 'CCC', '0'),
-(31, 'CCC', '1'),
-(32, 'EEEE', '0');
+(1, 'TECNOLOGÍA', '1'),
+(2, 'COMERCIALIZACIÓN', '1'),
+(3, 'RECURSOS HUMANOS', '1'),
+(4, 'PRODUCCION', '0'),
+(5, 'PRODUCCIÓN AGRÍCOLA', '1'),
+(6, 'PRODUCCIÓN INDUSTRIAL', '1'),
+(7, 'ADMINISTRACION', '1'),
+(8, 'SALUD SEGURIDAD E HIGIENE LABO', '1'),
+(9, 'INDUSTRIA', '1');
 
 -- --------------------------------------------------------
 
@@ -1251,11 +1276,23 @@ CREATE TABLE IF NOT EXISTS `tdetalle_cobertura` (
 --
 
 INSERT INTO `tdetalle_cobertura` (`id_detalle_cobertura`, `id_cobertura`, `id_titular`, `id_beneficiario`, `tipo_beneficiario`, `id_solicitud`, `monto_disponible`, `fecha`, `estatus`) VALUES
-(8, 1, 1, 0, 'T', 0, 150000.00, '2013-11-04', '1'),
-(9, 1, 0, 1, 'B', 0, 150000.00, '2013-11-04', '1'),
-(10, 1, 0, 2, 'B', 0, 150000.00, '2013-11-04', '1'),
-(11, 1, 1, 0, 'T', 1, 149300.00, '2013-11-04', '1'),
-(12, 1, 0, 1, 'B', 2, 149750.00, '2013-11-04', '1');
+(1, 1, 1, 0, 'T', 0, 150000.00, '2013-11-18', '1'),
+(2, 1, 0, 1, 'B', 0, 150000.00, '2013-11-18', '1'),
+(3, 1, 0, 2, 'B', 0, 150000.00, '2013-11-18', '1'),
+(4, 1, 0, 3, 'B', 0, 150000.00, '2013-11-18', '1'),
+(5, 1, 2, 0, 'T', 0, 150000.00, '2013-11-18', '1'),
+(6, 1, 0, 4, 'B', 0, 150000.00, '2013-11-18', '1'),
+(7, 1, 0, 5, 'B', 0, 150000.00, '2013-11-18', '1'),
+(8, 1, 3, 0, 'T', 0, 150000.00, '2013-11-18', '1'),
+(9, 1, 0, 6, 'B', 0, 150000.00, '2013-11-18', '1'),
+(10, 1, 0, 7, 'B', 0, 150000.00, '2013-11-18', '1'),
+(11, 1, 0, 8, 'B', 0, 150000.00, '2013-11-18', '1'),
+(12, 1, 0, 9, 'B', 0, 150000.00, '2013-11-18', '1'),
+(13, 1, 0, 10, 'B', 0, 150000.00, '2013-11-18', '1'),
+(14, 1, 4, 0, 'T', 0, 150000.00, '2013-11-18', '1'),
+(15, 1, 0, 11, 'B', 0, 150000.00, '2013-11-18', '1'),
+(16, 1, 0, 12, 'B', 0, 150000.00, '2013-11-18', '1'),
+(17, 1, 0, 13, 'B', 0, 150000.00, '2013-11-18', '1');
 
 -- --------------------------------------------------------
 
@@ -1291,17 +1328,6 @@ CREATE TABLE IF NOT EXISTS `tdetalle_servicio` (
   KEY `id_proveedor` (`id_proveedor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tdetalle_servicio`
---
-
-INSERT INTO `tdetalle_servicio` (`id_detalle_servicio`, `id_servicio`, `id_proveedor`, `estatus`) VALUES
-(6, 5, 2, '1'),
-(7, 4, 2, '1'),
-(8, 3, 2, '1'),
-(9, 2, 2, '1'),
-(10, 1, 3, '1');
-
 -- --------------------------------------------------------
 
 --
@@ -1328,19 +1354,6 @@ CREATE TABLE IF NOT EXISTS `tdetalle_solicitud` (
   KEY `id_examen` (`id_examen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tdetalle_solicitud`
---
-
-INSERT INTO `tdetalle_solicitud` (`id_detalle_solicitud`, `id_solicitud`, `id_medicamento`, `id_examen`, `motivo_consulta`, `diagnostico`, `descripcion`, `cantidad`, `nro_factura`, `nro_control`, `monto_unitario`, `iva`, `estatus`) VALUES
-(1, 1, 164, 0, '', '', '', 2, NULL, NULL, 0.00, NULL, '2'),
-(2, 1, 8501, 0, '', '', '', 2, NULL, NULL, 0.00, NULL, '2'),
-(3, 2, 0, 0, 'MOTIVO DE LA CONSUMOTIVO DE LA CONSULTA A NOMBRE DE ADDIEL ANDESLTA A NOMBRE DE ADDIEL ANDES', 'DIAGNOSTICO DE LA MOTIVO DE LA CONSULTA A NOMBRE DE ADDIEL ANDESCONSULA ESTO ES MEDIA PRUEBA', '', 1, NULL, NULL, 0.00, NULL, '2'),
-(4, 3, 0, 11, '', '', '2', 1, NULL, NULL, 0.00, NULL, '2'),
-(5, 4, 0, 0, 'QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY QWERTY', 'QWERTY QWERTYQWERTY QWERTY QWERTY QWERTY QWTY QWERT QWERTY QWERTY QWERTY QWERTY QWERTY', '', 1, NULL, NULL, 0.00, NULL, '2'),
-(6, 5, 0, 0, 'DE', 'DES', '', 1, NULL, NULL, 0.00, NULL, '2'),
-(7, 6, 0, 0, 'DDD', 'DDDD', '', 1, NULL, NULL, 0.00, NULL, '2');
-
 -- --------------------------------------------------------
 
 --
@@ -1352,7 +1365,7 @@ CREATE TABLE IF NOT EXISTS `tdiscapacidad` (
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_discapacidad`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `tdiscapacidad`
@@ -1364,14 +1377,7 @@ INSERT INTO `tdiscapacidad` (`id_discapacidad`, `nombre`, `estatus`) VALUES
 (3, 'SENSORIAL ', '1'),
 (4, 'INTELECTUAL ', '1'),
 (5, 'MENTAL', '1'),
-(6, 'FISICA', '0'),
-(7, 'A', '0'),
-(8, 'PRUEBA', '1'),
-(9, 'ASD ASD', '0'),
-(10, 'FISICA', '1'),
-(11, 'FSICA', '0'),
-(12, 'ASDF SDF', '0'),
-(13, 'LALALA', '0');
+(6, 'FISICA', '0');
 
 -- --------------------------------------------------------
 
@@ -1394,7 +1400,7 @@ INSERT INTO `tespecialidad` (`id_especialidad`, `nombre`, `estatus`) VALUES
 (1, 'CIRUJANO', '1'),
 (2, 'ODÓNTOLOGO', '1'),
 (3, 'MÉDICO OCUPACIONAL', '1'),
-(4, 'PEDRIATRA', '1'),
+(4, 'PEDIATRA', '1'),
 (5, 'OTORRINO', '1'),
 (6, 'ORTODONCIA', '1');
 
@@ -1455,19 +1461,17 @@ CREATE TABLE IF NOT EXISTS `texamen` (
   `tipo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_examen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `texamen`
 --
 
 INSERT INTO `texamen` (`id_examen`, `descripcion`, `tipo`, `estatus`) VALUES
-(6, 'EXAMEN LABORATORIO', 'LABORATORIO', '1'),
-(7, 'EXAMEN DE LABOTORIO DE PRUEBA', 'LABORATORIO', '1'),
-(11, 'EXAME DE IMAGEN', 'IMAGEN', '1'),
-(12, 'EXAMEN ESPECIAL DE PRUEBA', 'ESPECIALES', '1'),
-(13, 'DES', 'IMAGEN', '1'),
-(14, 'FFF', 'IMAGEN', '1');
+(1, 'EXAMEN LABORATORIO', 'LABORATORIO', '1'),
+(2, 'EXAMEN DE LABOTORIO DE PRUEBA', 'LABORATORIO', '1'),
+(3, 'EXAME DE IMAGEN', 'IMAGEN', '1'),
+(4, 'EXAMEN ESPECIAL DE PRUEBA', 'ESPECIALES', '1');
 
 -- --------------------------------------------------------
 
@@ -22065,14 +22069,6 @@ CREATE TABLE IF NOT EXISTS `tmedico` (
   KEY `id_especialidad` (`id_especialidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tmedico`
---
-
-INSERT INTO `tmedico` (`id_medico`, `nacionalidad`, `cedula`, `nombre`, `apellido`, `id_especialidad`, `estatus`) VALUES
-(1, 'V', '12567894', 'PEDRO', 'LOPEZ', 3, '1'),
-(2, 'V', '14567890', 'MARIA', 'ANGARITA', 2, '1');
-
 -- --------------------------------------------------------
 
 --
@@ -22129,7 +22125,7 @@ CREATE TABLE IF NOT EXISTS `tpais` (
   `nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_pais`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `tpais`
@@ -22141,10 +22137,7 @@ INSERT INTO `tpais` (`id_pais`, `nombre`, `estatus`) VALUES
 (3, 'ARGENTINA', '1'),
 (4, 'PERU', '1'),
 (5, 'BOLIVIA', '1'),
-(6, 'C', '0'),
-(7, 'URUGUAY', '1'),
-(8, 'VENEZUELA', '1'),
-(9, 'SASD', '0');
+(7, 'URUGUAY', '1');
 
 -- --------------------------------------------------------
 
@@ -22157,49 +22150,16 @@ CREATE TABLE IF NOT EXISTS `tpatologia` (
   `nombre` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_patologia`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `tpatologia`
 --
 
 INSERT INTO `tpatologia` (`id_patologia`, `nombre`, `estatus`) VALUES
-(1, 'DIABETIS', '1'),
-(2, 'CANCER', '0'),
-(3, 'PRUEBA', '1'),
-(4, 'PRUEBA B', '0'),
-(5, 'CANCER', '1'),
-(6, 'CANER', '1'),
-(7, 'CANCER', '1'),
-(8, 'PRUEBA DELTA', '1'),
-(9, 'WEWERWER', '1'),
-(10, 'SWEWERWE', '1'),
-(11, 'WERWERWE', '1'),
-(12, 'WERWSFD', '1'),
-(13, 'WERWETT', '1'),
-(14, 'WERWERQQ', '1'),
-(15, 'WEEEE', '1'),
-(16, 'EWETTTTTTTTTTT', '0'),
-(17, 'WQEQWEDGSG', '1'),
-(18, 'EWRWEGTEWTYEWWET', '1'),
-(19, 'WEEWWET', '1'),
-(20, 'TWETWET', '1'),
-(21, 'WEQRERWERWER', '1'),
-(22, 'QWRQWRQR', '1'),
-(23, 'WERWREWR', '1'),
-(24, 'WETWTWET', '1'),
-(25, 'SDFGSGSG', '1'),
-(26, 'WQEQWEQWWQ', '1'),
-(27, 'QQRQWR', '1'),
-(28, 'QRQWRQWRQWR', '1'),
-(29, 'QRQWWVE', '1'),
-(30, 'QWTQWET QT', '1'),
-(31, 'QWRQQRQW', '1'),
-(32, 'ASAFAF', '1'),
-(33, 'QRRQWRQR', '1'),
-(34, 'QRQRQRTTTT', '1'),
-(35, 'ZZZZ', '1'),
-(36, 'GRIPE', '1');
+(1, 'PAROTIDITIS', '1'),
+(2, 'RUBEOLA', '1'),
+(3, 'GRIPE', '1');
 
 -- --------------------------------------------------------
 
@@ -22223,30 +22183,55 @@ CREATE TABLE IF NOT EXISTS `tpermisos` (
 --
 
 INSERT INTO `tpermisos` (`idvista`, `idrol`, `incluir`, `consultar`, `modificar`, `eliminar`) VALUES
+(1, 1, '1', '1', '1', '1'),
 (1, 2, '1', '1', '1', '1'),
+(2, 1, '1', '1', '1', '1'),
 (2, 2, '1', '1', '1', '1'),
+(3, 1, '1', '1', '1', '1'),
 (3, 2, '1', '1', '1', '1'),
+(4, 1, '1', '1', '1', '1'),
 (4, 2, '1', '1', '1', '1'),
+(5, 1, '1', '1', '1', '1'),
 (5, 2, '1', '1', '1', '1'),
+(6, 1, '1', '1', '1', '1'),
 (6, 2, '1', '1', '1', '1'),
+(7, 1, '1', '1', '1', '1'),
 (7, 2, '1', '1', '1', '1'),
+(8, 1, '1', '1', '1', '1'),
 (8, 2, '1', '1', '1', '1'),
+(9, 1, '1', '1', '1', '1'),
 (9, 2, '1', '1', '1', '1'),
+(10, 1, '1', '1', '1', '1'),
 (10, 2, '1', '1', '1', '1'),
+(11, 1, '1', '1', '1', '1'),
 (11, 2, '1', '1', '1', '1'),
+(12, 1, '1', '1', '1', '1'),
 (12, 2, '1', '1', '1', '1'),
+(13, 1, '1', '1', '1', '1'),
 (13, 2, '1', '1', '1', '1'),
+(14, 1, '1', '1', '1', '1'),
 (14, 2, '1', '1', '1', '1'),
+(15, 1, '1', '1', '1', '1'),
 (15, 2, '1', '1', '1', '1'),
+(16, 1, '1', '1', '1', '1'),
 (16, 2, '1', '1', '1', '1'),
+(17, 1, '1', '1', '1', '1'),
 (17, 2, '1', '1', '1', '1'),
+(18, 1, '1', '1', '1', '1'),
 (18, 2, '1', '1', '1', '1'),
+(19, 1, '1', '1', '1', '1'),
 (19, 2, '1', '1', '1', '1'),
+(20, 1, '1', '1', '1', '1'),
 (20, 2, '1', '1', '1', '1'),
+(21, 1, '1', '1', '1', '1'),
 (21, 2, '1', '1', '1', '1'),
+(22, 1, '1', '1', '1', '1'),
 (22, 2, '1', '1', '1', '1'),
+(23, 1, '1', '1', '1', '1'),
 (23, 2, '1', '1', '1', '1'),
+(24, 1, '1', '1', '1', '1'),
 (24, 2, '1', '1', '1', '1'),
+(25, 1, '1', '1', '1', '1'),
 (25, 2, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
@@ -22273,8 +22258,6 @@ INSERT INTO `tprofesion` (`id_profesion`, `nombre`, `estatus`) VALUES
 (4, 'LICENCIADO', '1'),
 (5, 'TÉCNICO SUPERIOR UNIVERSITARIO', '1'),
 (6, 'TÉCNICO MEDIO', '1'),
-(7, 'DD D', '1'),
-(8, 'DC D', '1'),
 (9, 'CONTADOR', '1'),
 (10, 'CONTADOR', '0'),
 (11, 'BACHILLER', '1');
@@ -22304,15 +22287,6 @@ CREATE TABLE IF NOT EXISTS `tproveedor` (
   KEY `id_ciudad` (`id_ciudad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tproveedor`
---
-
-INSERT INTO `tproveedor` (`id_proveedor`, `rif`, `alias`, `nombre`, `persona_contacto`, `celular`, `telefono`, `fax`, `correo`, `id_ciudad`, `direccion`, `fecha_inicio`, `fecha_fin`, `estatus`) VALUES
-(1, '', 'SAAD', 'DASDASD', '', '', '', '', '', 0, '', '0000-00-00', '0000-00-00', '1'),
-(2, 'j-2222345-2', 'CLINICA SANTA LUISA', 'CLINICA SAES C.A', 'MARIANA MORENO', '0416-2531333', '0255-6212236', '0253-6789992', 'SANTALUIS@GMAIL.COM', 645, 'GEGE', '2013-11-07', '2013-11-22', '1'),
-(3, 'j-1234567-8', 'NUEVO SIGLO', 'FARMACIA LSA C.A', 'JUAN MARTINEZ', '0416-2531333', '0255-6212236', '0255-6789992', 'FLSA@GMAIL.COM', 645, 'ASASD', '2013-11-21', '2013-11-15', '1');
-
 -- --------------------------------------------------------
 
 --
@@ -22327,15 +22301,7 @@ CREATE TABLE IF NOT EXISTS `tproveedor_medico` (
   PRIMARY KEY (`id_proveedor_medico`),
   KEY `id_proveedor` (`id_proveedor`),
   KEY `id_medico` (`id_medico`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `tproveedor_medico`
---
-
-INSERT INTO `tproveedor_medico` (`id_proveedor_medico`, `id_proveedor`, `id_medico`, `estatus`) VALUES
-(1, 2, 1, '1'),
-(2, 2, 2, '1');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -22349,36 +22315,37 @@ CREATE TABLE IF NOT EXISTS `trecaudo` (
   `tipo` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_recaudo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=25 ;
 
 --
 -- Volcado de datos para la tabla `trecaudo`
 --
 
 INSERT INTO `trecaudo` (`id_recaudo`, `descripcion`, `tipo`, `estatus`) VALUES
-(1, 'FOTOCOPIA DE CEDULA', 'AFILIACIÓN - TITULAR', '1'),
-(2, 'PARTIDA DE NACIMIENTO', 'AFILIACIÓN - TITULAR', '1'),
-(3, 'FOTOCOPIA DE CARNET', 'AFILIACIÓN - TITULAR', '1'),
-(4, 'ACTA DE DIFUNSIÓN', 'EXCLUSIÓN - TITULAR', '1'),
-(5, 'ACTA DE DIFUNSIÓN', 'EXCLUSIÓN - BENEFICIARIO', '1'),
-(6, 'ACTA DE DIVORCIO', 'EXCLUSIÓN - BENEFICIARIO', '1'),
-(7, ' INFORME MÉDICO DETALLADO ORIGINAL', 'REEMBOLSOS', '1'),
-(8, 'FACTURAS ORIGINALES SENIATIZADAS', 'REEMBOLSOS', '1'),
-(9, 'PARTIDA DE NACIMIENTO', 'AFILIACIÓN - BENEFICIARIO', '1'),
-(10, 'ACTA DE MATRIMONIO', 'AFILIACIÓN - BENEFICIARIO', '1'),
-(11, 'FOTOCOPIA DE CEDULA', 'AFILIACIÓN - BENEFICIARIO', '1'),
-(21, 'ACTA DE RETIRO', 'EXCLUSIÓN - BENEFICIARIO', '1'),
-(22, 'FOTOCOPIA DE LA CEDULA', 'ORDEN MEDICA', '1'),
-(23, 'INFORME MEDICO', 'ORDEN MEDICA', '1'),
-(53, 'RÉCIPES MÉDICOS E INDICACIONES', 'REEMBOLSOS', '1'),
-(54, 'RESULTADOS DE LOS ESTUDIOS REALIZADOS', 'REEMBOLSOS', '1'),
-(55, 'COPIA DE LA CÉDULA DEL BENEFICIARIO', 'REEMBOLSOS', '1'),
-(56, 'COPIAS DE LOS DOCUMENTOS DE AFILIACIÓN', 'REEMBOLSOS', '1'),
-(57, 'COPIA DE LA CÉDULA Y CARNET DEL TITULAR', 'SOLICITUD - MÉDICINAS', '1'),
-(58, 'COPIA DE LA CÉDULA DEL BENEFICIARIO', 'SOLICITUD - MÉDICINAS', '1'),
-(59, 'COPIA DE LOS DOCUMENTOS DE FILIACIÓN', 'SOLICITUD - MÉDICINAS', '1'),
-(60, 'INFORME MÉDICO INDICANDO PATOLOGÍA O DIAGNÓSTICO', 'SOLICITUD - MÉDICINAS', '1'),
-(61, 'RÉCIPES E INDICACIONES', 'SOLICITUD - MÉDICINAS', '1');
+(1, 'COPIA DE LA CÉDULA DE IDENTIDAD', 'AFILIACIÓN - TITULAR', '1'),
+(2, 'COPIA DE LA PARTIDA DE NACIMIENTO', 'AFILIACIÓN - TITULAR', '1'),
+(3, 'COPIA DEL CARNET', 'AFILIACIÓN - TITULAR', '1'),
+(4, 'COPIA DEL ACTA DE DIFUNSIÓN', 'EXCLUSIÓN - TITULAR', '1'),
+(5, 'COPIA DEL ACTA DE DIFUNSIÓN', 'EXCLUSIÓN - BENEFICIARIO', '1'),
+(6, 'COPIA DEL ACTA DE DIVORCIO', 'EXCLUSIÓN - BENEFICIARIO', '1'),
+(7, ' INFORME MÉDICO DETALLADO ORIGINAL', 'SOLICITUD - REEMBOLSOS', '1'),
+(8, 'FACTURAS ORIGINALES SENIATIZADAS', 'SOLICITUD - REEMBOLSOS', '1'),
+(9, 'COPIA DE LA PARTIDA DE NACIMIENTO', 'AFILIACIÓN - BENEFICIARIO', '1'),
+(10, 'COPIA DEL ACTA DE MATRIMONIO', 'AFILIACIÓN - BENEFICIARIO', '1'),
+(11, 'COPIA DE LA CÉDULA DE IDENTIDAD', 'AFILIACIÓN - BENEFICIARIO', '1'),
+(12, 'ACTA DE RETIRO', 'EXCLUSIÓN - BENEFICIARIO', '1'),
+(13, 'COPIA DE LA CÉDULA DE IDENTIDAD Y CARNET DEL TITULAR', 'SOLICITUD - ORDEN MÉDICA', '1'),
+(14, ' INFORME MÉDICO INDICANDO PATOLOGÍA O DIAGNÓSTICO', 'SOLICITUD - ORDEN MÉDICA', '1'),
+(15, 'RÉCIPES MÉDICOS E INDICACIONES', 'SOLICITUD - REEMBOLSOS', '1'),
+(16, 'RESULTADOS DE LOS ESTUDIOS REALIZADOS', 'SOLICITUD - REEMBOLSOS', '1'),
+(17, 'COPIA DE LA CÉDULA DE IDENTIDAD DEL BENEFICIARIO', 'SOLICITUD - REEMBOLSOS', '1'),
+(18, 'COPIAS DE LOS DOCUMENTOS DE AFILIACIÓN', 'SOLICITUD - REEMBOLSOS', '1'),
+(19, 'COPIA DE LA CÉDULA DE IDENTIDAD Y CARNET DEL TITULAR', 'SOLICITUD - MÉDICINAS', '1'),
+(20, 'COPIA DE LA CÉDULA DE IDENTIDAD DEL BENEFICIARIO', 'SOLICITUD - MÉDICINAS', '1'),
+(21, 'COPIA DE LOS DOCUMENTOS DE AFILIACIÓN', 'SOLICITUD - MÉDICINAS', '1'),
+(22, 'INFORME MÉDICO INDICANDO PATOLOGÍA O DIAGNÓSTICO', 'SOLICITUD - MÉDICINAS', '1'),
+(23, 'RÉCIPES E INDICACIONES', 'SOLICITUD - MÉDICINAS', '1'),
+(24, 'COPIA DE LA CÉDULA DE IDENTENDIDAD DEL PADRE', 'AFILIACIÓN - BENEFICIARIO', '1');
 
 -- --------------------------------------------------------
 
@@ -22391,15 +22358,16 @@ CREATE TABLE IF NOT EXISTS `trol` (
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`idrol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `trol`
 --
 
 INSERT INTO `trol` (`idrol`, `descripcion`, `estatus`) VALUES
-(2, 'WebMaster', '1'),
-(3, 'nulo', '1');
+(0, 'nulo', '1'),
+(1, 'Coordinador', '1'),
+(2, 'WebMaster', '1');
 
 -- --------------------------------------------------------
 
@@ -22472,20 +22440,6 @@ CREATE TABLE IF NOT EXISTS `tsolicitud_recaudo` (
   KEY `id_solicitud` (`id_solicitud`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `tsolicitud_recaudo`
---
-
-INSERT INTO `tsolicitud_recaudo` (`id_solicitud_recaudo`, `id_recaudo`, `id_solicitud`, `id_solicitud_reembolso`, `estatus`) VALUES
-(1, 14, 1, NULL, '2'),
-(2, 23, 2, NULL, '2'),
-(3, 22, 3, NULL, '2'),
-(4, 23, 3, NULL, '2'),
-(5, 22, 4, NULL, '2'),
-(6, 22, 5, NULL, '2'),
-(7, 22, 6, NULL, '2'),
-(8, 23, 6, NULL, '2');
-
 -- --------------------------------------------------------
 
 --
@@ -22522,18 +22476,6 @@ CREATE TABLE IF NOT EXISTS `tsolicitud_servicio` (
   KEY `id_patologia` (`id_patologia`),
   KEY `id_solicitud` (`id_solicitud`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tsolicitud_servicio`
---
-
-INSERT INTO `tsolicitud_servicio` (`id_solicitud`, `id_solicitud_reembolso`, `cod_hoja`, `id_titular`, `id_beneficiario`, `tipo_beneficiario`, `id_servicio`, `id_patologia`, `autorizado`, `ced_autorizado`, `tratamiento`, `fecha_ini`, `fecha_fin`, `fecha`, `diagnostico`, `observacion`, `id_medico`, `id_proveedor`, `hora`, `estatus`, `motivo_eliminacion`) VALUES
-(1, 0, 'SM-1', 1, 0, 'T', 1, 25, '', 0, 'T', '0000-00-00', '0000-00-00', '2013-11-08', '', 'OBSERVACION DE SOLICITUD DE MEDICINAS A NOMBRE DEL MISMO TITULAR', NULL, 3, '1383925377', '2', NULL),
-(2, 0, 'SO-2', 1, 1, 'B', 5, 3, NULL, NULL, NULL, NULL, NULL, '2013-11-08', '', 'OBSERVACION DE UNA ORDEN MEDICA DE TIPO CONSULTA', 1, 2, '1383925503', '2', NULL),
-(3, 0, 'SO-3', 1, 1, 'B', 4, 8, NULL, NULL, NULL, NULL, NULL, '2013-11-08', '', 'DES', 2, 2, '1383926090', '2', NULL),
-(4, 0, 'SO-4', 1, 1, 'B', 5, 36, NULL, NULL, NULL, NULL, NULL, '2013-11-08', '', 'DD', 1, 2, '1383926198', '2', NULL),
-(5, 0, 'SO-5', 1, 0, 'T', 5, 34, NULL, NULL, NULL, NULL, NULL, '2013-11-08', '', 'DE', 1, 2, '1383933884', '2', NULL),
-(6, 0, 'SO-6', 1, 1, 'B', 5, 3, NULL, NULL, NULL, NULL, NULL, '2013-11-08', '', 'DD', 1, 2, '1383934522', '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -22580,7 +22522,10 @@ CREATE TABLE IF NOT EXISTS `ttitular` (
 --
 
 INSERT INTO `ttitular` (`id_titular`, `tipo_nomina`, `nacionalidad`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `sexo`, `fecha_nac`, `estado_civ`, `celular`, `telefono`, `correo_elect`, `correo_corp`, `fecha_ingr`, `direccion_hab`, `id_profesion`, `id_cargo`, `id_ciudad`, `id_departamento`, `id_upsa`, `id_ciudad_nacimiento`, `grupo`, `observacion`, `estatus`) VALUES
-(1, 'C', 'V', '20388179', 'ANDRES', 'ALFONSO', 'ALVARADO', 'ROSALES', 'M', '1990-12-28', 'SOLTERO', '0416-2531333', '0255-6212236', 'ANDREZ.ALVARADO@GMAIL.COM', 'ANDREZ.ALVARADO@GMAIL.COM', '2013-10-07', 'URB. LAS VIRGINIAS ETAPA 1 CALLE 1 ENTRE AV. 1 Y 2 #35', 5, 42, 645, 4, 2, 645, '', 'N/A', '1');
+(1, 'E', 'V', '12090662', 'ROSMARY', '', 'MENDEZ', 'DE BONILLA', 'F', '1974-12-09', 'CASADO', '0426-8080521', '0255-6228293', 'DELVMENDEZ@HOTMAIL.COM', 'UPSA.PIRITU3@ARROZDELALBA.GOB.VE', '2011-06-16', 'URB. MOLINOS I CALLE 5 #29', 1, 5, 647, 3, 3, 647, '', 'N/A', '1'),
+(2, 'O', 'V', '21563795', 'VALMERI', 'LILIANA', 'RODRIGUEZ', 'JUAREZ', 'F', '1983-12-16', 'SOLTERO', '0416-5539497', '0416-5539497', 'LILIANA_RODRIGUEZ16@HOMAIL.COM', 'LILIANA_RODRIGUEZ16@HOMAIL.COM', '2012-07-16', 'BARRIO LA INDEPENDENCIA CALLE 4', 11, 9, 672, 7, 3, 1003, '', 'N/A', '1'),
+(3, 'E', 'V', '16565969', 'DEISYS', 'CAROLINA', 'GAINZA', 'LOPEZ', 'F', '1983-12-20', 'SOLTERO', '0414-1574282', '0255-6640013', 'DEISYSGAINZA_20@HOTMAIL.COM', '', '2008-09-16', 'CALLE 38 ENTRE AV. 34 Y 35 #64 LA GOAJIRA', 5, 11, 645, 8, 3, 647, '', '', '1'),
+(4, 'E', 'V', '12965923', 'JAVIER', 'ANTONIO', 'PEREZ', '', 'M', '1976-08-14', 'SOLTERO', '0426-4085155', '0426-4085155', 'OPERACIONESPIRITU3@GMAIL.COM', 'OPERACIONESPIRITU3@GMAIL.COM', '2011-06-16', 'URB. NUEVO PIRITU CALLEJON UNICO', 5, 12, 645, 9, 3, 647, '', 'N/A', '1');
 
 -- --------------------------------------------------------
 
@@ -22603,7 +22548,10 @@ CREATE TABLE IF NOT EXISTS `ttitular_discapacidad` (
 --
 
 INSERT INTO `ttitular_discapacidad` (`id_titular_discapacidad`, `id_titular`, `id_discapacidad`, `estatus`) VALUES
-(1, 1, 1, '1');
+(1, 1, 1, '1'),
+(2, 2, 1, '1'),
+(3, 3, 1, '1'),
+(4, 4, 1, '1');
 
 -- --------------------------------------------------------
 
@@ -22627,7 +22575,14 @@ CREATE TABLE IF NOT EXISTS `ttitular_recaudo` (
 
 INSERT INTO `ttitular_recaudo` (`id_titular_recaudo`, `id_titular`, `id_recaudo`, `estatus`) VALUES
 (1, 1, 1, '1'),
-(2, 1, 2, '1');
+(2, 1, 3, '1'),
+(3, 2, 1, '1'),
+(4, 2, 3, '1'),
+(5, 3, 1, '1'),
+(6, 3, 2, '1'),
+(7, 3, 3, '1'),
+(8, 4, 1, '1'),
+(9, 4, 3, '1');
 
 -- --------------------------------------------------------
 
@@ -22643,29 +22598,17 @@ CREATE TABLE IF NOT EXISTS `tupsa` (
   `estatus` char(1) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_upsa`),
   KEY `id_ciudad` (`id_ciudad`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `tupsa`
 --
 
 INSERT INTO `tupsa` (`id_upsa`, `nombre`, `direccion`, `id_ciudad`, `estatus`) VALUES
-(1, 'PIRITU I', 'CARRETERA VIEJA VIA TUREN', 2, '1'),
+(1, 'PIRITU I', 'CARRETERA VIEJA VIA TUREN', 672, '1'),
 (2, 'PIRITU II', 'CARRETERA VIEJA VIA TUREN', 672, '1'),
-(3, 'PIRITU III', 'CARRETERA VIEJA VIA TUREN', 2, '1'),
-(4, 'PLANTA X', 'CALLE 29 ENTRE AV. 6 Y 7', 5, '1'),
-(5, 'DDDDDD', 'DASDSD', 5, '0'),
-(6, 'PIRITU Y', 'CALLE 27 ENTRE AV. 32 Y 33', 5, '1'),
-(7, 'UPSA PRUEBA', 'DIRECCION PRUEBA', 1, '0'),
-(8, 'PRUEBA II', 'PRUEBA', 1, '1'),
-(9, 'TÉXTO PRUEBA', 'ASDAD', 17, '1'),
-(10, 'TEXTÓ MAYUS', 'ASDASD', 3, '1'),
-(11, 'UPSA PRUEBA', 'DFDF', 5, '1'),
-(12, 'PRUEBA II', 'SDGSDGSDG', 1, '1'),
-(13, 'PRUEBNA II', 'ASFASF', 1, '1'),
-(14, 'DFASFADF', 'SDFSDF', 1, '0'),
-(15, 'RTERTER', 'ERTERTER', 1, '0'),
-(16, 'RETERT', 'TERT', 1, '0');
+(3, 'PIRITU III', 'CARRETERA NACIONAL VIA TUREN A 300MTS DE LA ENTRADA DE PIRITU', 672, '1'),
+(17, 'ACCION CENTRAL', 'CARRETERA VIEJA VIA TUREN', 672, '1');
 
 -- --------------------------------------------------------
 
@@ -22707,7 +22650,7 @@ INSERT INTO `tvista` (`idvista`, `descripcion`, `url`, `estatus`, `idseccion`) V
 (17, 'Medicamento', 'persona/Php/medicamento/agregar_medicamento.php', '1', 4),
 (18, 'Exámen', 'persona/Php/examen/agregar_examen.php	', '1', 4),
 (19, 'Medicamentos', 'persona/Php/transacciones/solicitud_medicinas/solicitud_medicina.php    ', '1', 5),
-(20, 'Orden Medica', 'persona/Php/transacciones/solicitud_orden/solicitud_orden.php    ', '1', 5),
+(20, 'Orden Médica', 'persona/Php/transacciones/solicitud_orden/solicitud_orden.php    ', '1', 5),
 (21, 'Solicitudes Pendientes', 'persona/Php/transacciones/index_solicitud.php', '1', 6),
 (22, 'Finalizar Solicitud', 'persona/Php/transacciones/buscar_solicitud.php   ', '1', 7),
 (23, 'Reembolso', 'persona/Php/transacciones/solicitud_reembolso/solicitud_reembolso.php', '1', 5),
@@ -22721,8 +22664,6 @@ INSERT INTO `tvista` (`idvista`, `descripcion`, `url`, `estatus`, `idseccion`) V
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `cedula` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `nombre_usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `clave_usuario` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `pregunta` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
@@ -22738,8 +22679,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`nombre`, `cedula`, `nombre_usuario`, `clave_usuario`, `pregunta`, `respuesta`, `idrol`, `email`, `estatus`) VALUES
-('', 'V-20388179', 'Admin', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', '¿Nombre de Tu Mascota?', 'ninguno', 2, '', '1');
+INSERT INTO `usuario` (`nombre_usuario`, `clave_usuario`, `pregunta`, `respuesta`, `idrol`, `email`, `estatus`) VALUES
+('Admin', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', '¿Nombre de Tu Mascota?', 'ninguno', 2, '', '1'),
+('Coordinador', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'zzz?', 'zzz', 1, '', '1');
 
 --
 -- Restricciones para tablas volcadas

@@ -263,7 +263,8 @@ include_once("../Clases/clase_ciudad.php");
                     $lista_discapacidad=$discapacidad->lista_discapacidad();
                     for($i=0;$i<count($lista_discapacidad);$i++)
                     {                
-					?><option value="<?php echo $lista_discapacidad[$i][1];?>"<?php for($x=0;$x<count($buscar_discapacidades);$x++){
+					?><option value="<?php echo $lista_discapacidad[$i][1];?>"<?php 
+										for($x=0;$x<count($buscar_discapacidades);$x++){
                                         if($lista_discapacidad[$i][1]==$buscar_discapacidades[$x][3]){echo "Selected=\"Selected\"";}
                                     	}?>><?php echo $lista_discapacidad[$i][2];?></option>
             					<?php }?>
@@ -441,8 +442,8 @@ Obrero</td>
         <table width="686" border="0" cellpadding="0" cellspacing="0">
           <tr>
           <td width="265">&nbsp;</td>
-      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" onclick="limpiar_form(this.form)" /></td>
-      <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
+      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Modificar" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos"/></td>
+      <td width="76"><input name="agregar" type="submit"  value=" Guardar" class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" /></td>
           <td width="265">&nbsp;</td>
           </tr>
       </table> 

@@ -9,10 +9,10 @@ class PDF extends FPDF
 	function Header()
 	{
 		//Logo
-		$this->Image('../Imagen_sistema/cintillo.jpg',6,6,199,25);
+		$this->Image('../Imagen_sistema/cintillo.jpg',8,8,199,25);
 		//Título		
 		$t=utf8_decode('PLANILLA DE AFILIACIÓN');
-		$this->Ln(17);
+		$this->Ln(20);
 		$this->SetFont('Times','B',12);
 		$this->Cell(0,10,$t,0,1,'C');
 		$this->SetFont('Times','B',8);

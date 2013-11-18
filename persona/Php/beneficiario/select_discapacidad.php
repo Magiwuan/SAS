@@ -28,10 +28,10 @@ if(empty($_SESSION["login"]))
 			{			
 			?>
   <option value="<?php echo $$lista_discapacidad[$i][1];?>" 
-		  	<?php if($lista_discapacidad[$i][2]=='N/A')
+		  	<?php /*if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";
-				}
+				}*/
 		 ?> > <?php echo $lista_discapacidad[$i][2];?></option>
   <?php }?>
 </select>

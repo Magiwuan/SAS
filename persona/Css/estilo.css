@@ -52,13 +52,14 @@ border-radius:3px;
 }
 #cuerpo1{
 	position: absolute;
-	top: 0%; /* Buscamos el centro horizontal (relativo) del navegador */
+	top: 1%; /* Buscamos el centro horizontal (relativo) del navegador */
 	left: 1%; /* Buscamos el centro vertical (relativo) del navegador */
-	width: 680 px; /* Definimos el ancho del objeto a centrar */
+	width: 680px; /* Definimos el ancho del objeto a centrar */
 	height:auto;
 	margin-left: 35px; /* Restamos la mitad de la anchura del objeto con un margin-left */
 	padding:0px;
 	background:#F0F8E7;
+	border: 1px solid;
 	
 }
 #cuerpo3{
@@ -114,13 +115,15 @@ table.formulario tfoot td{
 
 
 form{
-	position:relative;
+	position: absolute;
+	top: 1%; /* Buscamos el centro horizontal (relativo) del navegador */
+	left: 1%; /* Buscamos el centro vertical (relativo) del navegador */
+	width: 710px; /* Definimos el ancho del objeto a centrar */
+	height:auto;
+	margin-left: 35px; /* Restamos la mitad de la anchura del objeto con un margin-left */
 	padding:5px;
-	margin-top: 2px;
-	margin-left: 3px;
 	margin-bottom:2px;
 	background:#FFF;
-	display:block; 
 	box-shadow: 2px 2px 2px 2px #121212;
 	border-radius: 5px;
 }

@@ -18,7 +18,7 @@
 	$titular->setidTitular($id);
 	$resultado=$titular->buscar_id();
 	if($resultado!='-1'){
-	$pdf=new PDF('P','mm','A4');
+	$pdf=new PDF('P','mm','letter');
 	$d= "DÍA";
 	$dia = utf8_decode($d);
 	$a= "AÑO";	
@@ -29,13 +29,12 @@
   	$pdf->SetFont('Times','B',10);
 	$pdf->SetFillColor(255);
     $pdf->SetTextColor(000);
-	$pdf->SetMargins(6,6,6,6);
+	$pdf->SetMargins(8,8,8,8);
 	$Fecha=date("d/m/Y");
   	 	$elDia=substr($Fecha,0,2);
   	 	$elMes=substr($Fecha,3,2);
   	 	$elYear=substr($Fecha,6,4);
-
-	$pdf->Cell(150);
+	$pdf->Cell(152);
 	$pdf->Cell(45,6,'FECHA',1,1,'C',true);
 	$pdf->Cell(154);
 	$pdf->Cell(15,6,$dia,1,0,'C',true);
@@ -150,7 +149,7 @@
 		$nomCargo			=$consulta[$i][2];
 	}	
 	$pdf->Cell(199,6,utf8_decode('DIRECCIÓN DE TRABAJO'),1,1,'C',true);	
-	$pdf->SetFont('Times','',9);
+	$pdf->SetFont('Times','',8);
 	$pdf->Cell(32,6,'Upsa: '.$nombre,1,0,'L',true);
 	$pdf->Cell(117,6,utf8_decode('Dirección: ').$direccion,1,0,'L',true);
 	$pdf->Cell(50,6,'Ciudad: '.$ciudad_upsa,1,1,'L',true);
@@ -210,6 +209,10 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	$pdf->Cell(100,6,'FIRMA Y SELLO',0,1,'L',true);	
 	$pdf->Cell(99,6,' ','0',0,'L',true);
 	$pdf->Cell(100,6,' ','0',1,'L',true);
+	$pdf->Cell(100,6,' ','0',1,'L',true);
+	$pdf->Cell(100,6,' ','0',1,'L',true);
+	$pdf->Cell(100,6,' ','0',1,'L',true);
+	$pdf->Cell(100,6,'*Acepta los terminos y condiciones establecidas por el Autogestionado de salud. ','0',1,'L',true);
 // Se envia el PDF.
 		$pdf->Output();
 	}else{

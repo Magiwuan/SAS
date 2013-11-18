@@ -97,7 +97,6 @@ function incluir(){
 					}
 			$arreglo_disc = $_POST["discapacidad"]; //Arreglo de discapacidad			
 			$cont_disc='0';
-				
 			while($cont_disc<count($arreglo_disc)){	
 			//Consultamos el ultimo $id_detalle_discapacidad y traemos el ultimo	
 		// Busca el ultimo registro de la entrada e incrementa el id	
@@ -111,6 +110,7 @@ function incluir(){
 					$detalle_disc->setidTitular($idTitular);	
 					$detalle_disc->setidDiscapacidad($arreglo_disc[$cont_disc]);				
 		//Registramos el Detalle de la Discapacidad
+		
 				$iTitular_Discapacidad=$detalle_disc->iTitular_Discapacidad();
 					if($iTitular_Discapacidad!='-1'){
 					 $var_control=true;	 

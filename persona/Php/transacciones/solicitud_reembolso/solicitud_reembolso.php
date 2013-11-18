@@ -415,11 +415,11 @@ cursor:pointer; margin-left:5px; margin-right:5px; outline-width:0px;}
       <td width="116" >Recaudos:</td>
       <td width="493" rowspan="2"><?php 	include_once("../../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
-			$recaudo->setTiporecaudo('REEMBOLSOS');
+			$recaudo->setTiporecaudo('SOLICITUD - REEMBOLSOS');
 			$consul=$recaudo->lista_recaudo();
 			for($i=0;$i<count($consul);$i++)			
 			{
-			if($consul[$i][3]=='REEMBOLSOS'){					
+			if($consul[$i][3]=='SOLICITUD - REEMBOLSOS'){					
 		?>
      <input name="recaudos[]" type="checkbox" disabled id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>">
         <?php setlocale(LC_ALL,'es');  echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?><br>

@@ -42,9 +42,8 @@ include_once("../../Clases/clase_titular.php");
 <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script> 
 <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
 <script language="javascript" type="text/javascript" >
-	  $(document).ready(function(){
-		  
-		$('#parentesco').change(function(){
+	  $(document).ready(function(){		  
+		/*$('#parentesco').change(function(){
 			var parent = $('#parentesco').val();
 			if(parent=='Hijo' || parent=='Hija'){
 				$('#estado_civ').val('S');
@@ -52,7 +51,7 @@ include_once("../../Clases/clase_titular.php");
 			}else{
 				$('#estado_civ').attr('disabled', false);
 			}
-		});	
+		});	*/
     	$('#nuevo').click(function(){
 		limpiar_form();
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
@@ -86,8 +85,7 @@ include_once("../../Clases/clase_titular.php");
 		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#agregar').attr('disabled', true);	
-		
+		$('#agregar').attr('disabled', true);		
 		$('#bt').attr('disabled', true);
 		$('#nacionalidad1').attr('disabled', true);
 		$('#nacionalidad2').attr('disabled', true);
@@ -227,7 +225,7 @@ function limpiar_form(ele) {
         <tr>
           <td height="27">&nbsp;</td>
           <td>Parentesco:</span></td>
-          <td><select name="parentesco" disabled= "disabled" id="parentesco">
+          <td><select name="parentesco"  id="parentesco">
             <option value="0" selected>Seleccionar</option>
             <option value="Madre">Madre</option>
             <option value="Padre">Padre</option>
