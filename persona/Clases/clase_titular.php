@@ -393,22 +393,20 @@ public function eTitular(){
 		if ($this->ced!=NULL)
 		$sql .= " and cedula like '$this->ced%'";	
 		if($this->ordenar_por=='0')						
-		$sql .= " order by 5 asc";				
+		$sql .= " order by 1 asc";				
 		if ($this->ordenar_por=='1')
-			$sql .= " order by 5 asc";		
+			$sql .= " order by 6 asc";		
 		if ($this->ordenar_por=='2')
-			$sql .= " order by 2 desc";	
+			$sql .= " order by 3 desc";	
 		if ($this->ordenar_por=='3')
-			$sql .= " order by 5,2 desc";			
+			$sql .= " order by 6,3 desc";			
 		$cursor=parent::ejecuta_sql($sql);	
 // verifica que la consulta arroje al menos 1 fila para poder enviar la sentencia sql
 		if(parent::getNRegistro($cursor)>0)
 			return $sql;
 			else 
 			return -1;		
-			
-			parent::cerrar_bd();
-     }		 
+	     }		 
 //       Metodo le indica al SMBD que inicie una transaccion
     public function IniciaTransaccion(){
 	   $sql="BEGIN";

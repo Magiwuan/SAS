@@ -96,25 +96,25 @@
 		document.form_titular.apellido1.focus();
 		return false;
 	}
-	var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
-	var checkStr = document.form_titular.apellido1.value;
-	var allValid = true; 
-	for(var i=0;i<checkStr.length;i++){
-		ch =checkStr.charAt(i); 
-		for(var j=0;j<checkOK.length;j++)
-  			if (ch==checkOK.charAt(j))
+	  var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
+		  var checkStr = document.form_titular.apellido1.value;
+		  var allValid = true; 
+		  for (i = 0; i < checkStr.length;i++) {
+			ch = checkStr.charAt(i); 
+			for (j = 0; j < checkOK.length; j++)
+			  if (ch == checkOK.charAt(j))
 				break;
-			if(j==checkOK.length) { 
-				allValid=false; 
-				break; 
+			if (j == checkOK.length) { 
+			  allValid = false; 
+			  break; 
 			}
-  	}
-  	if(!allValid){ 
-		jAlert('El campo \"Primer Apellido\" admite solamente letras','Dialogo de Alerta'); 
-		document.form_titular.apellido1.value=''; 
-		document.form_titular.apellido1.focus(); 
-		return false; 
-  	} 
+		  }
+		  if (!allValid) { 
+			jAlert('El campo \"Primer Apellido\" admite solamente letras','Dialogo de Alerta'); 
+			document.form_titular.apellido1.value=''; 
+			document.form_titular.apellido1.focus(); 
+			return false; 
+		  }
     if(document.form_titular.apellido2.value.length>15){
 		jAlert('El campo \"Segundo Apellido" no puede ser mayor a 15 caracteres!','Dialogo de Alerta');
 		document.form_titular.apellido2.focus();

@@ -301,6 +301,7 @@ include_once("../../Clases/clase_beneficiario.php");
             <option value="MADRE" <?php if($parentesco=='MADRE') echo "Selected=\"Selected\""; ?>>Madre</option>
             <option value="PADRE" <?php if($parentesco=='PADRE') echo "Selected=\"Selected\""; ?>>Padre</option>
             <option value="ESPOSA" <?php if($parentesco=='ESPOSA') echo "Selected=\"Selected\""; ?>>Esposa</option>
+            <option value="ESPOSO" <?php if($parentesco=='ESPOSO') echo "Selected=\"Selected\""; ?>>Esposo</option>
             <option value="CONCUBINATO" <?php if($parentesco=='CONCUBINATO') echo "Selected=\"Selected\""; ?>>Concubinato</option>
             <option value="HIJO" <?php if($parentesco=='HIJO') echo "Selected=\"Selected\""; ?>>Hijo</option>
             <option value="HIJA" <?php if($parentesco=='HIJA') echo "Selected=\"Selected\""; ?>>Hija</option>
@@ -370,7 +371,7 @@ include_once("../../Clases/clase_beneficiario.php");
                                     }
                                 }
                                  ?> />
-        <?php echo $consul[$i][2]; ?>
+        <?php echo $consul[$i][2]."<br>"; ?>
         <?php		
 		}else { echo "<div id='color_error' style='color:#F00'> Alerta: No se han asignado recaudos por Beneficiario</div>";}			
 		}?></td>

@@ -67,7 +67,9 @@ if($navegador!="Chrome"){
       </tr>
        </tr>
       <tr>
-      <td align="center" valign="bottom"><p style="font-family: 'Lucida Sans Unicode'; font-size:11px;color: #E17919;">Desarrollado por: Estudiantes de la Universidad Politecnica Territorial Portuguesa J.J Montilla.<br /> Yelix Monsalve. | Andrés Alvarado.</p></td>
+      <td align="center" valign="bottom"><p style="font-family: 'Lucida Sans Unicode'; font-size:12px;color: #E17919;">
+		  Desarrollado por: Estudiantes de la Universidad Politecnica Territorial Portuguesa J.J Montilla.<br /> <a href="mailto:yelix.lacruz23@gmail.com; andrez.alvarado@gmail.com">Yelix M. | Andrés A.</a>
+	</p></td>
       </tr>
     </table>
 </div>

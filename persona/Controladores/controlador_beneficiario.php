@@ -44,13 +44,21 @@ function incluir(){
 		$beneficiario->setApe1($_POST["apellido1"]);
 		$beneficiario->setApe2($_POST["apellido2"]);
 		$beneficiario->setSex($_POST["sexo"]);
-		$beneficiario->setFec_nac($_POST["fecha_nac"]);	
 		$beneficiario->setEsta_civ($_POST["estado_civ"]);
 		$beneficiario->setCel($_POST["celular"]);
 		$beneficiario->setTlf($_POST["telefono"]);
 		$beneficiario->setParentesco($_POST["parentesco"]);
-		$beneficiario->setParticipacion($_POST["participacion"]);		
+		$beneficiario->setParticipacion($_POST["participacion"]);	
 		// Se inicia la Transacción
+		if (strlen($_POST["fecha_nac"])==10)
+	{
+  	 	$elDia=substr($_POST["fecha_nac"],0,2);
+  	 	$elMes=substr($_POST["fecha_nac"],3,2);
+  	 	$elYear=substr($_POST["fecha_nac"],6,4);
+  	 	$Fecha=$elYear."-".$elMes."-".$elDia;
+	}
+			$beneficiario->setFec_nac($Fecha);		
+
 		$beneficiario->IniciaTransaccion();
 		// Se verifica que no exista para poder incluir	
 		$Val_benef=$beneficiario->valida_beneficiario();			
@@ -176,12 +184,19 @@ function modificar(){
 		$beneficiario->setApe1($_POST["apellido1"]);
 		$beneficiario->setApe2($_POST["apellido2"]);
 		$beneficiario->setSex($_POST["sexo"]);
-		$beneficiario->setFec_nac($_POST["fecha_nac"]);	
 		$beneficiario->setEsta_civ($_POST["estado_civ"]);
 		$beneficiario->setCel($_POST["celular"]);
 		$beneficiario->setTlf($_POST["telefono"]);
 		$beneficiario->setParentesco($_POST["parentesco"]);
-		$beneficiario->setParticipacion($_POST["participacion"]);		
+		$beneficiario->setParticipacion($_POST["participacion"]);
+	if (strlen($_POST["fecha_nac"])==10)
+	{
+  	 	$elDia=substr($_POST["fecha_nac"],0,2);
+  	 	$elMes=substr($_POST["fecha_nac"],3,2);
+  	 	$elYear=substr($_POST["fecha_nac"],6,4);
+  	 	$Fecha=$elYear."-".$elMes."-".$elDia;
+	}
+			$beneficiario->setFec_nac($Fecha);				
 		// Se inicia la Transacción
 		$beneficiario->IniciaTransaccion();	
 		$mBeneficiario=$beneficiario->mBeneficiario();

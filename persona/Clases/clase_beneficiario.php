@@ -89,7 +89,6 @@ class beneficiario extends conectaBDMy{
     }	
 //       Metodo registrar
  public function iBeneficiario(){	  
-	   $this->fec_nac = parent::fecha_bd($this->fec_nac);
        $sql="INSERT INTO tbeneficiario(id_beneficiario,id_titular,nacionalidad, cedula, nombre1, nombre2, apellido1, apellido2, sexo, fecha_nac, parentesco, estado_civ, celular, telefono, participacion, estatus)VALUES(
 	   '$this->idBeneficiario', 
 	   '$this->idTitular', 
@@ -117,7 +116,6 @@ class beneficiario extends conectaBDMy{
     }
 //       Metodo Modificar
 	function mBeneficiario() {
-	   	$this->fec_nac  = parent::fecha_bd($this->fec_nac);
 		//id_titular,		='$this-';
 		$sql= "UPDATE tbeneficiario SET								
 				nacionalidad	='$this->nac', 
@@ -188,7 +186,6 @@ public function excluir_Beneficiario(){
 			parent::cerrar_bd();
      }
 public function valida_beneficiario(){
-		$this->fec_nac  = parent::fecha_bd($this->fec_nac); 
 		$sql="select * from tbeneficiario where cedula = '$this->ced' and fecha_nac='$this->fec_nac'";
 		$cursor=parent::ejecuta_sql( $sql );
 		return ( parent::getNRegistro($cursor) );

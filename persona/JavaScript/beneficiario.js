@@ -173,17 +173,30 @@
 		document.form_beneficiario.participacion.focus();
 		return false;	
 	}	
-	valor4 = document.form_beneficiario.participacion.value;
-	if(!/^\d{2}%\d{0}$/.test(valor4) ) {
-		document.form_beneficiario.participacion.focus();
-		jAlert('El campo \"Participación\" no es valido! Ejemplo: 20%, sin otros caracteres especiales y letras','Dialogo de Alerta');
-		return false;
-	}
-	if(document.form_beneficiario.estado_civ.value=="0"){//6
-		jAlert("Debe seleccionar el estado Civil!");
-		document.form_beneficiario.estado_civ.focus();
-		return false;
-	}
+
+		var checkOK = "1234567890" + "%";
+		  var checkStr = document.form_beneficiario.participacion.value;
+		  var allValid = true; 
+		  for (i = 0; i < checkStr.length;i++) {
+			ch = checkStr.charAt(i); 
+			for (j = 0; j < checkOK.length;j++)
+			  if (ch == checkOK.charAt(j))
+				break;
+			if (j == checkOK.length) { 
+			  allValid = false; 
+			  break; 
+			}
+		  }
+		  if (!allValid) { 
+			jAlert('El campo \"participacion\" ','Dialogo de Alerta');
+			document.form_beneficiario.participacion.focus();
+			return false; 
+		  }	
+		if(document.form_beneficiario.estado_civ.value=="0"){//6
+			jAlert("Debe seleccionar el estado Civil!");
+			document.form_beneficiario.estado_civ.focus();
+			return false;
+		}
 	return true;
 }
  $(document).ready(function(){

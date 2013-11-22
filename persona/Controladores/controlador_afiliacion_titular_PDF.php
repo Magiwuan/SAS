@@ -86,20 +86,20 @@
 	$pdf->Cell(32,6,'NACIONALIDAD',1,0,'C',true);
 	$pdf->Cell(47,6,utf8_decode('CÉDULA DE IDENTIDAD'),1,0,'C',true);
 	$pdf->Cell(30,6,'SEXO',1,1,'C',true);	
-	$pdf->SetFont('Times','',10);
+	$pdf->SetFont('Times','',9);
 	$pdf->Cell(90,6,$nombre1.' '.$nombre2.' '.$apellido1.' '.$apellido2,1,0,'C',true);
 	$pdf->Cell(32,6,$nacionalidad,1,0,'C',true);
 	$pdf->Cell(47,6,$cedula,1,0,'C',true);
 	$pdf->Cell(30,6,$sexo,1,1,'C',true);	//sexo
 	$pdf->Ln(3);
 	$pdf->SetFont('Times','B',10);
-	$pdf->Cell(40,6,'FECHA DE NAC.',1,0,'C',true);
-	$pdf->Cell(20,6,'EDAD',1,0,'C',true);
-	$pdf->Cell(30,6,'CIUDAD',1,0,'C',true);
+	$pdf->Cell(30,6,'FECHA DE NAC.',1,0,'C',true);
+	$pdf->Cell(14,6,'EDAD',1,0,'C',true);
+	$pdf->Cell(46,6,'CIUDAD',1,0,'C',true);
 	$pdf->Cell(30,6,'ESTADO',1,0,'C',true);
 	$pdf->Cell(30,6,'EDO. CIVIL',1,0,'C',true);	
 	$pdf->Cell(49,6,utf8_decode('TELÉFONOS'),1,1,'C',true);	
-	$pdf->SetFont('Times','',10);
+	$pdf->SetFont('Times','',9);
 	if (strlen($fecha_nac)==10)
 	{
   	 	$elDia=substr($fecha_nac,8,2);
@@ -109,9 +109,9 @@
 	}
 	$titular->setFec_nac($fecha_nac);
 	$edad=$titular->edad();	
-	$pdf->Cell(40,6,$FechaNac,1,0,'C',true);
-	$pdf->Cell(20,6,$edad,1,0,'C',true);
-	$pdf->Cell(30,6,$nombCiudad,1,0,'C',true);
+	$pdf->Cell(30,6,$FechaNac,1,0,'C',true);
+	$pdf->Cell(14,6,$edad,1,0,'C',true);
+	$pdf->Cell(46,6,$nombCiudad,1,0,'C',true);
 	$pdf->Cell(30,6,$nombEstado,1,0,'C',true);
 	$pdf->Cell(30,6,$estado_civ,1,0,'C',true);
 	$pdf->Cell(49,6,$telefono.' / '.$celular,1,1,'C',true);
@@ -132,7 +132,7 @@
 	$pdf->Cell(44,6,'Ciudad: '.$nombCiudad,1,0,'L',true);
 	$pdf->Cell(81,6,'E-mail: '.$correo_elect,1,1,'L',true);
 	$pdf->Ln(5);
-	$pdf->SetFont('Times','B',10);
+	$pdf->SetFont('Times','B',9);
 	$upsa->setidUpsa($id_upsa);
 	$consulta=$upsa->Buscar_upsa();
 	for($i=0;$i<count($consulta);$i++){
@@ -173,7 +173,7 @@
 	$pdf->Cell(18,6,'SEXO',1,0,'C',true);
 	$pdf->Cell(25,6,'PARENTESCO',1,0,'C',true);
 	$pdf->Cell(16,6,'PARTIC.',1,1,'C',true);
-	$pdf->SetFont('Times','',10);
+	$pdf->SetFont('Times','',8);
 	$beneficiario->setidTitular($id);
 	$cons=$beneficiario->buscar_Beneficiario();
 	if($cons==0){

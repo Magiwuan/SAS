@@ -6,7 +6,7 @@ if(empty($_SESSION["login"]))
 include_once("../../Clases/clase_titular.php");
 	$titular= new titular();	
 	$idTitular=$_POST["id_titular"];
-	$titular->setidTitular(1);
+	$titular->setidTitular($idTitular);
 	$consulta=$titular->buscar_id();
 	for($i=0;$i<count($consulta);$i++)			
 	{

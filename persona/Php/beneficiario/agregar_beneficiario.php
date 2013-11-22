@@ -12,8 +12,6 @@ if(empty($_SESSION["login"]))
 	 $_SESSION["nombre1"]	=$_SESSION["nombre1"];
 	 $_SESSION["apellido1"]	=$_SESSION["apellido1"];
  }
-?>
-<?php
 
 include_once("../../Clases/clase_titular.php");
 	$titular= new titular();	
@@ -43,18 +41,13 @@ include_once("../../Clases/clase_titular.php");
 <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
 <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){		  
-		/*$('#parentesco').change(function(){
+		$('#parentesco').change(function(){
 			var parent = $('#parentesco').val();
 			if(parent=='Hijo' || parent=='Hija'){
-				$('#estado_civ').val('S');
-				$('#estado_civ').attr('disabled', true);
-			}else{
-				$('#estado_civ').attr('disabled', false);
+				$('#estado_civ').val('SOLTERO');
 			}
-		});	*/
-    	$('#nuevo').click(function(){
-		limpiar_form();
-		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
+		});	
+    	$('#nuevo').click(function(){		
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -253,7 +246,23 @@ function limpiar_form(ele) {
         <option value="VIUDO">Viudo</option>
       </select></td>
         <td>Discapacidad:</td>
-      <td colspan="4" rowspan="2" valign="top"><div id="cap_dis" style="width:20px"></div>
+      <td colspan="4" rowspan="2" valign="top"><div id="disc_capa"> 
+<select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
+  <?php include_once("../../Clases/clase_discapacidad.php");
+			$discapacidad=new discapacidad();
+			$lista_discapacidad=$discapacidad->lista_discapacidad();
+			for($i=0;$i<count($lista_discapacidad);$i++)
+			{			
+			?>
+  <option value="<?php echo $lista_discapacidad[$i][1];?>" 
+		  	<?php /*if($lista_discapacidad[$i][2]=='N/A')
+				{
+					echo "Selected=\"Selected\"";
+				}*/
+		 ?> > <?php echo $lista_discapacidad[$i][2];?></option>
+  <?php }?>
+</select>
+</div>
       </td>
 
       </tr>
@@ -269,7 +278,7 @@ function limpiar_form(ele) {
 				if($consul[$i][3]=='AFILIACIÓN - BENEFICIARIO'){					
 		?>
          <input type="checkbox" name="recaudos[]" id="<?php echo $i;?>" value="<?php echo $consul[$i][1];?>" disabled="disables">
-        <?php echo "<label  for='$i'>".$consul[$i][2]."</label>"; ?>
+        <?php echo "<label  for='$i'>".$consul[$i][2]."<br>"."</label>"; ?>
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Medicinas. Por favor <a href='#'>click</a></div>";}			
 		}?></div></td>
@@ -285,7 +294,7 @@ function limpiar_form(ele) {
 <table  width="686" border="0">
       <tr>
        <td width="265">&nbsp;</td>
-      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar los campos"/></td>
+      <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar los campos" onclick="limpiar_form(this.form)" /></td>
       <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
       <td width="265"></td>
       </tr>

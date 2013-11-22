@@ -3,6 +3,9 @@ if(empty($_SESSION["login"]))
 {
 	header("Location: Php/usuario/denied.php");
 }
+unset($_SESSION['idTitular']);
+unset($_SESSION['nombre1']);
+unset($_SESSION['apellido1']);
 ?>
 <!DOCTYPE HTML>
 <html lang="es">

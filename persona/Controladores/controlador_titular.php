@@ -73,7 +73,7 @@ function incluir(){
 			$elYear=substr($_POST["fecha_nac"],6,4);
 			$fecha=$elYear."-".$elMes."-".$elDia;
 		}
-			$titular->setFec_nac($fecha			);		
+			$titular->setFec_nac($fecha);		
 		$MayorEdad=$titular->edad();
 		if($MayorEdad<18){
 			echo $FechaBD."Esta persona es menor de edad. \nNo puede Registrarlo como trabajador!";	
