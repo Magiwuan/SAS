@@ -51,8 +51,8 @@ unset($_SESSION['apellido1']);
                             <th width="31">Ver</th>
                             <td width="58"><select name="paginas" id="paginas" title="Listar por cantidad">
                               <option value="5">5</option>
-                               <option value="10" selected="selected">10</option>
-                               <option value="15" >15</option>
+                               <option value="10" >10</option>
+                               <option value="15" selected="selected">15</option>
                                <option value="20">20</option>
                             </select></td>
                             <td width="78"><input type="submit" value="  Buscar  " class="btn btn-primary btn-small" title="Buscar Titular" /></td>
