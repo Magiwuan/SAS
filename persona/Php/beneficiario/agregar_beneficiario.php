@@ -57,7 +57,8 @@ include_once("../../Clases/clase_titular.php");
 		$("#fecha_nac").mask("99-99-9999");
 	    $("#celular").mask("9999-9999999");
 	    $("#telefono").mask("9999-9999999");
-    	$('#nuevo').click(function(){		
+    	$('#nuevo').click(function(){	
+		$('#disc_capa').load('select_discapacidad.php');
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');

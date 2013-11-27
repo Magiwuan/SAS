@@ -28,7 +28,7 @@
 		  document.form_beneficiario.nombre1.focus();
 		  return false;
 	      }
-		  var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
+		  var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ " + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
 		  var checkStr = document.form_beneficiario.nombre1.value;
 		  var allValid = true; 
 		  for (var i = 0; i < checkStr.length; i++) {
@@ -52,7 +52,7 @@
 		  document.form_beneficiario.nombre2.focus();
 		  return false;
 	      }
-		  var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
+		  var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ " + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
 		  var checkStr = document.form_beneficiario.nombre2.value;
 		  var allValid = true; 
 		  for (i = 0; i < checkStr.length;i++) {

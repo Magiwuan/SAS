@@ -98,7 +98,7 @@
 		  return false;
 	      }
 	var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
-	var checkStr = document.form_titular.apellido.value;
+	var checkStr = document.form_titular.apellido1.value;
 	var allValid = true; 
 	for(var i=0;i<checkStr.length;i++){
 		var ch=checkStr.charAt(i); 

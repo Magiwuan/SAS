@@ -19,7 +19,7 @@ if(empty($_SESSION["login"]))
 		</script> 
         </head>
 <body>
- <div id="disc_capa"> 
+ <div id="capa_disc"> 
 <select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
   <?php include_once("../../Clases/clase_discapacidad.php");
 			$discapacidad=new discapacidad();
