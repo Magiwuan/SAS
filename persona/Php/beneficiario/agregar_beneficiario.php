@@ -3,14 +3,8 @@ if(empty($_SESSION["login"]))
 {
 	header("Location: ../usuario/denied.php");
 }
- if(isset($_POST["id_titular"]) && isset($_POST["nombre1"]) && isset($_POST["apellido1"])){
+ if(isset($_POST["id_titular"])){
 	 $_SESSION["id_titular"]=$_POST["id_titular"];
-	 $_SESSION["nombre1"]	=$_POST["nombre1"];
-	 $_SESSION["apellido1"]	=$_POST["apellido1"];
- }else{
-	 $_SESSION["id_titular"]=$_SESSION["id_titular"];
-	 $_SESSION["nombre1"]	=$_SESSION["nombre1"];
-	 $_SESSION["apellido1"]	=$_SESSION["apellido1"];
  }
 
 include_once("../../Clases/clase_titular.php");
@@ -19,6 +13,8 @@ include_once("../../Clases/clase_titular.php");
 	$consulta=$titular->buscar_id();
 	for($i=0;$i<count($consulta);$i++)			
 	{
+		$nombre1		= $consulta[$i][4];
+		$apellido1		= $consulta[$i][6];
 		$cedula			= $consulta[$i][3];
 		$celular		= $consulta[$i][11];
 		$telefono		= $consulta[$i][12];	
@@ -39,24 +35,41 @@ include_once("../../Clases/clase_titular.php");
 <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script> 
 <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script> 
 <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script> 
+<script src="JavaScript/jquery.maskedinput.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){		  
 		$('#parentesco').change(function(){
 			var parent = $('#parentesco').val();
 			if(parent=='Hijo' || parent=='Hija'){
 				$('#estado_civ').val('SOLTERO');
+			}			
+		});	
+		$('#estado_civ').change(function(){
+			var parent = $('#parentesco').val();
+			var est_civ =$('#estado_civ').val();	
+				if(parent=='Hijo' || parent=='Hija'){	
+				if(est_civ!='SOLTERO'){							
+				jAlert('El campo "Estado civil" deber ser soltero para el Hijo o Hija!','Dialogo Alerta');	
+				$('#estado_civ').val('SOLTERO');
+				}
 			}
 		});	
+		$("#fecha_nac").mask("99-99-9999");
+	    $("#celular").mask("9999-9999999");
+	    $("#telefono").mask("9999-9999999");
     	$('#nuevo').click(function(){		
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
+		
 		$('#nuevo').attr('disabled', true);		
 		$('#bt').attr('disabled', false);
+		$('#fecha_nac').attr('disabled', false);
 		$('#nacionalidad1').attr('disabled', false);
 	    $('#nacionalidad1').focus();
 		$('#nacionalidad2').attr('disabled', false);
 		$('#cedula').attr('disabled', false);
+		$('#cedula').val('<?php echo $cedula."-";?>');
 		$('#nombre1').attr('disabled', false);
 		$('#nombre2').attr('disabled', false);
 		$('#apellido1').attr('disabled', false);
@@ -74,7 +87,7 @@ include_once("../../Clases/clase_titular.php");
     });	
      $('#agregar').click(function(){
 		if(valida()){	
-		fn_agregar();			
+			fn_agregar();				
 		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -140,10 +153,10 @@ function limpiar_form(ele) {
 </head>
 <body> 
 <div id="cuerpo">
-<form action="" method="POST" id="form_beneficiario" name="form_beneficiario">
+<form method="POST" id="form_beneficiario" name="form_beneficiario" >
 <table width="696" height="25" border="0" cellpadding="0" cellspacing="0">
  <tr>
-   <td width="684" height="37" ><h1>Titular: <?php echo $_SESSION["nombre1"].' '.$_SESSION["apellido1"];?></h1></td>
+   <td width="684" height="37" ><h1>Titular: <?php echo $nombre1.' '.$apellido1;?></h1></td>
    <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_agregar();" title="Salir" /></td>
  </tr>
 </table>
@@ -201,9 +214,10 @@ function limpiar_form(ele) {
         <input type="radio" name="sexo" id="sexo2" value="M" disabled="disabled"><label for="sexo2">Masculino<label/>
        </td>
       <td>Fecha de Nacimiento:</td>
-      <td width="72"> <input name="fecha_nac" id="fecha_nac" type="text" size="12" maxlength="10" readonly/></td>
+      <td width="72"> <input name="fecha_nac" id="fecha_nac" type="text" size="12" maxlength="10" disabled="disabled"  /></td>
       <td width="42"><button name="bt" id="bt" class="button" disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
-      <td width="82">    </td>
+      <td width="82"><?php echo $_SESSION["id_titular"]; ?>
+       </td>
       <td width="37">&nbsp;</td>
       </tr>
     <tr>
@@ -305,3 +319,6 @@ function limpiar_form(ele) {
  </div> 
 </body>
 </html>
+<?php
+unset($_SESSION['idTitular']);
+?>

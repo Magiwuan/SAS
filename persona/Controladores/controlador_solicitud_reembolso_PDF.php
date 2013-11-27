@@ -8,7 +8,7 @@
 	$recaudo= new recaudos();
 	$titular= new titular();	
 	$sReembolso= new sReembolso();
-	$pdf=new PDF('P','mm','A4');
+	$pdf=new PDF('P','mm','letter');
 	$pdf->Open();
 	$pdf->AliasNbPages();
 	$pdf->AddPage();

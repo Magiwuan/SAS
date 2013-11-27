@@ -17,8 +17,13 @@ if(empty($_SESSION["login"]))
     <script language="JavaScript" type="text/javascript" src="JavaScript/jquery.asmselect.js"></script>  
      <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>      
     <script language="javascript" type="text/javascript" src="JavaScript/empleado.js"></script>   
+    
      <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){	
+	    $("#fecha_nac").mask("99-99-9999");
+	    $("#fecha_ingr").mask("99-99-9999");
+	    $("#celular").mask("9999-9999999");
+	    $("#telefono").mask("9999-9999999");
 	    $('#nuevo').click(function(){	
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
@@ -26,6 +31,8 @@ if(empty($_SESSION["login"]))
 		$('#nuevo').attr('disabled', true);
 		
 	    $('#bt').attr('disabled', false);
+		$('#fecha_nac').attr('disabled', false);
+		$('#fecha_ingr').attr('disabled', false);
 		$('#bt_fna').attr('disabled', false);
 		$('#nacionalidad1').attr('disabled', false);
 		$('#nacionalidad1').focus();
@@ -60,14 +67,16 @@ if(empty($_SESSION["login"]))
 				
     });	
      $('#agregar').click(function(){
-		if(valida()){	
-		fn_agregar();			
+		if(valida()){		
+			fn_agregar();				
 		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
 		$('#agregar').attr('disabled', true);	
 		$('#bt').attr('disabled', true);
 		$('#bt_fna').attr('disabled', true);
+		$('#fecha_nac').attr('disabled', true);
+		$('#fecha_ingr').attr('disabled', true);
 		$('#nacionalidad1').attr('disabled', true);
 		$('#nacionalidad2').attr('disabled', true);
 		$('#cedula').attr('disabled', true);
@@ -131,15 +140,15 @@ function limpiar_form(ele) {
 </head>
 <body> 
 <form action="" method="POST" id="form_titular" name="form_titular">
-<table width="696" height="25" border="0" cellpadding="0" cellspacing="o">
+<table width="700" height="25" border="0" cellpadding="0" cellspacing="o">
     <tr>
-      <td width="687"><h1>Agregando Titular</h1></td>
+      <td width="695"><h1>Agregando Titular</h1></td>
        <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar();" title="Salir" /></td>
     </tr>
   </table>
   <fieldset>
   <legend align="left">Datos Personales</legend>
-    <table width="686" border="0" cellpadding="0" cellspacing="0">
+    <table width="700" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="120">Nacionalidad:</td>
       <td width="181">
@@ -161,7 +170,7 @@ function limpiar_form(ele) {
       </tr>
     <tr>
       <td>Primer Apellido:</td>
-      <td><input name="apellido1" type="text" disabled="disabled" id="apellido1" size="28"/></td>
+      <td><input name="apellido1" type="text" disabled="disabled" id="apellido1" size="25" /></td>
       <td>Segundo Apellido:</td>
       <td colspan="3">
         <input name="apellido2" type="text" disabled="disabled" id="apellido2" size="25" />
@@ -173,7 +182,7 @@ function limpiar_form(ele) {
         <input name="sexo" type="radio" disabled="disabled" id="sexo2" value="M"><label for="sexo2">Masculino</label>
        </td>
       <td>Fecha de Nacimiento:</td>
-      <td width="74"><input name="fecha_nac" type="text" id="fecha_nac" size="12" maxlength="10" readonly /></td>
+      <td width="74"><input name="fecha_nac" type="text" id="fecha_nac" size="12" maxlength="10"  disabled="disabled" /></td>
       <td width="43"><button name="bt" id="bt"   disabled="disabled"><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
       <td width="111"></td>
     </tr>
@@ -241,7 +250,7 @@ function limpiar_form(ele) {
   </fieldset>
      <fieldset> 
       <legend align="left">Dirección de Habitación</legend>   
-     <table width="686" border="0" cellpadding="0" cellspacing="0">   
+     <table width="700" border="0" cellpadding="0" cellspacing="0">   
     <tr>
       <td width="128">Estado:</td>
       <td width="160">
@@ -276,22 +285,22 @@ function limpiar_form(ele) {
   </fieldset>
   <fieldset>  
     <legend align="left">Datos del Trabajo</legend>   
-    <table width="686" border="0" cellpadding="0" cellspacing="0">  
+    <table width="700" border="0" cellpadding="0" cellspacing="0">  
       <tr>
         <td>Tipo Nómina:</td>
         <td><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina1" value="P" /><label for="tipo_nomina1">Presidente</label></td>
         <td><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina2" value="D" /><label for="tipo_nomina2">Directivo</label></td>
-        <td width="108"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina3" value="E" /><label for="tipo_nomina3">Empleado</label></td>
-        <td width="108"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina4" value="C" /><label for="tipo_nomina4">Contratado</label></td>
-        <td width="145"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina5" value="O" /><label for="tipo_nomina5">Obrero</label></td>
+        <td width="140"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina3" value="E" /><label for="tipo_nomina3">Empleado</label></td>
+        <td width="167"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina4" value="C" /><label for="tipo_nomina4">Contratado</label></td>
+        <td width="83"><input name="tipo_nomina" type="radio" disabled="disabled" id="tipo_nomina5" value="O" /><label for="tipo_nomina5">Obrero</label></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-      <td width="133" height="28">Fecha de ingreso:</td>
-      <td width="87"><input name="fecha_ingr" id="fecha_ingr" type="text" size="12" maxlength="10" readonly /></td>
-      <td width="89"><button name="bt_fna" id="bt_fna"  disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha" /></button> 
+      <td width="142" height="28">Fecha Ingreso:</td>
+      <td width="72"><input name="fecha_ingr" id="fecha_ingr" type="text" size="12" maxlength="10" disabled="disabled" /></td>
+      <td width="84"><button name="bt_fna" id="bt_fna"  disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha" /></button> 
       </td>
-      <td width="88" >Profesión:</td>
+      <td width="140" >Profesión:</td>
       <td colspan="2"><select name="profesion" disabled="disabled" id="profesion">
 		    <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
   <?php include_once("../Clases/clase_profesion.php");
@@ -303,7 +312,7 @@ function limpiar_form(ele) {
   <option value="<?php echo $lista_profesion[$i][1];?>"><?php echo $lista_profesion[$i][2];?></option>
   <?php }?>
 </select></td>
-      <td width="6">&nbsp;</td>
+      <td width="12">&nbsp;</td>
     </tr>
     <tr>
       <td height="24">Cargo:</td>
@@ -337,18 +346,17 @@ function limpiar_form(ele) {
         </select>
       </td>
       <td>UPSA:</td>
-      <td><select name="upsa" disabled="disabled" id="upsa" title="Sede o Planta">
-          <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
-			<?php include_once("../Clases/clase_upsa.php");
+      <td colspan="2"><select name="upsa" disabled="disabled" id="upsa" title="Sede o Planta">
+        <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
+        <?php include_once("../Clases/clase_upsa.php");
             $upsa=new upsa();
             $lista_upsa=$upsa->lista_upsa();
             for($i=0;$i<count($lista_upsa);$i++)
             {
             ?><option value="<?php echo $lista_upsa[$i][1];?>"><?php echo $lista_upsa[$i][2];?></option>
-            <?php }?>
+        <?php }?>
         </select>
-     </td>
-      <td></td>
+      </td>
       <td></td>
     </tr>
        <tr>

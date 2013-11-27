@@ -79,7 +79,7 @@ function fn_mostrar_agregar_grupo(id_titular,nombre1,apellido1){
     	$("#cuerpo").html('<div  style="margin-left:300px;"><img src="Imagen_sistema/loading.gif"/></div>');
   	},
 	success: function(){
-		$("#cuerpo").load("Php/beneficiario/agregar_beneficiario.php",{id_titular: id_titular, nombre1: nombre1, apellido1: apellido1});	
+		$("#cuerpo").load("Php/beneficiario/agregar_beneficiario.php",{id_titular: id_titular});	
 	}
 	});		
 };

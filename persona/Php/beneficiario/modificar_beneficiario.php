@@ -53,6 +53,9 @@ include_once("../../Clases/clase_beneficiario.php");
 <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
     	$('#modificar').click(function(){
+			$("#fecha_nac").mask("99-99-9999");
+	    $("#celular").mask("9999-9999999");
+	    $("#telefono").mask("9999-9999999");
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
 		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#guardar').attr('disabled', false);
@@ -80,7 +83,7 @@ include_once("../../Clases/clase_beneficiario.php");
     });	
      $('#guardar').click(function(){
 		if(valida()){	
-		fn_guardar();			
+			fn_modificar();
 		$('#modificar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#modificar').attr('disabled', false);
 		$('#guardar').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -127,7 +130,7 @@ include_once("../../Clases/clase_beneficiario.php");
   background-image: url(Imagen_sistema/cancelar.jpg);
 }
 .btn_modificar_act_img{
-	  background-image: url(Imagen_sistema/page_edit.png);
+	  background-image: url(Imagen_sistema/nuevo.jpg);
 }
 .btn_cancelar_act_img{
 	 margin: auto;
@@ -226,11 +229,11 @@ include_once("../../Clases/clase_beneficiario.php");
 </head>
 <body> 
 <div id="cuerpo">
-<form action="javascript: fn_modificar();" method="POST" id="form_beneficiario" name="form_beneficiario">
+<form action="" method="POST" id="form_beneficiario" name="form_beneficiario" ">
 <table width="696" height="25" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="684"><h1>Gestion de Beneficiario</h1></td>
-      <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_modificar();"/></td>   
+      <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar_vista_modificar(<?php echo $id_titular;?>);"/></td>   
     </tr>
   </table>
   <fieldset>
@@ -253,7 +256,7 @@ include_once("../../Clases/clase_beneficiario.php");
       <td width="135">Nro. C.I o Pasaporte:</td>
       <td colspan="2"><input name="cedula" type="text" disabled id="cedula" value="<?php if($cedula==0){echo "N/A";}else{ echo $cedula;};?>" size="16" readonly />
         <input name="ope" type="hidden" id="ope" value="M" hidden="hidden" />
-        <input name="id_beneficiario" type="hidden" id="id_beneficiario" value="<?php echo $_POST['id_beneficiario']; ?>" hidden="hidden" /></td>
+        <input name="id_beneficiario" type="hidden" id="id_beneficiario" value="<?php echo $_POST['id_beneficiario']; ?>" hidden="hidden" />
       </tr>
     <tr>
       <td height="29">&nbsp;</td>
@@ -325,17 +328,15 @@ include_once("../../Clases/clase_beneficiario.php");
         <?php	include_once("../../Clases/clase_discapacidad.php");
                     include_once("../../Clases/clase_detalle_discapacidad.php");
                     $discapacidad=new discapacidad();
-                    $detalle_disc= new detalle_disc();                    
-                    
+                    $detalle_disc= new detalle_disc(); 
                     $detalle_disc->setidBeneficiario($_POST['id_beneficiario']);
                     $discapcidades=$detalle_disc->buscar_discapacidades_beneficiario();
-                    
                     $lista=$discapacidad->lista_discapacidad();
                     for($i=0;$i<count($lista);$i++)
                     {
                    ?><option value="<?php echo $lista[$i][1];?>" 
-                                <?php 
-                                    for($x=0;$x<count($discapcidades);$x++)
+                     <?php 
+                                  for($x=0;$x<count($discapcidades);$x++)
                                     {
                                         if($lista[$i][1]==$discapcidades[$x][3])
                                         {

@@ -5,7 +5,7 @@
 	include_once("../Clases/clase_solicitud_medicina.php");
 	$titular= new titular();	
 	$sMedicina = new sMedicina();
-	$pdf=new PDF('P','mm','A4');
+	$pdf=new PDF('P','mm','letter');
 	$pdf->Open();
 	$pdf->AliasNbPages();
 	$pdf->AddPage();

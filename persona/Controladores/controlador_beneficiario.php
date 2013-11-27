@@ -147,7 +147,7 @@ function incluir(){
 					}
 	//este else es el del vaildar no sera activado hasta pensar el metodo de validacion de beneficiario
 	}else{
-			echo "No";//usuario ya registrado			
+			echo "Este Usuario ya ha sido incluido al Sistema.";//usuario ya registrado			
 			$var_control=true;
 			exit();
 		}

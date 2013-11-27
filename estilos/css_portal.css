@@ -8,14 +8,13 @@ body {
 		width:900px;
 		height:auto;
 		margin:auto;
-		border-radius:8px;
-				
+		border-radius:8px;				
 	}
     
-	 #franja{
+	#franja{
 	width: 850px;
 	height: 40px;
-	margin-top:2px;
+	margin-top:-5px;
 	background: -moz-linear-gradient(#39F, #069); 
 	background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #069),color-stop(1, #39F));	
 	background: -webkit-linear-gradient(#39F, #069);	
@@ -62,7 +61,7 @@ body {
 	#fecha{
 	width: 200px;
 	height: 20px;
-	margin-top:8px;
+	margin-top:5px;
 	margin-left:2px;
 	position:absolute;
 	font-family:Calibri;
@@ -105,7 +104,7 @@ body {
 		width:850px;
 		height:450px;
 		background:#F0F8E7;
-		margin-top:-10px;
+		margin-top:-15px;
 		margin-right:100;
 	}
 	#capa2{
@@ -114,30 +113,43 @@ body {
 		background:#fff;
 		margin-top:-10px;
 		margin-right:100;
-	}
-	#cuadro {
-	margin:0 auto;
-	position: relative;
-
-	}
+	}	
     #cuadro li {
 	display:inline;
 	float:left;
-	width:195px;
+	width:170px;
 	background-color:#F0F8E7;
-	padding:2px;
-	margin:8px;
-	margin-left:-5px;
-	margin-right:20px;
-	margin-top:9px;
-	position: relative;
-	border:#030 solid 1px;
+	padding:4px;
+	margin-left:15px;
+	margin-top:4px;
+	margin-right:5px;	
+	border: #030 solid 1px;
 	border-right: #030 solid 2px;
 	border-bottom: #030 solid 2px;
+	border-radius: 20px;
+	}
+	#cuadro ul a:hover
+	{
+  	color: #000;
+	}
+	#cuadro li:hover
+	{
+	display:inline;
+	float:left;
+	width:170px;
+	background-color:#F0F8E7;
+	padding:4px;
+	margin-left:15px;
+	margin-top:4px;
+	margin-right:5px;	
+	border: #F0F8E7 solid 1px;
+	border-right: #F0F8E7 solid 2px;
+	border-bottom: #F0F8E7 solid 2px;
+	border-radius: 20px;
 	}
 	#sombra{
 	width:729px;
-	height:400px;
+	height:385px;
 	padding:5px;
 	margin-top:30px;
 	margin-left:50px;
@@ -159,12 +171,13 @@ body {
 	padding:0px;
 	margin-top:0px;
 	margin-bottom:8px;
-	height:400px;
+	height:385px;
 	border-radius: 5px;
 	}
 	a{
-	font-family:Calibri;
-	color:#990000;
+	font-family:"Times New Roman", Times, serif;
+	font-weight: bold;
+	color:#B0001B;
 	text-decoration: none;
 	}
 	td.middle_spacer {

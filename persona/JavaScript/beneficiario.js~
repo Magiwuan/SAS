@@ -152,7 +152,7 @@
 		jAlert('El campo \"Celular\" no es valido! Ejemplo: 0416-2323455','Dialogo de Alerta');
 		return false;
 	}	
-	if(document.form_beneficiario.telefono.value != '') {//4
+	if(document.form_beneficiario.telefono.value 1= '') {//4
 		
 	valor2 = document.form_beneficiario.telefono.value;
 	if(!/^\d{4}-\d{7}$/.test(valor2)) {//4

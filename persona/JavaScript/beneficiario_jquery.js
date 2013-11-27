@@ -7,16 +7,7 @@ $(document).ready(function(){
 		$(this).removeClass("over");
 	});
 });
-$(document).ready(function(){	
-		$('#open').click(function(){
-		$("#cap").load('php/recaudos/popu_recaudos.php');	
-        $('#popup').fadeIn('slow');
-    });
-    $('#close').click(function(){
-        $('#popup').fadeOut('slow');
-		$('#recaudos').load('php/recaudos/recaudo.php');		
-    });
-	});		
+   
 	function fn_agregar(){	
 		
 		var str = $("#form_beneficiario").serialize();
@@ -24,13 +15,9 @@ $(document).ready(function(){
 			url: 'Controladores/controlador_beneficiario.php',
 			data: str,
 			type: 'post',
-			success: function(data){
-				if(data== "No"){				
-					jAlert('Este Usuario ya ha sido incluido al Sistema.','Dialogo de Alerta');
-				}else{
+			success: function(data){			
 					jAlert(data);
-					fn_listar_beneficiario();
-				}				
+					fn_listar_beneficiario();								
 			}
 		});
 	};
@@ -41,24 +28,18 @@ $(document).ready(function(){
 			data: str,
 			type: 'post',
 			success: function(data){
-				if(data== "No"){				
-					jAlert('Este Usuario ya ha Sido incluido al Sistema.');
-				}else{
-					if(data != "")
-					jAlert(data);
-				}				
+					jAlert(data);						
 			}
 		});
 	};
 function fn_cerrar_vista_agregar(){	
 	$("#cuerpo").load("index_empleado.php", function(){
-
 	});
 	
 };
 
-function fn_cerrar_vista_modificar(){
-	$("#cuerpo").load("Php/beneficiario/agregar_beneficiario.php", function(){
+function fn_cerrar_vista_modificar(id_titular){
+	$("#cuerpo").load("Php/beneficiario/agregar_beneficiario.php?",{id_titular: id_titular}, function(){
 	});
 };
 

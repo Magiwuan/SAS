@@ -71,6 +71,10 @@ include_once("../Clases/clase_ciudad.php");
      <script language="javascript" type="text/javascript" >	  
 	  $(document).ready(function(){		
 	    $('#nuevo').click(function(){	
+		$("#fecha_nac").mask("99-99-9999");
+	    $("#fecha_ingr").mask("99-99-9999");
+	    $("#celular").mask("9999-9999999");
+	    $("#telefono").mask("9999-9999999");
 		$("#disc_capa").css("display","block");
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
@@ -79,6 +83,8 @@ include_once("../Clases/clase_ciudad.php");
 		
 	    $('#bt').attr('disabled', false);
 		$('#bt_fna').attr('disabled', false);
+		$('#fecha_nac').attr('disabled', false);
+		$('#fecha_ingr').attr('disabled', false);
 		$('#nacionalidad1').attr('disabled', false);
 		$('#nacionalidad1').focus();
 		$('#nacionalidad2').attr('disabled', false);
@@ -114,7 +120,7 @@ include_once("../Clases/clase_ciudad.php");
     });	
      $('#agregar').click(function(){
 		if(valida()){	
-		fn_agregar();			
+			fn_agregar();
 		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#nuevo').attr('disabled', false);
 		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -122,6 +128,8 @@ include_once("../Clases/clase_ciudad.php");
 		$("#disc_capa").css("display","none");		
 		$('#bt').attr('disabled', true);
 		$('#bt_fna').attr('disabled', true);
+		$('#fecha_nac').attr('disabled', true);
+		$('#fecha_ingr').attr('disabled', true);
 		$('#nacionalidad1').attr('disabled', true);
 		$('#nacionalidad2').attr('disabled', true);
 		$('#cedula').attr('disabled', true);
@@ -161,7 +169,7 @@ include_once("../Clases/clase_ciudad.php");
 </style>
 </head> 
 <body> 
-    <form action="javascript: fn_nuevo();" method="POST" id="form_titular" name="form_titular">    
+    <form action="" method="POST" id="form_titular" name="form_titular">    
     <table width="696" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td width="690"><h1>Modificar Datos del Titular</h1></td> 
@@ -202,7 +210,7 @@ include_once("../Clases/clase_ciudad.php");
               <input type="radio" name="sexo" id="sexo2" value="M" <?php if($sexo=='M') echo "Checked=\"checked\""?> disabled="disabled"/> Masculino
            </td>
           <td>Fecha de Nacimiento:</td>
-          <td width="72"> <input name="fecha_nac" type="text" id="fecha_nac" value="<?php echo $fecha_nac;?>" size="12" maxlength="10" readonly /></td>
+          <td width="72"> <input name="fecha_nac" type="text" id="fecha_nac" value="<?php echo $fecha_nac;?>" size="12" maxlength="10"  disabled="disabled" /></td>
           <td width="43"><button name="bt" id="bt" class="button" disabled="disabled" title="Calendario para buscar fecha"><img src="Imagen_sistema/calend.png" width="20" height="20"/></button></td>
           <td width="131">
           </td>
@@ -344,11 +352,11 @@ Obrero</td>
             <td>&nbsp;</td>
           </tr>
           <tr>
-          <td width="128" height="28">Fecha de ingreso:</td>
+          <td width="128" height="28">Fecha Ingreso:</td>
           <td width="88"><input name="fecha_ingr" type="text" id="fecha_ingr" value="<?php $elDia=substr($fecha_i,8,2);
             $elMes=substr($fecha_i,5,2);
             $elYear=substr($fecha_i,0,4);
-            $fecha_ingr=$elDia."-".$elMes."-".$elYear;		echo $fecha_ingr;?>" size="12" maxlength="10" readonly /></td>
+            $fecha_ingr=$elDia."-".$elMes."-".$elYear;		echo $fecha_ingr;?>" size="12" maxlength="10"  disabled="disabled" /></td>
           <td width="81"><button name="bt_fna" id="bt_fna" class="button" disabled="disabled" title="Calendario para buscar fecha"><img src="Imagen_sistema/calend.png" width="20" height="20" /></button></td>
           <td width="88" >Profesión:</td>
           <td colspan="3"><select name="profesion" id="profesion" disabled="disabled" >

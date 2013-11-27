@@ -20,7 +20,7 @@
 	$titular->setidTitular($id2);
 	$resultado=$titular->buscar_id();
 	if($resultado!='-1'){
-	$pdf=new PDF('P','mm','A4');
+	$pdf=new PDF('P','mm','letter');
 	$pdf->Open();
 	$pdf->AliasNbPages();
 	$pdf->AddPage();

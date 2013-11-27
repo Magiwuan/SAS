@@ -33,9 +33,9 @@ if(empty($_SESSION["login"]))
   <legend align="left">Motivo de Exclusión</legend>   
     <table width="681" border="0" cellpadding="1" cellspacing="1">
       <tr>
-        <td width="116">&nbsp;</td>
-        <td width="103" height="23">Recaudos:</td>
-        <td width="448"><?php 	include_once("../../Clases/clase_recaudo.php");
+        <td width="47">&nbsp;</td>
+        <td width="76" height="23">Recaudos:</td>
+        <td width="548" rowspan="2"><?php 	include_once("../../Clases/clase_recaudo.php");
 			$recaudo= new recaudos();			
 			$recaudo->setTiporecaudo('EXCLUSIÓN - BENEFICIARIO');
 			$consul=$recaudo->lista_recaudo();
@@ -50,28 +50,15 @@ if(empty($_SESSION["login"]))
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td height="24">Motivo:</td>
-        <td><select name="motivo" id="motivo">
-          <option value="0" selected="selected" disabled="disabled">Seleccionar </option>
-          <?php include_once("../../Clases/clase_beneficiario.php");
-$beneficiario=new beneficiario();
-$lista=$beneficiario->lista_motivo();
-for($i=0;$i<count($lista);$i++)
-{
-	$idMotivo	=	$lista[$i][1];
-	$NombMotivo	=	$lista[$i][2];
-?>
-          <option value="<?php echo $idMotivo;?>"><?php echo $NombMotivo;?></option>
-          <?php }?>
-        </select>
+        <td height="23">&nbsp;</td>
+        </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td height="57">Motivo:</td>
+        <td><textarea name="direccion" id="direccion" cols="45" rows="2"></textarea>
           <input name="ope" type="hidden" id="ope" value="E">
           <input name="idBeneficiario" type="hidden" id="idBeneficiario" value="<?php echo $_POST['id_beneficiario']; ?>">
           <input type="hidden" name="idTitular" id="idTitular" value="<?php echo $_SESSION['id_titular'] ?>"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td height="42">Observaciones:</td>
-        <td><textarea name="direccion" id="direccion" cols="45" rows="2"></textarea></td>
       </tr>     
     </table>
  </fieldset>

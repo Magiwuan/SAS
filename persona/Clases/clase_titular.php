@@ -389,11 +389,11 @@ public function eTitular(){
  
 //       Sentencia sql para listar
      public function sql(){
-        $sql="select id_titular,nacionalidad,cedula,nombre1,nombre2,apellido1,apellido2,telefono from ttitular where estatus=1";
+        $sql="select id_titular,nacionalidad,cedula,nombre1,nombre2,apellido1,apellido2,telefono,celular from ttitular where estatus=1";
 		if ($this->ced!=NULL)
 		$sql .= " and cedula like '$this->ced%'";	
 		if($this->ordenar_por=='0')						
-		$sql .= " order by 1 asc";				
+		$sql .= " order by 1 desc";				
 		if ($this->ordenar_por=='1')
 			$sql .= " order by 6 asc";		
 		if ($this->ordenar_por=='2')

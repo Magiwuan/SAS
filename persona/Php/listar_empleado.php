@@ -31,7 +31,7 @@ if(empty($_SESSION["login"]))
         <tr>
             <th>Apellido(s) y Nombre(s)</th>
             <th>C&eacute;dula</th>
-            <th>Tel&eacute;fono</th>
+            <th>Tel&eacute;fono Celular</th>
             <th>&nbsp;</th>
             <th></th>
             <th></th>
@@ -43,7 +43,7 @@ if(empty($_SESSION["login"]))
         <tr>        
             <td ><?php echo $result['apellido1']; ?> <?php echo $result['apellido2']; ?>, <?php echo $result['nombre1']; ?> <?php echo $result['nombre2']; ?></td>
             <td> <?php echo  $result['nacionalidad'].'-'.$result['cedula']?></td>
-            <td><?php 	echo $result['telefono']?></td>
+            <td><?php 	echo $result['celular']?></td>
             <td align="center" ><a href="javascript: fn_mostrar_agregar_grupo(<?php echo $result['id_titular'] ?>,'<?php echo $result['nombre1'] ?>','<?php echo $result['apellido1'] ?>');" title="Grupo Familiar"><img src="Imagen_sistema/grupo.png" width="18" height="18" align="center"/></a></td>
             <td align="center" valign="middle"><a href="javascript: void(0)" 
 onclick="window.open('Controladores/controlador_afiliacion_titular_PDF.php?id=<?php echo $result['id_titular']?>','popup','width=770, height=800');return false;" title="Ver Planilla de Afiliación"><img src="Imagen_sistema/imp.png" width="16" height="16" align="center" /></a></td>
