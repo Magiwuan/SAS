@@ -131,10 +131,10 @@
 		$nombEstado= utf8_decode($consulta[$i][2]);
 		$nombPais= $consulta[$i][3];
 	}
-	$pdf->Cell(32,6,'Pais: '.$nombPais,1,0,'L',true);	
-	$pdf->Cell(36,6,'Estado: '.$nombEstado,1,0,'L',true);
-	$pdf->Cell(51,6,'Ciudad: '.$nombCiudad,1,0,'L',true);
-	$pdf->Cell(80,6,'E-mail: '.$correo_elect,1,1,'L',true);
+	$pdf->Cell(28,6,'Pais: '.$nombPais,1,0,'L',true);	
+	$pdf->Cell(34,6,'Estado: '.$nombEstado,1,0,'L',true);
+	$pdf->Cell(48,6,'Ciudad: '.$nombCiudad,1,0,'L',true);
+	$pdf->Cell(89,6,'E-mail: '.$correo_elect,1,1,'L',true);
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',9);
 	$upsa->setidUpsa($id_upsa);
