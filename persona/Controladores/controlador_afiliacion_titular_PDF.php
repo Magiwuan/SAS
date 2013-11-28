@@ -114,7 +114,11 @@
 	$pdf->Cell(46,6,$nombCiudad,1,0,'C',true);
 	$pdf->Cell(30,6,$nombEstado,1,0,'C',true);
 	$pdf->Cell(30,6,$estado_civ,1,0,'C',true);
-	$pdf->Cell(49,6,$telefono.' / '.$celular,1,1,'C',true);
+	if($telefono!=''){
+		$pdf->Cell(49,6,$telefono.' / '.$celular,1,1,'C',true);
+	}else{
+		$pdf->Cell(49,6,$celular,1,1,'C',true);
+	}	
 	$pdf->Ln(5);
 	$pdf->SetFont('Times','B',10);	
 	$pdf->Cell(199,6,utf8_decode("DIRECCIÓN DE HABITACIÓN"),1,1,'C',true);	
@@ -150,12 +154,12 @@
 	}	
 	$pdf->Cell(199,6,utf8_decode('DIRECCIÓN DE TRABAJO'),1,1,'C',true);	
 	$pdf->SetFont('Times','',8);
-	$pdf->Cell(32,6,'Upsa: '.$nombre,1,0,'L',true);
+	$pdf->Cell(34,6,'Upsa: '.$nombre,1,0,'L',true);
 	$pdf->Cell(117,6,utf8_decode('Dirección: ').$direccion,1,0,'L',true);
-	$pdf->Cell(50,6,'Ciudad: '.$ciudad_upsa,1,1,'L',true);
+	$pdf->Cell(48,6,'Ciudad: '.$ciudad_upsa,1,1,'L',true);
 	$pdf->Cell(40,6,'Estado: '.$estado_upsa,1,0,'L',true);
-	$pdf->Cell(35,6,'Pais: '.$pais_upsa,1,0,'L',true);	
-	$pdf->Cell(74,6,'E-mail: '.$correo_corp,1,0,'L',true);
+	$pdf->Cell(33,6,'Pais: '.$pais_upsa,1,0,'L',true);	
+	$pdf->Cell(76,6,'E-mail: '.$correo_corp,1,0,'L',true);
 	$pdf->Cell(50,6,'Cargo: '.utf8_decode($nomCargo),1,1,'L',true);
 
 	$pdf->Ln(5);
@@ -211,8 +215,7 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	$pdf->Cell(100,6,' ','0',1,'L',true);
 	$pdf->Cell(100,6,' ','0',1,'L',true);
 	$pdf->Cell(100,6,' ','0',1,'L',true);
-	$pdf->Cell(100,6,' ','0',1,'L',true);
-	$pdf->Cell(100,6,'*Acepta los terminos y condiciones establecidas por el Autogestionado de salud. ','0',1,'L',true);
+	$pdf->Cell(100,6,'*Acepta los terminos y condiciones establecidas por el Autogestionado de salud. '.$i,'0',1,'L',true);
 // Se envia el PDF.
 		$pdf->Output();
 	}else{
