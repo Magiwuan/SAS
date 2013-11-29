@@ -35,6 +35,26 @@ include_once("../../Clases/clase_beneficiario.php");
 		$fecha_nac=$elDia."-".$elMes."-".$elYear;	
 				
 	}
+	$beneficiario->setidTitular($_SESSION["id_titular"]);
+	$consulta=$beneficiario->buscar_Beneficiario();
+	for($i=0;$i<count($consulta);$i++)			
+	{
+		$part		= $consulta[$i][14];
+		$total+=str_replace("%","",$part);
+	}
+	$par=str_replace("%","",$participacion);	
+	if($total==100){
+	$p=$par;	
+	}else{
+		if($par!=0){
+		$p=$par+(100-$total);	
+		}elseif($par==0){
+		$p=100-$total;	
+		}
+	}
+	
+	
+	
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,7 +82,6 @@ include_once("../../Clases/clase_beneficiario.php");
 	    $("#celular").mask("9999-9999999");
 	    $("#telefono").mask("9999-9999999");
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
-		$('#escondido').load('Php/beneficiario/input_participacion.php');
 		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#guardar').attr('disabled', false);
 		$('#modificar').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -322,7 +341,7 @@ include_once("../../Clases/clase_beneficiario.php");
           <td colspan="2"><input name="participacion" type="text" disabled id="participacion"  value="<?php echo $participacion;?>" size="12"/></td>
         </tr>
     <tr>
-      <td height="29"><div id="escondido" style="display:none"></div></td>
+      <td height="29"><div id="escondido" style="display:none"><input name="escondido" type="text" id="escondido" value="<?php echo $p; ?>%" size="12"/></div></td>
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
             <option value="0" selected> Seleccionar</option>

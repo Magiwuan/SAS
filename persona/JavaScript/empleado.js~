@@ -203,10 +203,13 @@
 		document.form_titular.correo.focus();
 		return false;
 	}
-	if (!(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(document.form_titular.correo.value))){
+	if(document.form_titular.correo.value.length!=''){
+		if (!(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(document.form_titular.correo.value))){
 		jAlert('El correo es invalido! Ejemplo: usuario@servidor.dominio','Dialogo de Alerta');
 		return false;
 	}
+	}
+	
 	if(document.form_titular.direccion.value == ''){
 		document.form_titular.direccion.focus();
 		jAlert('El campo \"Direcci&oacute;n Habitaci&oacute;n\" no puede estar vacio!','Dialogo de Alerta');

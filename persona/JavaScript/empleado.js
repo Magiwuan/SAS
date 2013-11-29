@@ -43,7 +43,7 @@
   		document.form_titular.nombre1.focus();
   		return false;
 	}
-	var checkOK="ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ"+"abcdefghijklmnñopqrstuvwxyzáéíóú ";
+	var checkOK="ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ'" + "abcdefghijklmnñopqrstuvwxyzáéíóú' ";
 	var checkStr=document.form_titular.nombre1.value;
 	var allValid=true; 
 	for(i=0;i<checkStr.length;i++){
@@ -67,7 +67,7 @@
 		document.form_titular.nombre2.focus();
 		return false;
 	}
-	var checkOK="ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ"+"abcdefghijklmnñopqrstuvwxyzáéíóú ";
+	var checkOK="ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ'" + "abcdefghijklmnñopqrstuvwxyzáéíóú' ";
 	var checkStr=document.form_titular.nombre2.value;
 	var allValid=true; 
 	for(i=0;i<checkStr.length;i++){
@@ -97,7 +97,7 @@
 		  document.form_titular.apellido1.focus();
 		  return false;
 	      }
-	var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
+	var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ'" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
 	var checkStr = document.form_titular.apellido1.value;
 	var allValid = true; 
 	for(var i=0;i<checkStr.length;i++){
@@ -120,7 +120,7 @@
 		document.form_titular.apellido2.focus();
 		return false;
 	}
-	var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ" + "abcdefghijklmnñopqrstuvwxyzáéíóú ";
+	var checkOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ'" + "abcdefghijklmnñopqrstuvwxyzáéíóú' ";
 	var checkStr = document.form_titular.apellido2.value;
 	var allValid = true; 
 	for(var i=0;i<checkStr.length;i++){
