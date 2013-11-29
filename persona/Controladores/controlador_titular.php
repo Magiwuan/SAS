@@ -65,7 +65,7 @@ function incluir(){
 		// Se inicia la Transacción
 		$titular->IniciaTransaccion();
 		// Se verifica que no exista para poder incluir
-		$ValidaTitular=$titular->validar_titular();	
+		$ValidaTitular=$titular->verificar_titular();	
 		if (strlen($_POST["fecha_nac"])==10)
 		{
 			$elDia=substr($_POST["fecha_nac"],0,2);
@@ -73,10 +73,10 @@ function incluir(){
 			$elYear=substr($_POST["fecha_nac"],6,4);
 			$fecha=$elYear."-".$elMes."-".$elDia;
 		}
-			$titular->setFec_nac($fecha);		
+		$titular->setFec_nac($fecha);		
 		$MayorEdad=$titular->edad();
-		if($MayorEdad<18){
-			echo $FechaBD."Esta persona es menor de edad. \nNo puede Registrarlo como trabajador!";	
+		if($MayorEdad<18 || $MayorEdad>80){
+			echo $FechaBD."Edad incorrecta.<br>No puede Registrarlo! Edad: ".$MayorEdad;	
 			$var_control=true;	
 			exit();				
 		}
@@ -165,14 +165,19 @@ function incluir(){
 					}
 					
 		}else{
-			echo 'Este usuario ya ha sido incluido al sistema.';//usuario ya registrado			
+			if($ValidaTitular=='1'){
+			echo 'Esta persona esta registrada como Titular.<br>No puede Registrarlo!';//usuario ya registrado			
 			$var_control=true;
-			exit();
+			}elseif($ValidaTitular=='2'){
+			echo 'Esta persona esta registrada como Beneficiario.<br>No puede Registrarlo!';//usuario ya registrado			
+			$var_control=true;
+			}
+		
 		}
 		
 		if ($var_control){	
 			$titular->RompeTransaccion();		
-			echo "No se pudo llevar a cabo el registro debido a un error interno de la Base de Datos.";
+			echo " \n No se pudo llevar a cabo el registro debido a un error interno de la Base de Datos.";
 			exit();
 		}else{
 			$titular->FinTransaccion();	

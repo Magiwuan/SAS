@@ -59,6 +59,7 @@ include_once("../../Clases/clase_titular.php");
 	    $("#telefono").mask("9999-9999999");
     	$('#nuevo').click(function(){	
 		$('#disc_capa').load('Php/beneficiario/select_discapacidad.php');
+		$('#escondido').load('Php/beneficiario/input_participacion.php');
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
 		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
@@ -217,7 +218,7 @@ function limpiar_form(ele) {
       <td>Fecha de Nacimiento:</td>
       <td width="72"> <input name="fecha_nac" id="fecha_nac" type="text" size="12" maxlength="10" disabled="disabled"  /></td>
       <td width="42"><button name="bt" id="bt" class="button" disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
-      <td width="82"><?php echo $_SESSION["id_titular"]; ?>
+      <td width="82">
        </td>
       <td width="37">&nbsp;</td>
       </tr>
@@ -247,7 +248,7 @@ function limpiar_form(ele) {
           <td><input name="participacion" type="text" disabled id="participacion" size="12"/></td>
           <td><div title="Porcentaje de Poliza de Vida Ejemplo: 30%" id="test2" class="test2" style="width:30px; cursor:pointer;" ><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
 			    </td>
-          <td colspan="2">&nbsp;</td>
+          <td colspan="2"><div id="escondido" style="display:block"></div></td>
         </tr>
     <tr>
       <td height="28">&nbsp;</td>

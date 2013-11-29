@@ -362,6 +362,24 @@ public function eTitular(){
 						 		
 	}  
 	 
+	   public function verificar_titular(){ 
+		$sql="select * from ttitular where cedula = '$this->ced' and nacionalidad='$this->nac'";
+		$a=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($a)>0){
+		return 1;
+		}else{
+			$sql="select * from tbeneficiario where cedula = '$this->ced' and nacionalidad='$this->nac'";
+			$b=parent::ejecuta_sql( $sql );
+			if(parent::getNRegistro($b)>0)
+			return 2;
+			else
+			return -1; //si no encuentra registro procede a registrar	
+		}
+		
+		parent::cerrar_bd();	
+						 		
+	} 
+	 
 	  public function verificar(){
 		if($this->ced!=NULL){ 
         	$sql="select * from ttitular where cedula like '$this->ced%' ";

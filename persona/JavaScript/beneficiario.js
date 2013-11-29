@@ -17,6 +17,24 @@
 	jAlert('Debe seleccionar una Nacionalidad','Dialogo de Alerta') ;
 		return false;
 	}
+	var checkOK="1234567890"+"-";
+	var checkStr=document.form_beneficiario.cedula.value;
+	var allValid=true; 
+	for(i=0;i<checkStr.length;i++){
+		ch=checkStr.charAt(i); 
+		for(j=0;j<checkOK.length;j++)
+  			if(ch==checkOK.charAt(j))
+				break;
+			if(j==checkOK.length){ 
+  				allValid=false; 
+  				break; 
+			}
+  	}
+  	if(!allValid){ 
+		jAlert('El campo "cedula" no es valido.','Dialogo de Alerta');
+		document.form_beneficiario.cedula.focus(); 
+		return false; 
+  	}   
 		   if (document.form_beneficiario.nombre1.value.length <1) 
 		  {
 			jAlert('El campo  \"Primer Nombre\"  no puede estar vacio','Dialogo de Alerta');
@@ -43,7 +61,6 @@
 		  }
 		  if (!allValid) { 
 			jAlert('El campo \"Primer Nombre\" admite solo letras.','Dialogo de Alerta');
-			document.form_beneficiario.nombre1.value='';  
 			document.form_beneficiario.nombre1.focus(); 
 			return false; 
 		  } 
@@ -67,7 +84,6 @@
 		  }
 		  if (!allValid) { 
 			jAlert('El campo \"Segundo Nombre\" admite solo letras.','Dialogo de Alerta');
-			document.form_beneficiario.nombre2.value='';  
 			document.form_beneficiario.nombre2.focus(); 
 			return false; 
 		  }   
@@ -97,7 +113,6 @@
 		  }
 		  if (!allValid) { 
 			jAlert('El campo \"Primer Apellido\" admite solamente letras','Dialogo de Alerta'); 
-			document.form_beneficiario.apellido1.value=''; 
 			document.form_beneficiario.apellido1.focus(); 
 			return false; 
 		  }
@@ -121,7 +136,6 @@
 		  }
 		  if (!allValid) { 
 			jAlert('El campo \"Segundo Apellido\" admite solamente letras','Dialogo de Alerta'); 
-			document.form_beneficiario.apellido2.value=''; 
 			document.form_beneficiario.apellido2.focus(); 
 			return false; 
 		  }
@@ -167,29 +181,29 @@
 		return false;
 	}
 	if(document.form_beneficiario.participacion.value == '') {//8
-		jAlert('El campo \"% de Participación\" no puede estar vacio!','Dialogo de Alerta');
+		jAlert('El campo \"Participación\" no puede estar vacio!','Dialogo de Alerta');
 		document.form_beneficiario.participacion.focus();
 		return false;	
 	}	
-
-		var checkOK = "1234567890" + "%";
-		  var checkStr = document.form_beneficiario.participacion.value;
-		  var allValid = true; 
-		  for (i = 0; i < checkStr.length;i++) {
-			ch = checkStr.charAt(i); 
-			for (j = 0; j < checkOK.length;j++)
-			  if (ch == checkOK.charAt(j))
-				break;
-			if (j == checkOK.length) { 
-			  allValid = false; 
-			  break; 
-			}
-		  }
-		  if (!allValid) { 
-			jAlert('El campo \"participacion\" ','Dialogo de Alerta');
+	valor3 = document.form_beneficiario.participacion.value;	
+	if(valor3=='100%'){
+	}else{
+		
+		if(!/^\d{1,2}%$/.test(valor3)) {//4
 			document.form_beneficiario.participacion.focus();
-			return false; 
-		  }	
+			jAlert('El campo \"Participación\" no es valido! Ejemplo: 1% / 10% / 100%','Dialogo de Alerta');
+			return false;
+		}	
+		
+	}
+	var strfirst=document.form_beneficiario.participacion.value;	
+	var first=strfirst.replace("%","");
+	var strsecond=document.form_beneficiario.escondido.value;	
+    var second=strsecond.replace("%","");
+	if(parseInt(first)>parseInt(second)){
+    	jAlert('La participacion no es validad, resta: '+second+'%','Dialogo de Alerta');
+		return false;
+	}
 		if(document.form_beneficiario.estado_civ.value=="0"){//6
 			jAlert("Debe seleccionar el estado Civil!");
 			document.form_beneficiario.estado_civ.focus();
@@ -199,13 +213,6 @@
 }
  $(document).ready(function(){
 		   $("select[multiple]").asmSelect({			
-			});	
-		$('#open').click(function(){
-		$("#cap").load('php/recaudos/popu_recaudos.php');	
-        $('#popup').fadeIn('slow');
-    });
-    $('#close').click(function(){
-        $('#popup').fadeOut('slow');
-		$('#recaudos').load('php/recaudos/recaudo.php');		
-    });
+			});			
+   
 	});	

@@ -7,7 +7,7 @@ if(empty($_SESSION["login"]))
 	include_once("../../Clases/clase_beneficiario.php");
 	$beneficiario = new beneficiario();
 	$paging = new PHPPaging;		
-	$pagina=6;
+	$pagina=4;
 	$beneficiario->setidTitular($_SESSION["id_titular"]);
 	$consulta=$beneficiario->listar_beneficiario();	
 	$paging->agregarConsulta($consulta); 	

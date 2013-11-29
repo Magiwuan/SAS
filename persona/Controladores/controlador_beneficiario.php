@@ -1,6 +1,7 @@
 <?php
 // Llamado a la clase a usarse
 include_once("../Clases/clase_beneficiario.php");
+include_once("../Clases/clase_titular.php");
 include_once("../Clases/clase_detalle_discapacidad.php");
 include_once("../Clases/clase_detalle_recaudos.php");
 include_once("../Clases/clase_cobertura.php");
@@ -27,6 +28,7 @@ switch($ope){
 function incluir(){
 // Se crea un Objeto  de la clase 
 	$beneficiario = new beneficiario();
+	$titular= new titular();
 	$detalle_disc = new detalle_disc();
 	$detalle_rec = new detalle_rec();
 	$cobertura = new cobertura();
@@ -57,12 +59,18 @@ function incluir(){
   	 	$elYear=substr($_POST["fecha_nac"],6,4);
   	 	$Fecha=$elYear."-".$elMes."-".$elDia;
 	}
-			$beneficiario->setFec_nac($Fecha);		
-
+	$beneficiario->setFec_nac($Fecha);		
+	$titular->setFec_nac($Fecha);		
+		$MayorEdad=$titular->edad();
+		if($MayorEdad<0 || $MayorEdad>120){
+			echo $FechaBD."Edad incorrecta.<br>No puede Registrarlo! Edad: ".$MayorEdad;	
+			$var_control=true;	
+			exit();				
+		}
 		$beneficiario->IniciaTransaccion();
 		// Se verifica que no exista para poder incluir	
-		$Val_benef=$beneficiario->valida_beneficiario();			
-		if ($Val_benef=='0'){
+		$Val_benef=$beneficiario->verificar_beneficiario();			
+		if ($Val_benef=='-1'){
 		// Busca el ultimo registro de la entrada e incrementa el id
 				$result = $beneficiario->buscaUltimoID();	
 					if ($result){
@@ -94,7 +102,7 @@ function incluir(){
 				$ibeneficiario_Discapacidad=$detalle_disc->iBeneficiario_Discapacidad();
 					if($ibeneficiario_Discapacidad!='-1'){
 					 $var_control=true;	 
-					 echo "Error 3";
+					 echo "Error 2";
 					 }
 			 $cont_disc++;	 			 
 			}
@@ -115,7 +123,7 @@ function incluir(){
 				$ibeneficiario_Recaudos=$detalle_rec->iBeneficiario_Recaudos();
 					if($ibeneficiario_Recaudos!='-1'){
 					 $var_control=true;	 
-					 echo "Error 4";
+					 echo "Error 3";
 					 }
 			 $cont_rec++;	 	
 			 }
@@ -142,19 +150,23 @@ function incluir(){
 					$cobertura->setmontoDisponible($Monto);
 					$iDetalle_cobertura=$cobertura->iDetalle_cobertura();
 					if($iDetalle_cobertura!='-1'){
-						echo "Error DetalleCobertura";
+						echo "Error 4";
 						$var_control=true;
 					}
 	//este else es el del vaildar no sera activado hasta pensar el metodo de validacion de beneficiario
 	}else{
-			echo "Este Usuario ya ha sido incluido al Sistema.";//usuario ya registrado			
+			if($Val_benef=='1'){
+			echo 'Esta persona esta registrada como Titular.<br>No puede Registrarlo!';//usuario ya registrado			
 			$var_control=true;
-			exit();
+			}elseif($Val_benef=='2'){
+			echo 'Esta persona esta registrada como Beneficiario.<br>No puede Registrarlo!';//usuario ya registrado			
+			$var_control=true;
+			}
 		}
 		
 		if ($var_control){	
 			$beneficiario->RompeTransaccion();		
-			echo "No se pudo llevar a cabo el registro debido a un error interno de la Base de Datos.";
+			echo "<br>No se pudo llevar a cabo el registro debido a un error interno de la Base de Datos.";
 			exit();
 		}else{
 			$beneficiario->FinTransaccion();	

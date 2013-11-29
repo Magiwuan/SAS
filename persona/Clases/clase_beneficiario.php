@@ -193,6 +193,23 @@ public function valida_beneficiario(){
 		//si no encuentra registro procede a registrar			
 		parent::cerrar_bd();							 		
 	} 
+	  public function verificar_beneficiario(){ 
+		$sql="select * from ttitular where cedula = '$this->ced' and nacionalidad='$this->nac'";
+		$a=parent::ejecuta_sql( $sql );
+		if(parent::getNRegistro($a)>0){
+		return 1;
+		}else{
+			$sql="select * from tbeneficiario where cedula = '$this->ced' and nacionalidad='$this->nac'";
+			$b=parent::ejecuta_sql( $sql );
+			if(parent::getNRegistro($b)>0)
+			return 2;
+			else
+			return -1; //si no encuentra registro procede a registrar	
+		}
+		
+		parent::cerrar_bd();	
+						 		
+	} 
 //       Metodo Buscar ultmimo
     public function buscaUltimoID(){
        $sql="SELECT * FROM tbeneficiario ORDER BY id_beneficiario DESC LIMIT 1";
