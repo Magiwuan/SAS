@@ -1,12 +1,10 @@
 <?php session_start(); //Funcion que permite trabajar con sesiones
-if(empty($_SESSION["login"])) 
-{
+if(empty($_SESSION["login"])){
 	header("Location: ../usuario/denied.php");
 }
  if(isset($_POST["id_titular"])){
 	 $_SESSION["id_titular"]=$_POST["id_titular"];
  }
-
 include_once("../../Clases/clase_titular.php");
 	$titular= new titular();	
 	$titular->setidTitular($_SESSION["id_titular"]);
@@ -62,8 +60,7 @@ include_once("../../Clases/clase_titular.php");
 		$('#escondido').load('Php/beneficiario/input_participacion.php');
 		$('#agregar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#agregar').attr('disabled', false);
-		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');
-		
+		$('#nuevo').removeClass('btn_act').addClass('btn_guardar_desact');		
 		$('#nuevo').attr('disabled', true);		
 		$('#bt').attr('disabled', false);
 		$('#fecha_nac').attr('disabled', false);
@@ -248,7 +245,7 @@ function limpiar_form(ele) {
           <td><input name="participacion" type="text" disabled id="participacion" size="12"/></td>
           <td><div title="Porcentaje de Poliza de Vida Ejemplo: 30%" id="test2" class="test2" style="width:30px; cursor:pointer;" ><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
 			    </td>
-          <td colspan="2"><div id="escondido" style="display:block"></div></td>
+          <td colspan="2"><div id="escondido" style="display:none"></div></td>
         </tr>
     <tr>
       <td height="28">&nbsp;</td>

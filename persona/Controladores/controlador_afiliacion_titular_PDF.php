@@ -215,7 +215,7 @@ $pdf->Cell(80,6,utf8_decode($cons[$i][5]).' '.utf8_decode($cons[$i][6]).' '.utf8
 	$pdf->Cell(100,6,' ','0',1,'L',true);
 	$pdf->Cell(100,6,' ','0',1,'L',true);
 	$pdf->Cell(100,6,' ','0',1,'L',true);
-	$pdf->Cell(100,6,'*Acepta los terminos y condiciones establecidas por el Autogestionado de salud. '.$i,'0',1,'L',true);
+	$pdf->Cell(100,6,'*Acepta los terminos y condiciones establecidas por el Autogestionado de salud. ','0',1,'L',true);
 // Se envia el PDF.
 		$pdf->Output();
 	}else{

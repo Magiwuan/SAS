@@ -166,21 +166,21 @@
 		jAlert('El campo \"Celular\" no es valido! Ejemplo: 0416-2323455','Dialogo de Alerta');
 		return false;
 	}	
-	if(document.form_beneficiario.telefono.value != '') {//4
+	if(document.form_beneficiario.telefono.value != ''){
 		
 	valor2 = document.form_beneficiario.telefono.value;
-	if(!/^\d{4}-\d{7}$/.test(valor2)) {//4
+	if(!/^\d{4}-\d{7}$/.test(valor2)) {
 		document.form_beneficiario.telefono.focus();
 		jAlert('El campo \"Teléfono\" no es valido! Ejemplo: 0233-2323455','Dialogo de Alerta');
 		return false;
 	}
 	}	
-	if(document.form_beneficiario.parentesco.value=="0"){//6
+	if(document.form_beneficiario.parentesco.value=="0"){
 		jAlert("Debe seleccionar el parentesco!");
 		document.form_beneficiario.parentesco.focus();
 		return false;
 	}
-	if(document.form_beneficiario.participacion.value == '') {//8
+	if(document.form_beneficiario.participacion.value == '') {
 		jAlert('El campo \"Participación\" no puede estar vacio!','Dialogo de Alerta');
 		document.form_beneficiario.participacion.focus();
 		return false;	
@@ -189,7 +189,7 @@
 	if(valor3=='100%'){
 	}else{
 		
-		if(!/^\d{1,2}%$/.test(valor3)) {//4
+		if(!/^\d{1,2}%$/.test(valor3)) {
 			document.form_beneficiario.participacion.focus();
 			jAlert('El campo \"Participación\" no es valido! Ejemplo: 1% / 10% / 100%','Dialogo de Alerta');
 			return false;
@@ -199,12 +199,12 @@
 	var strfirst=document.form_beneficiario.participacion.value;	
 	var first=strfirst.replace("%","");
 	var strsecond=document.form_beneficiario.escondido.value;	
-    var second=strsecond.replace("%","");
+    	var second=strsecond.replace("%","");
 	if(parseInt(first)>parseInt(second)){
     	jAlert('La participacion no es validad, resta: '+second+'%','Dialogo de Alerta');
 		return false;
 	}
-		if(document.form_beneficiario.estado_civ.value=="0"){//6
+		if(document.form_beneficiario.estado_civ.value=="0"){
 			jAlert("Debe seleccionar el estado Civil!");
 			document.form_beneficiario.estado_civ.focus();
 			return false;

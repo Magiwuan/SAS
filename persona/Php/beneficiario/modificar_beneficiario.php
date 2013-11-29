@@ -50,19 +50,26 @@ include_once("../../Clases/clase_beneficiario.php");
 <script language="javascript" type="text/javascript" src="JavaScript/beneficiario_jquery.js"></script>
 <script language="javascript" type="text/javascript" src="JavaScript/beneficiario.js"></script>   
 <script language="javascript" type="text/javascript" src="JavaScript/jquery.alerts.js"></script>
+<script src="JavaScript/jquery.maskedinput.js" type="text/javascript"></script>
+
 <script language="javascript" type="text/javascript" >
 	  $(document).ready(function(){
+		$("#fecha_nac").mask("99-99-9999");
+	    $("#celular").mask("9999-9999999");
+	    $("#telefono").mask("9999-9999999");
     	$('#modificar').click(function(){
-			$("#fecha_nac").mask("99-99-9999");
+		
 	    $("#celular").mask("9999-9999999");
 	    $("#telefono").mask("9999-9999999");
 		$("#cap_dis").load('Php/beneficiario/select_discapacidad.php');
+		$('#escondido').load('Php/beneficiario/input_participacion.php');
 		$('#guardar').removeClass('btn_guardar_desact').addClass('btn_act');
 		$('#guardar').attr('disabled', false);
 		$('#modificar').removeClass('btn_act').addClass('btn_guardar_desact');
 		$('#modificar').attr('disabled', true);
 		
 		$('#bt').attr('disabled', false);
+		$('#fecha_nac').attr('disabled', false);
 		$('#nacionalidad1').attr('disabled', false);
 		$('#nacionalidad2').attr('disabled', false);
 		$('#cedula').attr('disabled', false);
@@ -90,6 +97,8 @@ include_once("../../Clases/clase_beneficiario.php");
 		$('#guardar').attr('disabled', true);	
 		
 		$('#bt').attr('disabled', true);
+		$('#fecha_nac').attr('disabled', true);
+
 		$('#nacionalidad1').attr('disabled', true);
 		$('#nacionalidad2').attr('disabled', true);
 		$('#cedula').attr('disabled', true);
@@ -229,7 +238,7 @@ include_once("../../Clases/clase_beneficiario.php");
 </head>
 <body> 
 <div id="cuerpo">
-<form action="" method="POST" id="form_beneficiario" name="form_beneficiario" ">
+<form action="" method="POST" id="form_beneficiario" name="form_beneficiario">
 <table width="696" height="25" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="684"><h1>Gestion de Beneficiario</h1></td>
@@ -283,7 +292,7 @@ include_once("../../Clases/clase_beneficiario.php");
         <input type="radio" name="sexo" id="sexo2" value="M" <?php if($sexo=='M') echo "Checked=\"checked\""?> disabled="disabled" > Masculino
        </td>
       <td>Fecha de Nacimiento:</td>
-      <td width="72"> <input name="fecha_nac" type="text" disabled id="fecha_nac" value="<?php echo $fecha_nac;?>" size="12" maxlength="10" readonly /></td>
+      <td width="72"> <input name="fecha_nac" type="text" disabled id="fecha_nac" value="<?php echo $fecha_nac;?>" size="12" maxlength="10" disabled="disabled" /></td>
       <td width="189"><button name="bt" id="bt" class="button" disabled="disabled"><img src="Imagen_sistema/calend.png" width="20" height="20"/></button>
 </td>
     </tr>
@@ -313,7 +322,7 @@ include_once("../../Clases/clase_beneficiario.php");
           <td colspan="2"><input name="participacion" type="text" disabled id="participacion"  value="<?php echo $participacion;?>" size="12"/></td>
         </tr>
     <tr>
-      <td height="29">&nbsp;</td>
+      <td height="29"><div id="escondido" style="display:none"></div></td>
       <td>Estado Civil:</td>
       <td><select name="estado_civ" disabled="disabled" id="estado_civ">
             <option value="0" selected> Seleccionar</option>
