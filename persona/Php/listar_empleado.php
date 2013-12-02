@@ -3,13 +3,17 @@ if(empty($_SESSION["login"]))
 {
 	header("Location: usuario/denied.php");
 }
-
 	include_once("../Clases/PHPPaging.lib.php");
 	include_once("../Clases/clase_titular.php");
 	$titular = new titular();
 	$paging = new PHPPaging;
+	if(isset($_GET["buscar"]))
 	$titular->setCed($_GET["buscar"]);
-	$titular->setOrden($_GET["ordenar_por"]);
+	if(isset($_GET["ordenar_por"])){
+		$titular->setOrden($_GET["ordenar_por"]);
+	}else{
+		$titular->setOrden(0);
+	}
 	$consulta=$titular->sql();
 	$paging->agregarConsulta($consulta); 	
 	$paging->porPagina($_GET["paginas"]);
@@ -42,8 +46,8 @@ if(empty($_SESSION["login"]))
     <?php while ($result = $paging->fetchResultado()){?>
         <tr>        
             <td ><?php echo $result['apellido1']; ?> <?php echo $result['apellido2']; ?>, <?php echo $result['nombre1']; ?> <?php echo $result['nombre2']; ?></td>
-            <td> <?php echo  $result['nacionalidad'].'-'.$result['cedula']?></td>
-            <td><?php 	echo $result['celular']?></td>
+            <td> <?php echo  $result['nacionalidad'].'-'.$result['cedula']; ?></td>
+            <td><?php 	echo $result['celular'];?></td>
             <td align="center" ><a href="javascript: fn_mostrar_agregar_grupo(<?php echo $result['id_titular'] ?>,'<?php echo $result['nombre1'] ?>','<?php echo $result['apellido1'] ?>');" title="Grupo Familiar"><img src="Imagen_sistema/grupo.png" width="18" height="18" align="center"/></a></td>
             <td align="center" valign="middle"><a href="javascript: void(0)" 
 onclick="window.open('Controladores/controlador_afiliacion_titular_PDF.php?id=<?php echo $result['id_titular']?>','popup','width=770, height=800');return false;" title="Ver Planilla de Afiliación"><img src="Imagen_sistema/imp.png" width="16" height="16" align="center" /></a></td>

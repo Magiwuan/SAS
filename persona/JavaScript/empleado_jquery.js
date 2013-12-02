@@ -10,11 +10,19 @@ $(document).ready(function(){
 function fn_agregar(){		
 		var str=$("#form_titular").serialize();
 		$.ajax({
-			url:'Controladores/controlador_titular.php?',
+			url:'Controladores/controlador_titular.php',
 			data:str,
 			type:'post',
 			success:function(data){
-				jAlert(data,'Dialogo de Alerta');								
+				if(data!='Ok'){
+						jAlert(data, 'Dialogo de Alerta');
+				}else{										
+					jAlert('Los datos se guardados con Exito!', 'Dialogo de Alerta', function(r) {
+						if(r==true){		
+							fn_cerrar();	
+						}
+					});				
+				}
 			}
 		});
 	};

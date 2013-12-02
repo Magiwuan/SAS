@@ -43,8 +43,7 @@ class detalle_disc extends conectaBDMy{
     }
 public function iBeneficiario_Discapacidad(){	  
        $sql="INSERT INTO tbeneficiario_discapacidad(id_beneficiario_discapacidad,id_beneficiario,id_discapacidad,estatus) values('$this->id_beneficiario_disc', '$this->idBeneficiario', '$this->idDiscapacidad', '1')";
-     $respuesta= parent::ejecuta_sql($sql);
-	
+     $respuesta= parent::ejecuta_sql($sql);	
 	 if($respuesta>0)
 		  return -1;//Exito
 	   else

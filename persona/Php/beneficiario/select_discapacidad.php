@@ -27,11 +27,11 @@ if(empty($_SESSION["login"]))
 			for($i=0;$i<count($lista_discapacidad);$i++)
 			{			
 			?>
-  <option value="<?php echo $$lista_discapacidad[$i][1];?>" 
-		  	<?php /*if($lista_discapacidad[$i][2]=='N/A')
+  <option value="<?php echo $lista_discapacidad[$i][1];?>" 
+		  	<?php if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";
-				}*/
+				}
 		 ?> > <?php echo $lista_discapacidad[$i][2];?></option>
   <?php }?>
 </select>

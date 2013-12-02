@@ -121,12 +121,15 @@ function limpiar_form(ele) {
 				 $(this).val('');
                	 break;
 		case 'text':
-		if($('input[name="cedula"]')){}else {$(this).val('');}
+			if($('#fecha_nac')!='' && $('#participacion')!=''){
+				 $('#fecha_nac').val('');
+				  $('#participacion').val('');
+			}
 		break;
          case 'checkbox':
          case 'radio':
          	this.checked = false;
-			   break;
+		break;
       }
    }); 			
    $(ele).find('select').each(function() {
@@ -179,8 +182,8 @@ function limpiar_form(ele) {
     </tr>
     <tr>
       <td width="1">&nbsp;</td>
-      <td width="103">Nacionalidad:</td>
-      <td width="179">
+      <td width="100">Nacionalidad:</td>
+      <td width="191">
       	<input type="radio" name="nacionalidad" id="nacionalidad1" value="V" disabled="disabled"><label for="nacionalidad1">Venezolano<label/> 
         <input type="radio" name="nacionalidad" id="nacionalidad2" value="E" disabled="disabled"><label for="nacionalidad2">Extranjero<label/>
        </td>
@@ -214,10 +217,10 @@ function limpiar_form(ele) {
        </td>
       <td>Fecha de Nacimiento:</td>
       <td width="72"> <input name="fecha_nac" id="fecha_nac" type="text" size="12" maxlength="10" disabled="disabled"  /></td>
-      <td width="42"><button name="bt" id="bt" class="button" disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
-      <td width="82">
+      <td width="88"><button name="bt" id="bt" class="button" disabled="disabled" ><img src="Imagen_sistema/calend.png" width="20" height="20" title="Calendario para buscar fecha"/></button></td>
+      <td width="53">
        </td>
-      <td width="37">&nbsp;</td>
+      <td width="11">&nbsp;</td>
       </tr>
     <tr>
     <td height="29">&nbsp;</td>
@@ -246,6 +249,7 @@ function limpiar_form(ele) {
           <td><div title="Porcentaje de Poliza de Vida Ejemplo: 30%" id="test2" class="test2" style="width:30px; cursor:pointer;" ><img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
 			    </td>
           <td colspan="2"><div id="escondido" style="display:none"></div></td>
+          
         </tr>
     <tr>
       <td height="28">&nbsp;</td>
@@ -259,7 +263,7 @@ function limpiar_form(ele) {
         <option value="VIUDO">Viudo</option>
       </select></td>
         <td>Discapacidad:</td>
-      <td colspan="4" rowspan="2" valign="top"><div id="disc_capa"> 
+      <td colspan="3" rowspan="2" valign="top"><div id="disc_capa"> 
 <select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
   <?php include_once("../../Clases/clase_discapacidad.php");
 			$discapacidad=new discapacidad();
@@ -277,7 +281,7 @@ function limpiar_form(ele) {
 </select>
 </div>
       </td>
-
+ <td>&nbsp;</td>
       </tr>
     <tr>
       <td>&nbsp;</td>
@@ -295,6 +299,7 @@ function limpiar_form(ele) {
         <?php		
 		}else { echo "<div id='open' style='color:#F00'> Alerta: No se han asignado recaudos por Solicitud de Medicinas. Por favor <a href='#'>click</a></div>";}			
 		}?></div></td>
+         <td>&nbsp;</td>
       </tr>
     <tr>
       <td>&nbsp;</td>

@@ -2,7 +2,6 @@
 // Llamado a la clase a usarse
 include_once("../Clases/clase_titular.php");
 include_once("../Clases/clase_detalle_discapacidad.php");
-include_once("../Clases/clase_detalle_profesion.php");
 include_once("../Clases/clase_detalle_recaudos.php");
 include_once("../Clases/clase_cobertura.php");
 $ope = $_POST['ope'];
@@ -30,7 +29,6 @@ function incluir(){
 	$titular = new titular();
 	$cobertura = new cobertura();
 	$detalle_disc = new detalle_disc();
-	$detalle_pro = new detalle_pro();
 	$detalle_rec = new detalle_rec();
 //declaracion de unas variables a usarse
 	$idTitular='0';
@@ -61,7 +59,12 @@ function incluir(){
 		$titular->setDepartamento($_POST["departamento"]);			
 		$titular->setDireccion($_POST["direccion"]);
 		$titular->setUpsa($_POST["upsa"]);
-		$titular->setObserv($_POST["observacion"]);	
+		if($_POST["observacion"]==''){
+			$ob='N/A';
+		}else{
+			$ob=$_POST["observacion"];
+		}
+		$titular->setObserv($ob);	
 		// Se inicia la Transacción
 		$titular->IniciaTransaccion();
 		// Se verifica que no exista para poder incluir
@@ -76,7 +79,6 @@ function incluir(){
 		$titular->setFec_nac($fecha);		
 		$MayorEdad=$titular->edad();
 		if($MayorEdad<18 || $MayorEdad>80){
-			echo $FechaBD."Edad incorrecta.<br>No puede Registrarlo! Edad: ".$MayorEdad;	
 			$var_control=true;	
 			exit();				
 		}
@@ -97,24 +99,23 @@ function incluir(){
 					}
 			$arreglo_disc = $_POST["discapacidad"]; //Arreglo de discapacidad			
 			$cont_disc='0';
-			while($cont_disc<count($arreglo_disc)){	
-			//Consultamos el ultimo $id_detalle_discapacidad y traemos el ultimo	
+			while($cont_disc<count($arreglo_disc)){		
+		//Consultamos el ultimo $id_detalle_discapacidad y traemos el ultimo	
 		// Busca el ultimo registro de la entrada e incrementa el id	
 					$result = $detalle_disc->tUltimoID_Disc();
 					if ($result){
 						$result = $detalle_disc->sig_tupla($result);		
 						$idTitular_disc = $result["id_titular_discapacidad"] + 1;
-					}		
-				
+					}	
 					$detalle_disc->setId_titular_disc($idTitular_disc);	
 					$detalle_disc->setidTitular($idTitular);	
-					$detalle_disc->setidDiscapacidad($arreglo_disc[$cont_disc]);				
+					$detalle_disc->setidDiscapacidad($arreglo_disc[$cont_disc]);
 		//Registramos el Detalle de la Discapacidad
-		
 				$iTitular_Discapacidad=$detalle_disc->iTitular_Discapacidad();
+			
 					if($iTitular_Discapacidad!='-1'){
 					 $var_control=true;	 
-					 echo "Error 3";
+					 echo "Error interno de la Base de Datos 3!";
 					 }
 			 $cont_disc++;	 
 			 }	
@@ -133,7 +134,7 @@ function incluir(){
 				$iTitular_Recaudos=$detalle_rec->iTitular_Recaudos();
 					if($iTitular_Recaudos!='-1'){
 					 $var_control=true;	 
-					 echo "Error 4";
+					 echo "Error interno de la Base de Datos 4";
 					 }
 			 $cont_rec++;	 	
 			 }
@@ -160,7 +161,7 @@ function incluir(){
 					$cobertura->setmontoDisponible($Monto);
 					$iDetalle_cobertura=$cobertura->iDetalle_cobertura();
 					if($iDetalle_cobertura!='-1'){
-						echo "Error DetalleCobertura";
+						echo "Error interno de la Base de Datos 5";
 						$var_control=true;
 					}
 					
@@ -173,15 +174,14 @@ function incluir(){
 			$var_control=true;
 			}
 		
-		}
-		
+		}		
 		if ($var_control){	
 			$titular->RompeTransaccion();		
 			echo " \n No se pudo llevar a cabo el registro debido a un error interno de la Base de Datos.";
 			exit();
 		}else{
 			$titular->FinTransaccion();	
-			echo "Los Datos se guardaron con Exito!";
+			echo "Ok";
 			exit();	
 		}
 
@@ -191,7 +191,6 @@ function modificar(){
 // Se crea un Objeto  de la clase 
 	$titular = new titular();
 	$detalle_disc = new detalle_disc();
-	$detalle_pro = new detalle_pro();
 	$detalle_rec = new detalle_rec();
 	$var_control= false; //variable de control para seguir o terminar la transaccion
 	// Se envian los datos por los metodos set		
@@ -288,7 +287,7 @@ function modificar(){
 			exit();
 		}else{
 			$titular->FinTransaccion();	
-			echo "Los datos fueron guardados con Exito!!!";
+			echo "Ok";
 			exit();	
 		}	
 }

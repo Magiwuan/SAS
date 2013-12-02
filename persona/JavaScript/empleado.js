@@ -43,7 +43,7 @@
   		document.form_titular.nombre1.focus();
   		return false;
 	}
-	var checkOK="ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄'" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙' ";
+	var checkOK="ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙' ";
 	var checkStr=document.form_titular.nombre1.value;
 	var allValid=true; 
 	for(i=0;i<checkStr.length;i++){
@@ -67,7 +67,7 @@
 		document.form_titular.nombre2.focus();
 		return false;
 	}
-	var checkOK="ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄'" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙' ";
+	var checkOK="ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙' ";
 	var checkStr=document.form_titular.nombre2.value;
 	var allValid=true; 
 	for(i=0;i<checkStr.length;i++){
@@ -97,7 +97,7 @@
 		  document.form_titular.apellido1.focus();
 		  return false;
 	      }
-	var checkOK = "ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄'" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙ ";
+	var checkOK = "ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙ ";
 	var checkStr = document.form_titular.apellido1.value;
 	var allValid = true; 
 	for(var i=0;i<checkStr.length;i++){
@@ -120,7 +120,7 @@
 		document.form_titular.apellido2.focus();
 		return false;
 	}
-	var checkOK = "ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄'" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙' ";
+	var checkOK = "ABCDEFGHIJKLMN—OPQRSTUVWXYZ¡…Õ”⁄" + "abcdefghijklmnÒopqrstuvwxyz·ÈÌÛ˙' ";
 	var checkStr = document.form_titular.apellido2.value;
 	var allValid = true; 
 	for(var i=0;i<checkStr.length;i++){
@@ -150,9 +150,37 @@
 	return false;
 	}
 	if(document.form_titular.fecha_nac.value==''){
+		
 		jAlert('El campo \"Fecha de Nacimiento" no puede estar vacio!','Dialogo de Alerta');
 		document.form_titular.fecha_nac.focus();
 		return false;	
+	}
+	var fecha=document.form_titular.fecha_nac.value;
+	var fechaActual = new Date()
+	var diaActual = fechaActual.getDate();
+	var mmActual = fechaActual.getMonth() + 1;
+	var yyyyActual = fechaActual.getFullYear();
+	FechaNac = fecha.split("-");
+	var diaCumple = FechaNac[0];
+	var mmCumple = FechaNac[1];
+	var yyyyCumple = FechaNac[2];
+	//retiramos el primer cero de la izquierda
+	if (mmCumple.substr(0,1) == 0) {
+	mmCumple= mmCumple.substring(1, 2);
+	}
+	//retiramos el primer cero de la izquierda
+	if (diaCumple.substr(0, 1) == 0) {
+	diaCumple = diaCumple.substring(1, 2);
+	}
+	var edad = yyyyActual - yyyyCumple;	
+
+	if ((mmActual < mmCumple) || (mmActual == mmCumple && diaActual < diaCumple)) {
+	edad--;
+	}
+	 if(edad<18 || edad>80){		
+			jAlert('Edad no valida.<br>No puede Registrarlo como trabajador, Edad: '+edad+' a&ntilde;os','Dialogo de Alerta');
+			document.form_titular.fecha_nac.focus();
+			return false;
 	}
 	if(document.form_titular.estado2.value=="0"){
 		jAlert('Debe seleccionar estado de lugar de nacimiento !','Dialogo de Alerta');
@@ -205,7 +233,7 @@
 	}
 	if(document.form_titular.correo.value.length!=''){
 		if (!(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(document.form_titular.correo.value))){
-		jAlert('El correo es invalido! Ejemplo: usuario@servidor.dominio','Dialogo de Alerta');
+		jAlert('El correo no es valido! Ejemplo: usuario@servidor.dominio','Dialogo de Alerta');
 		return false;
 	}
 	}
@@ -231,7 +259,40 @@
 		document.form_titular.fecha_ingr.focus();
 		return false;
 	}
-	if(document.form_titular.profesion.value=="0"){
+	var fecha=document.form_titular.fecha_ingr.value;
+	var fechaActual = new Date()
+	var diaActual = fechaActual.getDate();
+	var mmActual = fechaActual.getMonth() + 1;
+	var yyyyActual = fechaActual.getFullYear();
+	var f = fecha.split("-");
+	var diaIngreso = f[0];
+	var mmIngreso = f[1];
+	var yyyyIngreso = f[2];	
+	 if(yyyyIngreso < yyyyActual ){	
+	 }else{
+		if(yyyyIngreso == yyyyActual){
+			if(mmIngreso < mmActual  ){				  	 	
+			}else{
+				if(mmActual == mmIngreso){
+					if(diaIngreso <= diaActual){																						
+					}else{	
+						jAlert('Fecha ingreso no valida','Dialogo de Alerta');
+						document.form_titular.fecha_ingr.focus();
+						return false;							
+					}
+				}else{
+					jAlert('Fecha ingreso no valida','Dialogo de Alerta');
+					document.form_titular.fecha_ingr.focus();
+					return false;				  		
+			}
+		}
+		}else{
+		jAlert('Fecha ingreso no valida','Dialogo de Alerta');
+		document.form_titular.fecha_ingr.focus();
+		return false;
+		}
+	 }	
+if(document.form_titular.profesion.value=="0"){
 		jAlert('Debe seleccionar al menos una Profesi&oacute;n!','Dialogo de Alerta');
 		document.form_titular.profesion.focus();
 		return false;
@@ -246,17 +307,46 @@
 		document.form_titular.departamento.focus();
 		return false;
 	}
-	if(document.form_titular.upsa.value=="0"){//7 
+	if(document.form_titular.upsa.value=="0"){
 		jAlert('Debe seleccionar la Sede donde Trabaja!','Dialogo de Alerta');
 		document.form_titular.upsa.focus();
 		return false;
 	}
+	var fechaNac=document.form_titular.fecha_nac.value;
+	var fechaIng = document.form_titular.fecha_ingr.value;
+	FechaIngreso = fechaIng.split("-");
+	var diaIngreso = FechaIngreso[0];
+	var mmIngreso = FechaIngreso[1];
+	var yyyyIngreso = FechaIngreso[2];
+	FechaNac = fechaNac.split("-");
+	var diaCumple = FechaNac[0];
+	var mmCumple = FechaNac[1];
+	var yyyyCumple = FechaNac[2];
+	//retiramos el primer cero de la izquierda
+	if (mmCumple.substr(0,1) == 0) {
+	mmCumple= mmCumple.substring(1, 2);
+	}
+	//retiramos el primer cero de la izquierda
+	if (diaCumple.substr(0, 1) == 0) {
+	diaCumple = diaCumple.substring(1, 2);
+	}
+	var edad = yyyyIngreso - yyyyCumple;	
+
+	if ((mmIngreso < mmCumple) || (mmIngreso == mmCumple && diaIngreso < diaCumple)) {
+	edad--;
+	}
+	 if(edad<18){		
+			jAlert('Fecha Ingreso y Fecha nacimiento no valida.<br> El tiempo entre cada Fecha parece ser irregular Tiempo: '+edad+'a&ntilde;os','Dialogo de Alerta');
+			document.form_titular.fecha_nac.focus();
+			return false;
+	}
+	
 return true;
 }
-
 $(document).ready(function(){
 	$("select[multiple]").asmSelect({
 	});
+		
 		$("#estado").change(function(event){
 		$("#ciudad").load('Controladores/control_select_ciudad.php?select='+$("#estado option:selected").val());
 		$("#cap1").css("display","none");
@@ -271,18 +361,6 @@ $(document).ready(function(){
 		$("#cap4").load('Controladores/control_caja_upsa.php?select='+$("#upsa option:selected").val());
 		$("#cap3").css("display","none");
 		$("#cap4").css("display","block"); 
-	});
-	$('#ciudad').click(function(){
-	if($("#ciudad option:selected").val()=='-1'){
- 	$("#cap").load('php/cargo/agregar_cargo.php');
-        $('#popup').fadeIn('slow');
-	}
-    });
-	$('#open').click(function(){
-	$("#cap").load('php/cargo/agregar_cargo.php');
-        $('#popup').fadeIn('slow');
-    });
-    $('#close').click(function(){
-        $('#popup').fadeOut('slow');
-    });
+	});	
+
 });

@@ -29,7 +29,7 @@ function incluir(){
 // Se crea un Objeto  de la clase 
 	$beneficiario = new beneficiario();
 	$titular= new titular();
-	$detalle_disc = new detalle_disc();
+	$beneficiario_disc = new detalle_disc();
 	$detalle_rec = new detalle_rec();
 	$cobertura = new cobertura();
 //declaracion de unas variables a usarse
@@ -84,28 +84,28 @@ function incluir(){
 							$var_control=true;
 							echo "Error 1";
 						}						
-			$arreglo_disc = $_POST["discapacidad"]; //Arreglo de discapacidad
-			$cont_disc='0';
-			while($cont_disc<count($arreglo_disc)){	
-				$disc=$arreglo_disc[$cont_disc];
+// Detalle beneficiario - Discapacidad
+		$arreglo_disc = $_POST["discapacidad"]; //Arreglo de discapacidad
+		$cont_disc='0';
+		while($cont_disc<count($arreglo_disc)){		
 		//Consultamos el ultimo $id_beneficiario_discapacidad y traemos el ultimo	
 		// Busca el ultimo registro de la entrada e incrementa el id	
-					$result = $detalle_disc->bUltimoID_Disc();
-					if ($result){
-						$result = $detalle_disc->sig_tupla($result);		
-						$idbeneficiario_disc = $result["id_beneficiario_discapacidad"] + 1;
-					}	
-					$detalle_disc->setId_beneficiario_disc($idbeneficiario_disc);	
-					$detalle_disc->setidBeneficiario($idbeneficiario);	
-					$detalle_disc->setidDiscapacidad($disc);
+			$result = $beneficiario_disc->bUltimoID_Disc();
+				if ($result){
+					$result = $beneficiario_disc->sig_tupla($result);	
+					$idBeneficiario_disc = $result["id_beneficiario_discapacidad"] + 1;
+				}	
+				$beneficiario_disc->setidBeneficiario($idbeneficiario);
+				$beneficiario_disc->setId_beneficiario_disc($idBeneficiario_disc);	
+				$beneficiario_disc->setidDiscapacidad($arreglo_disc[$cont_disc]);
 		//Registramos el Detalle de la Discapacidad
-				$ibeneficiario_Discapacidad=$detalle_disc->iBeneficiario_Discapacidad();
-					if($ibeneficiario_Discapacidad!='-1'){
+				$iBeneficiario_Discapacidad=$beneficiario_disc->iBeneficiario_Discapacidad();
+					if($iBeneficiario_Discapacidad!='-1'){
 					 $var_control=true;	 
-					 echo "Error 2";
-					 }
-			 $cont_disc++;	 			 
-			}
+			 		echo "Error 3";
+					}
+		$cont_disc++;	 
+		}	
 			 $arreglo_recaudos = $_POST["recaudos"]; //Arreglo de reaudos
 			 $cont_rec='0';
 			 while($cont_rec<count($arreglo_recaudos)){
@@ -185,12 +185,7 @@ function modificar(){
 	// Se envian los datos por los metodos set		
 		$beneficiario->setidBeneficiario($_POST['id_beneficiario']);
 		$beneficiario->setNac($_POST["nacionalidad"]);
-		if( $_POST["cedula"]=='N/A' || $_POST["cedula"]=='' ){
-			$ced=0;
-		}else{
-			$ced=$_POST["cedula"];	
-		}
-		$beneficiario->setCed($ced);
+		$beneficiario->setCed($_POST["cedula"]);
 		$beneficiario->setNom1($_POST["nombre1"]);
 		$beneficiario->setNom2($_POST["nombre2"]);
 		$beneficiario->setApe1($_POST["apellido1"]);
@@ -217,7 +212,7 @@ function modificar(){
 			echo "Error 1";
 			exit();
 		}		
-//Para trabajo mas facil borramos el detalle de las discapacidades e insertamos nuevamente.
+//Para trabajo facil borramos el detalle de las discapacidades e insertamos nuevamente.
 		$beneficiario_disc->setidBeneficiario($_POST['id_beneficiario']);
 		$eBeneficiario_Discapacidad=$beneficiario_disc->eBeneficiario_Discapacidad();
 		if($eBeneficiario_Discapacidad!='-1'){				

@@ -66,49 +66,15 @@ if(empty($_SESSION["login"]))
 		$('input[name="recaudos[]"]').attr('disabled', false);
 				
     });	
-     $('#agregar').click(function(){
-		if(valida()){		
-			fn_agregar();				
-		$('#nuevo').removeClass('btn_guardar_desact').addClass('btn_act');
-		$('#nuevo').attr('disabled', false);
-		$('#agregar').removeClass('btn_act').addClass('btn_guardar_desact');
-		$('#agregar').attr('disabled', true);	
-		$('#bt').attr('disabled', true);
-		$('#bt_fna').attr('disabled', true);
-		$('#fecha_nac').attr('disabled', true);
-		$('#fecha_ingr').attr('disabled', true);
-		$('#nacionalidad1').attr('disabled', true);
-		$('#nacionalidad2').attr('disabled', true);
-		$('#cedula').attr('disabled', true);
-		$('#nombre1').attr('disabled', true);
-		$('#nombre2').attr('disabled', true);
-		$('#apellido1').attr('disabled', true);
-		$('#apellido2').attr('disabled', true);
-		$('#sexo1').attr('disabled', true);
-		$('#sexo2').attr('disabled', true);
-		$('#estado').attr('disabled', true);
-		$('#celular').attr('disabled', true);
-		$('#telefono').attr('disabled', true);
-		$('#estado_civ').attr('disabled', true);
-		$('#discapacidad').attr('disabled', true);
-		$('#estado2').attr('disabled', true);
-		$('#correo').attr('disabled', true);
-		$('#direccion').attr('disabled', true);
-		$('#tipo_nomina1').attr('disabled', true);
-		$('#tipo_nomina2').attr('disabled', true);
-		$('#tipo_nomina3').attr('disabled', true);
-		$('#tipo_nomina4').attr('disabled', true);
-		$('#tipo_nomina5').attr('disabled', true);
-		$('#profesion').attr('disabled', true);
-		$('#cargo').attr('disabled', true);
-		$('#departamento').attr('disabled', true);
-		$('#upsa').attr('disabled', true);
-		$('#correo2').attr('disabled', true);
-		$('#observacion').attr('disabled', true);
-		$('input[name="recaudos[]"]').attr('disabled', true);	
-		}
     });
-    });
+function recuados(){	
+	if($('input[name="recaudos[]"]').is(':checked')){ 
+	}else{  
+          jAlert("Debe seleccionar los recuados!");  
+          return false;	  
+     	}	
+	return true;
+}	
 function limpiar_form(ele) {
    $(ele).find('input').each(function() {
       switch(this.type) {
@@ -139,10 +105,10 @@ function limpiar_form(ele) {
 </style>
 </head>
 <body> 
-<form action="" method="POST" id="form_titular" name="form_titular">
-<table width="700" height="25" border="0" cellpadding="0" cellspacing="o">
+<form action="javascript: fn_agregar();" method="POST" id="form_titular" name="form_titular" onsubmit="if(!valida()){return false};">
+<table width="700" height="25" border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td width="695"><h1>Agregando Titular</h1></td>
+      <td width="695"><h1>Agregando Titular</h1> </td>
        <td valign="top"><input name="cancelar" type="button" id="cancelar" class='btn_cancelar_act_img' onClick="fn_cerrar();" title="Salir" /></td>
     </tr>
   </table>
@@ -157,8 +123,7 @@ function limpiar_form(ele) {
       </td>
       <td width="138">Nro. C.I o Pasaporte:</td>
       <td colspan="2"><input name="cedula" type="text" disabled="disabled" id="cedula" size="20" maxlength="16" /></td>
-      <td><a href="#"
-			      <div id="test" class="test" title="Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667" style="width:30px;">
+      <td> <div id="test" class="test" title="Ejemplo: 20643089, Si la C.I es menor a ocho (8) dígitos complete con ceros (0) a la izquierda Ejemplo: 08042667" style="width:30px;">
 					  <img src="../Imagenes/ayuda.png" width="15" height="15"/></div>
 			    </a></td>
       </tr>
@@ -224,7 +189,7 @@ function limpiar_form(ele) {
       </select></td>
       <td>Discapacidad:</td>
       <td colspan="3" rowspan="2" valign="top"><div id="disc_capa"> 
-<select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
+    <select name="discapacidad[]" multiple="multiple"  id="discapacidad" title="Seleccionar">
   <?php include_once("../Clases/clase_discapacidad.php");
 			$discapacidad=new discapacidad();
 			$lista_discapacidad=$discapacidad->lista_discapacidad();
@@ -232,14 +197,13 @@ function limpiar_form(ele) {
 			{			
 			?>
   <option value="<?php echo $lista_discapacidad[$i][1];?>" 
-		  	<?php /*if($lista_discapacidad[$i][2]=='N/A')
+		  	<?php /* if($lista_discapacidad[$i][2]=='N/A')
 				{
 					echo "Selected=\"Selected\"";
-				}*/
-					?>> <?php echo $lista_discapacidad[$i][2];?></option>
+				}
+		 */?> > <?php echo $lista_discapacidad[$i][2];?></option>
   <?php }?>
-</select>
-</div>
+</select></div>
       </td>
       </tr>
     <tr>
@@ -389,7 +353,7 @@ function limpiar_form(ele) {
       <tr>
       <td width="265">&nbsp;</td>
       <td width="76"><input name="nuevo" type="button" id="nuevo" value="  Nuevo" class='btn_act btn_nuevo_act_img' title="Pulse para activar campos" onclick="limpiar_form(this.form)" /></td>
-      <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" onClick="if(!valida()){return false};" value=" Agregar" /></td>
+      <td width="76"><input name="agregar" type="submit"  class='btn_guardar_desact btn_guardar_act_img' disabled="disabled" id="agregar" value=" Agregar" /></td>
       <td width="265"></td>
       </tr>
   </table> 

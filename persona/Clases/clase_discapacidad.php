@@ -65,11 +65,7 @@ public function valida_discapacidad() {
 				$c++;				 
 			 }while($row= parent::proxima_tupla($cursor));
 		 }
-		if ( $fila>0 )
-			return $fila;
-		else
-			return -1;
-			
+		return $fila;				
 		parent::cerrar_bd();
 	}   
 	
